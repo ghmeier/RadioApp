@@ -16,12 +16,12 @@ fullScene.newsScene.scheduleView.zOrder = 5
 fullScene.label = director:createLabel({text="NEWS",x=500,y=0,w=200,h=100})
 fullScene.label.color = {255,0,0}
 fullScene.label.zOrder = 2
---[[fullScene.sprite = director:createSprite(40,40,"textures/HLC.jpg");
-fullScene.sprite.rotation = -20;
-fullScene.sprite.xScale = .1
-fullScene.sprite.yScale = .1
-fullScene.sprite.color = {255,0,0}
-fullScene.sprite.zORder = 3]]
+fullScene.newsScene.sprite = director:createSprite(40,40,"textures/HLC.jpg");
+fullScene.newsScene.sprite.rotation = -20;
+fullScene.newsScene.sprite.xScale = .1
+fullScene.newsScene.sprite.yScale = .1
+fullScene.newsScene.sprite.color = {255,0,0}
+fullScene.newsScene.sprite.zOrder = 3
 
 function webViewLoadedEvent(event)
 	if (event.type  == "error") then

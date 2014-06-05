@@ -11,205 +11,205 @@ System Info:
  Unique ID    : SIMULATOR_ID
  Device Name  : My Computer
  Memory       : 1048576KiB
-05/06/14 12:02:21.371: [0x2464] DEVICE: Initialising FIBRE
-05/06/14 12:02:21.372: [0x2464] DEVICE: Initialising THREAD
-05/06/14 12:02:21.374: [0x2464] THREAD: s3eThreadCreateMain
-05/06/14 12:02:21.375: [0xfa0] DEVICE: Initialising SURFACE
-05/06/14 12:02:21.377: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB888, pitch=0, ptr=0x00000000, blit=0
-05/06/14 12:02:21.378: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
-05/06/14 12:02:21.379: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
-05/06/14 12:02:21.379: [0xfa0] SURFACE: done s3eSurfaceInit: 800x600 p:1600 (800x600 p:1600) o:0
-05/06/14 12:02:21.380: [0xfa0] DEVICE: Initialising EXT
-05/06/14 12:02:21.380: [0xfa0] EXT: registering extension: s3eLibrary [0xe6dd6ce5]
-05/06/14 12:02:21.381: [0xfa0] EXT: registering extension: s3eExtLoadLibaray [0xf23d6d85]
-05/06/14 12:02:21.382: [0xfa0] EXT: registering extension: s3eCamera [0xa3e23039]
-05/06/14 12:02:21.382: [0xfa0] EXT: registering extension: s3eWindow [0xd31aa8a8]
-05/06/14 12:02:21.383: [0xfa0] EXT: registering extension: s3eVFS [0x17f48c9f]
-05/06/14 12:02:21.383: [0xfa0] EXT: registering extension: s3eContacts [0x5e39d2af]
-05/06/14 12:02:21.383: [0xfa0] EXT: registering extension: s3eSoundRecord [0x579dbf78]
-05/06/14 12:02:21.384: [0xfa0] EXT: registering extension: s3eTouchpad [0x1dbd7ce8]
-05/06/14 12:02:21.384: [0xfa0] EXT: registering extension: s3eCompass [0x40d632c6]
-05/06/14 12:02:21.385: [0xfa0] EXT: registering extension: Compass [0xd3653f1b]
-05/06/14 12:02:21.385: [0xfa0] EXT: registering extension: s3eDebugHeap [0xc667a795]
-05/06/14 12:02:21.385: [0xfa0] EXT: registering extension: s3eExtDebugHeap [0xff96de46]
-05/06/14 12:02:21.386: [0xfa0] EXT: registering extension: s3eClipboard [0xd68f3420]
-05/06/14 12:02:21.386: [0xfa0] EXT: registering extension: s3eOSExec [0xc121bcf7]
-05/06/14 12:02:21.387: [0xfa0] EXT: registering extension: s3eExtOSExec [0x20380948]
-05/06/14 12:02:21.387: [0xfa0] EXT: registering extension: s3eEval [0x167d1038]
-05/06/14 12:02:21.387: [0xfa0] EXT: registering extension: s3eExtEval [0xf0421449]
-05/06/14 12:02:21.388: [0xfa0] EXT: registering extension: s3eHighResTimer [0x41f2dedb]
-05/06/14 12:02:21.388: [0xfa0] EXT: registering extension: s3eOSReadString [0x9fe3ea45]
-05/06/14 12:02:21.389: [0xfa0] EXT: registering extension: s3eCameraCapture [0xd36aceed]
-05/06/14 12:02:21.389: [0xfa0] EXT: registering extension: s3eTestEmulatorConfig [0x4a0d0a4f]
-05/06/14 12:02:21.389: [0xfa0] EXT: registering extension: s3eThread [0xcc0b4a28]
-05/06/14 12:02:21.390: [0xfa0] EXT: registering extension: s3eSocketOpt [0x09cdcdec]
-05/06/14 12:02:21.390: [0xfa0] EXT: registering extension: s3eExtSocketOpt [0x42fd049d]
-05/06/14 12:02:21.390: [0xfa0] EXT: registering extension: s3eImagePicker [0xd2fc1d51]
-05/06/14 12:02:21.391: [0xfa0] EXT: registering extension: s3eTest [0x168503f0]
-05/06/14 12:02:21.391: [0xfa0] EXT: registering extension: s3eSMS [0x17f480c3]
-05/06/14 12:02:21.392: [0xfa0] EXT: registering extension: s3eMetrics [0x2bc8e047]
-05/06/14 12:02:21.392: [0xfa0] EXT: registering extension: Metrics [0xbe57ec9c]
-05/06/14 12:02:21.392: [0xfa0] EXT: registering extension: s3eLocation [0x91944229]
-05/06/14 12:02:21.393: [0xfa0] EXT: registering extension: Location [0x7604d91e]
-05/06/14 12:02:21.393: [0xfa0] EXT: registering extension: Win32Surface [0x909755c1]
-05/06/14 12:02:21.393: [0xfa0] EXT: registering extension: Win32UIProcessMessage [0x48f2a5ba]
-05/06/14 12:02:21.394: [0xfa0] EXT: registering extension: Win32DataDirChange [0xbfcfc057]
-05/06/14 12:02:21.394: [0xfa0] DEVICE: Initialising CONFIG
-05/06/14 12:02:21.394: [0xfa0] DEVICE: Initialising TIMER
-05/06/14 12:02:21.395: [0xfa0] DEVICE: Initialising COMPRESSION
-05/06/14 12:02:21.395: [0xfa0] DEVICE: DeviceInit done: services=0x0a216148
-05/06/14 12:02:21.395: [0xfa0] EXT: s3eExtGetHash: 0xd31aa8a8 [0x00000000 size=0]
-05/06/14 12:02:21.396: [0xfa0] EXT: initializing extension: s3eWindow
-05/06/14 12:02:21.396: [0xfa0] EXT: initializing extension: s3eWindow 0x012762d0
-05/06/14 12:02:21.397: [0xfa0] DEVICE: SetupPaths: NULL
-05/06/14 12:02:21.397: [0xfa0] LOADER: ParseCommandLineData [-via:"c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/build_temp/USSCRadio_debug.via"]
-05/06/14 12:02:21.397: [0xfa0] LOADER: setting [commandline]  via=c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/build_temp/USSCRadio_debug.via
-05/06/14 12:02:21.398: [0xfa0] LOADER: parsing via file: c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/build_temp/USSCRadio_debug.via
-05/06/14 12:02:21.398: [0xfa0] FILE: s3eFileOpen('c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/build_temp/USSCRadio_debug.via', 'r') succeeded, id=20111232 p=0x0132df80
-05/06/14 12:02:21.398: [0xfa0] LOADER: reading 1242 bytes from via files
-05/06/14 12:02:21.399: [0xfa0] FILE: s3eFileClose h=0x0132df80
-05/06/14 12:02:21.399: [0xfa0] LOADER: ParseCommandLineData [-via:"c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/build_temp/USSCRadio_debug.via" --dll="c:\marmalade\7.2\quick\target\win\quick_prebuilt_d.s86"
+05/06/14 12:06:13.610: [0x2848] DEVICE: Initialising FIBRE
+05/06/14 12:06:13.612: [0x2848] DEVICE: Initialising THREAD
+05/06/14 12:06:13.614: [0x2848] THREAD: s3eThreadCreateMain
+05/06/14 12:06:13.615: [0xfa0] DEVICE: Initialising SURFACE
+05/06/14 12:06:13.617: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB888, pitch=0, ptr=0x00000000, blit=0
+05/06/14 12:06:13.619: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
+05/06/14 12:06:13.621: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
+05/06/14 12:06:13.622: [0xfa0] SURFACE: done s3eSurfaceInit: 800x600 p:1600 (800x600 p:1600) o:0
+05/06/14 12:06:13.624: [0xfa0] DEVICE: Initialising EXT
+05/06/14 12:06:13.626: [0xfa0] EXT: registering extension: s3eLibrary [0xe6dd6ce5]
+05/06/14 12:06:13.627: [0xfa0] EXT: registering extension: s3eExtLoadLibaray [0xf23d6d85]
+05/06/14 12:06:13.629: [0xfa0] EXT: registering extension: s3eCamera [0xa3e23039]
+05/06/14 12:06:13.631: [0xfa0] EXT: registering extension: s3eWindow [0xd31aa8a8]
+05/06/14 12:06:13.633: [0xfa0] EXT: registering extension: s3eVFS [0x17f48c9f]
+05/06/14 12:06:13.634: [0xfa0] EXT: registering extension: s3eContacts [0x5e39d2af]
+05/06/14 12:06:13.634: [0xfa0] EXT: registering extension: s3eSoundRecord [0x579dbf78]
+05/06/14 12:06:13.635: [0xfa0] EXT: registering extension: s3eTouchpad [0x1dbd7ce8]
+05/06/14 12:06:13.635: [0xfa0] EXT: registering extension: s3eCompass [0x40d632c6]
+05/06/14 12:06:13.636: [0xfa0] EXT: registering extension: Compass [0xd3653f1b]
+05/06/14 12:06:13.637: [0xfa0] EXT: registering extension: s3eDebugHeap [0xc667a795]
+05/06/14 12:06:13.637: [0xfa0] EXT: registering extension: s3eExtDebugHeap [0xff96de46]
+05/06/14 12:06:13.638: [0xfa0] EXT: registering extension: s3eClipboard [0xd68f3420]
+05/06/14 12:06:13.638: [0xfa0] EXT: registering extension: s3eOSExec [0xc121bcf7]
+05/06/14 12:06:13.639: [0xfa0] EXT: registering extension: s3eExtOSExec [0x20380948]
+05/06/14 12:06:13.639: [0xfa0] EXT: registering extension: s3eEval [0x167d1038]
+05/06/14 12:06:13.639: [0xfa0] EXT: registering extension: s3eExtEval [0xf0421449]
+05/06/14 12:06:13.640: [0xfa0] EXT: registering extension: s3eHighResTimer [0x41f2dedb]
+05/06/14 12:06:13.640: [0xfa0] EXT: registering extension: s3eOSReadString [0x9fe3ea45]
+05/06/14 12:06:13.641: [0xfa0] EXT: registering extension: s3eCameraCapture [0xd36aceed]
+05/06/14 12:06:13.641: [0xfa0] EXT: registering extension: s3eTestEmulatorConfig [0x4a0d0a4f]
+05/06/14 12:06:13.641: [0xfa0] EXT: registering extension: s3eThread [0xcc0b4a28]
+05/06/14 12:06:13.642: [0xfa0] EXT: registering extension: s3eSocketOpt [0x09cdcdec]
+05/06/14 12:06:13.642: [0xfa0] EXT: registering extension: s3eExtSocketOpt [0x42fd049d]
+05/06/14 12:06:13.643: [0xfa0] EXT: registering extension: s3eImagePicker [0xd2fc1d51]
+05/06/14 12:06:13.643: [0xfa0] EXT: registering extension: s3eTest [0x168503f0]
+05/06/14 12:06:13.643: [0xfa0] EXT: registering extension: s3eSMS [0x17f480c3]
+05/06/14 12:06:13.643: [0xfa0] EXT: registering extension: s3eMetrics [0x2bc8e047]
+05/06/14 12:06:13.644: [0xfa0] EXT: registering extension: Metrics [0xbe57ec9c]
+05/06/14 12:06:13.644: [0xfa0] EXT: registering extension: s3eLocation [0x91944229]
+05/06/14 12:06:13.645: [0xfa0] EXT: registering extension: Location [0x7604d91e]
+05/06/14 12:06:13.645: [0xfa0] EXT: registering extension: Win32Surface [0x909755c1]
+05/06/14 12:06:13.645: [0xfa0] EXT: registering extension: Win32UIProcessMessage [0x48f2a5ba]
+05/06/14 12:06:13.646: [0xfa0] EXT: registering extension: Win32DataDirChange [0xbfcfc057]
+05/06/14 12:06:13.646: [0xfa0] DEVICE: Initialising CONFIG
+05/06/14 12:06:13.646: [0xfa0] DEVICE: Initialising TIMER
+05/06/14 12:06:13.647: [0xfa0] DEVICE: Initialising COMPRESSION
+05/06/14 12:06:13.647: [0xfa0] DEVICE: DeviceInit done: services=0x0a216148
+05/06/14 12:06:13.647: [0xfa0] EXT: s3eExtGetHash: 0xd31aa8a8 [0x00000000 size=0]
+05/06/14 12:06:13.648: [0xfa0] EXT: initializing extension: s3eWindow
+05/06/14 12:06:13.648: [0xfa0] EXT: initializing extension: s3eWindow 0x00ca62d0
+05/06/14 12:06:13.648: [0xfa0] DEVICE: SetupPaths: NULL
+05/06/14 12:06:13.649: [0xfa0] LOADER: ParseCommandLineData [-via:"c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/build_temp/USSCRadio_debug.via"]
+05/06/14 12:06:13.649: [0xfa0] LOADER: setting [commandline]  via=c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/build_temp/USSCRadio_debug.via
+05/06/14 12:06:13.659: [0xfa0] LOADER: parsing via file: c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/build_temp/USSCRadio_debug.via
+05/06/14 12:06:13.659: [0xfa0] FILE: s3eFileOpen('c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/build_temp/USSCRadio_debug.via', 'r') succeeded, id=14016384 p=0x00d5df80
+05/06/14 12:06:13.660: [0xfa0] LOADER: reading 1242 bytes from via files
+05/06/14 12:06:13.660: [0xfa0] FILE: s3eFileClose h=0x00d5df80
+05/06/14 12:06:13.660: [0xfa0] LOADER: ParseCommandLineData [-via:"c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/build_temp/USSCRadio_debug.via" --dll="c:\marmalade\7.2\quick\target\win\quick_prebuilt_d.s86"
 --data="c:\Users\Garret\Documents\GitHub
-05/06/14 12:02:21.399: [0xfa0] LOADER: setting [commandline]  via=c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/build_temp/USSCRadio_debug.via
-05/06/14 12:02:21.400: [0xfa0] LOADER: setting [commandline]  dll=c:\marmalade\7.2\quick\target\win\quick_prebuilt_d.s86
-05/06/14 12:02:21.400: [0xfa0] LOADER: setting [commandline]  data=c:\Users\Garret\Documents\GitHub\RadioApp\USSCRadio\resources
-05/06/14 12:02:21.400: [0xfa0] LOADER: setting [commandline]  checks3edir=1
-05/06/14 12:02:21.401: [0xfa0] LOADER: setting [commandline]  app-icf1=c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources/common.icf
-05/06/14 12:02:21.401: [0xfa0] LOADER: setting [commandline]  app-icf2=c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources/app.icf
-05/06/14 12:02:21.402: [0xfa0] LOADER: setting [commandline]  win32-ext-dll1=c:/marmalade/7.2/extensions/s3eWebView/lib/win32/s3eWebView.dll
-05/06/14 12:02:21.402: [0xfa0] LOADER: setting [commandline]  config-txt1=c:/marmalade/7.2/quick/docs/app.config.txt
-05/06/14 12:02:21.402: [0xfa0] LOADER: setting [commandline]  config-txt2=c:/marmalade/7.2/quick/docs/billing.config.txt
-05/06/14 12:02:21.403: [0xfa0] LOADER: setting [commandline]  config-txt3=c:/marmalade/7.2/quick/docs/iwgeom.config.txt
-05/06/14 12:02:21.403: [0xfa0] LOADER: setting [commandline]  config-txt4=c:/marmalade/7.2/quick/docs/iwgl.config.txt
-05/06/14 12:02:21.403: [0xfa0] LOADER: setting [commandline]  config-txt5=c:/marmalade/7.2/quick/docs/iwgx.config.txt
-05/06/14 12:02:21.404: [0xfa0] LOADER: setting [commandline]  config-txt6=c:/marmalade/7.2/quick/docs/iwgxfont.config.txt
-05/06/14 12:02:21.404: [0xfa0] LOADER: setting [commandline]  config-txt7=c:/marmalade/7.2/quick/docs/iwhttp.config.txt
-05/06/14 12:02:21.404: [0xfa0] LOADER: setting [commandline]  config-txt8=c:/marmalade/7.2/quick/docs/iwresmanager.config.txt
-05/06/14 12:02:21.405: [0xfa0] LOADER: setting [commandline]  config-txt9=c:/marmalade/7.2/quick/docs/iwui.config.txt
-05/06/14 12:02:21.405: [0xfa0] LOADER: setting [commandline]  config-txt10=c:/marmalade/7.2/quick/docs/iwutil.config.txt
-05/06/14 12:02:21.406: [0xfa0] LOADER: setting [commandline]  config-txt11=c:/marmalade/7.2/quick/docs/quick.config.txt
-05/06/14 12:02:21.406: [0xfa0] LOADER: setting [commandline]  config-txt12=c:/marmalade/7.2/s3e/s3e.config.txt
-05/06/14 12:02:21.406: [0xfa0] LOADER: setting [commandline]  config-txt13=c:/marmalade/7.2/s3e\s3e.config.txt
-05/06/14 12:02:21.407: [0xfa0] LOADER: setting [commandline]  s3e-dir=c:/marmalade/7.2/s3e
-05/06/14 12:02:21.407: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
-05/06/14 12:02:21.408: [0xfa0] FILE: fs[00]: system[rom://] 'c:\Users\Garret\Documents\GitHub\RadioApp\USSCRadio\resources'
-05/06/14 12:02:21.408: [0xfa0] FILE: fs[03]: system[raw://] ''
-05/06/14 12:02:21.408: [0xfa0] FILE: listed 2 active filesystems
-05/06/14 12:02:21.409: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
-05/06/14 12:02:21.409: [0xfa0] FILE: fs[00]: system[rom://] 'c:\Users\Garret\Documents\GitHub\RadioApp\USSCRadio\resources'
-05/06/14 12:02:21.409: [0xfa0] FILE: fs[01]: system[ram://] 'c:\Users\Garret\Documents\GitHub\RadioApp\USSCRadio\resources-ram'
-05/06/14 12:02:21.410: [0xfa0] FILE: fs[03]: system[raw://] ''
-05/06/14 12:02:21.410: [0xfa0] FILE: listed 3 active filesystems
-05/06/14 12:02:21.420: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
-05/06/14 12:02:21.420: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
-05/06/14 12:02:21.421: [0xfa0] LOADER: Using data directory c:\Users\Garret\Documents\GitHub\RadioApp\USSCRadio\resources as ROM drive
-05/06/14 12:02:21.421: [0xfa0] LOADER: Using directory c:\Users\Garret\Documents\GitHub\RadioApp\USSCRadio\resources-ram as RAM drive
-05/06/14 12:02:21.422: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/app.config.txt', 'r') succeeded, id=1000 p=0x0132f5fc
-05/06/14 12:02:21.422: [0xfa0] FILE: s3eFileClose h=0x0132f5fc
-05/06/14 12:02:21.422: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/billing.config.txt', 'r') succeeded, id=1001 p=0x0132f718
-05/06/14 12:02:21.423: [0xfa0] FILE: s3eFileClose h=0x0132f718
-05/06/14 12:02:21.423: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/iwgeom.config.txt', 'r') succeeded, id=1002 p=0x0132f834
-05/06/14 12:02:21.423: [0xfa0] FILE: s3eFileClose h=0x0132f834
-05/06/14 12:02:21.423: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/iwgl.config.txt', 'r') succeeded, id=1003 p=0x0132f950
-05/06/14 12:02:21.424: [0xfa0] FILE: s3eFileClose h=0x0132f950
-05/06/14 12:02:21.424: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/iwgx.config.txt', 'r') succeeded, id=1004 p=0x0132fa6c
-05/06/14 12:02:21.425: [0xfa0] FILE: s3eFileClose h=0x0132fa6c
-05/06/14 12:02:21.425: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/iwgxfont.config.txt', 'r') succeeded, id=1005 p=0x0132fb88
-05/06/14 12:02:21.425: [0xfa0] FILE: s3eFileClose h=0x0132fb88
-05/06/14 12:02:21.426: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/iwhttp.config.txt', 'r') succeeded, id=1006 p=0x0132fca4
-05/06/14 12:02:21.426: [0xfa0] FILE: s3eFileClose h=0x0132fca4
-05/06/14 12:02:21.426: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/iwresmanager.config.txt', 'r') succeeded, id=1007 p=0x0132fdc0
-05/06/14 12:02:21.426: [0xfa0] FILE: s3eFileClose h=0x0132fdc0
-05/06/14 12:02:21.427: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/iwui.config.txt', 'r') succeeded, id=1008 p=0x0132fedc
-05/06/14 12:02:21.427: [0xfa0] FILE: s3eFileClose h=0x0132fedc
-05/06/14 12:02:21.428: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/iwutil.config.txt', 'r') succeeded, id=1009 p=0x0132fff8
-05/06/14 12:02:21.428: [0xfa0] FILE: s3eFileClose h=0x0132fff8
-05/06/14 12:02:21.428: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/quick.config.txt', 'r') succeeded, id=1010 p=0x01330114
-05/06/14 12:02:21.428: [0xfa0] FILE: s3eFileClose h=0x01330114
-05/06/14 12:02:21.429: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/s3e/s3e.config.txt', 'r') succeeded, id=1011 p=0x01330230
-05/06/14 12:02:21.433: [0xfa0] FILE: s3eFileClose h=0x01330230
-05/06/14 12:02:21.433: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/s3e\s3e.config.txt', 'r') succeeded, id=1012 p=0x0133034c
-05/06/14 12:02:21.437: [0xfa0] FILE: s3eFileClose h=0x0133034c
-05/06/14 12:02:21.439: [0xfa0] FILE: s3eFileOpen('raw://c:\marmalade\7.2\s3e/s3e.icf', 'rb') succeeded, id=1013 p=0x01330468
-05/06/14 12:02:21.439: [0xfa0] LOADER: Loading config from: c:\marmalade\7.2\s3e/s3e.icf
-05/06/14 12:02:21.440: [0xfa0] FILE: s3eFileClose h=0x01330468
-05/06/14 12:02:21.440: [0xfa0] LOADER: Loading app-icf from command line specified location c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources/common.icf
-05/06/14 12:02:21.441: [0xfa0] FILE: s3eFileOpen('raw://c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources/common.icf', 'rb') succeeded, id=1014 p=0x01330584
-05/06/14 12:02:21.441: [0xfa0] LOADER: Loading config from: raw://c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources/common.icf
-05/06/14 12:02:21.442: [0xfa0] FILE: s3eFileClose h=0x01330584
-05/06/14 12:02:21.442: [0xfa0] FILE: s3eFileOpen('raw://c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources/app.icf', 'rb') succeeded, id=1015 p=0x013306a0
-05/06/14 12:02:21.442: [0xfa0] LOADER: Loading config from: raw://c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources/app.icf
-05/06/14 12:02:21.443: [0xfa0] FILE: s3eFileClose h=0x013306a0
-05/06/14 12:02:21.443: [0xfa0] LOADER: ParseCommandLineData [-via:"c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/build_temp/USSCRadio_debug.via"]
-05/06/14 12:02:21.443: [0xfa0] LOADER: setting [commandline]  via=c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/build_temp/USSCRadio_debug.via
-05/06/14 12:02:21.678: [0xfa0] SPLASH: displaying debug splash-screen
-05/06/14 12:02:21.681: [0xfa0] SPLASH: No splash screen specified
+05/06/14 12:06:13.661: [0xfa0] LOADER: setting [commandline]  via=c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/build_temp/USSCRadio_debug.via
+05/06/14 12:06:13.661: [0xfa0] LOADER: setting [commandline]  dll=c:\marmalade\7.2\quick\target\win\quick_prebuilt_d.s86
+05/06/14 12:06:13.662: [0xfa0] LOADER: setting [commandline]  data=c:\Users\Garret\Documents\GitHub\RadioApp\USSCRadio\resources
+05/06/14 12:06:13.662: [0xfa0] LOADER: setting [commandline]  checks3edir=1
+05/06/14 12:06:13.662: [0xfa0] LOADER: setting [commandline]  app-icf1=c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources/common.icf
+05/06/14 12:06:13.663: [0xfa0] LOADER: setting [commandline]  app-icf2=c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources/app.icf
+05/06/14 12:06:13.663: [0xfa0] LOADER: setting [commandline]  win32-ext-dll1=c:/marmalade/7.2/extensions/s3eWebView/lib/win32/s3eWebView.dll
+05/06/14 12:06:13.663: [0xfa0] LOADER: setting [commandline]  config-txt1=c:/marmalade/7.2/quick/docs/app.config.txt
+05/06/14 12:06:13.664: [0xfa0] LOADER: setting [commandline]  config-txt2=c:/marmalade/7.2/quick/docs/billing.config.txt
+05/06/14 12:06:13.664: [0xfa0] LOADER: setting [commandline]  config-txt3=c:/marmalade/7.2/quick/docs/iwgeom.config.txt
+05/06/14 12:06:13.664: [0xfa0] LOADER: setting [commandline]  config-txt4=c:/marmalade/7.2/quick/docs/iwgl.config.txt
+05/06/14 12:06:13.665: [0xfa0] LOADER: setting [commandline]  config-txt5=c:/marmalade/7.2/quick/docs/iwgx.config.txt
+05/06/14 12:06:13.665: [0xfa0] LOADER: setting [commandline]  config-txt6=c:/marmalade/7.2/quick/docs/iwgxfont.config.txt
+05/06/14 12:06:13.666: [0xfa0] LOADER: setting [commandline]  config-txt7=c:/marmalade/7.2/quick/docs/iwhttp.config.txt
+05/06/14 12:06:13.666: [0xfa0] LOADER: setting [commandline]  config-txt8=c:/marmalade/7.2/quick/docs/iwresmanager.config.txt
+05/06/14 12:06:13.666: [0xfa0] LOADER: setting [commandline]  config-txt9=c:/marmalade/7.2/quick/docs/iwui.config.txt
+05/06/14 12:06:13.667: [0xfa0] LOADER: setting [commandline]  config-txt10=c:/marmalade/7.2/quick/docs/iwutil.config.txt
+05/06/14 12:06:13.667: [0xfa0] LOADER: setting [commandline]  config-txt11=c:/marmalade/7.2/quick/docs/quick.config.txt
+05/06/14 12:06:13.667: [0xfa0] LOADER: setting [commandline]  config-txt12=c:/marmalade/7.2/s3e/s3e.config.txt
+05/06/14 12:06:13.668: [0xfa0] LOADER: setting [commandline]  config-txt13=c:/marmalade/7.2/s3e\s3e.config.txt
+05/06/14 12:06:13.668: [0xfa0] LOADER: setting [commandline]  s3e-dir=c:/marmalade/7.2/s3e
+05/06/14 12:06:13.669: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
+05/06/14 12:06:13.669: [0xfa0] FILE: fs[00]: system[rom://] 'c:\Users\Garret\Documents\GitHub\RadioApp\USSCRadio\resources'
+05/06/14 12:06:13.670: [0xfa0] FILE: fs[03]: system[raw://] ''
+05/06/14 12:06:13.670: [0xfa0] FILE: listed 2 active filesystems
+05/06/14 12:06:13.670: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
+05/06/14 12:06:13.671: [0xfa0] FILE: fs[00]: system[rom://] 'c:\Users\Garret\Documents\GitHub\RadioApp\USSCRadio\resources'
+05/06/14 12:06:13.671: [0xfa0] FILE: fs[01]: system[ram://] 'c:\Users\Garret\Documents\GitHub\RadioApp\USSCRadio\resources-ram'
+05/06/14 12:06:13.671: [0xfa0] FILE: fs[03]: system[raw://] ''
+05/06/14 12:06:13.672: [0xfa0] FILE: listed 3 active filesystems
+05/06/14 12:06:13.681: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
+05/06/14 12:06:13.681: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
+05/06/14 12:06:13.682: [0xfa0] LOADER: Using data directory c:\Users\Garret\Documents\GitHub\RadioApp\USSCRadio\resources as ROM drive
+05/06/14 12:06:13.683: [0xfa0] LOADER: Using directory c:\Users\Garret\Documents\GitHub\RadioApp\USSCRadio\resources-ram as RAM drive
+05/06/14 12:06:13.683: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/app.config.txt', 'r') succeeded, id=1000 p=0x00d5f5fc
+05/06/14 12:06:13.683: [0xfa0] FILE: s3eFileClose h=0x00d5f5fc
+05/06/14 12:06:13.684: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/billing.config.txt', 'r') succeeded, id=1001 p=0x00d5f718
+05/06/14 12:06:13.684: [0xfa0] FILE: s3eFileClose h=0x00d5f718
+05/06/14 12:06:13.684: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/iwgeom.config.txt', 'r') succeeded, id=1002 p=0x00d5f834
+05/06/14 12:06:13.684: [0xfa0] FILE: s3eFileClose h=0x00d5f834
+05/06/14 12:06:13.685: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/iwgl.config.txt', 'r') succeeded, id=1003 p=0x00d5f950
+05/06/14 12:06:13.685: [0xfa0] FILE: s3eFileClose h=0x00d5f950
+05/06/14 12:06:13.685: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/iwgx.config.txt', 'r') succeeded, id=1004 p=0x00d5fa6c
+05/06/14 12:06:13.686: [0xfa0] FILE: s3eFileClose h=0x00d5fa6c
+05/06/14 12:06:13.686: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/iwgxfont.config.txt', 'r') succeeded, id=1005 p=0x00d5fb88
+05/06/14 12:06:13.687: [0xfa0] FILE: s3eFileClose h=0x00d5fb88
+05/06/14 12:06:13.687: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/iwhttp.config.txt', 'r') succeeded, id=1006 p=0x00d5fca4
+05/06/14 12:06:13.687: [0xfa0] FILE: s3eFileClose h=0x00d5fca4
+05/06/14 12:06:13.687: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/iwresmanager.config.txt', 'r') succeeded, id=1007 p=0x00d5fdc0
+05/06/14 12:06:13.688: [0xfa0] FILE: s3eFileClose h=0x00d5fdc0
+05/06/14 12:06:13.690: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/iwui.config.txt', 'r') succeeded, id=1008 p=0x00d5fedc
+05/06/14 12:06:13.690: [0xfa0] FILE: s3eFileClose h=0x00d5fedc
+05/06/14 12:06:13.691: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/iwutil.config.txt', 'r') succeeded, id=1009 p=0x00d5fff8
+05/06/14 12:06:13.691: [0xfa0] FILE: s3eFileClose h=0x00d5fff8
+05/06/14 12:06:13.692: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/quick/docs/quick.config.txt', 'r') succeeded, id=1010 p=0x00d60114
+05/06/14 12:06:13.692: [0xfa0] FILE: s3eFileClose h=0x00d60114
+05/06/14 12:06:13.693: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/s3e/s3e.config.txt', 'r') succeeded, id=1011 p=0x00d60230
+05/06/14 12:06:13.697: [0xfa0] FILE: s3eFileClose h=0x00d60230
+05/06/14 12:06:13.698: [0xfa0] FILE: s3eFileOpen('raw://c:/marmalade/7.2/s3e\s3e.config.txt', 'r') succeeded, id=1012 p=0x00d6034c
+05/06/14 12:06:13.702: [0xfa0] FILE: s3eFileClose h=0x00d6034c
+05/06/14 12:06:13.703: [0xfa0] FILE: s3eFileOpen('raw://c:\marmalade\7.2\s3e/s3e.icf', 'rb') succeeded, id=1013 p=0x00d60468
+05/06/14 12:06:13.703: [0xfa0] LOADER: Loading config from: c:\marmalade\7.2\s3e/s3e.icf
+05/06/14 12:06:13.704: [0xfa0] FILE: s3eFileClose h=0x00d60468
+05/06/14 12:06:13.704: [0xfa0] LOADER: Loading app-icf from command line specified location c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources/common.icf
+05/06/14 12:06:13.705: [0xfa0] FILE: s3eFileOpen('raw://c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources/common.icf', 'rb') succeeded, id=1014 p=0x00d60584
+05/06/14 12:06:13.705: [0xfa0] LOADER: Loading config from: raw://c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources/common.icf
+05/06/14 12:06:13.706: [0xfa0] FILE: s3eFileClose h=0x00d60584
+05/06/14 12:06:13.706: [0xfa0] FILE: s3eFileOpen('raw://c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources/app.icf', 'rb') succeeded, id=1015 p=0x00d606a0
+05/06/14 12:06:13.706: [0xfa0] LOADER: Loading config from: raw://c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources/app.icf
+05/06/14 12:06:13.707: [0xfa0] FILE: s3eFileClose h=0x00d606a0
+05/06/14 12:06:13.707: [0xfa0] LOADER: ParseCommandLineData [-via:"c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/build_temp/USSCRadio_debug.via"]
+05/06/14 12:06:13.707: [0xfa0] LOADER: setting [commandline]  via=c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/build_temp/USSCRadio_debug.via
+05/06/14 12:06:13.915: [0xfa0] SPLASH: displaying debug splash-screen
+05/06/14 12:06:13.917: [0xfa0] SPLASH: No splash screen specified
 COCOS2DX LOG: cocos2d: cocos2d-2.1beta3-x-2.1.0
-05/06/14 12:02:23.790: [0xfa0] IW_GL: EGL: eglGetDisplay returned 095D09F0
-05/06/14 12:02:23.808: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
-05/06/14 12:02:23.808: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
-05/06/14 12:02:23.809: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
-05/06/14 12:02:23.810: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
-05/06/14 12:02:23.810: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
-05/06/14 12:02:23.811: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
-05/06/14 12:02:23.811: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
-05/06/14 12:02:23.812: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
-05/06/14 12:02:23.812: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
-05/06/14 12:02:23.813: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
-05/06/14 12:02:23.813: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
-05/06/14 12:02:23.814: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-05/06/14 12:02:23.814: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
-05/06/14 12:02:23.814: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-05/06/14 12:02:23.815: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
-05/06/14 12:02:23.815: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-05/06/14 12:02:23.816: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
-05/06/14 12:02:23.816: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-05/06/14 12:02:23.816: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
-05/06/14 12:02:23.817: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-05/06/14 12:02:23.817: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-05/06/14 12:02:23.818: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-05/06/14 12:02:23.818: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
-05/06/14 12:02:23.818: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
-05/06/14 12:02:23.864: [0xfa0] IW_GL: GL_VENDOR: Google Inc.
-05/06/14 12:02:23.865: [0xfa0] IW_GL: GL_RENDERER: ANGLE (Intel(R) HD Graphics Family)
-05/06/14 12:02:23.865: [0xfa0] IW_GL: GL_VERSION: OpenGL ES 2.0 (ANGLE 1.0.0.1275)
-05/06/14 12:02:23.866: [0xfa0] IW_GL: GL properties reported by driver:
-05/06/14 12:02:23.866: [0xfa0] IW_GL:     GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS: 20
-05/06/14 12:02:23.867: [0xfa0] IW_GL:     GL_SHADER_COMPILER: 1
-05/06/14 12:02:23.867: [0xfa0] IW_GL:     GL_MAX_VERTEX_ATTRIBS: 16
-05/06/14 12:02:23.868: [0xfa0] IW_GL:     GL_MAX_VERTEX_UNIFORM_VECTORS: 254
-05/06/14 12:02:23.868: [0xfa0] IW_GL:     GL_MAX_VARYING_VECTORS: 10
-05/06/14 12:02:23.869: [0xfa0] IW_GL:     GL_MAX_TEXTURE_IMAGE_UNITS: 16
-05/06/14 12:02:23.869: [0xfa0] IW_GL:     GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS: 4
-05/06/14 12:02:23.869: [0xfa0] IW_GL:     GL_MAX_FRAGMENT_UNIFORM_VECTORS: 221
-05/06/14 12:02:23.870: [0xfa0] IW_GL:     GL_MAX_CUBE_MAP_TEXTURE_SIZE: 4096
-05/06/14 12:02:23.870: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_FORMAT: GL_RGB
-05/06/14 12:02:23.870: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_TYPE: GL_UNSIGNED_SHORT_5_6_5
-05/06/14 12:02:23.871: [0xfa0] IW_GL:     GL_MAX_RENDERBUFFER_SIZE: 4096
-05/06/14 12:02:23.871: [0xfa0] IW_GL:     GL_POINT_SIZE_MAX: -1
-05/06/14 12:02:23.872: [0xfa0] IW_GL:     GL_MAX_TEXTURE_SIZE: 4096
-05/06/14 12:02:23.872: [0xfa0] IW_GL:     GL_MAX_VIEWPORT_DIMS: (4096, 4096)
-05/06/14 12:02:23.873: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
-05/06/14 12:02:23.873: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
-05/06/14 12:02:23.873: [0xfa0] IW_GL:     GL_OES_element_index_uint
-05/06/14 12:02:23.874: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
-05/06/14 12:02:23.874: [0xfa0] IW_GL:     GL_NV_fence
-05/06/14 12:02:23.875: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
-05/06/14 12:02:23.875: [0xfa0] IW_GL:     GL_OES_get_program_binary
-05/06/14 12:02:23.876: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
-05/06/14 12:02:23.876: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
-05/06/14 12:02:23.877: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
-05/06/14 12:02:23.877: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
-05/06/14 12:02:23.877: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
-05/06/14 12:02:23.878: [0xfa0] IW_GL:     GL_OES_texture_npot
-05/06/14 12:02:23.878: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
-05/06/14 12:02:23.879: [0xfa0] IW_GL:     GL_OES_texture_half_float
-05/06/14 12:02:23.879: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_multisample
-05/06/14 12:02:23.879: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
-05/06/14 12:02:23.880: [0xfa0] IW_GL:     GL_OES_standard_derivatives
-05/06/14 12:02:23.880: [0xfa0] IW_GL:     GL_OES_texture_float
-05/06/14 12:02:23.881: [0xfa0] IW_GL:     GL_OES_texture_float_linear
-05/06/14 12:02:23.881: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
+05/06/14 12:06:15.988: [0xfa0] IW_GL: EGL: eglGetDisplay returned 094209F0
+05/06/14 12:06:16.022: [0xfa0] IW_GL: eglInitialise succeeded - version 1.4
+05/06/14 12:06:16.024: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
+05/06/14 12:06:16.025: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
+05/06/14 12:06:16.026: [0xfa0] IW_GL: EGL_VENDOR: Google Inc.
+05/06/14 12:06:16.028: [0xfa0] IW_GL: EGL_VERSION: 1.4 (ANGLE 1.0.0.1275)
+05/06/14 12:06:16.029: [0xfa0] IW_GL:     EGL_EXT_create_context_robustness
+05/06/14 12:06:16.031: [0xfa0] IW_GL:     EGL_ANGLE_d3d_share_handle_client_buffer
+05/06/14 12:06:16.032: [0xfa0] IW_GL:     EGL_ANGLE_query_surface_pointer
+05/06/14 12:06:16.033: [0xfa0] IW_GL:     EGL_ANGLE_surface_d3d_texture_2d_share_handle
+05/06/14 12:06:16.034: [0xfa0] IW_GL:     EGL_NV_post_sub_buffer
+05/06/14 12:06:16.035: [0xfa0] GL_CORE: rejecting config 0: EGL_DEPTH_SIZE < 16
+05/06/14 12:06:16.035: [0xfa0] GL_CORE: rejecting config 4: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+05/06/14 12:06:16.036: [0xfa0] GL_CORE: rejecting config 5 RGB < 565
+05/06/14 12:06:16.036: [0xfa0] GL_CORE: rejecting config 6: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+05/06/14 12:06:16.037: [0xfa0] GL_CORE: rejecting config 7 RGB < 565
+05/06/14 12:06:16.037: [0xfa0] GL_CORE: rejecting config 8: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+05/06/14 12:06:16.038: [0xfa0] GL_CORE: rejecting config 9 RGB < 565
+05/06/14 12:06:16.038: [0xfa0] GL_CORE: rejecting config 10: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+05/06/14 12:06:16.038: [0xfa0] GL_CORE: rejecting config 11 RGB < 565
+05/06/14 12:06:16.039: [0xfa0] GL_CORE: rejecting config 12: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+05/06/14 12:06:16.039: [0xfa0] GL_CORE: rejecting config 13: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+05/06/14 12:06:16.040: [0xfa0] GL_CORE: rejecting config 14: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+05/06/14 12:06:16.040: [0xfa0] GL_CORE: rejecting config 15: EGL_CONFIG_CAVEAT == EGL_SLOW_CONFIG
+05/06/14 12:06:16.041: [0xfa0] GL_CORE: EGL: Chose EGL_CONFIG_ID 3
+05/06/14 12:06:16.093: [0xfa0] IW_GL: GL_VENDOR: Google Inc.
+05/06/14 12:06:16.094: [0xfa0] IW_GL: GL_RENDERER: ANGLE (Intel(R) HD Graphics Family)
+05/06/14 12:06:16.094: [0xfa0] IW_GL: GL_VERSION: OpenGL ES 2.0 (ANGLE 1.0.0.1275)
+05/06/14 12:06:16.095: [0xfa0] IW_GL: GL properties reported by driver:
+05/06/14 12:06:16.095: [0xfa0] IW_GL:     GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS: 20
+05/06/14 12:06:16.096: [0xfa0] IW_GL:     GL_SHADER_COMPILER: 1
+05/06/14 12:06:16.096: [0xfa0] IW_GL:     GL_MAX_VERTEX_ATTRIBS: 16
+05/06/14 12:06:16.097: [0xfa0] IW_GL:     GL_MAX_VERTEX_UNIFORM_VECTORS: 254
+05/06/14 12:06:16.097: [0xfa0] IW_GL:     GL_MAX_VARYING_VECTORS: 10
+05/06/14 12:06:16.098: [0xfa0] IW_GL:     GL_MAX_TEXTURE_IMAGE_UNITS: 16
+05/06/14 12:06:16.098: [0xfa0] IW_GL:     GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS: 4
+05/06/14 12:06:16.098: [0xfa0] IW_GL:     GL_MAX_FRAGMENT_UNIFORM_VECTORS: 221
+05/06/14 12:06:16.099: [0xfa0] IW_GL:     GL_MAX_CUBE_MAP_TEXTURE_SIZE: 4096
+05/06/14 12:06:16.099: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_FORMAT: GL_RGB
+05/06/14 12:06:16.099: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_TYPE: GL_UNSIGNED_SHORT_5_6_5
+05/06/14 12:06:16.100: [0xfa0] IW_GL:     GL_MAX_RENDERBUFFER_SIZE: 4096
+05/06/14 12:06:16.100: [0xfa0] IW_GL:     GL_POINT_SIZE_MAX: -1
+05/06/14 12:06:16.101: [0xfa0] IW_GL:     GL_MAX_TEXTURE_SIZE: 4096
+05/06/14 12:06:16.101: [0xfa0] IW_GL:     GL_MAX_VIEWPORT_DIMS: (4096, 4096)
+05/06/14 12:06:16.102: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
+05/06/14 12:06:16.102: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
+05/06/14 12:06:16.102: [0xfa0] IW_GL:     GL_OES_element_index_uint
+05/06/14 12:06:16.103: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
+05/06/14 12:06:16.103: [0xfa0] IW_GL:     GL_NV_fence
+05/06/14 12:06:16.103: [0xfa0] IW_GL:     GL_EXT_read_format_bgra
+05/06/14 12:06:16.104: [0xfa0] IW_GL:     GL_OES_get_program_binary
+05/06/14 12:06:16.104: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
+05/06/14 12:06:16.104: [0xfa0] IW_GL:     GL_EXT_texture_compression_dxt1
+05/06/14 12:06:16.105: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt3
+05/06/14 12:06:16.105: [0xfa0] IW_GL:     GL_ANGLE_texture_compression_dxt5
+05/06/14 12:06:16.106: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
+05/06/14 12:06:16.106: [0xfa0] IW_GL:     GL_OES_texture_npot
+05/06/14 12:06:16.106: [0xfa0] IW_GL:     GL_EXT_texture_format_BGRA8888
+05/06/14 12:06:16.107: [0xfa0] IW_GL:     GL_OES_texture_half_float
+05/06/14 12:06:16.107: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_multisample
+05/06/14 12:06:16.108: [0xfa0] IW_GL:     GL_ANGLE_framebuffer_blit
+05/06/14 12:06:16.108: [0xfa0] IW_GL:     GL_OES_standard_derivatives
+05/06/14 12:06:16.108: [0xfa0] IW_GL:     GL_OES_texture_float
+05/06/14 12:06:16.109: [0xfa0] IW_GL:     GL_OES_texture_float_linear
+05/06/14 12:06:16.109: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
 ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path arial.ttf not found
 ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path fonts/arial.ttf not found
 ERROR: S3E_FILE_ERR_NOT_FOUND in s3eFileOpen - Path fonts/marker felt.ttf not found
@@ -238,23 +238,23 @@ COCOS2DX LOG: cocos2d: GL supports discard_framebuffer: NO
 COCOS2DX LOG: cocos2d: GL supports shareable VAO: NO
 COCOS2DX LOG: cocos2d: compiled with Profiling Support: NO
 QUICKCPP LOG: Loading app...
-05/06/14 12:02:24.029: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[2] func: s3eWebViewCreate
-05/06/14 12:02:24.030 WEBVIEW: s3eWebViewInit DLL:c:\marmalade\7.2\extensions\s3eWebView\lib\win32/libcef.dll
-05/06/14 12:02:27.221 WEBVIEW_VERBOSE: calling s3eWebView func on main thread: s3eWebViewCreate
-05/06/14 12:02:27.223: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[6] func: s3eWebViewRegister
-05/06/14 12:02:27.224: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[6] func: s3eWebViewRegister
-05/06/14 12:02:27.226: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[6] func: s3eWebViewRegister
-05/06/14 12:02:27.227: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[9] func: s3eWebViewShow
-05/06/14 12:02:27.228 WEBVIEW_VERBOSE: calling s3eWebView func on main thread: s3eWebViewShow
-05/06/14 12:02:27.230: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[3] func: s3eWebViewNavigate
-05/06/14 12:02:27.234: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[2] func: s3eWebViewCreate
-05/06/14 12:02:27.236 WEBVIEW_VERBOSE: calling s3eWebView func on main thread: s3eWebViewCreate
-05/06/14 12:02:27.239: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[6] func: s3eWebViewRegister
-05/06/14 12:02:27.240: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[6] func: s3eWebViewRegister
-05/06/14 12:02:27.242: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[6] func: s3eWebViewRegister
-05/06/14 12:02:27.243: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[9] func: s3eWebViewShow
-05/06/14 12:02:27.245 WEBVIEW_VERBOSE: calling s3eWebView func on main thread: s3eWebViewShow
-05/06/14 12:02:27.247: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[3] func: s3eWebViewNavigate
+05/06/14 12:06:16.256: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[2] func: s3eWebViewCreate
+05/06/14 12:06:16.257 WEBVIEW: s3eWebViewInit DLL:c:\marmalade\7.2\extensions\s3eWebView\lib\win32/libcef.dll
+05/06/14 12:06:19.423 WEBVIEW_VERBOSE: calling s3eWebView func on main thread: s3eWebViewCreate
+05/06/14 12:06:19.425: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[6] func: s3eWebViewRegister
+05/06/14 12:06:19.427: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[6] func: s3eWebViewRegister
+05/06/14 12:06:19.429: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[6] func: s3eWebViewRegister
+05/06/14 12:06:19.430: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[9] func: s3eWebViewShow
+05/06/14 12:06:19.431 WEBVIEW_VERBOSE: calling s3eWebView func on main thread: s3eWebViewShow
+05/06/14 12:06:19.433: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[3] func: s3eWebViewNavigate
+05/06/14 12:06:19.437: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[2] func: s3eWebViewCreate
+05/06/14 12:06:19.440 WEBVIEW_VERBOSE: calling s3eWebView func on main thread: s3eWebViewCreate
+05/06/14 12:06:19.442: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[6] func: s3eWebViewRegister
+05/06/14 12:06:19.445: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[6] func: s3eWebViewRegister
+05/06/14 12:06:19.446: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[6] func: s3eWebViewRegister
+05/06/14 12:06:19.447: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[9] func: s3eWebViewShow
+05/06/14 12:06:19.449 WEBVIEW_VERBOSE: calling s3eWebView func on main thread: s3eWebViewShow
+05/06/14 12:06:19.455: [0xfa0] WEBVIEW_VERBOSE: calling s3eWebView[3] func: s3eWebViewNavigate
 Creating default font
 COCOS2DX LOG: cocos2d: padding: 1,1,1,1
 COCOS2DX LOG: cocos2d: padding: 1,1,1,1
@@ -263,15 +263,15 @@ WebPage Loaded http://radio.uccs.edu/
 WebPage Loaded about:blank
 WebPage Loaded https://googleads.g.doubleclick.net/pagead/html/r20140603/r20140417/zrt_lookup.html
 WebPage Loaded about:blank
-WebPage Loaded about:blank
-05/06/14 12:02:42.731: [0xfa0] IW_GL: Leaked Program with handle 2
-05/06/14 12:02:42.732: [0xfa0] IW_GL: Leaked Program with handle 5
-05/06/14 12:02:42.734: [0xfa0] IW_GL: Leaked Texture with handle 1
-05/06/14 12:02:42.735: [0xfa0] IW_GL: Leaked VBO with handle 1
-05/06/14 12:02:42.736: [0xfa0] IW_GL: Leaked VBO with handle 2
-05/06/14 12:02:42.737: [0xfa0] IW_GL: Terminating EGL...
-05/06/14 12:02:42.751: [0xfa0] IW_GL: Terminating EGL... Done
-COCOS2DX LOG: cocos2d: deallocing CCDirector 07B02708
+05/06/14 12:06:28.551: [0xfa0] IW_GL: Leaked Program with handle 2
+05/06/14 12:06:28.552: [0xfa0] IW_GL: Leaked Program with handle 5
+05/06/14 12:06:28.555: [0xfa0] IW_GL: Leaked Texture with handle 1
+05/06/14 12:06:28.556: [0xfa0] IW_GL: Leaked Texture with handle 2
+05/06/14 12:06:28.577: [0xfa0] IW_GL: Leaked VBO with handle 1
+05/06/14 12:06:28.579: [0xfa0] IW_GL: Leaked VBO with handle 2
+05/06/14 12:06:28.580: [0xfa0] IW_GL: Terminating EGL...
+05/06/14 12:06:28.594: [0xfa0] IW_GL: Terminating EGL... Done
+COCOS2DX LOG: cocos2d: deallocing CCDirector 07A72708
 COCOS2DX LOG: cocos2d: cocos2d-2.1beta3-x-2.1.0
-COCOS2DX LOG: cocos2d: deallocing CCDirector 07B05A28
+COCOS2DX LOG: cocos2d: deallocing CCDirector 07A75A28
 -- END TRACE --
