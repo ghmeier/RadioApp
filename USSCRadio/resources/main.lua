@@ -1,28 +1,27 @@
-local fullScene = director:createScene()
-fullScene.newsScene = director:createScene()
-fullScene.scheduleScene = director:createScene()
+local eventScene = director:createScene()
+local newsScene = director:createScene()
+local scheduleScene = director:createScene()
 local names = {"news","schedule","events"}
-fullScene.newsScene.newsView = nui:createWebView({
-	x=0,y=0,w=director.deviceWidth,h=200,transparentBackground=true,
-	url="http://radio.uccs.edu",
-	} )
-fullScene.newsScene.scheduleView = nui:createWebView({
-	x=0,y=100,w=director.deviceWidth,h=200,transparentBackground=true,
-	url="https://www.youtube.com/watch?v=fPevj0vT7-I",
-	} )
 
-fullScene.newsScene.newsView.zOrder = -1
-fullScene.newsScene.scheduleView.zOrder = 5
-fullScene.label = director:createLabel({text="NEWS",x=500,y=0,w=200,h=100})
-fullScene.label.color = {255,0,0}
-fullScene.label.zOrder = 2
-fullScene.newsScene.sprite = director:createSprite(40,40,"textures/HLC.jpg");
-fullScene.newsScene.sprite.rotation = -20;
-fullScene.newsScene.sprite.xScale = .1
-fullScene.newsScene.sprite.yScale = .1
-fullScene.newsScene.sprite.color = {255,0,0}
-fullScene.newsScene.sprite.zOrder = 3
+local animateButton = function(event)
+   if event.phase == "began" then
+      tween:from(button, { xScale=2, yScale=2, time=0.5 })
+   end
+end
 
+local changeScene = function(event)
+	print("something worked")
+	if event.phase == "ended" then		
+		if director:getCurrentScene() == eventScene then
+			director:moveToScene(newsScene,{transitionType="slideInL",transitionTime=0.5})
+		elseif director:getCurrentScene() == newsScene then
+			director:moveToScene(scheduleScene,{transitionType="slideInL",transitionTime=0.5})
+		elseif director:getCurrentScene() == scheduleScene then
+			director:moveToScene(eventScene,{transitionType="slideInL",transitionTime=0.5})
+	end
+	end
+end
+		
 function webViewLoadedEvent(event)
 	if (event.type  == "error") then
 		print("Error loading web page" .. event.url)
@@ -31,4 +30,52 @@ function webViewLoadedEvent(event)
 	end
 end
 
-system:addEventListener("webViewLoaded",webViewLoadedEvent)
+function eventScene:tearDown(event)
+	self.changeButton = self.changeButton:removeFromParent()
+	self.button = self.button:removeFromParent()
+end
+function eventScene:setUp(event)
+	self.changeButton = director:createLabel(0,0,"<- EVENTS ->")
+	self.changeButton.color = {255,0,0}
+	self.button = director:createSprite(0, director.displayCenterY, "textures/HLC.jpg")
+	self.button.color = {255,0,0}
+	self.button.xScale = .1
+	self.button.yScale = .1
+	self.button:addEventListener("touch", animateButton)
+	self.changeButton:addEventListener("touch",changeScene)
+end
+eventScene:addEventListener({"setUp", "tearDown"}, eventScene)
+
+function scheduleScene:tearDown(event)
+	self.changeButton = self.changeButton:removeFromParent()
+	self.button = self.button:removeFromParent()
+end
+function scheduleScene:setUp(event)
+	self.changeButton = director:createLabel(0,0,"<- SCHEDULE ->")
+	self.changeButton.color = {0,0,255}
+	self.button = director:createSprite(0, director.displayCenterY, "textures/HLC.jpg")
+	self.button.color = {0,0,255}
+	self.button.xScale = .1
+	self.button.yScale = .1
+	self.button:addEventListener("touch", animateButton)
+	self.changeButton:addEventListener("touch",changeScene)
+end
+scheduleScene:addEventListener({"setUp", "tearDown"}, scheduleScene)
+
+function newsScene:tearDown(event)
+	self.changeButton = self.changeButton:removeFromParent()
+	self.button = self.button:removeFromParent()
+end
+function newsScene:setUp(event)
+	self.changeButton = director:createLabel(0,0,"<- NEWS ->")
+	self.changeButton.color = {0,255,0}
+	self.button = director:createSprite(0, director.displayCenterY, "textures/HLC.jpg")
+	self.button.color = {0,255,0}
+	self.button.xScale = .1
+	self.button.yScale = .1
+	self.button:addEventListener("touch", animateButton)
+	self.changeButton:addEventListener("touch",changeScene)
+end
+newsScene:addEventListener({"setUp", "tearDown"}, newsScene)
+--system:addEventListener("webViewLoaded",webViewLoadedEvent)
+director:moveToScene(eventScene)
