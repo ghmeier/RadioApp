@@ -4,8 +4,8 @@
 # tool during the build process.
 
 config = {}
-cmdline = ['C:/Marmalade/7.2/s3e/makefile_builder/mkb.py', 'c:/Users/Garret/Documents/GitHub/USSCRadio/USSCRadio.mkb', '--buildenv=QUICK', '--use-prebuilt', '--debug', '--no-ide', '--execute', '--deploy-only']
-mkb = 'c:/Users/Garret/Documents/GitHub/USSCRadio/USSCRadio.mkb'
+cmdline = ['C:/Marmalade/7.2/s3e/makefile_builder/mkb.py', 'c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/USSCRadio.mkb', '--buildenv=QUICK', '--use-prebuilt', '--debug', '--no-ide', '--execute', '--deploy-only']
+mkb = 'c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/USSCRadio.mkb'
 mkf = ['c:\\marmalade\\7.2\\quick\\quick_prebuilt.mkf', 'c:\\marmalade\\7.2\\quick\\quick_prebuilt_options.mkf']
 
 class DeployConfig(object):
@@ -16,7 +16,7 @@ class DeployConfig(object):
 assets = {}
 
 assets['Default'] = [
-    ('c:/Users/Garret/Documents/GitHub/USSCRadio/resources', '.', 0),
+    ('c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources', '.', 0),
 ]
 
 ######### DEFAULT CONFIG #############
@@ -29,8 +29,8 @@ class DefaultConfig(DeployConfig):
     caption = 'USSCRadio'
     long_caption = 'USSCRadio'
     version = [0, 0, 1]
-    config = ['c:/Users/Garret/Documents/GitHub/USSCRadio/resources/common.icf', 'c:/Users/Garret/Documents/GitHub/USSCRadio/resources/app.icf']
-    data_dir = 'c:/Users/Garret/Documents/GitHub/USSCRadio/resources'
+    config = ['c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources/common.icf', 'c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources/app.icf']
+    data_dir = 'c:/Users/Garret/Documents/GitHub/RadioApp/USSCRadio/resources'
     iphone_link_lib = ['s3eFacebook', 's3eIOSAppStoreBilling', 's3eIOSGameCenter', 's3eWebView', 's3eFlurry', 'FlurryAnalytics']
     osx_ext_dll = ['c:/marmalade/7.2/extensions/s3eWebView/lib/osx/libs3eWebView.dylib']
     ws8_ext_capabilities = []
