@@ -33,9 +33,6 @@ assets
     (data)
     textures
 
-    (data-ram/data-gles1, data)
-    .
-
 }
 
 deployment

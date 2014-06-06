@@ -44,7 +44,7 @@ void EventsScene::Update(float deltaTime, float alphaMul)
     if (m_IsInputActive && m_Manager->GetCurrent() == this && !g_pInput->m_Touched && g_pInput->m_PrevTouched)
     {
         g_pInput->Reset();
-        if (playButton->HitTest(g_pInput->m_X, g_pInput->m_Y))
+        /*if (playButton->HitTest(g_pInput->m_X, g_pInput->m_Y))
         {
             // Animate the play button
             m_Tweener.Tween(0.5f,
@@ -58,6 +58,7 @@ void EventsScene::Update(float deltaTime, float alphaMul)
                             ONCOMPLETE, startGame,
                             END);
         }
+         */
     }
 }
 
