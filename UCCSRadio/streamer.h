@@ -10,15 +10,15 @@
  * EULA and have agreed to be bound by its terms.
  */
 
-#if !defined(__CALENDARSCENE_H__)
-#define __CALENDARSCENE_H__
+#if !defined(__STREAMER_H__)
+#define __STREAMER_H__
 
 #include "scene.h"
 
 /**
- * @class CalendarScene
+ * @class Streamer
  *
- * @brief The Calendar Scene
+ * @brief Streamer
  *
  * The main menu scene is a simple scene that contains a background, a button
  * and some text. The main menu is the first scene that is presented to the
@@ -28,14 +28,14 @@
  * game music.
  *
  */
-class CalendarScene : public Scene
+class Streamer : public CNode
 {
 protected:
     // UI components
     
 public:
-    CalendarScene() {}
-    ~CalendarScene();
+    Streamer() {}
+    ~Streamer();
     
     // initialise the menu
     void            Init();
@@ -46,11 +46,9 @@ public:
     // Render the menu
     void            Render();
     
-    // Button callbacks
-    static void     startGame(CTween* pTween);
     
 };
 
-#endif  // __CALENDARSCENE_H__
+#endif  // __STREAMER_H__
 
 

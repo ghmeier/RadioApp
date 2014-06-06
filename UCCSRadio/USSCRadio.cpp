@@ -75,6 +75,9 @@ int main()
     g_pSceneManager->SwitchTo(news_scene);
     
 
+    Streamer* streamer = new Streamer();
+    streamer->Init();
+    
     // Loop forever, until the user or the OS performs some action to quit the app
     while (!s3eDeviceCheckQuitRequest())
     {
@@ -89,22 +92,16 @@ int main()
         // Update scene manager
         g_pSceneManager->Update(FRAME_TIME);
         
+        streamer->Update();
+        
         // Clear the drawing surface
         Iw2DSurfaceClear(0xff000000);
         
-        stringstream ss;//create a stringstream
-        ss << "X = 0";
-        string x_string =  ss.str();//return a string with the contents of the stream
-        
-        ss.str(string());
-        ss << "Y = 0";
-        string y_string =  ss.str();//return a string with the contents of the stream
-        
-        IwGxPrintString(10, 200, x_string.c_str(), true);
-        IwGxPrintString(10, 300, y_string.c_str(), true);
-        
         // Render scene manager
         g_pSceneManager->Render();
+        
+        streamer->Render();
+        streamer->Iw2DSceneGraphCore::CNode::Render();
         
         // Show the drawing surface
         Iw2DSurfaceShow();
@@ -122,6 +119,7 @@ int main()
     delete g_pSceneManager;
     delete g_pTweener;
     delete g_pResources;
+    delete streamer;
     Iw2DTerminate();
     
     return 0;
