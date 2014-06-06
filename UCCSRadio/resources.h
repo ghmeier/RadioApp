@@ -35,12 +35,14 @@ protected:
     CIw2DImage*     CalendarBG;
     CIw2DImage*     EventsBG;
     CIw2DImage*     NewsBG;
+    CIw2DImage*     PlayButton;
     
 public:
     
     CIw2DImage*     getCalendarBG()                 { return CalendarBG; }
     CIw2DImage*     getEventsBG()                   { return EventsBG; }
     CIw2DImage*     getNewsBG()                     { return NewsBG; }
+    CIw2DImage*     getPlayButton()                 { return PlayButton; }
 
 public:
     Resources();

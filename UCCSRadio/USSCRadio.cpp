@@ -23,8 +23,9 @@
 #include "resources.h"
 #include "USSCRadio.h"
 #include <sstream>
-using namespace Iw2DSceneGraph;
+#include "streamer.h"
 
+using namespace Iw2DSceneGraph;
 using namespace IwTween;
 using namespace std;
 
@@ -73,6 +74,7 @@ int main()
     // Switch to main menu scene
     g_pSceneManager->SwitchTo(news_scene);
     
+
     // Loop forever, until the user or the OS performs some action to quit the app
     while (!s3eDeviceCheckQuitRequest())
     {
