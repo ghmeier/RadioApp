@@ -15,6 +15,7 @@
 #include "input.h"
 #include "resources.h"
 #include "eventsScene.h"
+#include "streamer.h"
 
 CalendarScene::~CalendarScene()
 {
@@ -26,13 +27,6 @@ void CalendarScene::startGame(CTween* pTween)
     EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");
     g_pSceneManager->SwitchTo(events);
     
-    /*
-    // Start game music
-    Audio::PlayMusic("audio/in_game.mp3", true);
-    
-    // Create new game
-    game->newGame();
-     */
 }
 
 void CalendarScene::Update(float deltaTime, float alphaMul)
@@ -46,28 +40,13 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
     if (m_IsInputActive && m_Manager->GetCurrent() == this && !g_pInput->m_Touched && g_pInput->m_PrevTouched)
     {
         g_pInput->Reset();
-        
-        /*if (playButton->HitTest(g_pInput->m_X, g_pInput->m_Y))
-        {
-            // Animate the play button
-            m_Tweener.Tween(0.5f,
-                            FLOAT, &playText->m_Angle, 360.0f,
-                            FLOAT, &playText->m_Alpha, 0.3f,
-                            END);
+        if(g_pInput->m_Y < buttonTop) {
             m_Tweener.Tween(0.2f,
-                            FLOAT, &playButton->m_Alpha, 0.3f,
                             DELAY, 0.25f,
                             EASING, Ease::powIn,
                             ONCOMPLETE, startGame,
                             END);
         }
-         */
-        
-        m_Tweener.Tween(0.2f,
-                        DELAY, 0.25f,
-                        EASING, Ease::powIn,
-                        ONCOMPLETE, startGame,
-                        END);
     }
 }
 

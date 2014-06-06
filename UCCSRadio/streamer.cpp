@@ -16,6 +16,8 @@
 #include "resources.h"
 #include "eventsScene.h"
 
+float buttonTop = 0;
+
 Streamer::~Streamer()
 {
 }
@@ -25,11 +27,14 @@ void Streamer::Update(float deltaTime, float alphaMul)
     CNode::Update(deltaTime, alphaMul);
     
     // Detect screen tap
-    /*if (!g_pInput->m_Touched && g_pInput->m_PrevTouched)
+    if (!g_pInput->m_Touched && g_pInput->m_PrevTouched)
     {
         g_pInput->Reset();
+        if(playButton->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
         
-    }*/
+        
+        }
+    }
 }
 
 void Streamer::Render()
@@ -43,10 +48,11 @@ void Streamer::Init()
     //Game* game = (Game*)g_pSceneManager->Find("game");
     
     // Create menu background
-    CSprite* playButton = new CSprite();
+    playButton = new CSprite();
+    playButton->SetImage(g_pResources->getPlayButton());
     playButton->m_X = (float)IwGxGetScreenWidth() / 2;
     playButton->m_Y = (float)IwGxGetScreenHeight() / 1.2;
-    playButton->SetImage(g_pResources->getPlayButton());
+    buttonTop = (float)IwGxGetScreenHeight() / 1.2 - (playButton->GetImage()->GetHeight() / 10);
     playButton->m_W = playButton->GetImage()->GetWidth();
     playButton->m_H = playButton->GetImage()->GetHeight();
     playButton->m_AnchorX = 0.5;
