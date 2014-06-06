@@ -10,5 +10,5 @@ if os.name == 'nt':
 cmd = list(sys.argv)
 cmd[0] = exe
 
-cmd.append('-via:"/Users/lucasgeiken/Desktop/squareinfinity/USSCRadio/build_usscradio_scons_arm/USSCRadio_gcc_release.via"')
+cmd.append('-via:"/Users/lucasgeiken/Desktop/squareinfinity/RadioApp/UCCSRadio/build_usscradio_scons_arm/USSCRadio_gcc_release.via"')
 os.execvp(cmd[0], cmd)

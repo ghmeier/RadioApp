@@ -5,3 +5,4 @@ build_uccsradio_scons_x86/
 build_usscradio_xcode/
 build_usscradio_scons_arm/
 build_usscradio_scons_x86/
+.config

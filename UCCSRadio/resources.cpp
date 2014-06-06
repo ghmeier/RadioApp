@@ -1,55 +1,50 @@
-#include "s3e.h"
-#include "IwDebug.h"
-#include "Iw2DSceneGraph.h"
-#include "IwGx.h"
+/*
+ * (C) 2001-2012 Marmalade. All Rights Reserved.
+ *
+ * This document is protected by copyright, and contains information
+ * proprietary to Marmalade.
+ *
+ * This file consists of source code released by Marmalade under
+ * the terms of the accompanying End User License Agreement (EULA).
+ * Please do not use this program/source code before you have read the
+ * EULA and have agreed to be bound by its terms.
+ */
 
-using namespace Iw2DSceneGraphCore;
-using namespace Iw2DSceneGraph;
+#include "resources.h"
+#include "Iw2D.h"
 
-// Scene root node
-CNode* g_SceneRoot = NULL;
 
-// Main entry point for the application
-int main()
+Resources::Resources()
 {
-    //Initialise graphics system(s)
-    Iw2DInit();
-
-    // Create root node
-    g_SceneRoot = new CNode();
-
-    // Add 2D scene graph nodes to the root node here
-
+    // Load images
+    CalendarBG = Iw2DCreateImage("textures/calendarBG.png");
+    EventsBG = Iw2DCreateImage("textures/eventsBG.png");
+    NewsBG = Iw2DCreateImage("textures/newsBG.png");
     
-
-    // Loop forever, until the user or the OS performs some action to quit the app
-    while (!s3eDeviceCheckQuitRequest())
-    {
-        //Update the input systems
-        s3eKeyboardUpdate();
-        s3ePointerUpdate();
-
-        //Update the scene. The SDK's example framework has a fixed
-        //framerate of 20fps, so we pass that duration to the update function.
-        g_SceneRoot->Update(1000/20);
-
-        Iw2DSurfaceClear(0xff00ff00);
-        
-        // Your rendering/app code goes here.
-
-        g_SceneRoot->Render();
-
-        //Draws Surface to screen
-        Iw2DSurfaceShow();
-
-        // Sleep for 0ms to allow the OS to process events etc.
-        s3eDeviceYield(0);
-    }
-
-    //Terminate modules being used
-    delete g_SceneRoot;
-    Iw2DTerminate();
+    // Load fonts
+    /*Font = Iw2DCreateFont("fonts/arial8.gxfont");
     
-    // Return
-    return 0;
+    // Create atlases
+    int frame_w = (int)(Gems[0]->GetWidth() / 5);
+    int frame_h = (int)(Gems[0]->GetHeight() / 3);
+    for (int t = 0; t < MAX_GEM_TYPES; t++)
+        GemAtlases[t] = new CAtlas(frame_w, frame_h, 15, Gems[t]);
+    frame_w = (int)(Explosion->GetWidth() / 5);
+    frame_h = (int)(Explosion->GetHeight() / 3);
+    ExplosionAtlas = new CAtlas(frame_w, frame_h, 15, Explosion);
+     */
 }
+
+Resources::~Resources()
+{
+    
+    delete CalendarBG;
+    delete EventsBG;
+    delete NewsBG;
+}
+
+// Global resources
+Resources* g_pResources = 0;
+
+
+

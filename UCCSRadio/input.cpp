@@ -1,55 +1,98 @@
-#include "s3e.h"
-#include "IwDebug.h"
-#include "Iw2DSceneGraph.h"
-#include "IwGx.h"
+/*
+ * (C) 2001-2012 Marmalade. All Rights Reserved.
+ *
+ * This document is protected by copyright, and contains information
+ * proprietary to Marmalade.
+ *
+ * This file consists of source code released by Marmalade under
+ * the terms of the accompanying End User License Agreement (EULA).
+ * Please do not use this program/source code before you have read the
+ * EULA and have agreed to be bound by its terms.
+ */
 
-using namespace Iw2DSceneGraphCore;
-using namespace Iw2DSceneGraph;
+#include "input.h"
 
-// Scene root node
-CNode* g_SceneRoot = NULL;
+Input* g_pInput = 0;
 
-// Main entry point for the application
-int main()
+/**
+ * @fn    void Input::TouchButtonCB(s3ePointerEvent* event)
+ *
+ * @brief The system will call this callback when the user touches the screen.
+ *
+ * @param event   If non-null, the event.
+ */
+void Input::TouchButtonCB(s3ePointerEvent* event)
 {
-    //Initialise graphics system(s)
-    Iw2DInit();
+    g_pInput->m_PrevTouched = g_pInput->m_Touched;
+    g_pInput->m_Touched = event->m_Pressed != 0;
+    g_pInput->m_X = event->m_x;
+    g_pInput->m_Y = event->m_y;
+}
 
-    // Create root node
-    g_SceneRoot = new CNode();
+/**
+ * @fn    void Input::TouchMotionCB(s3ePointerMotionEvent* event)
+ *
+ * @brief The system will call this callback when the user moves their finger on the screen.
+ *
+ * @param event   If non-null, the event.
+ */
+void Input::TouchMotionCB(s3ePointerMotionEvent* event)
+{
+    g_pInput->m_X = event->m_x;
+    g_pInput->m_Y = event->m_y;
+}
 
-    // Add 2D scene graph nodes to the root node here
+/**
+ * @fn    void Input::MultiTouchButtonCB(s3ePointerTouchEvent* event)
+ *
+ * @brief The system will call this callback when the user touches the screen.
+ *
+ * @param event   If non-null, the event.
+ */
+void Input::MultiTouchButtonCB(s3ePointerTouchEvent* event)
+{
+    g_pInput->m_PrevTouched = g_pInput->m_Touched;
+    g_pInput->m_Touched = event->m_Pressed != 0;
+    g_pInput->m_X = event->m_x;
+    g_pInput->m_Y = event->m_y;
+}
 
-    
+/**
+ * @fn    void Input::MultiTouchMotionCB(s3ePointerTouchMotionEvent* event)
+ *
+ * @brief The system will call this callback when the user moves their finger on
+ * the screen.
+ *
+ * @param event   If non-null, the event.
+ */
+void Input::MultiTouchMotionCB(s3ePointerTouchMotionEvent* event)
+{
+    g_pInput->m_X = event->m_x;
+    g_pInput->m_Y = event->m_y;
+}
 
-    // Loop forever, until the user or the OS performs some action to quit the app
-    while (!s3eDeviceCheckQuitRequest())
+Input::Input() : m_Touched(false), m_PrevTouched(false)
+{
+    // Set touch event callback handlers, single and multi-touch devices have different callbacks assigned
+    if (s3ePointerGetInt(S3E_POINTER_MULTI_TOUCH_AVAILABLE) != 0)
     {
-        //Update the input systems
-        s3eKeyboardUpdate();
-        s3ePointerUpdate();
-
-        //Update the scene. The SDK's example framework has a fixed
-        //framerate of 20fps, so we pass that duration to the update function.
-        g_SceneRoot->Update(1000/20);
-
-        Iw2DSurfaceClear(0xff00ff00);
-        
-        // Your rendering/app code goes here.
-
-        g_SceneRoot->Render();
-
-        //Draws Surface to screen
-        Iw2DSurfaceShow();
-
-        // Sleep for 0ms to allow the OS to process events etc.
-        s3eDeviceYield(0);
+        s3ePointerRegister(S3E_POINTER_TOUCH_EVENT, (s3eCallback)MultiTouchButtonCB, 0);
+        s3ePointerRegister(S3E_POINTER_TOUCH_MOTION_EVENT, (s3eCallback)MultiTouchMotionCB, 0);
     }
+    else
+    {
+        s3ePointerRegister(S3E_POINTER_BUTTON_EVENT, (s3eCallback)TouchButtonCB, 0);
+        s3ePointerRegister(S3E_POINTER_MOTION_EVENT, (s3eCallback)TouchMotionCB, 0);
+    }
+}
 
-    //Terminate modules being used
-    delete g_SceneRoot;
-    Iw2DTerminate();
-    
-    // Return
-    return 0;
+void Input::Update()
+{
+    s3ePointerUpdate();
+}
+
+void Input::Reset()
+{
+    m_PrevTouched = false;
+    m_Touched = false;
 }

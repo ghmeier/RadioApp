@@ -9,6 +9,7 @@ files
     eventsScene.cpp
     newsScene.cpp
     
+    USSCRadio.h
     input.h
     resources.h
     scene.h
@@ -25,6 +26,16 @@ subprojects
     iwgx
     iwresmanager
     iwtween
+}
+
+assets
+{
+    (data)
+    textures
+
+    (data-ram/data-gles1, data)
+    .
+
 }
 
 deployment

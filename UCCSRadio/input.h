@@ -1,55 +1,78 @@
-#include "s3e.h"
-#include "IwDebug.h"
-#include "Iw2DSceneGraph.h"
-#include "IwGx.h"
+/*
+ * (C) 2001-2012 Marmalade. All Rights Reserved.
+ *
+ * This document is protected by copyright, and contains information
+ * proprietary to Marmalade.
+ *
+ * This file consists of source code released by Marmalade under
+ * the terms of the accompanying End User License Agreement (EULA).
+ * Please do not use this program/source code before you have read the
+ * EULA and have agreed to be bound by its terms.
+ */
 
-using namespace Iw2DSceneGraphCore;
-using namespace Iw2DSceneGraph;
+#if !defined(__INPUT_H__)
+#define __INPUT_H__
 
-// Scene root node
-CNode* g_SceneRoot = NULL;
+#include "s3ePointer.h"
 
-// Main entry point for the application
-int main()
+
+#define MAX_TOUCHES     10
+
+/**
+ * @class Input
+ *
+ * @brief Input - The Input class is responsible for handling all pointer input.
+ *
+ * Example usage:
+ * @code
+ *    // Set up input systems
+ *    g_pInput = new Input();
+ *
+ *    // Update
+ *    while (!s3eDeviceCheckQuitRequest())
+ *    {
+ *        // Update input system
+ *        g_pInput->Update();
+ *    }
+ *
+ *    // Cleanup
+ *    delete g_pInput;
+ * @endcode
+ *
+ */
+class Input
 {
-    //Initialise graphics system(s)
-    Iw2DInit();
-
-    // Create root node
-    g_SceneRoot = new CNode();
-
-    // Add 2D scene graph nodes to the root node here
-
+public:
+    int             m_X, m_Y;           // Touched position
+    bool            m_Touched;          // Touched status
+    bool            m_PrevTouched;      // Previous touched status
     
-
-    // Loop forever, until the user or the OS performs some action to quit the app
-    while (!s3eDeviceCheckQuitRequest())
-    {
-        //Update the input systems
-        s3eKeyboardUpdate();
-        s3ePointerUpdate();
-
-        //Update the scene. The SDK's example framework has a fixed
-        //framerate of 20fps, so we pass that duration to the update function.
-        g_SceneRoot->Update(1000/20);
-
-        Iw2DSurfaceClear(0xff00ff00);
-        
-        // Your rendering/app code goes here.
-
-        g_SceneRoot->Render();
-
-        //Draws Surface to screen
-        Iw2DSurfaceShow();
-
-        // Sleep for 0ms to allow the OS to process events etc.
-        s3eDeviceYield(0);
-    }
-
-    //Terminate modules being used
-    delete g_SceneRoot;
-    Iw2DTerminate();
+public:
+    Input();
     
-    // Return
-    return 0;
-}
+    /**
+     * @fn    void Input::Update()
+     *
+     * @brief Updates the input system, called every frame
+     */
+    void            Update();
+    /**
+     * @fn    void Input::Reset()
+     *
+     * @brief Resets touch status, usually called after a touch event has been acknowledged
+     */
+    void            Reset();
+    
+    // Callbacks
+    static void     TouchButtonCB(s3ePointerEvent* event);
+    static void     TouchMotionCB(s3ePointerMotionEvent* event);
+    static void     MultiTouchButtonCB(s3ePointerTouchEvent* event);
+    static void     MultiTouchMotionCB(s3ePointerTouchMotionEvent* event);
+};
+
+extern Input* g_pInput;
+
+
+#endif  // __INPUT_H__
+
+
