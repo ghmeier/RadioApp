@@ -14,6 +14,7 @@
 #include "IwGx.h"
 #include "input.h"
 #include "resources.h"
+#include "calendarScene.h"
 
 NewsScene::~NewsScene()
 {
@@ -22,9 +23,10 @@ NewsScene::~NewsScene()
 void NewsScene::startGame(CTween* pTween)
 {
     // Switch to game scene
-    /*Game* game = (Game*)g_pSceneManager->Find("game");
-    g_pSceneManager->SwitchTo(game);
+    CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
+    g_pSceneManager->SwitchTo(cal);
     
+    /*
     // Start game music
     Audio::PlayMusic("audio/in_game.mp3", true);
     
@@ -59,6 +61,12 @@ void NewsScene::Update(float deltaTime, float alphaMul)
                             END);
         }
          */
+        
+        m_Tweener.Tween(0.2f,
+                        DELAY, 0.25f,
+                        EASING, Ease::powIn,
+                        ONCOMPLETE, startGame,
+                        END);
     }
 }
 

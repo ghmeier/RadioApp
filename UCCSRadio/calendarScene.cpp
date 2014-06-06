@@ -14,6 +14,7 @@
 #include "IwGx.h"
 #include "input.h"
 #include "resources.h"
+#include "eventsScene.h"
 
 CalendarScene::~CalendarScene()
 {
@@ -22,9 +23,10 @@ CalendarScene::~CalendarScene()
 void CalendarScene::startGame(CTween* pTween)
 {
     // Switch to game scene
-    /*Game* game = (Game*)g_pSceneManager->Find("game");
-    g_pSceneManager->SwitchTo(game);
+    EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");
+    g_pSceneManager->SwitchTo(events);
     
+    /*
     // Start game music
     Audio::PlayMusic("audio/in_game.mp3", true);
     
@@ -44,6 +46,7 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
     if (m_IsInputActive && m_Manager->GetCurrent() == this && !g_pInput->m_Touched && g_pInput->m_PrevTouched)
     {
         g_pInput->Reset();
+        
         /*if (playButton->HitTest(g_pInput->m_X, g_pInput->m_Y))
         {
             // Animate the play button
@@ -59,6 +62,12 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
                             END);
         }
          */
+        
+        m_Tweener.Tween(0.2f,
+                        DELAY, 0.25f,
+                        EASING, Ease::powIn,
+                        ONCOMPLETE, startGame,
+                        END);
     }
 }
 

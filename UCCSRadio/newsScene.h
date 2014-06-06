@@ -32,8 +32,6 @@ class NewsScene : public Scene
 {
 protected:
     // UI components
-    CSprite*    playButton;
-    CSprite*    playText;
     
 public:
     NewsScene() {}

@@ -32,8 +32,6 @@ class EventsScene : public Scene
 {
 protected:
     // UI components
-    CSprite*    playButton;
-    CSprite*    playText;
     
 public:
     EventsScene() {}

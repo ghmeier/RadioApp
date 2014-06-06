@@ -32,8 +32,6 @@ class CalendarScene : public Scene
 {
 protected:
     // UI components
-    CSprite*    playButton;
-    CSprite*    playText;
     
 public:
     CalendarScene() {}

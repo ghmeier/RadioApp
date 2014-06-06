@@ -11,7 +11,10 @@
  */
 
 #include "Iw2D.h"
+#include "Iw2DSceneGraph.h"
 #include "IwTween.h"
+#include "IwGx.h"
+#include "IwGxPrint.h"
 #include "input.h"
 #include "scene.h"
 #include "newsScene.h"
@@ -19,8 +22,11 @@
 #include "eventsScene.h"
 #include "resources.h"
 #include "USSCRadio.h"
+#include <sstream>
+using namespace Iw2DSceneGraph;
 
 using namespace IwTween;
+using namespace std;
 
 // FRAME_TIME is the amount of time that a single frame should last in seconds
 #define FRAME_TIME  (30.0f / 1000.0f)
@@ -83,6 +89,17 @@ int main()
         
         // Clear the drawing surface
         Iw2DSurfaceClear(0xff000000);
+        
+        stringstream ss;//create a stringstream
+        ss << "X = 0";
+        string x_string =  ss.str();//return a string with the contents of the stream
+        
+        ss.str(string());
+        ss << "Y = 0";
+        string y_string =  ss.str();//return a string with the contents of the stream
+        
+        IwGxPrintString(10, 200, x_string.c_str(), true);
+        IwGxPrintString(10, 300, y_string.c_str(), true);
         
         // Render scene manager
         g_pSceneManager->Render();
