@@ -1,1 +1,7 @@
 build_temp/
+build_uccsradio_xcode/
+build_uccsradio_scons_arm/
+build_uccsradio_scons_x86/
+build_usscradio_xcode/
+build_usscradio_scons_arm/
+build_usscradio_scons_x86/

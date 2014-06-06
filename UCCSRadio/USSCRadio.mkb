@@ -1,0 +1,32 @@
+#!/usr/bin/env mkb
+files
+{
+    USSCRadio.cpp
+    input.cpp
+    resources.cpp
+    scene.cpp
+    calendarScene.cpp
+    eventsScene.cpp
+    newsScene.cpp
+    
+    input.h
+    resources.h
+    scene.h
+    calendarScene.h
+    eventsScene.h
+    newsScene.h
+}
+
+subprojects
+{
+    iwutil
+    iw2dscenegraphcore
+    iw2dscenegraph
+    iwgx
+    iwresmanager
+    iwtween
+}
+
+deployment
+{
+}
