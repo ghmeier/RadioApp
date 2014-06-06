@@ -8,6 +8,7 @@ files
     calendarScene.cpp
     eventsScene.cpp
     newsScene.cpp
+    streamer.cpp
     
     USSCRadio.h
     input.h
@@ -16,6 +17,7 @@ files
     calendarScene.h
     eventsScene.h
     newsScene.h
+    streamer.h
 }
 
 subprojects
