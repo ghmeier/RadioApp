@@ -15,6 +15,7 @@
 #include "input.h"
 #include "resources.h"
 #include "eventsScene.h"
+#include <IwHTTP.h>
 
 float buttonTop = 0;
 

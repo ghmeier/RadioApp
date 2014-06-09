@@ -28,6 +28,7 @@ subprojects
     iwgx
     iwresmanager
     iwtween
+    iwhttp
 }
 
 assets

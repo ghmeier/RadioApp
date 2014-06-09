@@ -24,6 +24,7 @@
 #include "USSCRadio.h"
 #include <sstream>
 #include "streamer.h"
+#include <IwHTTP.h>
 
 using namespace Iw2DSceneGraph;
 using namespace IwTween;
