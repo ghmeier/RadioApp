@@ -16,6 +16,7 @@
 #include "resources.h"
 #include "eventsScene.h"
 #include <IwHTTP.h>
+#include "src/HttpClient.h"
 
 float buttonTop = 0;
 float buttonBottom = 0;
