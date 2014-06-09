@@ -42,7 +42,7 @@ CTweenManager*  g_pTweener = 0;
 
 int main()
 {
-	HttpClient::GlobalInit();
+	//HttpClient::GlobalInit();
 
     // Initialise the 2D graphics system
     Iw2DInit();
@@ -85,19 +85,19 @@ int main()
     Streamer* streamer = new Streamer();
     streamer->Init();
 
-	HttpClient* globalHttpClient = new HttpClient(5, "HttpClient");
-	Ptr<HttpDownload> xmlDownload = new HttpDownload("http://radio.uccs.edu/index.php/feed", "feed.xml");
-	globalHttpClient->QueueRequest(xmlDownload);
+	//HttpClient* globalHttpClient = new HttpClient(5, "HttpClient");
+	//Ptr<HttpDownload> xmlDownload = new HttpDownload("http://radio.uccs.edu/index.php/feed", "feed.xml");
+	//globalHttpClient->QueueRequest(xmlDownload);
 
     // Loop forever, until the user or the OS performs some action to quit the app
     while (!s3eDeviceCheckQuitRequest())
     {
-		if (xmlDownload->GetStatus() == HttpRequest::DONE) {
+		/*if (xmlDownload->GetStatus() == HttpRequest::DONE) {
 			s3eDebugAssertShow(S3E_MESSAGE_CONTINUE, "YAY xml download");
 		}
 		else if (xmlDownload->GetStatus() == HttpRequest::ERROR){
 			s3eDebugAssertShow(S3E_MESSAGE_CONTINUE, "both were downloaded!");
-		}
+		}*/
         uint64 new_time = s3eTimerGetMs();
         
         // Update input system
@@ -136,12 +136,12 @@ int main()
     delete g_pSceneManager;
     delete g_pTweener;
     delete g_pResources;
-	delete globalHttpClient;
-	xmlDownload = nullptr;
+	//delete globalHttpClient;
+	//xmlDownload = nullptr;
     delete streamer;
 
 
     Iw2DTerminate();
-  	HttpClient::GlobalCleanup();
+  	//HttpClient::GlobalCleanup();
     return 0;
 }

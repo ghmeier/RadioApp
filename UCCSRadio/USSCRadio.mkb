@@ -30,6 +30,8 @@ files
     (src)
     "*.cpp"
     "*.h"
+    HttpClient.cpp
+    HttpClient.h
 
 	[util]
     (src/util)
