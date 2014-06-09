@@ -17,7 +17,6 @@ files
     eventsScene.cpp
     newsScene.cpp
     streamer.cpp
-    HttpClient.cpp
 
     
     USSCRadio.h
@@ -32,12 +31,13 @@ files
     (src)
     "*.cpp"
     "*.h"
+    HttpClient.cpp
+    HttpClient.h
 
 	[util]
     (src/util)
     "*.cpp"
     "*.h"
-    HttpClient.h
 }
 
 subprojects
