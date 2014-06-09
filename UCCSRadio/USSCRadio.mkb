@@ -9,6 +9,8 @@ files
     eventsScene.cpp
     newsScene.cpp
     streamer.cpp
+    HttpClient.cpp
+
     
     USSCRadio.h
     input.h
@@ -18,6 +20,7 @@ files
     eventsScene.h
     newsScene.h
     streamer.h
+    HttpClient.h
 }
 
 subprojects
