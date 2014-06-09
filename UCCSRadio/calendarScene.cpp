@@ -24,8 +24,8 @@ CalendarScene::~CalendarScene()
 void CalendarScene::startGame(CTween* pTween)
 {
     // Switch to game scene
-    EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");
-    g_pSceneManager->SwitchTo(events);
+    //EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");
+    //g_pSceneManager->SwitchTo(events);
     
 }
 

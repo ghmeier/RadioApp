@@ -36,6 +36,9 @@ protected:
     CSprite*    stopButton;
     CSprite*    playWrapper;
     CSprite*    header;
+    CSprite*    newsBanner;
+    CSprite*    calBanner;
+    CSprite*    eventsBanner;
     
     
 public:

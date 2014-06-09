@@ -17,6 +17,9 @@
 #include "eventsScene.h"
 #include <IwHTTP.h>
 #include "src/HttpClient.h"
+#include "calendarScene.h"
+#include "newsScene.h"
+#include "eventsScene.h"
 
 float buttonTop = 0;
 float buttonBottom = 0;
@@ -41,6 +44,29 @@ void Streamer::Update(float deltaTime, float alphaMul)
             g_pInput->Reset();
             playButton->m_X = IwGxGetScreenWidth() / 2.0;
             stopButton->m_X = IwGxGetScreenWidth() * 2.0;
+            
+        }
+        
+        if(newsBanner->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
+            g_pInput->Reset();
+            CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
+            g_pSceneManager->SwitchTo(cal);
+            newsBanner->m_X = IwGxGetScreenWidth() * 2;
+            calBanner->m_X = IwGxGetScreenWidth() / 2;
+            
+        } else if(calBanner->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
+            g_pInput->Reset();
+            EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");
+            g_pSceneManager->SwitchTo(events);
+            calBanner->m_X = IwGxGetScreenWidth() * 2;
+            eventsBanner->m_X = IwGxGetScreenWidth() / 2;
+            
+        } else if(eventsBanner->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
+            g_pInput->Reset();
+            NewsScene* news = (NewsScene*)g_pSceneManager->Find("newsscene");
+            g_pSceneManager->SwitchTo(news);
+            eventsBanner->m_X = IwGxGetScreenWidth() * 2;
+            newsBanner->m_X = IwGxGetScreenWidth() / 2;
             
         }
     }
@@ -69,7 +95,7 @@ void Streamer::Init()
     header->m_ScaleX = (float)IwGxGetScreenWidth() / header->GetImage()->GetWidth() / 1;
     header->m_ScaleY = (float)IwGxGetScreenHeight() / header->GetImage()->GetHeight() / 8;
     
-    buttonBottom = ((float)IwGxGetScreenHeight() / 17) + (header->GetImage()->GetHeight() / 1.4);
+    //buttonBottom = ((float)IwGxGetScreenHeight() / 17) + (header->GetImage()->GetHeight() / 1.4);
     
     // Create menu background
     playWrapper = new CSprite();
@@ -84,8 +110,6 @@ void Streamer::Init()
     playWrapper->m_ScaleX = (float)IwGxGetScreenWidth() / playWrapper->GetImage()->GetWidth() / 1;
     playWrapper->m_ScaleY = (float)IwGxGetScreenHeight() / playWrapper->GetImage()->GetHeight() / 5;
 
-    
-    // Create menu background
     playButton = new CSprite();
     playButton->SetImage(g_pResources->getPlayButton());
     playButton->m_X = (float)IwGxGetScreenWidth() / 2;
@@ -99,7 +123,7 @@ void Streamer::Init()
     playButton->m_ScaleX = (float)IwGxGetScreenWidth() / playButton->GetImage()->GetWidth() / 3.2;
     playButton->m_ScaleY = (float)IwGxGetScreenHeight() / playButton->GetImage()->GetHeight() / 4.5;
     
-    buttonTop = ((float)IwGxGetScreenHeight() / 1.14) - (playButton->GetImage()->GetHeight() / 3.7);
+    //buttonTop = ((float)IwGxGetScreenHeight() / 1.14) - (playButton->GetImage()->GetHeight() / 3.7);
     
     stopButton = new CSprite();
     stopButton->SetImage(g_pResources->getStopButton());
@@ -114,12 +138,53 @@ void Streamer::Init()
     stopButton->m_ScaleX = (float)IwGxGetScreenWidth() / stopButton->GetImage()->GetWidth() / 3.2;
     stopButton->m_ScaleY = (float)IwGxGetScreenHeight() / stopButton->GetImage()->GetHeight() / 4.5;
     
+    newsBanner = new CSprite();
+    newsBanner->SetImage(g_pResources->getNewsBanner());
+    newsBanner->m_X = (float)IwGxGetScreenWidth() / 2;
+    newsBanner->m_Y = (float)IwGxGetScreenHeight() / 6;
+    newsBanner->m_W = newsBanner->GetImage()->GetWidth();
+    newsBanner->m_H = newsBanner->GetImage()->GetHeight();
+    newsBanner->m_AnchorX = 0.5;
+    newsBanner->m_AnchorY = 0.5;
+    // Fit background to screen size
+    newsBanner->m_ScaleX = (float)IwGxGetScreenWidth() / newsBanner->GetImage()->GetWidth() / 1;
+    newsBanner->m_ScaleY = (float)IwGxGetScreenHeight() / newsBanner->GetImage()->GetHeight() / 10;
+    
+    calBanner = new CSprite();
+    calBanner->SetImage(g_pResources->getCalendarBanner());
+    calBanner->m_X = (float)IwGxGetScreenWidth() / 2;
+    calBanner->m_Y = (float)IwGxGetScreenHeight() / 6;
+    calBanner->m_W = calBanner->GetImage()->GetWidth();
+    calBanner->m_H = calBanner->GetImage()->GetHeight();
+    calBanner->m_AnchorX = 0.5;
+    calBanner->m_AnchorY = 0.5;
+    // Fit background to screen size
+    calBanner->m_ScaleX = (float)IwGxGetScreenWidth() / calBanner->GetImage()->GetWidth() / 1;
+    calBanner->m_ScaleY = (float)IwGxGetScreenHeight() / calBanner->GetImage()->GetHeight() / 10;
+    
+    eventsBanner = new CSprite();
+    eventsBanner->SetImage(g_pResources->getEventsBanner());
+    eventsBanner->m_X = (float)IwGxGetScreenWidth() / 2;
+    eventsBanner->m_Y = (float)IwGxGetScreenHeight() / 6;
+    eventsBanner->m_W = eventsBanner->GetImage()->GetWidth();
+    eventsBanner->m_H = eventsBanner->GetImage()->GetHeight();
+    eventsBanner->m_AnchorX = 0.5;
+    eventsBanner->m_AnchorY = 0.5;
+    // Fit background to screen size
+    eventsBanner->m_ScaleX = (float)IwGxGetScreenWidth() / eventsBanner->GetImage()->GetWidth() / 1;
+    eventsBanner->m_ScaleY = (float)IwGxGetScreenHeight() / eventsBanner->GetImage()->GetHeight() / 10;
     
     AddChild(header);
     AddChild(playWrapper);
     AddChild(playButton);
     AddChild(stopButton);
+    AddChild(newsBanner);
+    AddChild(calBanner);
+    AddChild(eventsBanner);
     
     stopButton->m_X = IwGxGetScreenWidth() * 2.0;
+    calBanner->m_X = IwGxGetScreenWidth() * 2.0;
+    eventsBanner->m_X = IwGxGetScreenWidth() * 2.0;
+    
 }
 

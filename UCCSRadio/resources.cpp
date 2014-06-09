@@ -24,6 +24,9 @@ Resources::Resources()
     StopButton = Iw2DCreateImage("textures/button-stop.png");
     PlayWrapper = Iw2DCreateImage("textures/bottom-wrapper.png");
     Header = Iw2DCreateImage("textures/header.png");
+    CalendarBanner = Iw2DCreateImage("textures/calendarBanner.png");
+    EventsBanner = Iw2DCreateImage("textures/eventsBanner.png");
+    NewsBanner = Iw2DCreateImage("textures/newsBanner.png");
     
     // Load fonts
     /*Font = Iw2DCreateFont("fonts/arial8.gxfont");
@@ -49,6 +52,9 @@ Resources::~Resources()
     delete PlayWrapper;
     delete Header;
     delete StopButton;
+    delete CalendarBanner;
+    delete EventsBanner;
+    delete NewsBanner;
 }
 
 // Global resources
