@@ -24,7 +24,11 @@
 #include "USSCRadio.h"
 #include <sstream>
 #include "streamer.h"
+#include "src/HttpClient.h"
+#include "s3e.h"
+#include "IwDebug.h"
 #include <IwHTTP.h>
+
 
 using namespace Iw2DSceneGraph;
 using namespace IwTween;
@@ -38,6 +42,8 @@ CTweenManager*  g_pTweener = 0;
 
 int main()
 {
+	HttpClient::GlobalInit();
+
     // Initialise the 2D graphics system
     Iw2DInit();
     
@@ -78,10 +84,17 @@ int main()
 
     Streamer* streamer = new Streamer();
     streamer->Init();
-    
+
+	HttpClient* globalHttpClient = new HttpClient(5, "HttpClient");
+	Ptr<HttpDownload> xmlDownload = new HttpDownload("http://radio.uccs.edu/index.php/feed", "feed.xml");
+	globalHttpClient->QueueRequest(xmlDownload);
+
     // Loop forever, until the user or the OS performs some action to quit the app
     while (!s3eDeviceCheckQuitRequest())
     {
+		if (xmlDownload->GetStatus() == HttpRequest::DONE) {
+		printf("Successful xml downloaded!");
+		}
         uint64 new_time = s3eTimerGetMs();
         
         // Update input system
@@ -108,7 +121,7 @@ int main()
         Iw2DSurfaceShow();
         
         // Lock frame rate
-        int yield = (int)(FRAME_TIME * 1000 - (s3eTimerGetMs() - new_time));
+        int yield = (int)(FRAME_TIME /** 1000*/ - (s3eTimerGetMs() - new_time));
         if (yield < 0)
             yield = 0;
         // Yield to OS
@@ -120,7 +133,11 @@ int main()
     delete g_pSceneManager;
     delete g_pTweener;
     delete g_pResources;
+	delete globalHttpClient;
+	xmlDownload = nullptr;
     delete streamer;
+
+	HttpClient::GlobalCleanup();
     Iw2DTerminate();
     
     return 0;

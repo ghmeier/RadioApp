@@ -1,4 +1,12 @@
 #!/usr/bin/env mkb
+
+options
+{
+	module_path = "subprojects"
+	enable-exceptions = 1
+	cflags="-std=c++0x"
+}
+
 files
 {
     USSCRadio.cpp
@@ -18,6 +26,15 @@ files
     eventsScene.h
     newsScene.h
     streamer.h
+
+    (src)
+    "*.cpp"
+    "*.h"
+
+	[util]
+    (src/util)
+    "*.cpp"
+    "*.h"
 }
 
 subprojects
@@ -29,6 +46,8 @@ subprojects
     iwresmanager
     iwtween
     iwhttp
+	curl
+	third_party/openssl
 }
 
 assets
