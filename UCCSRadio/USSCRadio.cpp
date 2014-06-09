@@ -93,7 +93,10 @@ int main()
     while (!s3eDeviceCheckQuitRequest())
     {
 		if (xmlDownload->GetStatus() == HttpRequest::DONE) {
-		printf("Successful xml downloaded!");
+			s3eDebugAssertShow(S3E_MESSAGE_CONTINUE, "YAY xml download");
+		}
+		else if (xmlDownload->GetStatus() == HttpRequest::ERROR){
+			s3eDebugAssertShow(S3E_MESSAGE_CONTINUE, "both were downloaded!");
 		}
         uint64 new_time = s3eTimerGetMs();
         
