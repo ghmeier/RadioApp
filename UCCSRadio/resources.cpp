@@ -21,6 +21,7 @@ Resources::Resources()
     EventsBG = Iw2DCreateImage("textures/eventsBG.png");
     NewsBG = Iw2DCreateImage("textures/newsBG.png");
     PlayButton = Iw2DCreateImage("textures/button-up.png");
+    StopButton = Iw2DCreateImage("textures/button-stop.png");
     PlayWrapper = Iw2DCreateImage("textures/bottom-wrapper.png");
     Header = Iw2DCreateImage("textures/header.png");
     
@@ -47,6 +48,7 @@ Resources::~Resources()
     delete PlayButton;
     delete PlayWrapper;
     delete Header;
+    delete StopButton;
 }
 
 // Global resources

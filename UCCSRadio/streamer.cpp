@@ -31,10 +31,16 @@ void Streamer::Update(float deltaTime, float alphaMul)
     // Detect screen tap
     if (!g_pInput->m_Touched && g_pInput->m_PrevTouched)
     {
-        g_pInput->Reset();
         if(playButton->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
+            g_pInput->Reset();
+            playButton->m_X = IwGxGetScreenWidth() * 2.0;
+            stopButton->m_X = IwGxGetScreenWidth() / 2.0;
         
-        
+        } else if(stopButton->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
+            g_pInput->Reset();
+            playButton->m_X = IwGxGetScreenWidth() / 2.0;
+            stopButton->m_X = IwGxGetScreenWidth() * 2.0;
+            
         }
     }
 }
@@ -91,12 +97,28 @@ void Streamer::Init()
     // Fit background to screen size
     playButton->m_ScaleX = (float)IwGxGetScreenWidth() / playButton->GetImage()->GetWidth() / 3.2;
     playButton->m_ScaleY = (float)IwGxGetScreenHeight() / playButton->GetImage()->GetHeight() / 4.5;
-    AddChild(playButton);
     
     buttonTop = ((float)IwGxGetScreenHeight() / 1.14) - (playButton->GetImage()->GetHeight() / 3.7);
+    
+    stopButton = new CSprite();
+    stopButton->SetImage(g_pResources->getStopButton());
+    stopButton->m_X = (float)IwGxGetScreenWidth() / 2;
+    stopButton->m_Y = (float)IwGxGetScreenHeight() / 1.14;
+    //buttonTop = (float)IwGxGetScreenHeight() / 1.14 - (playButton->GetImage()->GetHeight() / 8);
+    stopButton->m_W = stopButton->GetImage()->GetWidth();
+    stopButton->m_H = stopButton->GetImage()->GetHeight();
+    stopButton->m_AnchorX = 0.5;
+    stopButton->m_AnchorY = 0.5;
+    // Fit background to screen size
+    stopButton->m_ScaleX = (float)IwGxGetScreenWidth() / stopButton->GetImage()->GetWidth() / 3.2;
+    stopButton->m_ScaleY = (float)IwGxGetScreenHeight() / stopButton->GetImage()->GetHeight() / 4.5;
+    
     
     AddChild(header);
     AddChild(playWrapper);
     AddChild(playButton);
+    AddChild(stopButton);
+    
+    stopButton->m_X = IwGxGetScreenWidth() * 2.0;
 }
 

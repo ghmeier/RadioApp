@@ -39,8 +39,9 @@ void EventsScene::Update(float deltaTime, float alphaMul)
     // Detect screen tap
     if (m_IsInputActive && m_Manager->GetCurrent() == this && !g_pInput->m_Touched && g_pInput->m_PrevTouched)
     {
-        g_pInput->Reset();
+        //g_pInput->Reset();
         if(g_pInput->m_Y < buttonTop && g_pInput->m_Y > buttonBottom) {
+            g_pInput->Reset();
             m_Tweener.Tween(0.2f,
                             DELAY, 0.25f,
                             EASING, Ease::powIn,

@@ -33,6 +33,7 @@ class Streamer : public CNode
 protected:
     // UI components
     CSprite*    playButton;
+    CSprite*    stopButton;
     CSprite*    playWrapper;
     CSprite*    header;
     

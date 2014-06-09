@@ -98,11 +98,11 @@ int main()
         // Clear the drawing surface
         Iw2DSurfaceClear(0xff000000);
         
+        
         // Render scene manager
         g_pSceneManager->Render();
         
         streamer->Render();
-        streamer->Iw2DSceneGraphCore::CNode::Render();
         
         // Show the drawing surface
         Iw2DSurfaceShow();
