@@ -17,7 +17,6 @@ files
     eventsScene.cpp
     newsScene.cpp
     streamer.cpp
-
     
     USSCRadio.h
     input.h

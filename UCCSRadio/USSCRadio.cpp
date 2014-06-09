@@ -92,12 +92,12 @@ int main()
     // Loop forever, until the user or the OS performs some action to quit the app
     while (!s3eDeviceCheckQuitRequest())
     {
-		if (xmlDownload->GetStatus() == HttpRequest::DONE) {
+		/*if (xmlDownload->GetStatus() == HttpRequest::DONE) {
 			s3eDebugAssertShow(S3E_MESSAGE_CONTINUE, "YAY xml download");
 		}
 		else if (xmlDownload->GetStatus() == HttpRequest::ERROR){
 			s3eDebugAssertShow(S3E_MESSAGE_CONTINUE, "both were downloaded!");
-		}
+		}*/
         uint64 new_time = s3eTimerGetMs();
         
         // Update input system
@@ -109,6 +109,7 @@ int main()
         // Update scene manager
         g_pSceneManager->Update(FRAME_TIME);
         
+		globalHttpClient->Update();
         streamer->Update();
         
         // Clear the drawing surface
@@ -140,8 +141,14 @@ int main()
 	xmlDownload = nullptr;
     delete streamer;
 
+<<<<<<< HEAD
     Iw2DTerminate();
     HttpClient::GlobalCleanup();
     
+=======
+
+    Iw2DTerminate();
+  	HttpClient::GlobalCleanup();
+>>>>>>> e7742daf2b13e7fb04af78c26b745ff80dfcb0a6
     return 0;
 }
