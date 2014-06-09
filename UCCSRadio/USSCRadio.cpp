@@ -140,8 +140,8 @@ int main()
 	xmlDownload = nullptr;
     delete streamer;
 
-	HttpClient::GlobalCleanup();
+
     Iw2DTerminate();
-    
+  	HttpClient::GlobalCleanup();
     return 0;
 }
