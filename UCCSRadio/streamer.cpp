@@ -18,6 +18,7 @@
 #include <IwHTTP.h>
 
 float buttonTop = 0;
+float buttonBottom = 0;
 
 Streamer::~Streamer()
 {
@@ -49,18 +50,53 @@ void Streamer::Init()
     //Game* game = (Game*)g_pSceneManager->Find("game");
     
     // Create menu background
+    header = new CSprite();
+    header->SetImage(g_pResources->getHeader());
+    header->m_X = (float)IwGxGetScreenWidth() / 2;
+    header->m_Y = (float)IwGxGetScreenHeight() / 17;
+    header->m_W = header->GetImage()->GetWidth();
+    header->m_H = header->GetImage()->GetHeight();
+    header->m_AnchorX = 0.5;
+    header->m_AnchorY = 0.5;
+    // Fit background to screen size
+    header->m_ScaleX = (float)IwGxGetScreenWidth() / header->GetImage()->GetWidth() / 1;
+    header->m_ScaleY = (float)IwGxGetScreenHeight() / header->GetImage()->GetHeight() / 8;
+    
+    buttonBottom = ((float)IwGxGetScreenHeight() / 17) + (header->GetImage()->GetHeight() / 1.4);
+    
+    // Create menu background
+    playWrapper = new CSprite();
+    playWrapper->SetImage(g_pResources->getPlayWrapper());
+    playWrapper->m_X = (float)IwGxGetScreenWidth() / 2;
+    playWrapper->m_Y = (float)IwGxGetScreenHeight() / 1.1;
+    playWrapper->m_W = playWrapper->GetImage()->GetWidth();
+    playWrapper->m_H = playWrapper->GetImage()->GetHeight();
+    playWrapper->m_AnchorX = 0.5;
+    playWrapper->m_AnchorY = 0.5;
+    // Fit background to screen size
+    playWrapper->m_ScaleX = (float)IwGxGetScreenWidth() / playWrapper->GetImage()->GetWidth() / 1;
+    playWrapper->m_ScaleY = (float)IwGxGetScreenHeight() / playWrapper->GetImage()->GetHeight() / 5;
+
+    
+    // Create menu background
     playButton = new CSprite();
     playButton->SetImage(g_pResources->getPlayButton());
     playButton->m_X = (float)IwGxGetScreenWidth() / 2;
-    playButton->m_Y = (float)IwGxGetScreenHeight() / 1.2;
-    buttonTop = (float)IwGxGetScreenHeight() / 1.2 - (playButton->GetImage()->GetHeight() / 10);
+    playButton->m_Y = (float)IwGxGetScreenHeight() / 1.14;
+    //buttonTop = (float)IwGxGetScreenHeight() / 1.14 - (playButton->GetImage()->GetHeight() / 8);
     playButton->m_W = playButton->GetImage()->GetWidth();
     playButton->m_H = playButton->GetImage()->GetHeight();
     playButton->m_AnchorX = 0.5;
     playButton->m_AnchorY = 0.5;
     // Fit background to screen size
-    playButton->m_ScaleX = (float)IwGxGetScreenWidth() / playButton->GetImage()->GetWidth() / 5;
-    playButton->m_ScaleY = (float)IwGxGetScreenHeight() / playButton->GetImage()->GetHeight() / 6;
+    playButton->m_ScaleX = (float)IwGxGetScreenWidth() / playButton->GetImage()->GetWidth() / 3.2;
+    playButton->m_ScaleY = (float)IwGxGetScreenHeight() / playButton->GetImage()->GetHeight() / 4.5;
+    AddChild(playButton);
+    
+    buttonTop = ((float)IwGxGetScreenHeight() / 1.14) - (playButton->GetImage()->GetHeight() / 3.7);
+    
+    AddChild(header);
+    AddChild(playWrapper);
     AddChild(playButton);
 }
 

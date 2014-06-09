@@ -20,7 +20,9 @@ Resources::Resources()
     CalendarBG = Iw2DCreateImage("textures/calendarBG.png");
     EventsBG = Iw2DCreateImage("textures/eventsBG.png");
     NewsBG = Iw2DCreateImage("textures/newsBG.png");
-    PlayButton = Iw2DCreateImage("textures/playButton.png");
+    PlayButton = Iw2DCreateImage("textures/button-up.png");
+    PlayWrapper = Iw2DCreateImage("textures/bottom-wrapper.png");
+    Header = Iw2DCreateImage("textures/header.png");
     
     // Load fonts
     /*Font = Iw2DCreateFont("fonts/arial8.gxfont");
@@ -43,6 +45,8 @@ Resources::~Resources()
     delete EventsBG;
     delete NewsBG;
     delete PlayButton;
+    delete PlayWrapper;
+    delete Header;
 }
 
 // Global resources

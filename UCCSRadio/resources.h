@@ -36,6 +36,8 @@ protected:
     CIw2DImage*     EventsBG;
     CIw2DImage*     NewsBG;
     CIw2DImage*     PlayButton;
+    CIw2DImage*     PlayWrapper;
+    CIw2DImage*     Header;
     
 public:
     
@@ -43,6 +45,8 @@ public:
     CIw2DImage*     getEventsBG()                   { return EventsBG; }
     CIw2DImage*     getNewsBG()                     { return NewsBG; }
     CIw2DImage*     getPlayButton()                 { return PlayButton; }
+    CIw2DImage*     getPlayWrapper()                { return PlayWrapper; }
+    CIw2DImage*     getHeader()                     { return Header; }
 
 public:
     Resources();

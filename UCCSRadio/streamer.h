@@ -33,6 +33,9 @@ class Streamer : public CNode
 protected:
     // UI components
     CSprite*    playButton;
+    CSprite*    playWrapper;
+    CSprite*    header;
+    
     
 public:
     Streamer() {}
@@ -53,3 +56,4 @@ public:
 #endif  // __STREAMER_H__
 
 extern float buttonTop;
+extern float buttonBottom;
