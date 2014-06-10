@@ -79,7 +79,7 @@ int main()
     g_pSceneManager->Add(events_scene);
     
     // Switch to main menu scene
-    g_pSceneManager->SwitchTo(news_scene);
+    g_pSceneManager->SwitchTo(news_scene, 0);
     
 
     Streamer* streamer = new Streamer();

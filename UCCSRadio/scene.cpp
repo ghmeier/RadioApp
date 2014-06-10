@@ -122,7 +122,7 @@ void SceneManager::FinishSwitch()
     m_Next = 0;
 }
 
-void SceneManager::SwitchTo(Scene* scene)
+void SceneManager::SwitchTo(Scene* scene, int direction)
 {
     m_Next = scene;
     if (m_Current == 0)
@@ -138,12 +138,21 @@ void SceneManager::SwitchTo(Scene* scene)
         m_Current->SetInputActive(false);
         m_Next->SetActive(true);
         m_Next->m_X = -(float)IwGxGetScreenWidth();
-        g_pTweener->Tween(0.5f,
+        if(direction == 0) {
+            m_Next->m_X = (float)IwGxGetScreenWidth();
+                g_pTweener->Tween(0.5f,
                           FLOAT, &m_Next->m_X, 0.0f,
-                          FLOAT, &m_Current->m_X, (float)IwGxGetScreenWidth(),
+                          FLOAT, &m_Current->m_X, -(float)IwGxGetScreenWidth(),
                           EASING, Ease::sineIn,
                           ONCOMPLETE, OnSwitchComplete,
                           END);
+        } else if(direction == 1) {
+            g_pTweener->Tween(0.5f,
+                              FLOAT, &m_Next->m_X, 0.0f,
+                              FLOAT, &m_Current->m_X, (float)IwGxGetScreenWidth(),
+                              EASING, Ease::sineIn,
+                              ONCOMPLETE, OnSwitchComplete,
+                              END);
+        }
     }
 }
-

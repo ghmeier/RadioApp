@@ -36,9 +36,9 @@ protected:
     CSprite*    stopButton;
     CSprite*    playWrapper;
     CSprite*    header;
-    CSprite*    newsBanner;
-    CSprite*    calBanner;
-    CSprite*    eventsBanner;
+    CSprite*    banner;
+    CSprite*    sideBannerOne;
+    CSprite*    sideBannerTwo;
     
     
 public:
@@ -61,3 +61,4 @@ public:
 
 extern float buttonTop;
 extern float buttonBottom;
+extern int currentPage;
