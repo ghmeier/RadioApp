@@ -175,54 +175,46 @@ void Streamer::Init()
     banner = new CSprite();
     banner->SetImage(g_pResources->getNewsBanner());
     banner->m_X = (float)IwGxGetScreenWidth() / 2;
-    banner->m_Y = (float)IwGxGetScreenHeight() / 6;
+    banner->m_Y = (float)IwGxGetScreenHeight() /6;
     banner->m_W = banner->GetImage()->GetWidth();
     banner->m_H = banner->GetImage()->GetHeight();
     banner->m_AnchorX = 0.5;
     banner->m_AnchorY = 0.5;
     // Fit background to screen size
     banner->m_ScaleX = (float)IwGxGetScreenWidth() / banner->GetImage()->GetWidth() / 1;
-    banner->m_ScaleY = (float)IwGxGetScreenHeight() / banner->GetImage()->GetHeight() / 10;
+    banner->m_ScaleY = (float)IwGxGetScreenHeight() / banner->GetImage()->GetHeight() / 8;
     
     sideBannerOne = new CSprite();
     sideBannerOne->SetImage(g_pResources->getCalendarSideBanner());
-    sideBannerOne->m_X = (float)IwGxGetScreenWidth() / 8;
+    sideBannerOne->m_X = (float)IwGxGetScreenWidth() / 7;
     sideBannerOne->m_Y = (float)IwGxGetScreenHeight() / 6;
     sideBannerOne->m_W = sideBannerOne->GetImage()->GetWidth();
     sideBannerOne->m_H = sideBannerOne->GetImage()->GetHeight();
     sideBannerOne->m_AnchorX = 0.5;
     sideBannerOne->m_AnchorY = 0.5;
     // Fit background to screen size
-    sideBannerOne->m_ScaleX = (float)IwGxGetScreenWidth() / sideBannerOne->GetImage()->GetWidth() / 6;
-    sideBannerOne->m_ScaleY = (float)IwGxGetScreenHeight() / sideBannerOne->GetImage()->GetHeight() / 10;
+    sideBannerOne->m_ScaleX = (float)IwGxGetScreenWidth() / sideBannerOne->GetImage()->GetWidth() / 4;
+    sideBannerOne->m_ScaleY = (float)IwGxGetScreenHeight() / sideBannerOne->GetImage()->GetHeight() / 8;
     
     sideBannerTwo = new CSprite();
     sideBannerTwo->SetImage(g_pResources->getEventsSideBanner());
-    sideBannerTwo->m_X = (float)IwGxGetScreenWidth() / 1.2;
+    sideBannerTwo->m_X = (float)IwGxGetScreenWidth() / 1.18;
     sideBannerTwo->m_Y = (float)IwGxGetScreenHeight() / 6;
     sideBannerTwo->m_W = sideBannerTwo->GetImage()->GetWidth();
     sideBannerTwo->m_H = sideBannerTwo->GetImage()->GetHeight();
     sideBannerTwo->m_AnchorX = 0.5;
     sideBannerTwo->m_AnchorY = 0.5;
     // Fit background to screen size
-    sideBannerTwo->m_ScaleX = (float)IwGxGetScreenWidth() / sideBannerTwo->GetImage()->GetWidth() / 6;
-    sideBannerTwo->m_ScaleY = (float)IwGxGetScreenHeight() / sideBannerTwo->GetImage()->GetHeight() / 10;
+    sideBannerTwo->m_ScaleX = (float)IwGxGetScreenWidth() / sideBannerTwo->GetImage()->GetWidth() / 4;
+    sideBannerTwo->m_ScaleY = (float)IwGxGetScreenHeight() / sideBannerTwo->GetImage()->GetHeight() / 8;
     
-    
-    bannerText = new CLabel();
-    bannerText->SetText("News");
-    bannerText->SetFont(g_pResources->getFont());
-    bannerText->m_X = (float)IwGxGetScreenWidth() / 2;
-    bannerText->m_Y = (float)IwGxGetScreenHeight() / 2;
-    
-    AddChild(header);
     AddChild(playWrapper);
     AddChild(playButton);
     AddChild(stopButton);
     AddChild(banner);
     AddChild(sideBannerTwo);
     AddChild(sideBannerOne);
-    AddChild(bannerText);
+    AddChild(header);
     
     stopButton->m_X = IwGxGetScreenWidth() * 2.0;
     currentPage = 0;

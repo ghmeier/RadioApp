@@ -30,9 +30,6 @@ Resources::Resources()
     CalendarSideBanner = Iw2DCreateImage("textures/calendarSideBanner.png");
     EventsSideBanner = Iw2DCreateImage("textures/eventsSideBanner.png");
     NewsSideBanner = Iw2DCreateImage("textures/newsSideBanner.png");
-    
-    // Load fonts
-    Font = Iw2DCreateFont("fonts/track.gxfont");
 }
 
 Resources::~Resources()
@@ -51,7 +48,7 @@ Resources::~Resources()
     delete CalendarSideBanner;
     delete EventsSideBanner;
     delete NewsSideBanner;
-    delete Font;
+    
 }
 
 // Global resources
