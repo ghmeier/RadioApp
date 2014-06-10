@@ -57,10 +57,7 @@ files
 	
 	[Data]
 	(data)
-	IwUIItems.ui
-    IwUIRSS.ui
-    IwUIStyles.itx
-	IwUIRSS.group
+
 }
 
 subprojects
@@ -87,15 +84,9 @@ assets
 
    (data)
     textures
-	offlinefeeds/data.rss
-    offlinefeeds/google_book_print.jpg
-    offlinefeeds/test_nano_zune.jpg
-    offlinefeeds/earns_oracle.jpg
-    offlinefeeds/r1324322558.jpg
-    offlinefeeds/r1742618868.jpg
 
     (data-ram/data-gles1, data)
-    iwuirss.group.bin
+
 }
 
 deployment
