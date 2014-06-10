@@ -90,8 +90,8 @@ int CIwFeedList::ClickEdit(CIwUIElement * pElement)
 
     if (index >= 0)
     {
-        g_TextTitle->SetCaption(m_Feeds[index]->m_FeedTitle);
-        g_TextURL->SetCaption(m_Feeds[index]->m_FeedURL);
+		g_TextTitle->SetCaption(m_Feeds[index]->m_FeedTitle);
+		g_TextURL->SetCaption(m_Feeds[index]->m_FeedURL);
     }
 
     return index;
@@ -148,10 +148,10 @@ void CIwFeedList::EditFeed(int index, const char* pTitle, const char* pURL)
 void CIwFeedList::Update()
 {
     // Clear all existing items
-    for (int h=g_Feeds->GetNumChildren()-1;h>=0;--h)
+	for (int h = g_Feeds->GetNumChildren() - 1; h >= 0; --h)
     {
-        CIwUIElement * child = g_Feeds->GetChild(h);
-        g_Feeds->RemoveChild(child);
+		CIwUIElement * child = g_Feeds->GetChild(h);
+		g_Feeds->RemoveChild(child);
         delete child;
     }
 
@@ -161,7 +161,7 @@ void CIwFeedList::Update()
     for (uint32 i=0;i<m_Feeds.size();i++)
     {
         //Instantiate the new item
-        CIwUIElement* pItem = g_FeedTemplate->Clone();
+		CIwUIElement* pItem = g_FeedTemplate->Clone();
 
         // Prepare the last updated string
         char strUpdated[100] = "";
@@ -235,7 +235,7 @@ void CIwFeedList::Update()
         pItem->SetName(buf);
 
         //Add to the list and its layout
-        g_Feeds->GetLayout()->AddElement(pItem);
+		g_Feeds->GetLayout()->AddElement(pItem);
         m_Feeds[i]->m_Element = pItem;
     }
 }

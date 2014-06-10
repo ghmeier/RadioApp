@@ -14,6 +14,8 @@
 #define __NEWSSCENE_H__
 
 #include "scene.h"
+#include "IwUI.h"
+#include "src/IwRSS.h"
 
 /**
  * @class NewsScene
@@ -46,10 +48,14 @@ public:
     // Render the menu
     void            Render();
     
-    // Button callbacks
+    // Button callback
     static void     startGame(CTween* pTween);
     
+
+private:
+	CIwRSS* feed;
 };
+
 
 #endif  // __NEWSSCENE_H__
 

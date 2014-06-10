@@ -2,9 +2,14 @@
 
 options
 {
-	module_path = "subprojects"
 	enable-exceptions = 1
 	cflags="-std=c++0x"
+}
+
+packages
+{
+    libjpeg
+    tinyxml
 }
 
 files
@@ -32,11 +37,30 @@ files
     "*.h"
     HttpClient.cpp
     HttpClient.h
+    IwJPEG.cpp
+    IwRSS.cpp
+    IwFeedList.cpp
+    IwFeedList.h
+    IwFeed.cpp
+    IwFeed.h
+    IwHTTPQueue.cpp
+    IwModalStack.cpp
+    IwModalStack.h
+    IwHTTPQueue.h
+    IwJPEG.h
+    IwRSS.h
 
 	[util]
     (src/util)
     "*.cpp"
     "*.h"
+	
+	[Data]
+	(data)
+	IwUIItems.ui
+    IwUIRSS.ui
+    IwUIStyles.itx
+	IwUIRSS.group
 }
 
 subprojects
@@ -50,14 +74,28 @@ subprojects
     iwtween
     iwhttp
 	curl
+	derbh
+
+    libjpeg
+    tinyxml
 	third_party/openssl
 }
 
 assets
 {
-    (data)
-    textures
+    feeds.bin
 
+   (data)
+    textures
+	offlinefeeds/data.rss
+    offlinefeeds/google_book_print.jpg
+    offlinefeeds/test_nano_zune.jpg
+    offlinefeeds/earns_oracle.jpg
+    offlinefeeds/r1324322558.jpg
+    offlinefeeds/r1742618868.jpg
+
+    (data-ram/data-gles1, data)
+    iwuirss.group.bin
 }
 
 deployment
