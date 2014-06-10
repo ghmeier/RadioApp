@@ -32,17 +32,7 @@ Resources::Resources()
     NewsSideBanner = Iw2DCreateImage("textures/newsSideBanner.png");
     
     // Load fonts
-    /*Font = Iw2DCreateFont("fonts/arial8.gxfont");
-    
-    // Create atlases
-    int frame_w = (int)(Gems[0]->GetWidth() / 5);
-    int frame_h = (int)(Gems[0]->GetHeight() / 3);
-    for (int t = 0; t < MAX_GEM_TYPES; t++)
-        GemAtlases[t] = new CAtlas(frame_w, frame_h, 15, Gems[t]);
-    frame_w = (int)(Explosion->GetWidth() / 5);
-    frame_h = (int)(Explosion->GetHeight() / 3);
-    ExplosionAtlas = new CAtlas(frame_w, frame_h, 15, Explosion);
-     */
+    Font = Iw2DCreateFont("fonts/Track.ttf");
 }
 
 Resources::~Resources()
@@ -61,6 +51,7 @@ Resources::~Resources()
     delete CalendarSideBanner;
     delete EventsSideBanner;
     delete NewsSideBanner;
+    delete Font;
 }
 
 // Global resources

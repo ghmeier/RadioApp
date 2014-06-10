@@ -39,6 +39,7 @@ protected:
     CSprite*    banner;
     CSprite*    sideBannerOne;
     CSprite*    sideBannerTwo;
+    CLabel*     bannerText;
     
     
 public:

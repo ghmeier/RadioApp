@@ -208,6 +208,13 @@ void Streamer::Init()
     sideBannerTwo->m_ScaleX = (float)IwGxGetScreenWidth() / sideBannerTwo->GetImage()->GetWidth() / 6;
     sideBannerTwo->m_ScaleY = (float)IwGxGetScreenHeight() / sideBannerTwo->GetImage()->GetHeight() / 10;
     
+    
+    bannerText = new CLabel();
+    bannerText->SetText("News");
+    bannerText->SetFont(g_pResources->getFont());
+    bannerText->m_X = (float)IwGxGetScreenWidth() / 2;
+    bannerText->m_Y = (float)IwGxGetScreenHeight() / 2;
+    
     AddChild(header);
     AddChild(playWrapper);
     AddChild(playButton);
@@ -215,6 +222,7 @@ void Streamer::Init()
     AddChild(banner);
     AddChild(sideBannerTwo);
     AddChild(sideBannerOne);
+    AddChild(bannerText);
     
     stopButton->m_X = IwGxGetScreenWidth() * 2.0;
     currentPage = 0;
