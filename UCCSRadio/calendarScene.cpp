@@ -24,8 +24,8 @@ CalendarScene::~CalendarScene()
 void CalendarScene::startGame(CTween* pTween)
 {
     // Switch to game scene
-    EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");
-    g_pSceneManager->SwitchTo(events);
+    //EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");
+    //g_pSceneManager->SwitchTo(events);
     
 }
 
@@ -73,7 +73,7 @@ void CalendarScene::Init()
     background->m_AnchorY = 0.5;
     // Fit background to screen size
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
-    background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
+    background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight() * 6;
     AddChild(background);
     
     // Create Start Game button

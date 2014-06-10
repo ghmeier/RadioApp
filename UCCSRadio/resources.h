@@ -39,6 +39,13 @@ protected:
     CIw2DImage*     StopButton;
     CIw2DImage*     PlayWrapper;
     CIw2DImage*     Header;
+    CIw2DImage*     CalendarBanner;
+    CIw2DImage*     EventsBanner;
+    CIw2DImage*     NewsBanner;
+    CIw2DImage*     CalendarSideBanner;
+    CIw2DImage*     EventsSideBanner;
+    CIw2DImage*     NewsSideBanner;
+    
     
 public:
     
@@ -49,6 +56,13 @@ public:
     CIw2DImage*     getStopButton()                 { return StopButton; }
     CIw2DImage*     getPlayWrapper()                { return PlayWrapper; }
     CIw2DImage*     getHeader()                     { return Header; }
+    CIw2DImage*     getCalendarBanner()             { return CalendarBanner; }
+    CIw2DImage*     getEventsBanner()               { return EventsBanner; }
+    CIw2DImage*     getNewsBanner()                 { return NewsBanner; }
+    CIw2DImage*     getCalendarSideBanner()         { return CalendarSideBanner; }
+    CIw2DImage*     getEventsSideBanner()           { return EventsSideBanner; }
+    CIw2DImage*     getNewsSideBanner()             { return NewsSideBanner; }
+    
 
 public:
     Resources();

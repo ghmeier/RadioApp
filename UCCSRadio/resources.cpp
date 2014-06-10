@@ -24,19 +24,12 @@ Resources::Resources()
     StopButton = Iw2DCreateImage("textures/button-stop.png");
     PlayWrapper = Iw2DCreateImage("textures/bottom-wrapper.png");
     Header = Iw2DCreateImage("textures/header.png");
-    
-    // Load fonts
-    /*Font = Iw2DCreateFont("fonts/arial8.gxfont");
-    
-    // Create atlases
-    int frame_w = (int)(Gems[0]->GetWidth() / 5);
-    int frame_h = (int)(Gems[0]->GetHeight() / 3);
-    for (int t = 0; t < MAX_GEM_TYPES; t++)
-        GemAtlases[t] = new CAtlas(frame_w, frame_h, 15, Gems[t]);
-    frame_w = (int)(Explosion->GetWidth() / 5);
-    frame_h = (int)(Explosion->GetHeight() / 3);
-    ExplosionAtlas = new CAtlas(frame_w, frame_h, 15, Explosion);
-     */
+    CalendarBanner = Iw2DCreateImage("textures/calendarBanner.png");
+    EventsBanner = Iw2DCreateImage("textures/eventsBanner.png");
+    NewsBanner = Iw2DCreateImage("textures/newsBanner.png");
+    CalendarSideBanner = Iw2DCreateImage("textures/calendarSideBanner.png");
+    EventsSideBanner = Iw2DCreateImage("textures/eventsSideBanner.png");
+    NewsSideBanner = Iw2DCreateImage("textures/newsSideBanner.png");
 }
 
 Resources::~Resources()
@@ -49,6 +42,13 @@ Resources::~Resources()
     delete PlayWrapper;
     delete Header;
     delete StopButton;
+    delete CalendarBanner;
+    delete EventsBanner;
+    delete NewsBanner;
+    delete CalendarSideBanner;
+    delete EventsSideBanner;
+    delete NewsSideBanner;
+    
 }
 
 // Global resources

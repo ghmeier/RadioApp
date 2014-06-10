@@ -24,8 +24,8 @@ EventsScene::~EventsScene()
 void EventsScene::startGame(CTween* pTween)
 {
     // Switch to game scene
-    NewsScene* news = (NewsScene*)g_pSceneManager->Find("newsscene");
-    g_pSceneManager->SwitchTo(news);
+    //NewsScene* news = (NewsScene*)g_pSceneManager->Find("newsscene");
+    //g_pSceneManager->SwitchTo(news);
     
 }
 

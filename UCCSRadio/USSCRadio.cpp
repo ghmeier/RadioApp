@@ -27,7 +27,6 @@
 #include "src/HttpClient.h"
 #include "s3e.h"
 #include "IwDebug.h"
-#include "IwUI.h"
 #include <IwHTTP.h>
 
 
@@ -47,7 +46,7 @@ int main()
 
     // Initialise the 2D graphics system
     Iw2DInit();
-	IwUIInit();
+	//IwUIInit();
     
     // Create resources
     g_pResources = new Resources();
@@ -81,7 +80,7 @@ int main()
     g_pSceneManager->Add(events_scene);
     
     // Switch to main menu scene
-    g_pSceneManager->SwitchTo(news_scene);
+    g_pSceneManager->SwitchTo(news_scene, 0);
     
 
     Streamer* streamer = new Streamer();
@@ -90,7 +89,10 @@ int main()
 	HttpClient* globalHttpClient = new HttpClient(5, "HttpClient");
 	Ptr<HttpDownload> xmlDownload = new HttpDownload("http://radio.uccs.edu/index.php/feed", "feed.xml");
 	globalHttpClient->QueueRequest(xmlDownload);
-
+    
+    Ptr<HttpDownload> xmlCalendarDownload = new HttpDownload("http://radio.uccs.edu/index.php/schedule", "calendar.xml");
+    globalHttpClient->QueueRequest(xmlCalendarDownload);
+    
     // Loop forever, until the user or the OS performs some action to quit the app
     while (!s3eDeviceCheckQuitRequest())
     {
@@ -140,11 +142,12 @@ int main()
     delete g_pTweener;
     delete g_pResources;
 	delete globalHttpClient;
+    xmlCalendarDownload = nullptr;
 	xmlDownload = nullptr;
     delete streamer;
 
-
     Iw2DTerminate();
   	HttpClient::GlobalCleanup();
+
     return 0;
 }

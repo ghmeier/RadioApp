@@ -15,6 +15,8 @@
 #include "resources.h"
 #include "calendarScene.h"
 #include "streamer.h"
+#include "IwGx.h"
+#include "IwGxFont.h"
 
 NewsScene::~NewsScene()
 {
@@ -23,8 +25,8 @@ NewsScene::~NewsScene()
 
 void NewsScene::startGame(CTween* pTween)
 {
-    CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
-    g_pSceneManager->SwitchTo(cal);
+    //CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
+    //g_pSceneManager->SwitchTo(cal);
     
 }
 
@@ -82,4 +84,3 @@ void NewsScene::Init()
 	feed->Update();
 
 }
-

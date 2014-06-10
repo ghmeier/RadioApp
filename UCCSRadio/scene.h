@@ -148,7 +148,7 @@ public:
      *
      * @param scene   Thew new scene.
      */
-    void    SwitchTo(Scene* scene);
+    void    SwitchTo(Scene* scene, int direction);
     
     /**
      * @fn    void SceneManager::Update(float deltaTime = 0.0f);
