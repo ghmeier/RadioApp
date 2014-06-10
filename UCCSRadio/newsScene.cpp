@@ -61,7 +61,7 @@ void NewsScene::Render()
 void NewsScene::Init()
 {
     Scene::Init();
-	IwUIInit();
+	//IwUIInit();
    
     
     // Create menu background

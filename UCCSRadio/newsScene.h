@@ -14,7 +14,7 @@
 #define __NEWSSCENE_H__
 
 #include "scene.h"
-#include "IwUI.h"
+//#include "IwUI.h"
 #include "src/IwRSS.h"
 
 /**
