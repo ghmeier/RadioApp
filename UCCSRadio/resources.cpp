@@ -32,7 +32,7 @@ Resources::Resources()
     NewsSideBanner = Iw2DCreateImage("textures/newsSideBanner.png");
     
     // Load fonts
-    Font = Iw2DCreateFont("fonts/Track.ttf");
+    Font = Iw2DCreateFont("fonts/arial8.gxfont");
 }
 
 Resources::~Resources()
