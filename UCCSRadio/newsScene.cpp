@@ -11,11 +11,33 @@
  */
 
 #include "newsScene.h"
-#include "IwGx.h"
 #include "input.h"
 #include "resources.h"
 #include "calendarScene.h"
 #include "streamer.h"
+#include "IwGx.h"
+#include "IwGxFont.h"
+#include "IwUI.h"
+#include "IwUIAnimation.h"
+#include "IwUIController.h"
+#include "IwUIButton.h"
+#include "IwUICheckbox.h"
+#include "IwUIElement.h"
+#include "IwUIEvent.h"
+#include "IwUILabel.h"
+#include "IwUISlider.h"
+#include "IwUIView.h"
+#include "IwUIProgressBar.h"
+#include "IwUIPropertySet.h"
+#include "s3eKeyboard.h"
+#include "s3eOSExec.h"
+#include "s3eOSReadString.h"
+#include "IwUISoftKeyboard.h"
+#include "IwUITextInput.h"
+#include "src/IwRSS.h"
+#include "src/IwJPEG.h"
+#include "src/IwFeedList.h"
+#include "src/IwModalStack.h"
 
 NewsScene::~NewsScene()
 {
@@ -75,6 +97,14 @@ void NewsScene::Init()
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
     AddChild(background);
     
+	//adding scroll view
+	CIwUIView view;
+	CIwUIController controller;
+	CIwUIElementEventHandler key;
+	//CIwModalStack modalStack;
+	CIwFeedList feedList;
+
+
     // Create Start Game button
     /*float y_pos = (float)IwGxGetScreenHeight() * 0.66f;
     playButton = new CSprite();

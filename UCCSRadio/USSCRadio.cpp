@@ -27,6 +27,7 @@
 #include "src/HttpClient.h"
 #include "s3e.h"
 #include "IwDebug.h"
+#include "IwUI.h"
 #include <IwHTTP.h>
 
 
@@ -46,6 +47,7 @@ int main()
 
     // Initialise the 2D graphics system
     Iw2DInit();
+	IwUIInit();
     
     // Create resources
     g_pResources = new Resources();
