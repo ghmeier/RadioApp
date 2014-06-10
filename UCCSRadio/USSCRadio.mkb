@@ -54,9 +54,6 @@ files
     (src/util)
     "*.cpp"
     "*.h"
-	
-	[Data]
-	(data)
 
 }
 
@@ -84,8 +81,6 @@ assets
 
    (data)
     textures
-
-    (data-ram/data-gles1, data)
 
 }
 

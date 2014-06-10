@@ -1,0 +1,179 @@
+
+CIwUIElement 
+{
+	name "FeedItemTemplate"
+	CIwUIButton 
+	{
+		name "ButtonBase"
+		sizeMax  { -1 -1 }
+		font "font_medium"
+		buttonUp <list_panel>
+		buttonDown <list_panel>
+		focus <focus_large>
+		
+		
+		CIwUIImage 
+		{
+			name "Icon"
+			style <RSSFeedIcon>
+		}
+		
+		CIwUILabel 
+		{
+			name "Feed"
+			style <FeedLabel>
+			sizeHint	{ 1000 10 }
+			alignV bottom
+		}
+		CIwUILabel 
+		{
+			name "Updated"
+			style <UpdatedLabel>
+			sizeHint	{ 1000 10 }
+			alignV top
+		}
+		
+		CIwUIButton 
+		{
+			name "ButtonFetch"
+			style <rss-button>
+			OnButtonClick  { "CController::OnClickFetch" }
+			CIwUIImage 
+			{
+				name "more_icon"
+				style <MoreIcon>
+			}
+			CIwUILayout 
+			{
+				name ""
+				element 
+				{
+					name "more_icon"
+					alignH "centre"
+					alignV "middle"
+				}
+			}
+		}
+		CIwUILayoutGrid 
+		{
+			name ""
+			sizeToSpace true
+			
+			column { }
+			column { }
+			column { }
+			
+			row { }
+			row { }
+
+			element 
+			{
+				name "Icon"
+				alignH centre
+				alignV middle
+				border { 5 5 }
+				row 0
+				column 0
+				rowSpan 2
+			}
+			element 
+			{
+				name "Feed"
+				alignH centre
+				alignV bottom
+				row 0
+				column 1
+			}
+			element 
+			{
+				name "Updated"
+				alignH centre
+				alignV top
+				row 1
+				column 1
+			}
+			element 
+			{
+				name "ButtonFetch"
+				style <fetch-border>
+				alignH "right"
+				alignV "middle"
+				row 0
+				column 2
+				rowSpan 2
+			}
+		}
+	}
+	CIwUILayoutVertical 
+	{
+		name ""
+		sizeToSpace true
+		element 
+		{
+			name "ButtonBase"
+		}
+	}
+}
+CIwUIElement 
+{
+	name "RSSItemTemplate"
+		
+	CIwUIButton 
+	{
+		name "RSSItemBack"
+		sizeMax  { -1 -1 }
+		font "font_medium"
+		buttonUp <list_panel>
+		buttonDown <list_panel>
+		focus <focus_large>
+		
+		CIwUILayout
+		{
+			element
+			{
+				name "Labels"
+				border { 5 5 }
+			}
+		}
+		
+		CIwUIElement
+		{
+			name "Labels"	
+			
+			CIwUILayoutVertical 
+			{
+				name ""
+				element 
+				{
+					name "Title"
+					alignH "left"
+					alignV "top"
+				}
+				element 
+				{
+					name "Description"
+					alignH "left"
+					alignV "top"
+				}
+			}
+			CIwUILabel 
+			{
+				name "Title"
+				style <ItemTitle>
+			}
+			CIwUILabel 
+			{
+				name "Description"
+				style <ItemDescription>
+			}
+		}	
+	}
+	CIwUILayout 
+	{
+		name ""
+		element 
+		{
+			name "RSSItemBack"
+		}
+	}
+}
