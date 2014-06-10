@@ -11,11 +11,33 @@
  */
 
 #include "newsScene.h"
-#include "IwGx.h"
 #include "input.h"
 #include "resources.h"
 #include "calendarScene.h"
 #include "streamer.h"
+#include "IwGx.h"
+#include "IwGxFont.h"
+#include "IwUI.h"
+#include "IwUIAnimation.h"
+#include "IwUIController.h"
+#include "IwUIButton.h"
+#include "IwUICheckbox.h"
+#include "IwUIElement.h"
+#include "IwUIEvent.h"
+#include "IwUILabel.h"
+#include "IwUISlider.h"
+#include "IwUIView.h"
+#include "IwUIProgressBar.h"
+#include "IwUIPropertySet.h"
+#include "s3eKeyboard.h"
+#include "s3eOSExec.h"
+#include "s3eOSReadString.h"
+#include "IwUISoftKeyboard.h"
+#include "IwUITextInput.h"
+#include "src/IwRSS.h"
+#include "src/IwJPEG.h"
+#include "src/IwFeedList.h"
+#include "src/IwModalStack.h"
 
 NewsScene::~NewsScene()
 {
@@ -75,4 +97,45 @@ void NewsScene::Init()
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
     AddChild(background);
     
+<<<<<<< HEAD
+=======
+	//adding scroll view
+	CIwUIView view;
+	CIwUIController controller;
+	CIwUIElementEventHandler key;
+	//CIwModalStack modalStack;
+	CIwFeedList feedList;
+
+
+    // Create Start Game button
+    /*float y_pos = (float)IwGxGetScreenHeight() * 0.66f;
+    playButton = new CSprite();
+    playButton->SetImage(g_pResources->getPlacard());
+    playButton->m_X = IwGxGetScreenWidth() / 2.0f;
+    playButton->m_Y = y_pos;
+    playButton->m_W = playButton->GetImage()->GetWidth();
+    playButton->m_H = playButton->GetImage()->GetHeight();
+    playButton->m_AnchorX = 0.5f;
+    playButton->m_AnchorY = 0.5f;
+    playButton->m_ScaleX = game->getGraphicsScale() * 1.5f;
+    playButton->m_ScaleY = game->getGraphicsScale() * 1.5f;
+    AddChild(playButton);
+    */
+    // Create Start Game button text
+    /*playText = new CSprite();
+    playText->SetImage(g_pResources->getPlayButton());
+    playText->m_X = (float)IwGxGetScreenWidth() / 2;
+    playText->m_Y = y_pos;
+    playText->m_W = playText->GetImage()->GetWidth();
+    playText->m_H = playText->GetImage()->GetHeight();
+    playText->m_AnchorX = 0.5f;
+    playText->m_AnchorY = 0.5f;
+    playText->m_ScaleX = game->getGraphicsScale();
+    playText->m_ScaleY = game->getGraphicsScale();
+    AddChild(playText);
+    
+    // Start menu music
+    Audio::PlayMusic("audio/frontend.mp3");
+    */
+>>>>>>> f1e564ceee45d702778688e62f1d8fb6547cfb99
 }

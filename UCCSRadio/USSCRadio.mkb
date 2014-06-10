@@ -44,6 +44,7 @@ subprojects
     iwutil
     iw2dscenegraphcore
     iw2dscenegraph
+	iwnui
     iwgx
     iwresmanager
     iwtween
