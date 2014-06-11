@@ -77,10 +77,15 @@ void NewsScene::Init()
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
     AddChild(background);
+	CLabel* label = new CLabel();
+	label->SetFont(this->font);
+	label->m_Text = "HELLO WORLD";
     
 	//adding scroll view
 	feed = new CIwRSS();
+	printf("fetching...\n");
 	feed->FetchFeed("http://radio.uccs.edu/index.php/feed");
+	printf("finished fetching\n");
 	feed->Update();
     
 }

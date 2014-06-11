@@ -38,6 +38,7 @@ void CIwRSS::Update()
 void CIwRSS::HTTPHandler(void* pArgument, const char* pURL,
     const char* pResult, int32 resultLen)
 {
+	printf("\nthis is called hopefully??\n");
     if (pArgument && pResult && resultLen > 0)
     {
         CIwRSS* pRSS = ((CIwRSS*)pArgument);
@@ -121,7 +122,6 @@ void CIwRSS::ParseRSS(const char * data)
 
                 //Found title
                 std::string titlestr = title->Value();
-				printf("\ntitle: %s\n", titlestr.c_str());
                 std::string description = "";
                 std::string image = "";
 

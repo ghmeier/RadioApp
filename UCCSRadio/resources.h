@@ -45,7 +45,11 @@ protected:
     CIw2DImage*     CalendarSideBanner;
     CIw2DImage*     EventsSideBanner;
     CIw2DImage*     NewsSideBanner;
+<<<<<<< HEAD
     CIw2DImage*     WhiteBanner;
+=======
+	CIw2DFont*		Font;
+>>>>>>> b578d7d3dea54aa2619ab4b9564172b5cef20302
     
     
 public:
@@ -63,8 +67,12 @@ public:
     CIw2DImage*     getCalendarSideBanner()         { return CalendarSideBanner; }
     CIw2DImage*     getEventsSideBanner()           { return EventsSideBanner; }
     CIw2DImage*     getNewsSideBanner()             { return NewsSideBanner; }
+<<<<<<< HEAD
     CIw2DImage*     getWhiteBanner()                { return WhiteBanner; }
     
+=======
+	CIw2DFont*		getFont()						{ return Font; }
+>>>>>>> b578d7d3dea54aa2619ab4b9564172b5cef20302
 
 public:
     Resources();
