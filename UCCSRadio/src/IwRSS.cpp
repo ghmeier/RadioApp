@@ -69,7 +69,7 @@ void CIwRSS::HandleResult(const char* url, const char *data, int32 dataLen)
     }
     else
     {
-        //THIS IS WHERE YOU ADD RSS STUFF
+        //THIS IS WHERE YOU ADD RSS Visaul STUFF
     }
 
     m_Progress = IW_FIXED_DIV(m_FeedItems.find((CFeedItem*)pFeedItem)+1, m_FeedItems.size());
@@ -109,7 +109,6 @@ void CIwRSS::ParseRSS(const char * data)
     {
         //Find channel
         channel = node->FirstChild("channel");
-
         if (channel != 0 && channel->ToElement())
         {
             //Loop through feed items
@@ -122,6 +121,7 @@ void CIwRSS::ParseRSS(const char * data)
 
                 //Found title
                 std::string titlestr = title->Value();
+				printf("\ntitle: %s\n", titlestr.c_str());
                 std::string description = "";
                 std::string image = "";
 
@@ -188,7 +188,7 @@ void CIwRSS::ParseRSS(const char * data)
 
                 IwTrace(UI, ("Desc: %s", description.c_str()));
 
-                //ADD RSS INFO STRINGS!!!
+                //ADD RSS INFO STRINGS to visual stuff?!!!
 
                 if (image.length())
                 {

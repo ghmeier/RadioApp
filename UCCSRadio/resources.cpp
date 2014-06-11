@@ -17,19 +17,19 @@
 Resources::Resources()
 {
     // Load images
-    CalendarBG = Iw2DCreateImage("textures/calendarBG.png");
-    EventsBG = Iw2DCreateImage("textures/eventsBG.png");
-    NewsBG = Iw2DCreateImage("textures/newsBG.png");
-    PlayButton = Iw2DCreateImage("textures/button-up.png");
-    StopButton = Iw2DCreateImage("textures/button-stop.png");
-    PlayWrapper = Iw2DCreateImage("textures/bottom-wrapper.png");
-    Header = Iw2DCreateImage("textures/header.png");
-    CalendarBanner = Iw2DCreateImage("textures/calendarBanner.png");
-    EventsBanner = Iw2DCreateImage("textures/eventsBanner.png");
-    NewsBanner = Iw2DCreateImage("textures/newsBanner.png");
-    CalendarSideBanner = Iw2DCreateImage("textures/calendarSideBanner.png");
-    EventsSideBanner = Iw2DCreateImage("textures/eventsSideBanner.png");
-    NewsSideBanner = Iw2DCreateImage("textures/newsSideBanner.png");
+    CalendarBG = Iw2DCreateImage("textures/calendarBGSmall.png");
+    EventsBG = Iw2DCreateImage("textures/eventsBGSmall.png");
+    NewsBG = Iw2DCreateImage("textures/newsBGSmall.png");
+    PlayButton = Iw2DCreateImage("textures/button-upSmall.png");
+    StopButton = Iw2DCreateImage("textures/button-stopSmall.png");
+    PlayWrapper = Iw2DCreateImage("textures/bottom-wrapperSmall.png");
+    Header = Iw2DCreateImage("textures/headerSmall.png");
+    CalendarBanner = Iw2DCreateImage("textures/CalendarBannerSmall.png");
+    EventsBanner = Iw2DCreateImage("textures/EventsBannerSmall.png");
+    NewsBanner = Iw2DCreateImage("textures/NewsBannerSmall.png");
+    CalendarSideBanner = Iw2DCreateImage("textures/calendarSideBannerSmall.png");
+    EventsSideBanner = Iw2DCreateImage("textures/eventsSideBannerSmall.png");
+    NewsSideBanner = Iw2DCreateImage("textures/newsSideBannerSmall.png");
 }
 
 Resources::~Resources()
