@@ -40,8 +40,9 @@ Resources::Resources()
 
 	//get Font
 	IwGetResManager()->LoadGroup("uccsFont.group");
-	CIwResGroup* pGroup = IwGetResManager()->GetGroupNamed("TrackFont");
-	Font = (CIw2DFont*)IwGetResManager()->GetResNamed("TrackFont","CIw2DFont");
+	CIwResGroup* pGroup = IwGetResManager()->GetGroupNamed("mainFont");
+	CIwGxFont* gxFont = (CIwGxFont*)IwGetResManager()->GetResNamed("trackFont","CIwGxFont");
+	Font = Iw2DCreateFont("trackFont");
 
 }
 

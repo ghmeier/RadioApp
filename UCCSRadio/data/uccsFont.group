@@ -1,6 +1,5 @@
-Text file "uccsFont.group"
 CIwResGroup
 {
-	name "TrackFont"
+	name mainFont
 	"trackFont.gxfont"
 }
