@@ -30,8 +30,10 @@ Resources::Resources()
     EventsSideBanner = Iw2DCreateImage("textures/eventsSideBannerSmall.png");
     NewsSideBanner = Iw2DCreateImage("textures/newsSideBannerSmall.png");
     WhiteBanner = Iw2DCreateImage("textures/whiteBanner.png");
+	GreyBanner = Iw2DCreateImage("textures/greyBanner.png");
 
 	Font = Iw2DCreateFont("trackFont.gxfont");
+	Font20 = Iw2DCreateFont("trackFont20.gxfont");
 
 }
 
@@ -52,6 +54,7 @@ Resources::~Resources()
     delete EventsSideBanner;
     delete NewsSideBanner;
     delete WhiteBanner;
+    delete GreyBanner;
     delete Font;
     
 }

@@ -39,6 +39,7 @@ protected:
     CSprite*    banner;
     CLabel*     labelLeft;
     CLabel*     labelRight;
+    CLabel*     labelMain;
     
     
 public:
