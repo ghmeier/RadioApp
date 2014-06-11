@@ -20,7 +20,7 @@
 
 NewsScene::~NewsScene()
 {
-
+    delete feed;
 }
 
 void NewsScene::startGame(CTween* pTween)
@@ -82,5 +82,5 @@ void NewsScene::Init()
 	feed = new CIwRSS();
 	feed->FetchFeed("http://radio.uccs.edu/index.php/feed");
 	feed->Update();
-
+    
 }
