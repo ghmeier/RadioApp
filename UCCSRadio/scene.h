@@ -202,6 +202,7 @@ public:
 };
 
 extern SceneManager* g_pSceneManager;
+extern bool sceneSwitchComplete;
 
 
 #endif  // __SCENE_H__

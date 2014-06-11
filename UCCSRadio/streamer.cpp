@@ -34,7 +34,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
     CNode::Update(deltaTime, alphaMul);
     
     // Detect screen tap
-    if (!g_pInput->m_Touched && g_pInput->m_PrevTouched)
+    if (!g_pInput->m_Touched && g_pInput->m_PrevTouched && sceneSwitchComplete)
     {
         if(playButton->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
             g_pInput->Reset();
@@ -49,6 +49,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
         }
         
 		if (labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y) || Input::SwipeRightMotionDetect()) {
+            sceneSwitchComplete = false;
             g_pInput->Reset();
             if(currentPage == 0) {
                 CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
@@ -83,6 +84,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
             
 		}
 		else if (labelRight->HitTest(g_pInput->m_X, g_pInput->m_Y) || Input::SwipeLeftMotionDetect()) {
+            sceneSwitchComplete = false;
             g_pInput->Reset();
             if(currentPage == 0) {
                 EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");
