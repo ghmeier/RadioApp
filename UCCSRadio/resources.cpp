@@ -30,6 +30,7 @@ Resources::Resources()
     CalendarSideBanner = Iw2DCreateImage("textures/calendarSideBannerSmall.png");
     EventsSideBanner = Iw2DCreateImage("textures/eventsSideBannerSmall.png");
     NewsSideBanner = Iw2DCreateImage("textures/newsSideBannerSmall.png");
+    WhiteBanner = Iw2DCreateImage("textures/whiteBanner.png");
 }
 
 Resources::~Resources()
@@ -48,6 +49,7 @@ Resources::~Resources()
     delete CalendarSideBanner;
     delete EventsSideBanner;
     delete NewsSideBanner;
+    delete WhiteBanner;
     
 }
 

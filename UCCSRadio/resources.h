@@ -45,6 +45,7 @@ protected:
     CIw2DImage*     CalendarSideBanner;
     CIw2DImage*     EventsSideBanner;
     CIw2DImage*     NewsSideBanner;
+    CIw2DImage*     WhiteBanner;
     
     
 public:
@@ -62,6 +63,7 @@ public:
     CIw2DImage*     getCalendarSideBanner()         { return CalendarSideBanner; }
     CIw2DImage*     getEventsSideBanner()           { return EventsSideBanner; }
     CIw2DImage*     getNewsSideBanner()             { return NewsSideBanner; }
+    CIw2DImage*     getWhiteBanner()                { return WhiteBanner; }
     
 
 public:

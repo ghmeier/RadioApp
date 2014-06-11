@@ -126,8 +126,8 @@ void Streamer::Init()
     header->m_AnchorX = 0.5;
     header->m_AnchorY = 0.5;
     // Fit background to screen size
-    header->m_ScaleX = (float)IwGxGetScreenWidth() / header->GetImage()->GetWidth() / 1;
-    header->m_ScaleY = (float)IwGxGetScreenHeight() / header->GetImage()->GetHeight() / 8;
+    header->m_ScaleX = (float)IwGxGetScreenWidth() / header->GetImage()->GetWidth() / 1.5;
+    header->m_ScaleY = (float)IwGxGetScreenHeight() / header->GetImage()->GetHeight() / 5;
     
     //buttonBottom = ((float)IwGxGetScreenHeight() / 17) + (header->GetImage()->GetHeight() / 1.4);
     
