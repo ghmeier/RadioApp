@@ -43,7 +43,7 @@
 class Input
 {
 public:
-    int             m_X, m_Y;           // Touched position
+    int             m_X, m_Y,start_X,start_Y;           // Touched position
     bool            m_Touched;          // Touched status
     bool            m_PrevTouched;      // Previous touched status
     
@@ -64,6 +64,8 @@ public:
     void            Reset();
     
     // Callbacks
+	bool		SwipeLeftMotionDetect(int x , int y);
+	bool		SwipeRightMotionDetect(int x, int y);
     static void     TouchButtonCB(s3ePointerEvent* event);
     static void     TouchMotionCB(s3ePointerMotionEvent* event);
     static void     MultiTouchButtonCB(s3ePointerTouchEvent* event);

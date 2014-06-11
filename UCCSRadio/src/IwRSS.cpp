@@ -18,6 +18,8 @@
 #include "s3eMemory.h"
 #include <stdio.h>
 #include "tinyxml.h"
+#include "../USSCRadio.h"
+#include "../resources.h"
 
 // Globals
 CIwRSS * g_IwRSS = 0;
@@ -38,13 +40,12 @@ void CIwRSS::Update()
 void CIwRSS::HTTPHandler(void* pArgument, const char* pURL,
     const char* pResult, int32 resultLen)
 {
-	printf("\nthis is called hopefully??\n");
     if (pArgument && pResult && resultLen > 0)
     {
         CIwRSS* pRSS = ((CIwRSS*)pArgument);
         IwAssert(UI, pRSS == g_IwRSS);
 
-        // Handle Data fetched by HTTP
+		// Handle Data fetched by HTTP
         pRSS->HandleResult(pURL, pResult, resultLen);
     }
     else
@@ -188,7 +189,13 @@ void CIwRSS::ParseRSS(const char * data)
 
                 IwTrace(UI, ("Desc: %s", description.c_str()));
 
-                //ADD RSS INFO STRINGS to visual stuff?!!!
+				//RSS FEED ITEMs...
+				CLabel* label = new CLabel();
+				label->SetFont(g_pResources->getFont());
+				label->SetText(titlestr);
+				label->m_X = IwGxGetDisplayWidth() / 2;
+				label->m_Y = IwGxGetDisplayHeight() / 2;
+				myScene->AddChild(label);
 
                 if (image.length())
                 {
@@ -201,8 +208,9 @@ void CIwRSS::ParseRSS(const char * data)
 
 //-----------------------------------------------------------------------------
 
-CIwRSS::CIwRSS() : m_Progress(0)
+CIwRSS::CIwRSS(Scene* scene) : m_Progress(0)
 {
+	myScene = scene;
     m_HTTPQueue.SetMaxResultLen(200000);
 }
 

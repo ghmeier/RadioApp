@@ -16,7 +16,7 @@
 #include "calendarScene.h"
 #include "streamer.h"
 #include "IwGx.h"
-#include "IwGxFont.h"
+
 
 NewsScene::~NewsScene()
 {
@@ -87,7 +87,7 @@ void NewsScene::Init()
     AddChild(label);
     
 	//adding scroll view
-	feed = new CIwRSS();
+	feed = new CIwRSS(this);
 	printf("fetching...\n");
 	feed->FetchFeed("http://radio.uccs.edu/index.php/feed");
 	printf("finished fetching\n");

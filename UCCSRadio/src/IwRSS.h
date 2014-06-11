@@ -22,6 +22,7 @@
 #include "IwHTTPQueue.h"
 #include "IwUILabel.h"
 #include "IwArray.h"
+#include "../scene.h"
 #include <string>
 #include <vector>
 
@@ -30,7 +31,8 @@
 class CIwRSS
 {
 public:
-    CIwRSS();
+	Scene* myScene;
+	CIwRSS(Scene* scene);
     ~CIwRSS(void);
 
     // Public interface
@@ -45,10 +47,12 @@ private:
     struct CFeedItem
     {
     public:
+		
         CFeedItem();
         CFeedItem(const char* url, const char* imageTitle);
         ~CFeedItem();
 
+		
         const char* GetURL() const { return m_URL; }
         const char* GetImageTitle() const { return m_ImageTitle; }
 

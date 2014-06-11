@@ -14,10 +14,9 @@
 #define __USSCRADIO_H__
 
 #include "IwTween.h"
+#include "newsScene.h"
 
 using namespace IwTween;
 
 extern CTweenManager*       g_pTweener;
-
-
 #endif  // __USSCRADIO_H__
