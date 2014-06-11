@@ -64,8 +64,8 @@ public:
     void            Reset();
     
     // Callbacks
-	bool		SwipeLeftMotionDetect(int x , int y);
-	bool		SwipeRightMotionDetect(int x, int y);
+	static bool		SwipeLeftMotionDetect();
+	static bool		SwipeRightMotionDetect();
     static void     TouchButtonCB(s3ePointerEvent* event);
     static void     TouchMotionCB(s3ePointerMotionEvent* event);
     static void     MultiTouchButtonCB(s3ePointerTouchEvent* event);

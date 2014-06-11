@@ -48,7 +48,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
             
         }
         
-        if(labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
+		if (labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y) || Input::SwipeRightMotionDetect()) {
             g_pInput->Reset();
             if(currentPage == 0) {
                 CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
@@ -77,7 +77,8 @@ void Streamer::Update(float deltaTime, float alphaMul)
                 currentPage = 0;
             }
             
-        } else if(labelRight->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
+		}
+		else if (labelRight->HitTest(g_pInput->m_X, g_pInput->m_Y) || Input::SwipeLeftMotionDetect()) {
             g_pInput->Reset();
             if(currentPage == 0) {
                 EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");
@@ -104,66 +105,6 @@ void Streamer::Update(float deltaTime, float alphaMul)
                 currentPage = 1;
                 
             }
-		}
-		else if (g_pInput->SwipeLeftMotionDetect(g_pInput->m_X, g_pInput->m_Y)) {
-			g_pInput->Reset();
-			if (currentPage == 0) {
-				CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
-				g_pSceneManager->SwitchTo(cal, 1);
-				banner->SetImage(g_pResources->getCalendarBanner());
-				sideBannerOne->SetImage(g_pResources->getEventsSideBanner());
-				sideBannerTwo->SetImage(g_pResources->getNewsSideBanner());
-				currentPage = 1;
-
-			}
-			else if (currentPage == 1) {
-				EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");
-				g_pSceneManager->SwitchTo(events, 1);
-				banner->SetImage(g_pResources->getEventsBanner());
-				sideBannerOne->SetImage(g_pResources->getNewsSideBanner());
-				sideBannerTwo->SetImage(g_pResources->getCalendarSideBanner());
-				currentPage = 2;
-
-			}
-			else if (currentPage == 2) {
-				NewsScene* news = (NewsScene*)g_pSceneManager->Find("newsscene");
-				g_pSceneManager->SwitchTo(news, 1);
-				banner->SetImage(g_pResources->getNewsBanner());
-				sideBannerOne->SetImage(g_pResources->getCalendarSideBanner());
-				sideBannerTwo->SetImage(g_pResources->getEventsSideBanner());
-				currentPage = 0;
-			}
-		}
-		else if (g_pInput->SwipeRightMotionDetect(g_pInput->m_X, g_pInput->m_Y))
-		{
-			g_pInput->Reset();
-			if (currentPage == 0) {
-				EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");
-				g_pSceneManager->SwitchTo(events, 0);
-				banner->SetImage(g_pResources->getEventsBanner());
-				sideBannerOne->SetImage(g_pResources->getNewsSideBanner());
-				sideBannerTwo->SetImage(g_pResources->getCalendarSideBanner());
-				currentPage = 2;
-
-			}
-			else if (currentPage == 1) {
-				NewsScene* news = (NewsScene*)g_pSceneManager->Find("newsscene");
-				g_pSceneManager->SwitchTo(news, 0);
-				banner->SetImage(g_pResources->getNewsBanner());
-				sideBannerOne->SetImage(g_pResources->getCalendarSideBanner());
-				sideBannerTwo->SetImage(g_pResources->getEventsSideBanner());
-				currentPage = 0;
-
-			}
-			else if (currentPage == 2) {
-				CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
-				g_pSceneManager->SwitchTo(cal, 0);
-				banner->SetImage(g_pResources->getCalendarBanner());
-				sideBannerOne->SetImage(g_pResources->getEventsSideBanner());
-				sideBannerTwo->SetImage(g_pResources->getNewsSideBanner());
-				currentPage = 1;
-
-			}
 		}
 		g_pInput->Reset();
     }

@@ -11,6 +11,7 @@
  */
 
 #include "input.h"
+#include "IwDebug.h"
 
 Input* g_pInput = 0;
 
@@ -25,6 +26,10 @@ void Input::TouchButtonCB(s3ePointerEvent* event)
 {
 	s3ePointerState state = s3ePointerGetTouchState(0);
 	if (state == S3E_POINTER_STATE_PRESSED){
+		g_pInput->start_X = event->m_x;
+		g_pInput->start_Y = event->m_y;
+	}
+	else if (state == S3E_POINTER_STATE_RELEASED){
 		g_pInput->start_X = event->m_x;
 		g_pInput->start_Y = event->m_y;
 	}
@@ -48,6 +53,10 @@ void Input::TouchMotionCB(s3ePointerMotionEvent* event)
 		g_pInput->start_X = event->m_x;
 		g_pInput->start_Y = event->m_y;
 	}
+	else if (state == S3E_POINTER_STATE_RELEASED){
+		g_pInput->start_X = event->m_x;
+		g_pInput->start_Y = event->m_y;
+	}
     g_pInput->m_X = event->m_x;
     g_pInput->m_Y = event->m_y;
 	
@@ -64,6 +73,10 @@ void Input::MultiTouchButtonCB(s3ePointerTouchEvent* event)
 {
 	s3ePointerState state = s3ePointerGetTouchState(event->m_TouchID);
 	if (state == S3E_POINTER_STATE_PRESSED){
+		g_pInput->start_X = event->m_x;
+		g_pInput->start_Y = event->m_y;
+	}
+	else if (state == S3E_POINTER_STATE_RELEASED){
 		g_pInput->start_X = event->m_x;
 		g_pInput->start_Y = event->m_y;
 	}
@@ -88,12 +101,18 @@ void Input::MultiTouchMotionCB(s3ePointerTouchMotionEvent* event)
 		g_pInput->start_X = event->m_x;
 		g_pInput->start_Y = event->m_y;
 	}
+	else if (state == S3E_POINTER_STATE_RELEASED){
+		g_pInput->start_X = event->m_x;
+		g_pInput->start_Y = event->m_y;
+	}
     g_pInput->m_X = event->m_x;
     g_pInput->m_Y = event->m_y;
 }
 
 Input::Input() : m_Touched(false), m_PrevTouched(false)
 {
+	start_X = -1;
+	start_Y = -1;
     // Set touch event callback handlers, single and multi-touch devices have different callbacks assigned
     if (s3ePointerGetInt(S3E_POINTER_MULTI_TOUCH_AVAILABLE) != 0)
     {
@@ -118,10 +137,10 @@ void Input::Reset()
     m_Touched = false;
 }
 
-bool Input::SwipeLeftMotionDetect(int x , int y) {
-	return x < this->start_X - 50;
+bool Input::SwipeLeftMotionDetect() {
+	return g_pInput->start_X> 0 && g_pInput->m_X < g_pInput->start_X - 50;
 }
 
-bool Input::SwipeRightMotionDetect(int x , int y) {
-	return x > this->start_X + 50;
+bool Input::SwipeRightMotionDetect() {
+	return  g_pInput->start_X>0 && g_pInput->m_X > g_pInput->start_X + 50;
 }
