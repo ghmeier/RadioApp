@@ -129,6 +129,19 @@ void Streamer::Init()
     header->m_ScaleX = (float)IwGxGetScreenWidth() / header->GetImage()->GetWidth() / 1.5;
     header->m_ScaleY = (float)IwGxGetScreenHeight() / header->GetImage()->GetHeight() / 5;
     
+    // Create menu background
+    CSprite* whiteBanner = new CSprite();
+    whiteBanner->SetImage(g_pResources->getWhiteBanner());
+    whiteBanner->m_X = (float)IwGxGetScreenWidth() / 2;
+    whiteBanner->m_Y = (float)IwGxGetScreenHeight() / 17;
+    whiteBanner->m_W = whiteBanner->GetImage()->GetWidth();
+    whiteBanner->m_H = whiteBanner->GetImage()->GetHeight();
+    whiteBanner->m_AnchorX = 0.5;
+    whiteBanner->m_AnchorY = 0.5;
+    // Fit background to screen size
+    whiteBanner->m_ScaleX = (float)IwGxGetScreenWidth() / whiteBanner->GetImage()->GetWidth() / 1;
+    whiteBanner->m_ScaleY = (float)IwGxGetScreenHeight() / whiteBanner->GetImage()->GetHeight() / 5;
+    
     //buttonBottom = ((float)IwGxGetScreenHeight() / 17) + (header->GetImage()->GetHeight() / 1.4);
     
     // Create menu background
@@ -186,14 +199,14 @@ void Streamer::Init()
     
     sideBannerOne = new CSprite();
     sideBannerOne->SetImage(g_pResources->getCalendarSideBanner());
-    sideBannerOne->m_X = (float)IwGxGetScreenWidth() / 7;
+    sideBannerOne->m_X = (float)IwGxGetScreenWidth() / 8;
     sideBannerOne->m_Y = (float)IwGxGetScreenHeight() / 6;
     sideBannerOne->m_W = sideBannerOne->GetImage()->GetWidth();
     sideBannerOne->m_H = sideBannerOne->GetImage()->GetHeight();
     sideBannerOne->m_AnchorX = 0.5;
     sideBannerOne->m_AnchorY = 0.5;
     // Fit background to screen size
-    sideBannerOne->m_ScaleX = (float)IwGxGetScreenWidth() / sideBannerOne->GetImage()->GetWidth() / 4;
+    sideBannerOne->m_ScaleX = (float)IwGxGetScreenWidth() / sideBannerOne->GetImage()->GetWidth() / 3;
     sideBannerOne->m_ScaleY = (float)IwGxGetScreenHeight() / sideBannerOne->GetImage()->GetHeight() / 8;
     
     sideBannerTwo = new CSprite();
@@ -205,8 +218,8 @@ void Streamer::Init()
     sideBannerTwo->m_AnchorX = 0.5;
     sideBannerTwo->m_AnchorY = 0.5;
     // Fit background to screen size
-    sideBannerTwo->m_ScaleX = (float)IwGxGetScreenWidth() / sideBannerTwo->GetImage()->GetWidth() / 4;
-    sideBannerTwo->m_ScaleY = (float)IwGxGetScreenHeight() / sideBannerTwo->GetImage()->GetHeight() / 8;
+    sideBannerTwo->m_ScaleX = (float)IwGxGetScreenWidth() / sideBannerTwo->GetImage()->GetWidth() / 3;
+    sideBannerTwo->m_ScaleY = (float)IwGxGetScreenHeight() / sideBannerTwo->GetImage()->GetHeight() / 10;
     
     AddChild(playWrapper);
     AddChild(playButton);
@@ -214,6 +227,7 @@ void Streamer::Init()
     AddChild(banner);
     AddChild(sideBannerTwo);
     AddChild(sideBannerOne);
+    AddChild(whiteBanner);
     AddChild(header);
     
     stopButton->m_X = IwGxGetScreenWidth() * 2.0;

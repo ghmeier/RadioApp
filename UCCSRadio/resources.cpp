@@ -22,7 +22,7 @@ Resources::Resources()
     NewsBG = Iw2DCreateImage("textures/newsBGSmall.png");
     PlayButton = Iw2DCreateImage("textures/button-upSmall.png");
     StopButton = Iw2DCreateImage("textures/button-stopSmall.png");
-    PlayWrapper = Iw2DCreateImage("textures/bottom-wrapperSmall.png");
+    PlayWrapper = Iw2DCreateImage("textures/bottom-wrapper.png");
     Header = Iw2DCreateImage("textures/headerSmall.png");
     CalendarBanner = Iw2DCreateImage("textures/CalendarBannerSmall.png");
     EventsBanner = Iw2DCreateImage("textures/EventsBannerSmall.png");
