@@ -113,7 +113,7 @@ int main()
         // Update scene manager
         g_pSceneManager->Update(FRAME_TIME);
         
-		globalHttpClient->Update();
+		//globalHttpClient->Update();
         streamer->Update();
         
         // Clear the drawing surface
@@ -145,9 +145,8 @@ int main()
     xmlCalendarDownload = nullptr;
 	xmlDownload = nullptr;
     delete streamer;
-
     Iw2DTerminate();
-  	HttpClient::GlobalCleanup();
+    HttpClient::GlobalCleanup();
 
     return 0;
 }
