@@ -37,8 +37,8 @@ protected:
     CSprite*    playWrapper;
     CSprite*    header;
     CSprite*    banner;
-    CSprite*    sideBannerOne;
-    CSprite*    sideBannerTwo;
+    CLabel*     labelLeft;
+    CLabel*     labelRight;
     
     
 public:
