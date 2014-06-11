@@ -48,57 +48,59 @@ void Streamer::Update(float deltaTime, float alphaMul)
             
         }
         
-        if(sideBannerOne->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
+        if(labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
             g_pInput->Reset();
             if(currentPage == 0) {
                 CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
                 g_pSceneManager->SwitchTo(cal, 1);
                 banner->SetImage(g_pResources->getCalendarBanner());
-                sideBannerOne->SetImage(g_pResources->getEventsSideBanner());
-                sideBannerTwo->SetImage(g_pResources->getNewsSideBanner());
+                labelLeft->SetText("Events");
+                labelRight->SetText("News");
                 currentPage = 1;
                 
             } else if(currentPage == 1) {
                 EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");
                 g_pSceneManager->SwitchTo(events, 1);
                 banner->SetImage(g_pResources->getEventsBanner());
-                sideBannerOne->SetImage(g_pResources->getNewsSideBanner());
-                sideBannerTwo->SetImage(g_pResources->getCalendarSideBanner());
+                labelLeft->SetText("News");
+                labelRight->SetText("Calendar");
+                //labelRight->m_X = IwGxGetDisplayWidth() / 1.4;
                 currentPage = 2;
                 
             } else if(currentPage == 2) {
                 NewsScene* news = (NewsScene*)g_pSceneManager->Find("newsscene");
                 g_pSceneManager->SwitchTo(news, 1);
                 banner->SetImage(g_pResources->getNewsBanner());
-                sideBannerOne->SetImage(g_pResources->getCalendarSideBanner());
-                sideBannerTwo->SetImage(g_pResources->getEventsSideBanner());
+                labelLeft->SetText("Calendar");
+                labelRight->SetText("Events");
+                //labelRight->m_X = IwGxGetDisplayWidth() / 1.3;
                 currentPage = 0;
             }
             
-        } else if(sideBannerTwo->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
+        } else if(labelRight->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
             g_pInput->Reset();
             if(currentPage == 0) {
                 EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");
                 g_pSceneManager->SwitchTo(events, 0);
                 banner->SetImage(g_pResources->getEventsBanner());
-                sideBannerOne->SetImage(g_pResources->getNewsSideBanner());
-                sideBannerTwo->SetImage(g_pResources->getCalendarSideBanner());
+                labelLeft->SetText("News");
+                labelRight->SetText("Calendar");
                 currentPage = 2;
                 
             } else if(currentPage == 1) {
                 NewsScene* news = (NewsScene*)g_pSceneManager->Find("newsscene");
                 g_pSceneManager->SwitchTo(news, 0);
                 banner->SetImage(g_pResources->getNewsBanner());
-                sideBannerOne->SetImage(g_pResources->getCalendarSideBanner());
-                sideBannerTwo->SetImage(g_pResources->getEventsSideBanner());
+                labelLeft->SetText("Calendar");
+                labelRight->SetText("Events");
                 currentPage = 0;
                 
             } else if(currentPage == 2) {
                 CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
                 g_pSceneManager->SwitchTo(cal, 0);
                 banner->SetImage(g_pResources->getCalendarBanner());
-                sideBannerOne->SetImage(g_pResources->getEventsSideBanner());
-                sideBannerTwo->SetImage(g_pResources->getNewsSideBanner());
+                labelLeft->SetText("Events");
+                labelRight->SetText("News");
                 currentPage = 1;
                 
             }
@@ -197,7 +199,7 @@ void Streamer::Init()
     banner->m_ScaleX = (float)IwGxGetScreenWidth() / banner->GetImage()->GetWidth() / 1;
     banner->m_ScaleY = (float)IwGxGetScreenHeight() / banner->GetImage()->GetHeight() / 8;
     
-    sideBannerOne = new CSprite();
+    /*sideBannerOne = new CSprite();
     sideBannerOne->SetImage(g_pResources->getCalendarSideBanner());
     sideBannerOne->m_X = (float)IwGxGetScreenWidth() / 8;
     sideBannerOne->m_Y = (float)IwGxGetScreenHeight() / 6;
@@ -220,18 +222,37 @@ void Streamer::Init()
     // Fit background to screen size
     sideBannerTwo->m_ScaleX = (float)IwGxGetScreenWidth() / sideBannerTwo->GetImage()->GetWidth() / 3;
     sideBannerTwo->m_ScaleY = (float)IwGxGetScreenHeight() / sideBannerTwo->GetImage()->GetHeight() / 10;
+    */
+    
+    labelLeft = new CLabel();
+	labelLeft->SetFont(g_pResources->getFont());
+	labelLeft->m_Text = "Calendar";
+    labelLeft->m_X = IwGxGetDisplayWidth() / 19;
+    labelLeft->m_Y = IwGxGetDisplayHeight() / 6.5;
+    labelLeft->m_ScaleX = 1.0;
+    
+    labelRight = new CLabel();
+	labelRight->SetFont(g_pResources->getFont());
+	labelRight->m_Text = "Calendar";
+    labelRight->m_X = IwGxGetDisplayWidth() / 1.4;
+    labelRight->m_Y = IwGxGetDisplayHeight() / 6.5;
+    labelRight->m_ScaleX = 1.0;
     
     AddChild(playWrapper);
     AddChild(playButton);
     AddChild(stopButton);
     AddChild(banner);
-    AddChild(sideBannerTwo);
-    AddChild(sideBannerOne);
+    //AddChild(sideBannerTwo);
+    //AddChild(sideBannerOne);
     AddChild(whiteBanner);
     AddChild(header);
+    AddChild(labelRight);
+    AddChild(labelLeft);
     
     stopButton->m_X = IwGxGetScreenWidth() * 2.0;
     currentPage = 0;
+    labelRight->m_Text = "Event";
+    
     
 }
 

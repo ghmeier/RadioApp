@@ -79,13 +79,6 @@ void NewsScene::Init()
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
     AddChild(background);
     
-	CLabel* label = new CLabel();
-	label->SetFont(g_pResources->getFont());
-	label->m_Text = "HELLO WORLD";
-    label->m_X = IwGxGetDisplayWidth() / 2;
-    label->m_Y = IwGxGetDisplayHeight() / 2;
-    AddChild(label);
-    
 	//adding scroll view
 	feed = new CIwRSS();
 	printf("fetching...\n");
