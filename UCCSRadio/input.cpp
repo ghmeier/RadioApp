@@ -24,17 +24,18 @@ Input* g_pInput = 0;
  */
 void Input::TouchButtonCB(s3ePointerEvent* event)
 {
+	g_pInput->m_PrevTouched = g_pInput->m_Touched;
+    g_pInput->m_Touched = event->m_Pressed != 0;
 	s3ePointerState state = s3ePointerGetTouchState(0);
-	if (state == S3E_POINTER_STATE_PRESSED){
+	if (g_pInput->m_PrevTouched == false && g_pInput->m_Touched == true){
 		g_pInput->start_X = event->m_x;
 		g_pInput->start_Y = event->m_y;
 	}
-	else if (state == S3E_POINTER_STATE_RELEASED){
-		//g_pInput->start_X = event->m_x;
-		//g_pInput->start_Y = event->m_y;
+	else if (g_pInput->m_PrevTouched == false && g_pInput->m_Touched == false) {
+		g_pInput->start_X = -1;
+		g_pInput->start_Y = -1;
 	}
-    g_pInput->m_PrevTouched = g_pInput->m_Touched;
-    g_pInput->m_Touched = event->m_Pressed != 0;
+
     g_pInput->m_X = event->m_x;
     g_pInput->m_Y = event->m_y;
 }
@@ -49,13 +50,13 @@ void Input::TouchButtonCB(s3ePointerEvent* event)
 void Input::TouchMotionCB(s3ePointerMotionEvent* event)
 {
 	s3ePointerState state = s3ePointerGetTouchState(0);
-	if (state == S3E_POINTER_STATE_PRESSED){
+	if (g_pInput->m_PrevTouched == false && g_pInput->m_Touched == true){
 		g_pInput->start_X = event->m_x;
 		g_pInput->start_Y = event->m_y;
 	}
-	else if (state == S3E_POINTER_STATE_RELEASED){
-		//g_pInput->start_X = event->m_x;
-		//g_pInput->start_Y = event->m_y;
+	else if (g_pInput->m_PrevTouched == false && g_pInput->m_Touched == false) {
+		g_pInput->start_X = -1;
+		g_pInput->start_Y = -1;
 	}
     g_pInput->m_X = event->m_x;
     g_pInput->m_Y = event->m_y;
@@ -71,17 +72,17 @@ void Input::TouchMotionCB(s3ePointerMotionEvent* event)
  */
 void Input::MultiTouchButtonCB(s3ePointerTouchEvent* event)
 {
+	g_pInput->m_PrevTouched = g_pInput->m_Touched;
+    g_pInput->m_Touched = event->m_Pressed != 0;
 	s3ePointerState state = s3ePointerGetTouchState(event->m_TouchID);
-	if (state == S3E_POINTER_STATE_PRESSED){
+	if (g_pInput->m_PrevTouched == false && g_pInput->m_Touched == true){
 		g_pInput->start_X = event->m_x;
 		g_pInput->start_Y = event->m_y;
 	}
-	else if (state == S3E_POINTER_STATE_RELEASED){
-		//g_pInput->start_X = event->m_x;
-		//g_pInput->start_Y = event->m_y;
+	else if (g_pInput->m_PrevTouched == false && g_pInput->m_Touched == false) {
+		g_pInput->start_X = -1;
+		g_pInput->start_Y = -1;
 	}
-    g_pInput->m_PrevTouched = g_pInput->m_Touched;
-    g_pInput->m_Touched = event->m_Pressed != 0;
     g_pInput->m_X = event->m_x;
     g_pInput->m_Y = event->m_y;
 }
@@ -97,13 +98,13 @@ void Input::MultiTouchButtonCB(s3ePointerTouchEvent* event)
 void Input::MultiTouchMotionCB(s3ePointerTouchMotionEvent* event)
 {
 	s3ePointerState state = s3ePointerGetTouchState(event->m_TouchID);
-	if (state == S3E_POINTER_STATE_PRESSED){
+	if (g_pInput->m_PrevTouched == false && g_pInput->m_Touched == true){
 		g_pInput->start_X = event->m_x;
 		g_pInput->start_Y = event->m_y;
 	}
-	else if (state == S3E_POINTER_STATE_RELEASED){
-		//g_pInput->start_X = event->m_x;
-		//g_pInput->start_Y = event->m_y;
+	else if (g_pInput->m_PrevTouched == false && g_pInput->m_Touched == false) {
+		g_pInput->start_X = -1;
+		g_pInput->start_Y = -1;
 	}
     g_pInput->m_X = event->m_x;
     g_pInput->m_Y = event->m_y;
