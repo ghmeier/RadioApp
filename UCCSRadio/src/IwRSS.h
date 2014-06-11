@@ -36,7 +36,6 @@ public:
     // Public interface
     void Update();
     void FetchFeed(const char* url);
-	//void Init();
     void CancelFetch();
 
     // What proportion of a feed's items have we fetched

@@ -59,6 +59,7 @@ files
 
 subprojects
 {
+	
     iwutil
     iw2dscenegraphcore
     iw2dscenegraph
@@ -67,12 +68,14 @@ subprojects
     iwresmanager
     iwtween
     iwhttp
-	curl
+	iwgxfont
+	
 	derbh
 
     libjpeg
     tinyxml
 	third_party/openssl
+	curl
 }
 
 assets
@@ -80,7 +83,11 @@ assets
     feeds.bin
 
    (data)
+   trackFont.gxfont
     textures
+
+	(data-ram/data-gles1, data)
+	uccsFont.group.bin
 
 }
 

@@ -65,6 +65,7 @@ int main()
     NewsScene* news_scene = new NewsScene();
     news_scene->SetName("newsscene");
     news_scene->Init();
+	news_scene->setFont(g_pResources->getFont());
     g_pSceneManager->Add(news_scene);
     
     // Init the calendar
@@ -87,8 +88,8 @@ int main()
     streamer->Init();
 
 	HttpClient* globalHttpClient = new HttpClient(5, "HttpClient");
-	Ptr<HttpDownload> xmlDownload = new HttpDownload("http://radio.uccs.edu/index.php/feed", "feed.xml");
-	globalHttpClient->QueueRequest(xmlDownload);
+	//Ptr<HttpDownload> xmlDownload = new HttpDownload("http://radio.uccs.edu/index.php/feed", "feed.xml");
+	//globalHttpClient->QueueRequest(xmlDownload);
     
     Ptr<HttpDownload> xmlCalendarDownload = new HttpDownload("http://radio.uccs.edu/index.php/schedule", "calendar.xml");
     globalHttpClient->QueueRequest(xmlCalendarDownload);
@@ -96,12 +97,7 @@ int main()
     // Loop forever, until the user or the OS performs some action to quit the app
     while (!s3eDeviceCheckQuitRequest())
     {
-		/*if (xmlDownload->GetStatus() == HttpRequest::DONE) {
-			s3eDebugAssertShow(S3E_MESSAGE_CONTINUE, "YAY xml download");
-		}
-		else if (xmlDownload->GetStatus() == HttpRequest::ERROR){
-			s3eDebugAssertShow(S3E_MESSAGE_CONTINUE, "both were downloaded!");
-		}*/
+
         uint64 new_time = s3eTimerGetMs();
         
         // Update input system
@@ -129,7 +125,7 @@ int main()
         Iw2DSurfaceShow();
         
         // Lock frame rate
-        int yield = (int)(FRAME_TIME /** 1000*/ - (s3eTimerGetMs() - new_time));
+        int yield = (int)(FRAME_TIME * 1000 - (s3eTimerGetMs() - new_time));
         if (yield < 0)
             yield = 0;
         // Yield to OS
@@ -143,7 +139,7 @@ int main()
     delete g_pResources;
 	delete globalHttpClient;
     xmlCalendarDownload = nullptr;
-	xmlDownload = nullptr;
+	//xmlDownload = nullptr;
     delete streamer;
     Iw2DTerminate();
     HttpClient::GlobalCleanup();

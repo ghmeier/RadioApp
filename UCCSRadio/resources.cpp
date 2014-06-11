@@ -12,10 +12,17 @@
 
 #include "resources.h"
 #include "Iw2D.h"
+#include "IwGx.h"
+#include "IwGxFont.h"
+#include "IwResGroup.h"
 
 
 Resources::Resources()
 {
+
+	IwResManagerInit();
+	IwGxFontInit();
+
     // Load images
     CalendarBG = Iw2DCreateImage("textures/calendarBGSmall.png");
     EventsBG = Iw2DCreateImage("textures/eventsBGSmall.png");
@@ -29,7 +36,13 @@ Resources::Resources()
     NewsBanner = Iw2DCreateImage("textures/NewsBannerSmall.png");
     CalendarSideBanner = Iw2DCreateImage("textures/calendarSideBannerSmall.png");
     EventsSideBanner = Iw2DCreateImage("textures/eventsSideBannerSmall.png");
-    NewsSideBanner = Iw2DCreateImage("textures/newsSideBannerSmall.png");
+	NewsSideBanner = Iw2DCreateImage("textures/newsSideBannerSmall.png");
+
+	//get Font
+	IwGetResManager()->LoadGroup("uccsFont.group");
+	CIwResGroup* pGroup = IwGetResManager()->GetGroupNamed("TrackFont");
+	Font = (CIw2DFont*)IwGetResManager()->GetResNamed("TrackFont","CIw2DFont");
+
 }
 
 Resources::~Resources()
