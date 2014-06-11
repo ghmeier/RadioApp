@@ -16,7 +16,7 @@
 #include "USSCRadio.h"
 
 SceneManager* g_pSceneManager = 0;
-
+bool sceneSwitchComplete = true;
 
 //
 //
@@ -120,6 +120,7 @@ void SceneManager::FinishSwitch()
     m_Current->SetActive(false);
     m_Current = m_Next;
     m_Next = 0;
+    sceneSwitchComplete = true;
 }
 
 void SceneManager::SwitchTo(Scene* scene, int direction)

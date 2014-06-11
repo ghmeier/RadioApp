@@ -60,7 +60,9 @@ int main()
     // Create scene manager
     g_pSceneManager = new SceneManager();
     
-
+    //Initial making sure the scene switching is done
+    sceneSwitchComplete = true;
+    
     // Init the news
     NewsScene* news_scene = new NewsScene();
     news_scene->SetName("newsscene");
@@ -141,6 +143,7 @@ int main()
     xmlCalendarDownload = nullptr;
 	//xmlDownload = nullptr;
     delete streamer;
+    sceneSwitchComplete = nullptr;
     Iw2DTerminate();
     HttpClient::GlobalCleanup();
 
