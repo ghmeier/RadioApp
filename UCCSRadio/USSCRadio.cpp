@@ -46,7 +46,6 @@ int main()
 
     // Initialise the 2D graphics system
     Iw2DInit();
-	//IwUIInit();
     
     // Create resources
     g_pResources = new Resources();
@@ -118,7 +117,7 @@ int main()
         
         // Render scene manager
         g_pSceneManager->Render();
-        
+
         streamer->Render();
         
         // Show the drawing surface

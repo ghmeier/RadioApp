@@ -11,7 +11,7 @@
  */
 
 #include "input.h"
-#include "IwDebug.h"
+#include "IwGX.h"
 
 Input* g_pInput = 0;
 
@@ -30,8 +30,8 @@ void Input::TouchButtonCB(s3ePointerEvent* event)
 		g_pInput->start_Y = event->m_y;
 	}
 	else if (state == S3E_POINTER_STATE_RELEASED){
-		g_pInput->start_X = event->m_x;
-		g_pInput->start_Y = event->m_y;
+		//g_pInput->start_X = event->m_x;
+		//g_pInput->start_Y = event->m_y;
 	}
     g_pInput->m_PrevTouched = g_pInput->m_Touched;
     g_pInput->m_Touched = event->m_Pressed != 0;
@@ -54,8 +54,8 @@ void Input::TouchMotionCB(s3ePointerMotionEvent* event)
 		g_pInput->start_Y = event->m_y;
 	}
 	else if (state == S3E_POINTER_STATE_RELEASED){
-		g_pInput->start_X = event->m_x;
-		g_pInput->start_Y = event->m_y;
+		//g_pInput->start_X = event->m_x;
+		//g_pInput->start_Y = event->m_y;
 	}
     g_pInput->m_X = event->m_x;
     g_pInput->m_Y = event->m_y;
@@ -77,8 +77,8 @@ void Input::MultiTouchButtonCB(s3ePointerTouchEvent* event)
 		g_pInput->start_Y = event->m_y;
 	}
 	else if (state == S3E_POINTER_STATE_RELEASED){
-		g_pInput->start_X = event->m_x;
-		g_pInput->start_Y = event->m_y;
+		//g_pInput->start_X = event->m_x;
+		//g_pInput->start_Y = event->m_y;
 	}
     g_pInput->m_PrevTouched = g_pInput->m_Touched;
     g_pInput->m_Touched = event->m_Pressed != 0;
@@ -102,8 +102,8 @@ void Input::MultiTouchMotionCB(s3ePointerTouchMotionEvent* event)
 		g_pInput->start_Y = event->m_y;
 	}
 	else if (state == S3E_POINTER_STATE_RELEASED){
-		g_pInput->start_X = event->m_x;
-		g_pInput->start_Y = event->m_y;
+		//g_pInput->start_X = event->m_x;
+		//g_pInput->start_Y = event->m_y;
 	}
     g_pInput->m_X = event->m_x;
     g_pInput->m_Y = event->m_y;
@@ -138,9 +138,9 @@ void Input::Reset()
 }
 
 bool Input::SwipeLeftMotionDetect() {
-	return g_pInput->start_X> 0 && g_pInput->m_X < g_pInput->start_X - 50;
+	return g_pInput->start_X> 0 && g_pInput->m_X < g_pInput->start_X - IwGxGetDisplayWidth()/3;
 }
 
 bool Input::SwipeRightMotionDetect() {
-	return  g_pInput->start_X>0 && g_pInput->m_X > g_pInput->start_X + 50;
+	return  g_pInput->start_X>0 && g_pInput->m_X > g_pInput->start_X + IwGxGetDisplayWidth()/3;
 }

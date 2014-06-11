@@ -56,6 +56,7 @@ Resources::~Resources()
     delete WhiteBanner;
     delete GreyBanner;
     delete Font;
+	delete Font20;
     
 }
 
