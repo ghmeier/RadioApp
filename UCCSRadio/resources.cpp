@@ -20,8 +20,8 @@
 Resources::Resources()
 {
 
-	IwResManagerInit();
-	IwGxFontInit();
+	//IwResManagerInit();
+	//IwGxFontInit();
 
     // Load images
     CalendarBG = Iw2DCreateImage("textures/calendarBGSmall.png");
@@ -40,9 +40,11 @@ Resources::Resources()
     WhiteBanner = Iw2DCreateImage("textures/whiteBanner.png");
 	
     //get Font
-	IwGetResManager()->LoadGroup("uccsFont.group");
-	CIwResGroup* pGroup = IwGetResManager()->GetGroupNamed("TrackFont");
-	Font = (CIw2DFont*)IwGetResManager()->GetResNamed("TrackFont","CIw2DFont");
+	//IwGetResManager()->LoadGroup("uccsFont.group");
+	//CIwResGroup* pGroup = IwGetResManager()->GetGroupNamed("mainFont");
+	//CIwGxFont* gxFont = (CIwGxFont*)IwGetResManager()->GetResNamed("trackFont","CIwGxFont");
+	Font = Iw2DCreateFont("trackFont.gxfont");
+
 }
 
 Resources::~Resources()
@@ -62,6 +64,7 @@ Resources::~Resources()
     delete EventsSideBanner;
     delete NewsSideBanner;
     delete WhiteBanner;
+    delete Font;
     
 }
 

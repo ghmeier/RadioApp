@@ -50,12 +50,12 @@ public:
     
     // Button callback
     static void     startGame(CTween* pTween);
-	void setFont(CIw2DFont* font){ this->font = font; };
-	CIw2DFont* getFont(){ return this->font; };
+	//void setFont(CIw2DFont* font){ this->font = font; };
+	//CIw2DFont* getFont(){ return this->font; };
 
 private:
 	CIwRSS* feed;
-	CIw2DFont* font;
+	//CIw2DFont* font;
 };
 
 

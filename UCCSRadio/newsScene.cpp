@@ -21,6 +21,7 @@
 NewsScene::~NewsScene()
 {
 	delete feed;
+    //delete font;
 }
 
 void NewsScene::startGame(CTween* pTween)
@@ -77,9 +78,13 @@ void NewsScene::Init()
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
     AddChild(background);
+    
 	CLabel* label = new CLabel();
-	label->SetFont(this->font);
+	label->SetFont(g_pResources->getFont());
 	label->m_Text = "HELLO WORLD";
+    label->m_X = IwGxGetDisplayWidth() / 2;
+    label->m_Y = IwGxGetDisplayHeight() / 2;
+    AddChild(label);
     
 	//adding scroll view
 	feed = new CIwRSS();

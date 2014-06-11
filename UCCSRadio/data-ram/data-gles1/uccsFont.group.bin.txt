@@ -1,8 +1,8 @@
 ResGroupResources:
 	CIwGxFont (0xa68776be)
 		"trackFont" (0x95a5a11)
-		Size: 49
-	ResList 'CIwGxFont' pos:40 size:59
+		Size: 71337
+	ResList 'CIwGxFont' pos:39 size:71347
 
-ResGroupResources: Wrote 63 bytes to CIwResGroup "TrackFont"
+ResGroupResources: Wrote 71351 bytes to CIwResGroup "mainFont"
 

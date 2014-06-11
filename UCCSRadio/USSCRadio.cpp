@@ -65,7 +65,7 @@ int main()
     NewsScene* news_scene = new NewsScene();
     news_scene->SetName("newsscene");
     news_scene->Init();
-	news_scene->setFont(g_pResources->getFont());
+	//news_scene->setFont(g_pResources->getFont());
     g_pSceneManager->Add(news_scene);
     
     // Init the calendar

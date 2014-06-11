@@ -1,5 +1,5 @@
 CIwResGroup
 {
-	name "TrackFont"
+	name mainFont
 	"trackFont.gxfont"
 }
