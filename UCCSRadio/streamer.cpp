@@ -53,7 +53,8 @@ void Streamer::Update(float deltaTime, float alphaMul)
             if(currentPage == 0) {
                 CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
                 g_pSceneManager->SwitchTo(cal, 1);
-                banner->SetImage(g_pResources->getCalendarBanner());
+                //banner->SetImage(g_pResources->getCalendarBanner());
+                labelMain->SetText("Calendar");
                 labelLeft->SetText("Events");
                 labelRight->SetText("News");
                 //labelRight->m_ScaleX = 1.0;
@@ -62,7 +63,8 @@ void Streamer::Update(float deltaTime, float alphaMul)
             } else if(currentPage == 1) {
                 EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");
                 g_pSceneManager->SwitchTo(events, 1);
-                banner->SetImage(g_pResources->getEventsBanner());
+                //banner->SetImage(g_pResources->getEventsBanner());
+                labelMain->SetText("Events");
                 labelLeft->SetText("News");
                 labelRight->SetText("Calendar");
                 //labelRight->m_ScaleX = 1.0;
@@ -71,7 +73,8 @@ void Streamer::Update(float deltaTime, float alphaMul)
             } else if(currentPage == 2) {
                 NewsScene* news = (NewsScene*)g_pSceneManager->Find("newsscene");
                 g_pSceneManager->SwitchTo(news, 1);
-                banner->SetImage(g_pResources->getNewsBanner());
+                //banner->SetImage(g_pResources->getNewsBanner());
+                labelMain->SetText("News");
                 labelLeft->SetText("Calendar");
                 labelRight->SetText("Events");
                 //labelRight->m_ScaleX = 1.0;
@@ -83,7 +86,8 @@ void Streamer::Update(float deltaTime, float alphaMul)
             if(currentPage == 0) {
                 EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");
                 g_pSceneManager->SwitchTo(events, 0);
-                banner->SetImage(g_pResources->getEventsBanner());
+                //banner->SetImage(g_pResources->getEventsBanner());
+                labelMain->SetText("Events");
                 labelLeft->SetText("News");
                 labelRight->SetText("Calendar");
                 //labelRight->m_ScaleX = 1.0;
@@ -92,7 +96,8 @@ void Streamer::Update(float deltaTime, float alphaMul)
             } else if(currentPage == 1) {
                 NewsScene* news = (NewsScene*)g_pSceneManager->Find("newsscene");
                 g_pSceneManager->SwitchTo(news, 0);
-                banner->SetImage(g_pResources->getNewsBanner());
+                //banner->SetImage(g_pResources->getNewsBanner());
+                labelMain->SetText("News");
                 labelLeft->SetText("Calendar");
                 labelRight->SetText("Events");
                 //labelRight->m_ScaleX = 1.0;
@@ -101,7 +106,8 @@ void Streamer::Update(float deltaTime, float alphaMul)
             } else if(currentPage == 2) {
                 CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
                 g_pSceneManager->SwitchTo(cal, 0);
-                banner->SetImage(g_pResources->getCalendarBanner());
+                //banner->SetImage(g_pResources->getCalendarBanner());
+                labelMain->SetText("Calendar");
                 labelLeft->SetText("Events");
                 labelRight->SetText("News");
                 //labelRight->m_ScaleX = 1.0;
@@ -192,7 +198,7 @@ void Streamer::Init()
     stopButton->m_ScaleY = (float)IwGxGetScreenHeight() / stopButton->GetImage()->GetHeight() / 4.5;
     
     banner = new CSprite();
-    banner->SetImage(g_pResources->getNewsBanner());
+    banner->SetImage(g_pResources->getGreyBanner());
     banner->m_X = (float)IwGxGetScreenWidth() / 2;
     banner->m_Y = (float)IwGxGetScreenHeight() /6;
     banner->m_W = banner->GetImage()->GetWidth();
@@ -251,7 +257,6 @@ void Streamer::Init()
     labelMain->m_Y = IwGxGetDisplayHeight() / 7.5;
     labelMain->m_W = IwGxGetDisplayWidth();
     labelMain->m_AlignHor = IW_2D_FONT_ALIGN_CENTRE;
-    labelMain->m_ScaleY = 2.5;
     
     AddChild(playWrapper);
     AddChild(playButton);

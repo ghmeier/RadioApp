@@ -38,7 +38,7 @@ Resources::Resources()
     EventsSideBanner = Iw2DCreateImage("textures/eventsSideBannerSmall.png");
     NewsSideBanner = Iw2DCreateImage("textures/newsSideBannerSmall.png");
     WhiteBanner = Iw2DCreateImage("textures/whiteBanner.png");
-	
+	GreyBanner = Iw2DCreateImage("textures/greyBanner.png");
     //get Font
 	//IwGetResManager()->LoadGroup("uccsFont.group");
 	//CIwResGroup* pGroup = IwGetResManager()->GetGroupNamed("mainFont");
@@ -64,6 +64,7 @@ Resources::~Resources()
     delete EventsSideBanner;
     delete NewsSideBanner;
     delete WhiteBanner;
+    delete GreyBanner;
     delete Font;
     
 }
