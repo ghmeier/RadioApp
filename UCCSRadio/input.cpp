@@ -139,9 +139,9 @@ void Input::Reset()
 }
 
 bool Input::SwipeLeftMotionDetect() {
-	return g_pInput->start_X> 0 && g_pInput->m_X < g_pInput->start_X - IwGxGetDisplayWidth()/3;
+	return false;//g_pInput->start_X> 0 && g_pInput->m_X < g_pInput->start_X - IwGxGetDisplayWidth()/3;
 }
 
 bool Input::SwipeRightMotionDetect() {
-	return  g_pInput->start_X>0 && g_pInput->m_X > g_pInput->start_X + IwGxGetDisplayWidth()/3;
+	return  false; g_pInput->start_X > 0 && g_pInput->m_X > g_pInput->start_X + IwGxGetDisplayWidth() / 3;
 }
