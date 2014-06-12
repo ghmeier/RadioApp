@@ -34,7 +34,7 @@ Resources::Resources()
 
 	Font = Iw2DCreateFont("trackFont.gxfont");
 	Font20 = Iw2DCreateFont("trackFont20.gxfont");
-	Font7 = Iw2DCreateFont("trackFont7.gxfont");
+	Font7 = Iw2DCreateFont("font7.gxfont");
 
 }
 

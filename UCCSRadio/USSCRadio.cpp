@@ -93,8 +93,8 @@ int main()
 	Ptr<HttpDownload> xmlDownload = new HttpDownload("http://radio.uccs.edu/index.php/feed", "newsFeed.xml");
 	globalHttpClient->QueueRequest(xmlDownload);
     
-    Ptr<HttpDownload> xmlCalendarDownload = new HttpDownload("https://www.google.com/calendar/feeds/mr7s4faaibvpgauhpl3rlkloks%40group.calendar.google.com/public/full?&callback=insertAgenda&orderby=starttime&max-results=15&singleevents=true&sortorder=ascending&futureevents=true", "calendar.xml");
-    globalHttpClient->QueueRequest(xmlCalendarDownload);
+    //Ptr<HttpDownload> xmlCalendarDownload = new HttpDownload("https://www.google.com/calendar/feeds/mr7s4faaibvpgauhpl3rlkloks%40group.calendar.google.com/public/full?&callback=insertAgenda&orderby=starttime&max-results=15&singleevents=true&sortorder=ascending&futureevents=true", "calendar.xml");
+    //globalHttpClient->QueueRequest(xmlCalendarDownload);
     
     // Loop forever, until the user or the OS performs some action to quit the app
     while (!s3eDeviceCheckQuitRequest())
@@ -142,7 +142,7 @@ int main()
     delete g_pTweener;
     delete g_pResources;
 	delete globalHttpClient;
-    xmlCalendarDownload = nullptr;
+    //xmlCalendarDownload = nullptr;
 	xmlDownload = nullptr;
     delete streamer;
     sceneSwitchComplete = nullptr;

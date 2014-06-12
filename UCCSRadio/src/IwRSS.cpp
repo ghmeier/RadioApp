@@ -217,7 +217,7 @@ void CIwRSS::ParseRSS(const char * data)
     _STL::cout << "Candy =" << newsFeedCount;
 }
 
-void CIwRSS::CalendarParseRSS(const char * data)
+/*void CIwRSS::CalendarParseRSS(const char * data)
 {
     //Parse the RSS data
     TiXmlDocument doc( "calendar.xml" );
@@ -335,7 +335,7 @@ void CIwRSS::CalendarParseRSS(const char * data)
         }
     }
     _STL::cout << "Candy =" << newsFeedCount;
-}
+}*/
 
 
 //-----------------------------------------------------------------------------
