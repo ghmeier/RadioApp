@@ -19,7 +19,6 @@
 
 CalendarScene::~CalendarScene()
 {
-	delete label;
 }
 
 void CalendarScene::startGame(CTween* pTween)
