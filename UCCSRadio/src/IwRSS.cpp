@@ -100,7 +100,6 @@ void CIwRSS::ParseRSS(const char * data)
     //Parse the RSS data
     TiXmlDocument doc( "feed.xml" );
     doc.Parse( data, 0, TIXML_ENCODING_UTF8 );
-
     TiXmlElement * node = doc.RootElement();
     TiXmlNode * channel;
     TiXmlNode * element;

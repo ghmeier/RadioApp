@@ -59,9 +59,7 @@ void CalendarScene::Render()
 void CalendarScene::Init()
 {
     Scene::Init();
-    
-    //Game* game = (Game*)g_pSceneManager->Find("game");
-    
+  
     // Create menu background
     CSprite* background = new CSprite();
     background->m_X = (float)IwGxGetScreenWidth() / 2;
@@ -74,7 +72,11 @@ void CalendarScene::Init()
     // Fit background to screen size
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight() * 6;
-    AddChild(background);
-    
+	CLabel* label = new CLabel();
+	label->SetFont(g_pResources->getFont20());
+	label->SetText("It is a period of civil war. Rebel spaceships, striking	from a hidden base, have won their first victory against the evil Galactic Empire.");
+    AddChild(label);
+	AddChild(background);
+	
 }
 
