@@ -39,6 +39,7 @@ using namespace std;
 
 // Global tweener is used by tweens that ned to be ranm outside of a scene
 CTweenManager*  g_pTweener = 0;
+int newsFeedCount = 1;
 
 int main()
 {

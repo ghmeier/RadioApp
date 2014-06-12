@@ -14,6 +14,7 @@
 #define __EVENTSSCENE_H__
 
 #include "scene.h"
+#include "src/IwRSS.h"
 
 /**
  * @class EventsScene
@@ -30,8 +31,9 @@
  */
 class EventsScene : public Scene
 {
-protected:
+private:
     // UI components
+    CIwRSS* feed;
     
 public:
     EventsScene() {}

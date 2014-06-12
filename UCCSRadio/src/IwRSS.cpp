@@ -21,6 +21,8 @@
 #include "../USSCRadio.h"
 #include "../resources.h"
 #include "s3e.h"
+#include <string>
+#include <iostream>
 
 // Globals
 CIwRSS * g_IwRSS = 0;
@@ -113,21 +115,17 @@ void CIwRSS::ParseRSS(const char * data)
     TiXmlNode * element;
     TiXmlNode * title;
     TiXmlNode * desc;
-    printf("Hey I am at the top");
     if (node != 0 && node->ToElement())
     {
-        printf("Now I am at the second level");
         //Find channel
         channel = node->FirstChild("channel");
         if (channel != 0 && channel->ToElement())
         {
-            printf("Now I am at the third level");
             //Loop through feed items
             for (element = channel->FirstChild("item");
                  element;
                  element = element->NextSibling("item") )
             {
-                printf("Now I am at the loop");
                 if (!element->FirstChild("title") || !(title = element->FirstChild("title")->FirstChild()))
                     continue;
 
@@ -199,15 +197,17 @@ void CIwRSS::ParseRSS(const char * data)
 
                 IwTrace(UI, ("Desc: %s", description.c_str()));
                 
-				//RSS FEED ITEMs...
-				/*CLabel* label = new CLabel();
+				
+                //RSS FEED ITEMs...
+				CLabel* label = new CLabel();
 				label->SetFont(g_pResources->getFont());
 				label->SetText(titlestr);
-                label->m_W =
-				label->m_X = IwGxGetDisplayWidth() / 2;
-				label->m_Y = IwGxGetDisplayHeight() / 2;
-				myScene->AddChild(label);*/
-
+                label->m_W = IwGxGetDisplayWidth();
+                label->m_AlignHor = IW_2D_FONT_ALIGN_CENTRE;
+                label->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/4)* (newsFeedCount - 1);
+                newsFeedCount += 1;
+				myScene->AddChild(label);
+                
                 if (image.length())
                 {
                     FetchImage(image.c_str(), titlestr.c_str());
@@ -215,7 +215,129 @@ void CIwRSS::ParseRSS(const char * data)
             }
         }
     }
+    _STL::cout << "Candy =" << newsFeedCount;
 }
+
+void CIwRSS::CalendarParseRSS(const char * data)
+{
+    //Parse the RSS data
+    TiXmlDocument doc( "calendar.xml" );
+    bool loadOkay = doc.LoadFile();
+    if (loadOkay) {
+        printf("\nWe all good \n");
+    } else {
+        printf("\nWe not good \n");
+    }
+    doc.Parse(data, 0, TIXML_ENCODING_UTF8 );
+    
+    TiXmlElement * node = doc.RootElement();
+    TiXmlNode * channel;
+    TiXmlNode * element;
+    TiXmlNode * title;
+    TiXmlNode * desc;
+    if (node != 0 && node->ToElement())
+    {
+        //Find channel
+        channel = node->FirstChild("channel");
+        if (channel != 0 && channel->ToElement())
+        {
+            //Loop through feed items
+            for (element = channel->FirstChild("item");
+                 element;
+                 element = element->NextSibling("item") )
+            {
+                if (!element->FirstChild("title") || !(title = element->FirstChild("title")->FirstChild()))
+                    continue;
+                
+                //Found title
+                std::string titlestr = title->Value();
+                std::string description = "";
+                std::string image = "";
+                
+                if (element->FirstChild("description") && (desc = element->FirstChild("description")->FirstChild()))
+                {
+                    description = desc->Value();
+                    
+                    //Description contains HTML data
+                    if (description[0] == '<')
+                    {
+                        TiXmlDocument desc( "description.html" );
+                        desc.Parse( description.c_str(), 0, TIXML_ENCODING_UTF8);
+                        
+                        TiXmlElement * head = desc.RootElement();
+                        if (head != 0 && head->ToElement())
+                        {
+                            std::string::size_type start, end;
+                            {
+                                start = description.find("<img src=\"");
+                                if (start != std::string::npos)
+                                {
+                                    start += 10;
+                                    end = description.find('"', start + 1);
+                                    if (end != std::string::npos)
+                                    {
+                                        image = description.substr(start, end - start);
+                                        IwTrace(UI, ("Image found %s", image.c_str()));
+                                    }
+                                }
+                            }
+                            
+                            start = 0;
+                            while (1)
+                            {
+                                start = description.find(">", start);
+                                if (start != std::string::npos)
+                                {
+                                    start += 1;
+                                    end = description.find('<', start);
+                                    if (end != std::string::npos)
+                                    {
+                                        if (end - start > 0)
+                                        {
+                                            IwTrace(UI, ("Out: %s", description.substr(start, end - start).c_str()));
+                                            description = description.substr(start, end - start).c_str();
+                                            break;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        description = "";
+                                        break;
+                                    }
+                                }
+                                else
+                                {
+                                    description = "";
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                IwTrace(UI, ("Desc: %s", description.c_str()));
+                
+				
+                //RSS FEED ITEMs...
+				CLabel* label = new CLabel();
+				label->SetFont(g_pResources->getFont());
+				label->SetText(titlestr);
+                label->m_W = IwGxGetDisplayWidth();
+                label->m_AlignHor = IW_2D_FONT_ALIGN_CENTRE;
+                label->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/4)* (newsFeedCount - 1);
+                newsFeedCount += 1;
+				myScene->AddChild(label);
+                
+                if (image.length())
+                {
+                    FetchImage(image.c_str(), titlestr.c_str());
+                }
+            }
+        }
+    }
+    _STL::cout << "Candy =" << newsFeedCount;
+}
+
 
 //-----------------------------------------------------------------------------
 

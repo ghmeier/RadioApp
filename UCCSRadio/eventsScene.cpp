@@ -19,6 +19,7 @@
 
 EventsScene::~EventsScene()
 {
+    delete feed;
 }
 
 void EventsScene::startGame(CTween* pTween)
@@ -74,5 +75,13 @@ void EventsScene::Init()
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
     AddChild(background);
+    
+    //adding scroll view
+	feed = new CIwRSS(this);
+	printf("fetching...\n");
+	//feed->FetchFeed("http://radio.uccs.edu/index.php/feed");
+    feed->CalendarParseRSS("<rss>");
+    printf("finished fetching\n");
+	//feed->Update();
 }
 
