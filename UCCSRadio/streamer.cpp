@@ -48,7 +48,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
             
         }
         
-		if (labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y) || Input::SwipeRightMotionDetect()) {
+		if (labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
             sceneSwitchComplete = false;
             g_pInput->Reset();
             if(currentPage == 0) {
@@ -83,7 +83,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
             }
             
 		}
-		else if (labelRight->HitTest(g_pInput->m_X, g_pInput->m_Y) || Input::SwipeLeftMotionDetect()) {
+		else if (labelRight->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
             sceneSwitchComplete = false;
             g_pInput->Reset();
             if(currentPage == 0) {
@@ -242,18 +242,18 @@ void Streamer::Init()
 	labelLeft->m_Font = g_pResources->getFont();
 	labelLeft->m_Text = "Calendar";
     labelLeft->m_Y = IwGxGetDisplayHeight() / 6.5;
-    labelLeft->m_W = IwGxGetDisplayWidth();
-    labelLeft->m_AlignHor = IW_2D_FONT_ALIGN_LEFT;
+    labelLeft->m_W = IwGxGetDisplayWidth() / 2;
     labelLeft->m_ScaleX = 1.0;
+    labelLeft->m_AlignHor = IW_2D_FONT_ALIGN_LEFT;
     labelLeft->m_X += 10;
     
     labelRight = new CLabel();
 	labelRight->m_Font = g_pResources->getFont();
 	labelRight->m_Text = "Events";
     labelRight->m_Y = IwGxGetDisplayHeight() / 6.5;
-    labelRight->m_W = IwGxGetDisplayWidth();
+    labelRight->m_W = IwGxGetDisplayWidth() / 2;
     labelRight->m_AlignHor = IW_2D_FONT_ALIGN_RIGHT;
-    labelRight->m_X += -10;
+    labelRight->m_X += (IwGxGetDisplayWidth() / 2.0) -10;
     
     labelMain = new CLabel();
 	labelMain->m_Font = g_pResources->getFont20();
