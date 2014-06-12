@@ -80,7 +80,7 @@ void EventsScene::Init()
 	calFeed = new CIwRSS(this);
 	printf("fetching...\n");
 	//feed->FetchFeed("http://radio.uccs.edu/index.php/feed");
-    calFeed->CalendarParseRSS("<rss>");
+    calFeed->CalendarParseRSS("<feed>");
     printf("finished fetching\n");
 	//feed->Update();
     
