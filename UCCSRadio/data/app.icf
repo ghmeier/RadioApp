@@ -22,3 +22,6 @@ DispFixRot=FixedPortrait
 
 [Util]
 MemMgrMaxAllocWarning=0
+
+[GX]
+DataCacheSize=102400 # Allocate 100k for the data cache

@@ -89,8 +89,8 @@ int main()
     streamer->Init();
 
 	HttpClient* globalHttpClient = new HttpClient(5, "HttpClient");
-	//Ptr<HttpDownload> xmlDownload = new HttpDownload("http://radio.uccs.edu/index.php/feed", "feed.xml");
-	//globalHttpClient->QueueRequest(xmlDownload);
+	Ptr<HttpDownload> xmlDownload = new HttpDownload("http://radio.uccs.edu/index.php/feed", "newsFeed.xml");
+	globalHttpClient->QueueRequest(xmlDownload);
     
     Ptr<HttpDownload> xmlCalendarDownload = new HttpDownload("http://radio.uccs.edu/index.php/schedule", "calendar.xml");
     globalHttpClient->QueueRequest(xmlCalendarDownload);
@@ -116,6 +116,7 @@ int main()
         // Clear the drawing surface
         Iw2DSurfaceClear(0xff000000);
         
+        globalHttpClient->Update();
         
         // Render scene manager
         g_pSceneManager->Render();
@@ -140,7 +141,7 @@ int main()
     delete g_pResources;
 	delete globalHttpClient;
     xmlCalendarDownload = nullptr;
-	//xmlDownload = nullptr;
+	xmlDownload = nullptr;
     delete streamer;
     sceneSwitchComplete = nullptr;
     Iw2DTerminate();
