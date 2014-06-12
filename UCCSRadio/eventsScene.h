@@ -33,7 +33,7 @@ class EventsScene : public Scene
 {
 private:
     // UI components
-    //CIwRSS* calFeed;
+    CIwRSS* calFeed;
     
 public:
     EventsScene() {}

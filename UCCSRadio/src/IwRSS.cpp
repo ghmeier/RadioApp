@@ -216,10 +216,9 @@ void CIwRSS::ParseRSS(const char * data)
             }
         }
     }
-    _STL::cout << "Candy =" << newsFeedCount;
 }
 
-/*void CIwRSS::CalendarParseRSS(const char * data)
+void CIwRSS::CalendarParseRSS(const char * data)
 {
     //Parse the RSS data
     TiXmlDocument doc( "calendar.xml" );
@@ -236,33 +235,37 @@ void CIwRSS::ParseRSS(const char * data)
     TiXmlNode * element;
     TiXmlNode * title;
     TiXmlNode * desc;
+    printf("\nFirst Level \n");
     if (node != 0 && node->ToElement())
     {
         //Find channel
-        channel = node->FirstChild("channel");
-        if (channel != 0 && channel->ToElement())
-        {
+        //channel = node->FirstChild("feed");
+        printf("\nSecond Level \n");
+        //if (channel != 0 && channel->ToElement())
+        //{
+            printf("\nThird Level \n");
             //Loop through feed items
-            for (element = channel->FirstChild("item");
+            for (element = node->FirstChild("entry");
                  element;
-                 element = element->NextSibling("item") )
+                 element = element->NextSibling("entry") )
             {
-                if (!element->FirstChild("title") || !(title = element->FirstChild("title")->FirstChild()))
+                 printf("\nLoop Level \n");
+                if (!element->FirstChild("title") || !(title = element->FirstChild("title")->FirstChild())) {
                     continue;
-                
+                }
                 //Found title
                 std::string titlestr = title->Value();
                 std::string description = "";
                 std::string image = "";
                 
-                if (element->FirstChild("description") && (desc = element->FirstChild("description")->FirstChild()))
+                if (element->FirstChild("content") && (desc = element->FirstChild("content")->FirstChild()))
                 {
                     description = desc->Value();
                     
                     //Description contains HTML data
                     if (description[0] == '<')
                     {
-                        TiXmlDocument desc( "description.html" );
+                        TiXmlDocument desc( "content.html" );
                         desc.Parse( description.c_str(), 0, TIXML_ENCODING_UTF8);
                         
                         TiXmlElement * head = desc.RootElement();
@@ -325,19 +328,19 @@ void CIwRSS::ParseRSS(const char * data)
 				label->SetText(titlestr);
                 label->m_W = IwGxGetDisplayWidth();
                 label->m_AlignHor = IW_2D_FONT_ALIGN_CENTRE;
-                label->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/4)* (newsFeedCount - 1);
-                newsFeedCount += 1;
+                label->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/4)* (calendarFeedCount - 1);
+                calendarFeedCount += 1;
 				myScene->AddChild(label);
                 
                 if (image.length())
                 {
                     FetchImage(image.c_str(), titlestr.c_str());
                 }
-            }
+            //}
         }
     }
     _STL::cout << "Candy =" << newsFeedCount;
-}*/
+}
 
 
 //-----------------------------------------------------------------------------

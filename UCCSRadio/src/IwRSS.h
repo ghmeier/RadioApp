@@ -40,7 +40,7 @@ public:
     void FetchFeed(const char* url);
     void CancelFetch();
     void ParseRSS(const char* data);
-    //void CalendarParseRSS(const char* data);
+    void CalendarParseRSS(const char* data);
 
     // What proportion of a feed's items have we fetched
     iwfixed GetProgress() const { return m_Progress; }

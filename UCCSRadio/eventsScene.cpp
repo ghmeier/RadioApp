@@ -19,7 +19,7 @@
 
 EventsScene::~EventsScene()
 {
-    //delete calFeed;
+ 
 }
 
 void EventsScene::startGame(CTween* pTween)
@@ -77,11 +77,13 @@ void EventsScene::Init()
     AddChild(background);
     
     //adding scroll view
-	//calFeed = new CIwRSS(this);
+	calFeed = new CIwRSS(this);
 	printf("fetching...\n");
 	//feed->FetchFeed("http://radio.uccs.edu/index.php/feed");
-    //calFeed->ParseRSS("<rss>");
+    calFeed->CalendarParseRSS("<feed>");
     printf("finished fetching\n");
 	//feed->Update();
+    
+    delete calFeed;
 }
 

@@ -27,6 +27,7 @@
 
 NewsScene::~NewsScene()
 {
+
 	delete feed;
 }
 
@@ -102,6 +103,8 @@ void NewsScene::Init()
     feed->ParseRSS("<rss>");
     printf("finished fetching\n");
 	//feed->Update();
+    
+    delete feed;
     
     
     

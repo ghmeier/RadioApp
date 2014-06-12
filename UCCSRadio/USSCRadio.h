@@ -20,4 +20,5 @@ using namespace IwTween;
 
 extern CTweenManager*       g_pTweener;
 extern int newsFeedCount;
+extern int calendarFeedCount;
 #endif  // __USSCRADIO_H__
