@@ -22,6 +22,7 @@
 #include "../resources.h"
 #include "s3e.h"
 #include <string>
+#include "../newsStory.h"
 #include <iostream>
 
 // Globals
@@ -197,7 +198,7 @@ void CIwRSS::ParseRSS(const char * data)
                 IwTrace(UI, ("Desc: %s", description.c_str()));
                 
 				
-                //RSS FEED ITEMs...
+               /* //RSS FEED ITEMs...
 				CLabel* label = new CLabel();
 				
 				label->SetFont(g_pResources->getFont());
@@ -208,6 +209,8 @@ void CIwRSS::ParseRSS(const char * data)
                 newsFeedCount += 1;
 				myScene->AddChild(label);
 				myScene->labels.push_back(label);
+                */
+                
                 
                 if (image.length())
                 {
