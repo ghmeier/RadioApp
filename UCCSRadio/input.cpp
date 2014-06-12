@@ -37,6 +37,7 @@ void Input::TouchButtonCB(s3ePointerEvent* event)
 	}
 
     g_pInput->m_X = event->m_x;
+	g_pInput->prev_Y = event->m_y;
     g_pInput->m_Y = event->m_y;
 }
 
@@ -59,6 +60,7 @@ void Input::TouchMotionCB(s3ePointerMotionEvent* event)
 		g_pInput->start_Y = -1;
 	}
     g_pInput->m_X = event->m_x;
+	g_pInput->prev_Y = event->m_y;
     g_pInput->m_Y = event->m_y;
 	
 }
@@ -84,6 +86,7 @@ void Input::MultiTouchButtonCB(s3ePointerTouchEvent* event)
 		g_pInput->start_Y = -1;
 	}
     g_pInput->m_X = event->m_x;
+	g_pInput->prev_Y = event->m_y;
     g_pInput->m_Y = event->m_y;
 }
 
@@ -107,6 +110,7 @@ void Input::MultiTouchMotionCB(s3ePointerTouchMotionEvent* event)
 		g_pInput->start_Y = -1;
 	}
     g_pInput->m_X = event->m_x;
+	g_pInput->prev_Y = event->m_y;
     g_pInput->m_Y = event->m_y;
 }
 
