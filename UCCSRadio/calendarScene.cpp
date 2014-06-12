@@ -49,8 +49,12 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
                             ONCOMPLETE, startGame,
                             END);
         }
-		label->m_Y -= (g_pInput->m_Y - g_pInput->prev_Y);
+		
     }
+	if (m_IsInputActive && m_Manager->GetCurrent() == this && g_pInput->m_Touched) 
+	{
+		label->m_Y += (g_pInput->m_Y - g_pInput->prev_Y);
+	}
 }
 
 void CalendarScene::Render()

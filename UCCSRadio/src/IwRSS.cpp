@@ -199,6 +199,7 @@ void CIwRSS::ParseRSS(const char * data)
 				
                 //RSS FEED ITEMs...
 				CLabel* label = new CLabel();
+				
 				label->SetFont(g_pResources->getFont());
 				label->SetText(titlestr);
                 label->m_W = IwGxGetDisplayWidth();
@@ -206,6 +207,7 @@ void CIwRSS::ParseRSS(const char * data)
                 label->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/4)* (newsFeedCount - 1);
                 newsFeedCount += 1;
 				myScene->AddChild(label);
+				myScene->labels.push_back(label);
                 
                 if (image.length())
                 {

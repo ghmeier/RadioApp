@@ -47,6 +47,7 @@ public:
 	int				prev_Y;
     bool            m_Touched;          // Touched status
     bool            m_PrevTouched;      // Previous touched status
+	bool			m_canScroll;
     
 public:
     Input();

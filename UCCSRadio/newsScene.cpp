@@ -28,7 +28,6 @@
 NewsScene::~NewsScene()
 {
 	delete feed;
-    //delete font;
 }
 
 void NewsScene::startGame(CTween* pTween)
@@ -60,6 +59,14 @@ void NewsScene::Update(float deltaTime, float alphaMul)
                         END);
         }
     }
+
+	if (m_IsInputActive && m_Manager->GetCurrent() == this && g_pInput->m_Touched)
+	{
+		for (int i = 0; i < labels.size(); i++) {
+			labels[i]->m_Y += (g_pInput->m_Y - g_pInput->prev_Y);
+		}
+	}
+
 }
 
 void NewsScene::Render()
