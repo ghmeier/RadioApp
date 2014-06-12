@@ -19,6 +19,7 @@
 
 CalendarScene::~CalendarScene()
 {
+	delete label;
 }
 
 void CalendarScene::startGame(CTween* pTween)
@@ -48,6 +49,7 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
                             ONCOMPLETE, startGame,
                             END);
         }
+		label->m_Y -= (g_pInput->m_Y - g_pInput->prev_Y);
     }
 }
 
@@ -72,11 +74,15 @@ void CalendarScene::Init()
     // Fit background to screen size
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight() * 6;
-	CLabel* label = new CLabel();
+
+	label = new CLabel();
 	label->SetFont(g_pResources->getFont20());
 	label->SetText("It is a period of civil war. Rebel spaceships, striking	from a hidden base, have won their first victory against the evil Galactic Empire.");
-    AddChild(label);
+	label->m_W = IwGxGetScreenWidth();
+	label->m_Y = (float)IwGxGetScreenHeight() / 2;
+
 	AddChild(background);
+	AddChild(label);
 	
 }
 

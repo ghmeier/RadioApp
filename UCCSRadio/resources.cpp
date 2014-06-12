@@ -34,6 +34,7 @@ Resources::Resources()
 
 	Font = Iw2DCreateFont("trackFont.gxfont");
 	Font20 = Iw2DCreateFont("trackFont20.gxfont");
+	Font7 = Iw2DCreateFont("trackFont7.gxfont");
 
 }
 
@@ -57,6 +58,7 @@ Resources::~Resources()
     delete GreyBanner;
     delete Font;
 	delete Font20;
+	delete Font7;
     
 }
 

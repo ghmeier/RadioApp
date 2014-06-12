@@ -20,6 +20,7 @@
 #include "tinyxml.h"
 #include "../USSCRadio.h"
 #include "../resources.h"
+#include "s3e.h"
 
 // Globals
 CIwRSS * g_IwRSS = 0;
@@ -44,7 +45,7 @@ void CIwRSS::HTTPHandler(void* pArgument, const char* pURL,
     {
         CIwRSS* pRSS = ((CIwRSS*)pArgument);
         IwAssert(UI, pRSS == g_IwRSS);
-
+        
 		// Handle Data fetched by HTTP
         pRSS->HandleResult(pURL, pResult, resultLen);
     }
@@ -98,25 +99,34 @@ const CIwRSS::CFeedItem* CIwRSS::GetFeedItemByURL(const char* url) const
 void CIwRSS::ParseRSS(const char * data)
 {
     //Parse the RSS data
-    TiXmlDocument doc( "feed.xml" );
-    doc.Parse( data, 0, TIXML_ENCODING_UTF8 );
+    TiXmlDocument doc( "newsFeed.xml" );
+    bool loadOkay = doc.LoadFile();
+    if (loadOkay) {
+        printf("\nWe all good \n");
+    } else {
+        printf("\nWe not good \n");
+    }
+    doc.Parse(data, 0, TIXML_ENCODING_UTF8 );
     TiXmlElement * node = doc.RootElement();
     TiXmlNode * channel;
     TiXmlNode * element;
     TiXmlNode * title;
     TiXmlNode * desc;
-
+    printf("Hey I am at the top");
     if (node != 0 && node->ToElement())
     {
+        printf("Now I am at the second level");
         //Find channel
         channel = node->FirstChild("channel");
         if (channel != 0 && channel->ToElement())
         {
+            printf("Now I am at the third level");
             //Loop through feed items
             for (element = channel->FirstChild("item");
                  element;
                  element = element->NextSibling("item") )
             {
+                printf("Now I am at the loop");
                 if (!element->FirstChild("title") || !(title = element->FirstChild("title")->FirstChild()))
                     continue;
 
@@ -187,14 +197,15 @@ void CIwRSS::ParseRSS(const char * data)
                 }
 
                 IwTrace(UI, ("Desc: %s", description.c_str()));
-
+                
 				//RSS FEED ITEMs...
-				CLabel* label = new CLabel();
+				/*CLabel* label = new CLabel();
 				label->SetFont(g_pResources->getFont());
 				label->SetText(titlestr);
+                label->m_W =
 				label->m_X = IwGxGetDisplayWidth() / 2;
 				label->m_Y = IwGxGetDisplayHeight() / 2;
-				myScene->AddChild(label);
+				myScene->AddChild(label);*/
 
                 if (image.length())
                 {
@@ -237,7 +248,6 @@ void CIwRSS::FetchFeed(const char * url)
     m_FeedItems.push_back(feed);
 
     m_Progress = 0;
-
     Fetch(feed);
 }
 

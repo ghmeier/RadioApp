@@ -49,6 +49,7 @@ protected:
     CIw2DImage*     GreyBanner;
 	CIw2DFont*		Font;
 	CIw2DFont*		Font20;
+	CIw2DFont*		Font7;
     
     
 public:
@@ -70,6 +71,7 @@ public:
     CIw2DImage*     getGreyBanner()                 { return GreyBanner; }
 	CIw2DFont*		getFont()						{ return Font; }
 	CIw2DFont*		getFont20()						{ return Font20; }
+	CIw2DFont*		getFont7()						{ return Font7; }
 
 public:
     Resources();

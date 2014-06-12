@@ -39,6 +39,7 @@ public:
     void Update();
     void FetchFeed(const char* url);
     void CancelFetch();
+    void ParseRSS(const char* data);
 
     // What proportion of a feed's items have we fetched
     iwfixed GetProgress() const { return m_Progress; }
@@ -68,7 +69,6 @@ private:
     // Private utils
     void Fetch(CFeedItem* pFeed);
     void FetchImage(const char* url, const char* title);
-    void ParseRSS(const char* data);
     void HandleResult(const char* url, const char* data, int32 dataLen);
     const CFeedItem* GetFeedItemByURL(const char* url) const;
 

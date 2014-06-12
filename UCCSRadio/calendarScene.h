@@ -32,6 +32,7 @@ class CalendarScene : public Scene
 {
 protected:
     // UI components
+	CLabel* label;
     
 public:
     CalendarScene() {}

@@ -16,6 +16,13 @@
 #include "calendarScene.h"
 #include "streamer.h"
 #include "IwGx.h"
+#include <tinyxml.h>
+#include "USSCRadio.h"
+#include "src/HttpClient.h"
+#include "s3e.h"
+#include "IwDebug.h"
+#include <IwHTTP.h>
+
 
 
 NewsScene::~NewsScene()
@@ -37,7 +44,9 @@ void NewsScene::Update(float deltaTime, float alphaMul)
         return;
     
     Scene::Update(deltaTime, alphaMul);
-	//feed->Update();
+	
+    //feed->Update();
+    
     // Detect screen tap
     if (m_IsInputActive && m_Manager->GetCurrent() == this && !g_pInput->m_Touched && g_pInput->m_PrevTouched)
     {
@@ -82,8 +91,11 @@ void NewsScene::Init()
 	//adding scroll view
 	feed = new CIwRSS(this);
 	printf("fetching...\n");
-	feed->FetchFeed("http://radio.uccs.edu/index.php/feed");
-	printf("finished fetching\n");
-	feed->Update();
+	//feed->FetchFeed("http://radio.uccs.edu/index.php/feed");
+    feed->ParseRSS("<rss>");
+    printf("finished fetching\n");
+	//feed->Update();
+    
+    
     
 }

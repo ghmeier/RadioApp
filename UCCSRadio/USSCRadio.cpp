@@ -89,10 +89,10 @@ int main()
     streamer->Init();
 
 	HttpClient* globalHttpClient = new HttpClient(5, "HttpClient");
-	Ptr<HttpDownload> xmlDownload = new HttpDownload("http://radio.uccs.edu/index.php/feed", "feed.xml");
+	Ptr<HttpDownload> xmlDownload = new HttpDownload("http://radio.uccs.edu/index.php/feed", "newsFeed.xml");
 	globalHttpClient->QueueRequest(xmlDownload);
     
-    Ptr<HttpDownload> xmlCalendarDownload = new HttpDownload("http://radio.uccs.edu/index.php/schedule", "calendar.xml");
+    Ptr<HttpDownload> xmlCalendarDownload = new HttpDownload("https://www.google.com/calendar/feeds/mr7s4faaibvpgauhpl3rlkloks%40group.calendar.google.com/public/full?&callback=insertAgenda&orderby=starttime&max-results=15&singleevents=true&sortorder=ascending&futureevents=true", "calendar.xml");
     globalHttpClient->QueueRequest(xmlCalendarDownload);
     
     // Loop forever, until the user or the OS performs some action to quit the app
@@ -116,6 +116,7 @@ int main()
         // Clear the drawing surface
         Iw2DSurfaceClear(0xff000000);
         
+        globalHttpClient->Update();
         
 
         // Render scene manager

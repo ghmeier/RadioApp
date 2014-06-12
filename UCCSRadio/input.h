@@ -44,6 +44,7 @@ class Input
 {
 public:
     int             m_X, m_Y,start_X,start_Y;           // Touched position
+	int				prev_Y;
     bool            m_Touched;          // Touched status
     bool            m_PrevTouched;      // Previous touched status
     

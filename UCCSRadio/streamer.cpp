@@ -220,7 +220,7 @@ void Streamer::Init()
     
     labelMain = new CLabel();
 	labelMain->m_Font = g_pResources->getFont20();
-	labelMain->m_Text = "Events";
+	labelMain->m_Text = "News";
     labelMain->m_Y = IwGxGetDisplayHeight() / 7.5;
     labelMain->m_W = IwGxGetDisplayWidth();
     labelMain->m_AlignHor = IW_2D_FONT_ALIGN_CENTRE;
