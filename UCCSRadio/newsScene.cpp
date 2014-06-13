@@ -45,7 +45,6 @@ void NewsScene::Update(float deltaTime, float alphaMul)
     Scene::Update(deltaTime, alphaMul);
 	
     //feed->Update();
-    
 	if (m_IsInputActive && m_Manager->GetCurrent() == this && g_pInput->m_Touched)
 	{
 		for (int i = 0; i < labels.size(); i++) {
@@ -54,6 +53,7 @@ void NewsScene::Update(float deltaTime, float alphaMul)
 		g_pInput->prev_Y = g_pInput->m_Y;
 	}
 
+	UpdateLabels();
 }
 
 void NewsScene::Render()

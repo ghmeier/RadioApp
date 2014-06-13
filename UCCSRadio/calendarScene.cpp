@@ -37,7 +37,6 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
         return;
     
     Scene::Update(deltaTime, alphaMul);
-    
 	if (m_IsInputActive && m_Manager->GetCurrent() == this && g_pInput->m_Touched)
 	{
 		for (int i = 0; i < labels.size(); i++) {
@@ -54,6 +53,7 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
 
 
 	}
+	UpdateLabels();
 }
 
 void CalendarScene::Render()

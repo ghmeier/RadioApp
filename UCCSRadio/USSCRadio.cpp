@@ -68,9 +68,12 @@ int main()
 	Ptr<HttpDownload> xmlDownload = new HttpDownload("http://radio.uccs.edu/index.php/feed", "newsFeed.xml");
 	globalHttpClient->QueueRequest(xmlDownload);
     
-    Ptr<HttpDownload> xmlCalendarDownload = new HttpDownload("http://www.google.com/calendar/feeds/mr7s4faaibvpgauhpl3rlkloks%40group.calendar.google.com/public/full", "calendar.xml");
+    Ptr<HttpDownload> xmlCalendarDownload = new HttpDownload("http://www.google.com/calendar/feeds/mr7s4faaibvpgauhpl3rlkloks%40group.calendar.google.com/public/full?max-results=15&orderby=starttime&futureevents=true&singleevents=true&sortorder=ascending", "calendar.xml");
     globalHttpClient->QueueRequest(xmlCalendarDownload);
-    
+
+	Ptr<HttpDownload> xmlEventsDownload = new HttpDownload("http://www.google.com/calendar/feeds/radiouccs%40gmail.com/public/full?max-results=15&orderby=starttime&futureevents=true&singleevents=true&sortorder=ascending","events.xml");
+	globalHttpClient->QueueRequest(xmlEventsDownload);
+
     // Init the news
     NewsScene* news_scene = new NewsScene();
     news_scene->SetName("newsscene");
