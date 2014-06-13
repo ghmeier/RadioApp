@@ -148,6 +148,7 @@ int main()
 	delete globalHttpClient;
     xmlCalendarDownload = nullptr;
 	xmlDownload = nullptr;
+	xmlEventsDownload = nullptr;
     delete streamer;
     sceneSwitchComplete = nullptr;
     Iw2DTerminate();
