@@ -10,8 +10,8 @@
  * EULA and have agreed to be bound by its terms.
  */
 
-#if !defined(__NEWSSTORY_H__)
-#define __NEWSSTORY_H__
+#if !defined(__CALENDARSTORY_H__)
+#define __CALENDARSTORY_H__
 
 #include "scene.h"
 #include "s3eOSExec.h"
@@ -29,7 +29,7 @@
  * game music.
  *
  */
-class NewsStory : public CNode
+class CalendarStory : public CNode
 {
 protected:
     // UI components
@@ -37,8 +37,8 @@ protected:
     CSprite* readMore;
     
 public:
-    NewsStory() {}
-    ~NewsStory();
+    CalendarStory() {}
+    ~CalendarStory();
     
     // initialise the menu
     void            Init(std::string titleText, std::string descriptionText, std::string link);
@@ -52,4 +52,4 @@ public:
     
 };
 
-#endif  // __NEWSSTORY_H__
+#endif  // __CALENDARSTORY_H__

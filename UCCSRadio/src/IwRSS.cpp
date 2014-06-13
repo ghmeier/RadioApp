@@ -334,6 +334,14 @@ void CIwRSS::CalendarParseRSS(const char * data)
                 calendarFeedCount += 1;
 				myScene->AddChild(label);
                 
+                NewsStory* story = new NewsStory();
+                story->Init(titlestr , description, link);
+                story->m_W = IwGxGetDisplayWidth();
+                story->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/2)* (newsFeedCount - 1);
+                newsFeedCount += 1;
+				myScene->AddChild(story);
+				myScene->labels.push_back(story);
+                
                 if (image.length())
                 {
                     FetchImage(image.c_str(), titlestr.c_str());

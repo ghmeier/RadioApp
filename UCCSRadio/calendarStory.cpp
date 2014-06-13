@@ -20,17 +20,17 @@
 #include "calendarScene.h"
 #include "newsScene.h"
 #include "eventsScene.h"
-#include "newsStory.h"
+#include "calendarStory.h"
 #include "s3eOSExec.h"
 
 std::string link = "";
 
-NewsStory::~NewsStory()
+CalendarStory::~CalendarStory()
 {
     
 }
 
-void NewsStory::Update(float deltaTime, float alphaMul)
+void CalendarStory::Update(float deltaTime, float alphaMul)
 {
     CNode::Update(deltaTime, alphaMul);
     
@@ -43,12 +43,12 @@ void NewsStory::Update(float deltaTime, float alphaMul)
     }
 }
 
-void NewsStory::Render()
+void CalendarStory::Render()
 {
     CNode::Render();
 }
 
-void NewsStory::Init(std::string titleText, std::string descriptionText, std::string link)
+void CalendarStory::Init(std::string titleText, std::string descriptionText, std::string link)
 {
     CLabel* title = new CLabel();
     title->m_W = IwGxGetDisplayWidth();
