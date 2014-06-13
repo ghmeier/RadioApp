@@ -160,7 +160,7 @@ void CIwRSS::ParseRSS(const char * data)
                                     if (end != std::string::npos)
                                     {
                                         image = description.substr(start, end - start);
-                                        IwTrace(UI, ("Image found %s", image.c_str()));
+                                       // IwTrace(UI, ("Image found %s", image.c_str()));
                                     }
                                 }
                             }
@@ -177,7 +177,7 @@ void CIwRSS::ParseRSS(const char * data)
                                     {
                                         if (end - start > 0)
                                         {
-                                            IwTrace(UI, ("Out: %s", description.substr(start, end - start).c_str()));
+                                            //IwTrace(UI, ("Out: %s", description.substr(start, end - start).c_str()));
                                             description = description.substr(start, end - start).c_str();
                                             break;
                                         }
@@ -202,7 +202,7 @@ void CIwRSS::ParseRSS(const char * data)
                 {
                     link = url->Value();
                 }
-                IwTrace(UI, ("Desc: %s", description.c_str()));
+                //IwTrace(UI, ("Desc: %s", description.c_str()));
                 
 				
                 NewsStory* story = new NewsStory();
@@ -240,21 +240,21 @@ void CIwRSS::CalendarParseRSS(const char * data)
     TiXmlNode * element;
     TiXmlNode * title;
     TiXmlNode * desc;
-    printf("\nFirst Level \n");
+    //printf("\nFirst Level \n");
     if (node != 0 && node->ToElement())
     {
         //Find channel
         //channel = node->FirstChild("feed");
-        printf("\nSecond Level \n");
+        //printf("\nSecond Level \n");
         //if (channel != 0 && channel->ToElement())
         //{
-            printf("\nThird Level \n");
+            //printf("\nThird Level \n");
             //Loop through feed items
             for (element = node->FirstChild("entry");
                  element;
                  element = element->NextSibling("entry") )
             {
-                 printf("\nLoop Level \n");
+                // printf("\nLoop Level \n");
                 if (!element->FirstChild("title") || !(title = element->FirstChild("title")->FirstChild())) {
                     continue;
                 }
@@ -286,7 +286,7 @@ void CIwRSS::CalendarParseRSS(const char * data)
                                     if (end != std::string::npos)
                                     {
                                         image = description.substr(start, end - start);
-                                        IwTrace(UI, ("Image found %s", image.c_str()));
+                                       // IwTrace(UI, ("Image found %s", image.c_str()));
                                     }
                                 }
                             }
@@ -303,7 +303,7 @@ void CIwRSS::CalendarParseRSS(const char * data)
                                     {
                                         if (end - start > 0)
                                         {
-                                            IwTrace(UI, ("Out: %s", description.substr(start, end - start).c_str()));
+                                            //IwTrace(UI, ("Out: %s", description.substr(start, end - start).c_str()));
                                             description = description.substr(start, end - start).c_str();
                                             break;
                                         }
@@ -324,12 +324,12 @@ void CIwRSS::CalendarParseRSS(const char * data)
                     }
 
                 }
-				std::string starttime;
+				/*std::string starttime;
 				std::string endtime;
 				when = element->FirstChildElement("gd:when");
 				starttime = when->Attribute("starttime");
 				endtime= when->Attribute("endtime");
-				std::cout << starttime << "," << endtime<<"\n";                
+				std::cout << starttime << "," << endtime<<"\n";      */          
 				
                 //RSS FEED ITEMs...
                 CalendarStory* story = new CalendarStory();

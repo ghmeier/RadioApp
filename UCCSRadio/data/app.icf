@@ -19,6 +19,12 @@
 [S3E]
 MemSize=50000000
 DispFixRot=FixedPortrait
+SplashScreenFile = textures/ClockworkDragonSIWhite.png
+SplashScreenWidth = 480
+SplashScreenHeight = 320
+SplashScreenBkR=255
+SplashScreenBkG=255
+SplashScreenBkB=255
 
 [Util]
 MemMgrMaxAllocWarning=0
