@@ -54,7 +54,7 @@ HttpDownload::~HttpDownload() {}
 
 size_t HttpDownload::Worker_HandleData(const unsigned char* contents, size_t size) {
 	if (!m_pTmpFile) {
-		m_pTmpFile = s3eFileOpen(string(m_destFile).append(".tmp").c_str(), "w");
+		m_pTmpFile = s3eFileOpen(string(m_destFile).c_str(), "w");
 		if (m_pTmpFile == nullptr)
 			throw std::runtime_error("Unable to open file for downloading!");
 	}

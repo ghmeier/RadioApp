@@ -258,6 +258,7 @@ void CIwRSS::CalendarParseRSS(const char * data)
                 }
                 //Found title
                 std::string titlestr = title->Value();
+                TiXmlElement * titleElement = (TiXmlElement*) title;
                 std::string description = "";
                 std::string image = "";
                 
