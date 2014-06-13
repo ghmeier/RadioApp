@@ -56,14 +56,17 @@ void Scene::UpdateLabels(){
 	if (m_IsInputActive && m_Manager->GetCurrent() == this && g_pInput->m_Touched)
 	{
 		for (int i = 0; i < labels.size(); i++) {
-			if (labels[0]->m_Y <= IwGxGetDisplayHeight() / 4 && labels[labels.size() - 1]->m_Y > IwGxGetDisplayHeight() / 4 * 3);
+			if (labels[0]->m_Y + (g_pInput->m_Y - g_pInput->prev_Y) <= IwGxGetDisplayHeight() / 4 && labels[labels.size() - 1]->m_Y + (g_pInput->m_Y - g_pInput->prev_Y)> IwGxGetDisplayHeight() / 4)
 			{
 				labels[i]->m_Y += (g_pInput->m_Y - g_pInput->prev_Y);
 			}
-			else 
+			else if (labels[0]->m_Y + (g_pInput->m_Y - g_pInput->prev_Y) > IwGxGetDisplayHeight() / 4)
 			{
-				labels[0]->m_Y = IwGxGetDisplayHeight() / 4;
-				labels[labels.size() - 1]->m_Y > IwGxGetDisplayHeight() / 4 * 3;
+				labels[i]->m_Y = IwGxGetDisplayHeight() / 4 + (IwGxGetDisplayHeight() / 2)* i;
+			}
+			else if (labels[labels.size() - 1]->m_Y <= IwGxGetDisplayHeight() / 4 )
+			{
+				labels[labels.size() - 1]->m_Y = IwGxGetDisplayHeight() / 4 ;
 			}
 		}
 		g_pInput->prev_Y = g_pInput->m_Y;

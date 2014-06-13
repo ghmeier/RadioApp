@@ -48,7 +48,8 @@ void EventsScene::Update(float deltaTime, float alphaMul)
                             EASING, Ease::powIn,
                             ONCOMPLETE, startGame,
                             END);
-        }    
+		}
+
 	}
 
 	UpdateLabels();
