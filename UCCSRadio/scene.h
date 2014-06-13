@@ -50,7 +50,7 @@ protected:
     CTweenManager       m_Tweener;                      // Scene local tween manager
 
 public:
-	std::vector<CLabel*> labels;
+	std::vector<CNode*> labels;
     bool                IsActive() const                    { return m_IsActive; }
     void                SetActive(bool active)              { m_IsActive = active; }
     void                SetName(const char* name);

@@ -74,7 +74,6 @@ void NewsScene::Render()
     Scene::Render();
 }
 
-
 void NewsScene::Init()
 {
     Scene::Init();

@@ -10,8 +10,8 @@
  * EULA and have agreed to be bound by its terms.
  */
 
-#if !defined(__STREAMER_H__)
-#define __STREAMER_H__
+#if !defined(__NEWSSTORY_H__)
+#define __NEWSSTORY_H__
 
 #include "scene.h"
 
@@ -28,26 +28,18 @@
  * game music.
  *
  */
-class Streamer : public CNode
+class NewsStory : public CNode
 {
 protected:
     // UI components
-    CSprite*    playButton;
-    CSprite*    stopButton;
-    CSprite*    playWrapper;
-    CSprite*    header;
-    CSprite*    banner;
-    CLabel*     labelLeft;
-    CLabel*     labelRight;
-    CLabel*     labelMain;
     
     
 public:
-    Streamer() {}
-    ~Streamer();
+    NewsStory() {}
+    ~NewsStory();
     
     // initialise the menu
-    void            Init();
+    void            Init(std::string);
     
     // Update the menu
     void            Update(float deltaTime = 0.0f, float alphaMul = 1.0f);
@@ -58,8 +50,4 @@ public:
     
 };
 
-#endif  // __STREAMER_H__
-
-extern float buttonTop;
-extern float buttonBottom;
-extern int currentPage;
+#endif  // __NEWSSTORY_H__
