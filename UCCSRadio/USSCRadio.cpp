@@ -103,7 +103,7 @@ int main()
     // Loop forever, until the user or the OS performs some action to quit the app
     while (!s3eDeviceCheckQuitRequest())
     {
-
+        
         uint64 new_time = s3eTimerGetMs();
         
         // Update input system
@@ -123,7 +123,6 @@ int main()
         
         globalHttpClient->Update();
         
-
         // Render scene manager
         g_pSceneManager->Render();
 
@@ -148,7 +147,7 @@ int main()
 	delete globalHttpClient;
     xmlCalendarDownload = nullptr;
 	xmlDownload = nullptr;
-	xmlEventsDownload = nullptr;
+    xmlEventsDownload = nullptr;
     delete streamer;
     sceneSwitchComplete = nullptr;
     Iw2DTerminate();

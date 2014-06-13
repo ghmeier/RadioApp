@@ -25,6 +25,7 @@
 #include "../newsStory.h"
 #include "../calendarStory.h"
 #include <iostream>
+#include <sstream>
 
 // Globals
 CIwRSS * g_IwRSS = 0;
@@ -224,6 +225,9 @@ void CIwRSS::ParseRSS(const char * data)
 
 void CIwRSS::CalendarParseRSS(const char * data)
 {
+    int bannerHeight = 0;
+    _STL::string dateCheck = "";
+    int numDates = 0;
     //Parse the RSS data
     TiXmlDocument doc( "calendar.xml" );
     bool loadOkay = doc.LoadFile();
@@ -238,11 +242,14 @@ void CIwRSS::CalendarParseRSS(const char * data)
 	TiXmlElement * when;
     TiXmlNode * channel;
     TiXmlNode * element;
+    TiXmlNode * start;
+    TiXmlNode * end;
     TiXmlNode * title;
     TiXmlNode * desc;
     //printf("\nFirst Level \n");
     if (node != 0 && node->ToElement())
     {
+        
         //Find channel
         //channel = node->FirstChild("feed");
         //printf("\nSecond Level \n");
@@ -260,6 +267,7 @@ void CIwRSS::CalendarParseRSS(const char * data)
                 }
                 //Found title
                 std::string titlestr = title->Value();
+                //TiXmlElement * titleElement = (TiXmlElement*) title;
                 std::string description = "";
                 std::string image = "";
                 
@@ -327,15 +335,101 @@ void CIwRSS::CalendarParseRSS(const char * data)
 				/*std::string starttime;
 				std::string endtime;
 				when = element->FirstChildElement("gd:when");
+<<<<<<< HEAD
 				starttime = when->Attribute("starttime");
 				endtime= when->Attribute("endtime");
 				std::cout << starttime << "," << endtime<<"\n";      */          
 				
+=======
+				starttime = when->Attribute("startTime");
+				endtime= when->Attribute("endTime");
+                //Get the start time and date
+				std::string s = starttime;
+                std::string delimiter = "T";
+                
+                std::string date = s.substr(0, s.find(delimiter));
+                std::string fullTime = s.substr(s.find(delimiter), s.length());
+                delimiter = ":";
+                starttime = fullTime.substr(1, fullTime.find(delimiter)-1);
+                //Get the end time
+                s = endtime;
+                delimiter = "T";
+                
+                fullTime = s.substr(s.find(delimiter), s.length());
+                delimiter = ":";
+                endtime = fullTime.substr(1, fullTime.find(delimiter)-1);
+                
+                _STL::istringstream buffer(starttime);
+                int startTimeValue;
+                buffer >> startTimeValue;
+                
+                buffer.clear();
+                
+                buffer.str(endtime);
+                int endTimeValue;
+                buffer >> endTimeValue;
+                
+                _STL::ostringstream convert;
+                if(startTimeValue > 12) {
+                    convert.clear();
+                    convert << (startTimeValue - 12);
+                    starttime = convert.str();
+                } else {
+                    convert.clear();
+                    convert << (startTimeValue);
+                    starttime = convert.str();
+                
+                }
+                
+                if(endTimeValue > 12) {
+                    convert.clear();
+                    convert.str("");
+                    convert << (endTimeValue - 12);
+                    endtime = convert.str();
+                } else {
+                    convert.clear();
+                    convert.str("");
+                    convert << (endTimeValue);
+                    endtime = convert.str();
+                }
+                
+                if(date.compare(dateCheck) != 0) {
+                    dateCheck = date;
+                    
+                    CLabel* title = new CLabel();
+                    title->m_W = IwGxGetDisplayWidth();
+                    title->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/4)* (calendarFeedCount - 1) + ((numDates) * bannerHeight);
+                    title->m_AlignHor = IW_2D_FONT_ALIGN_CENTRE;
+                    title->m_Font = g_pResources->getFont20();
+                    //title->m_Color = CColor(255, , 0, 0xff);
+                    title->SetText(date);
+                    
+                    CSprite* goldBanner = new CSprite();
+                    goldBanner->SetImage(g_pResources->getGoldBanner());
+                    goldBanner->m_X = (float)IwGxGetScreenWidth() / 2;
+                    goldBanner->m_Y = (IwGxGetDisplayHeight() / 3.5) + (IwGxGetDisplayHeight()/4)* (calendarFeedCount - 1) + ((numDates) * bannerHeight);
+                    goldBanner->m_W = goldBanner->GetImage()->GetWidth();
+                    goldBanner->m_H = goldBanner->GetImage()->GetHeight();
+                    bannerHeight = goldBanner->GetImage()->GetHeight();
+                    goldBanner->m_AnchorX = 0.5;
+                    goldBanner->m_AnchorY = 0.5;
+                    // Fit background to screen size
+                    goldBanner->m_ScaleX = (float)IwGxGetScreenWidth() / goldBanner->GetImage()->GetWidth() / 1;
+                    goldBanner->m_ScaleY = (float)IwGxGetScreenHeight() / goldBanner->GetImage()->GetHeight() / 8;
+                    
+                    myScene->AddChild(goldBanner);
+                    myScene->AddChild(title);
+                    myScene->labels.push_back(goldBanner);
+                    myScene->labels.push_back(title);
+                    numDates++;
+                }
+                
+>>>>>>> f13125143b4cd5c62defb192232c3061500ef365
                 //RSS FEED ITEMs...
                 CalendarStory* story = new CalendarStory();
-                story->Init(titlestr , description, "http://radio.uccs.edu/index.php/schedule");
+                story->Init(titlestr , description, "http://radio.uccs.edu/index.php/schedule", starttime, endtime);
                 story->m_W = IwGxGetDisplayWidth();
-                story->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/2)* (calendarFeedCount - 1);
+                story->m_Y = (IwGxGetDisplayHeight() / 2.5) + ((IwGxGetDisplayHeight()/4)* (calendarFeedCount - 1)) + ((numDates-1) * bannerHeight);
                 calendarFeedCount += 1;
 				myScene->AddChild(story);
 				myScene->labels.push_back(story);
