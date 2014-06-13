@@ -16,6 +16,8 @@
 #include "resources.h"
 #include "eventsScene.h"
 #include "streamer.h"
+#include "eventsScene.h"
+#include "IwGx.h"
 
 CalendarScene::~CalendarScene()
 {
@@ -39,16 +41,8 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
     // Detect screen tap
     if (m_IsInputActive && m_Manager->GetCurrent() == this && !g_pInput->m_Touched && g_pInput->m_PrevTouched)
     {
-        //g_pInput->Reset();
-        if(g_pInput->m_Y < buttonTop && g_pInput->m_Y > buttonBottom) {
-            g_pInput->Reset();
-            m_Tweener.Tween(0.2f,
-                            DELAY, 0.25f,
-                            EASING, Ease::powIn,
-                            ONCOMPLETE, startGame,
-                            END);
-        }
-		
+        g_pInput->Reset();
+        
     }
 	if (m_IsInputActive && m_Manager->GetCurrent() == this && g_pInput->m_Touched)
 	{
@@ -89,14 +83,17 @@ void CalendarScene::Init()
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight() * 6;
 
-	label = new CLabel();
-	label->SetFont(g_pResources->getFont20());
-	label->SetText("It is a period of civil war. Rebel spaceships, striking	from a hidden base, have won their first victory against the evil Galactic Empire.");
-	label->m_W = IwGxGetScreenWidth();
-	label->m_Y = (float)IwGxGetScreenHeight() / 2;
+	//adding scroll view
+	calFeed = new CIwRSS(this);
+	printf("fetching...\n");
+	//feed->FetchFeed("http://radio.uccs.edu/index.php/feed");
+    calFeed->CalendarParseRSS("<feed>");
+    printf("finished fetching\n");
+	//feed->Update();
+    
+    delete calFeed;
 
 	AddChild(background);
-	AddChild(label);
 	
 }
 

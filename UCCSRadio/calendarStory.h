@@ -10,16 +10,16 @@
  * EULA and have agreed to be bound by its terms.
  */
 
-#if !defined(__CALENDARSCENE_H__)
-#define __CALENDARSCENE_H__
+#if !defined(__NEWSSTORY_H__)
+#define __NEWSSTORY_H__
 
 #include "scene.h"
-#include "src/IwRSS.h"
+#include "s3eOSExec.h"
 
 /**
- * @class CalendarScene
+ * @class Streamer
  *
- * @brief The Calendar Scene
+ * @brief Streamer
  *
  * The main menu scene is a simple scene that contains a background, a button
  * and some text. The main menu is the first scene that is presented to the
@@ -29,18 +29,19 @@
  * game music.
  *
  */
-class CalendarScene : public Scene
+class NewsStory : public CNode
 {
 protected:
     // UI components
-    CIwRSS* calFeed;
+    std::string link;
+    CSprite* readMore;
     
 public:
-    CalendarScene() {}
-    ~CalendarScene();
+    NewsStory() {}
+    ~NewsStory();
     
     // initialise the menu
-    void            Init();
+    void            Init(std::string titleText, std::string descriptionText, std::string link);
     
     // Update the menu
     void            Update(float deltaTime = 0.0f, float alphaMul = 1.0f);
@@ -48,11 +49,7 @@ public:
     // Render the menu
     void            Render();
     
-    // Button callbacks
-    static void     startGame(CTween* pTween);
     
 };
 
-#endif  // __CALENDARSCENE_H__
-
-
+#endif  // __NEWSSTORY_H__

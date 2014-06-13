@@ -23,6 +23,7 @@ files
     newsScene.cpp
     streamer.cpp
     newsStory.cpp
+    calendarStory.cpp
     
     USSCRadio.h
     input.h
@@ -33,6 +34,7 @@ files
     newsScene.h
     streamer.h
     newsStory.h
+    calendarStory.h
 
     (src)
     "*.cpp"
