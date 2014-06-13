@@ -117,6 +117,7 @@ void CIwRSS::ParseRSS(const char * data)
     TiXmlNode * title;
     TiXmlNode * desc;
     TiXmlNode * url;
+
     if (node != 0 && node->ToElement())
     {
         //Find channel
@@ -130,7 +131,6 @@ void CIwRSS::ParseRSS(const char * data)
             {
                 if (!element->FirstChild("title") || !(title = element->FirstChild("title")->FirstChild()))
                     continue;
-
                 //Found title
                 std::string titlestr = title->Value();
                 std::string description = "";
@@ -197,6 +197,7 @@ void CIwRSS::ParseRSS(const char * data)
                         }
                     }
                 }
+
                 if (element->FirstChild("link") && (url = element->FirstChild("link")->FirstChild()))
                 {
                     link = url->Value();
@@ -234,6 +235,7 @@ void CIwRSS::CalendarParseRSS(const char * data)
     doc.Parse(data, 0, TIXML_ENCODING_UTF8 );
     
     TiXmlElement * node = doc.RootElement();
+	TiXmlElement * when;
     TiXmlNode * channel;
     TiXmlNode * element;
     TiXmlNode * title;
@@ -321,10 +323,14 @@ void CIwRSS::CalendarParseRSS(const char * data)
                             }
                         }
                     }
+
                 }
-                
-                IwTrace(UI, ("Desc: %s", description.c_str()));
-                
+				std::string starttime;
+				std::string endtime;
+				when = element->FirstChildElement("gd:when");
+				starttime = when->Attribute("starttime");
+				endtime= when->Attribute("endtime");
+				std::cout << starttime << "," << endtime<<"\n";                
 				
                 //RSS FEED ITEMs...
                 CalendarStory* story = new CalendarStory();
