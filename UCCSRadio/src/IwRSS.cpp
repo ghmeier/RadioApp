@@ -332,15 +332,10 @@ void CIwRSS::CalendarParseRSS(const char * data)
                     }
 
                 }
-				/*std::string starttime;
+				std::string starttime;
 				std::string endtime;
 				when = element->FirstChildElement("gd:when");
-<<<<<<< HEAD
-				starttime = when->Attribute("starttime");
-				endtime= when->Attribute("endtime");
-				std::cout << starttime << "," << endtime<<"\n";      */          
-				
-=======
+
 				starttime = when->Attribute("startTime");
 				endtime= when->Attribute("endTime");
                 //Get the start time and date
@@ -423,8 +418,7 @@ void CIwRSS::CalendarParseRSS(const char * data)
                     myScene->labels.push_back(title);
                     numDates++;
                 }
-                
->>>>>>> f13125143b4cd5c62defb192232c3061500ef365
+
                 //RSS FEED ITEMs...
                 CalendarStory* story = new CalendarStory();
                 story->Init(titlestr , description, "http://radio.uccs.edu/index.php/schedule", starttime, endtime);

@@ -53,7 +53,6 @@ void Scene::Update(float deltaTime, float alphaMul)
 }
 
 void Scene::UpdateLabels(){
-	bool canMove = true;
 	if (m_IsInputActive && m_Manager->GetCurrent() == this && g_pInput->m_Touched)
 	{
 		int moved = g_pInput->m_Y - g_pInput->prev_Y;
@@ -63,17 +62,9 @@ void Scene::UpdateLabels(){
 				labels[i]->m_Y += (moved);
 			}
 		}
-		else if (labels[0]->m_Y + (moved) > IwGxGetDisplayHeight() / 4)
+		else 
 		{
-			for (int i = 0; i < labels.size(); i++) {
-				labels[i]->m_Y = IwGxGetDisplayHeight()/4 + IwGxGetDisplayHeight()/2 * i;
-			}
-		}
-		else if (labels[labels.size() - 1]->m_Y + moved < IwGxGetDisplayHeight() / 4)
-		{
-			for (int i = 0; i < labels.size(); i++) {
-				labels[i]->m_Y -= moved;// IwGxGetDisplayHeight() / 4 + IwGxGetDisplayHeight() / 2 * (i-labels.size()+1);
-			}
+			//shouldnt need this jerk
 		}
 		g_pInput->prev_Y = g_pInput->m_Y;
 
