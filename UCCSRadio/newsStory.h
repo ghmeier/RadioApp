@@ -14,6 +14,7 @@
 #define __NEWSSTORY_H__
 
 #include "scene.h"
+#include "s3eOSExec.h"
 
 /**
  * @class Streamer
@@ -33,6 +34,7 @@ class NewsStory : public CNode
 protected:
     // UI components
     std::string link;
+    CSprite* readMore;
     
 public:
     NewsStory() {}
