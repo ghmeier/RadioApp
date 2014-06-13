@@ -16,9 +16,9 @@
 Resources::Resources()
 {
     // Load images
-    CalendarBG = Iw2DCreateImage("textures/calendarBGSmall.png");
-    EventsBG = Iw2DCreateImage("textures/eventsBGSmall.png");
-    NewsBG = Iw2DCreateImage("textures/newsBGSmall.png");
+    CalendarBG = Iw2DCreateImage("textures/whiteBG.png");
+    EventsBG = Iw2DCreateImage("textures/whiteBG.png");
+    NewsBG = Iw2DCreateImage("textures/whiteBG.png");
     PlayButton = Iw2DCreateImage("textures/button-upSmall.png");
     StopButton = Iw2DCreateImage("textures/button-stopSmall.png");
     PlayWrapper = Iw2DCreateImage("textures/bottom-wrapper.png");
@@ -31,7 +31,9 @@ Resources::Resources()
     NewsSideBanner = Iw2DCreateImage("textures/newsSideBannerSmall.png");
     WhiteBanner = Iw2DCreateImage("textures/whiteBanner.png");
 	GreyBanner = Iw2DCreateImage("textures/greyBanner.png");
-
+    GoldBanner = Iw2DCreateImage("textures/goldBanner.png");
+    ReadMore = Iw2DCreateImage("textures/readMore.png");
+    
 	Font = Iw2DCreateFont("trackFont.gxfont");
 	Font20 = Iw2DCreateFont("trackFont20.gxfont");
 	Font7 = Iw2DCreateFont("font7.gxfont");
@@ -59,6 +61,8 @@ Resources::~Resources()
     delete Font;
 	delete Font20;
 	delete Font7;
+    delete GoldBanner;
+    delete ReadMore;
     
 }
 

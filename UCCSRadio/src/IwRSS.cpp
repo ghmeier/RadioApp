@@ -115,6 +115,7 @@ void CIwRSS::ParseRSS(const char * data)
     TiXmlNode * element;
     TiXmlNode * title;
     TiXmlNode * desc;
+    TiXmlNode * url;
     if (node != 0 && node->ToElement())
     {
         //Find channel
@@ -133,6 +134,7 @@ void CIwRSS::ParseRSS(const char * data)
                 std::string titlestr = title->Value();
                 std::string description = "";
                 std::string image = "";
+                std::string link = "";
 
                 if (element->FirstChild("description") && (desc = element->FirstChild("description")->FirstChild()))
                 {
@@ -194,30 +196,21 @@ void CIwRSS::ParseRSS(const char * data)
                         }
                     }
                 }
-
+                if (element->FirstChild("link") && (url = element->FirstChild("link")->FirstChild()))
+                {
+                    link = url->Value();
+                }
                 IwTrace(UI, ("Desc: %s", description.c_str()));
                 
 				
-               /* //RSS FEED ITEMs...
-				CLabel* label = new CLabel();
-				
-				label->SetFont(g_pResources->getFont());
-				label->SetText(titlestr);
-                label->m_W = IwGxGetDisplayWidth();
-                label->m_AlignHor = IW_2D_FONT_ALIGN_CENTRE;
-                label->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/4)* (newsFeedCount - 1);
-                newsFeedCount += 1;
-				myScene->AddChild(label);
-				myScene->labels.push_back(label);
-                */
                 NewsStory* story = new NewsStory();
-                story->Init(titlestr);
+                story->Init(titlestr , description, link);
                 story->m_W = IwGxGetDisplayWidth();
-                story->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/4)* (newsFeedCount - 1);
+                story->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/2)* (newsFeedCount - 1);
                 newsFeedCount += 1;
 				myScene->AddChild(story);
 				myScene->labels.push_back(story);
-
+                
                 if (image.length())
                 {
                     FetchImage(image.c_str(), titlestr.c_str());

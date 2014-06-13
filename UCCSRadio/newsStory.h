@@ -32,14 +32,14 @@ class NewsStory : public CNode
 {
 protected:
     // UI components
-    
+    std::string link;
     
 public:
     NewsStory() {}
     ~NewsStory();
     
     // initialise the menu
-    void            Init(std::string);
+    void            Init(std::string titleText, std::string descriptionText, std::string link);
     
     // Update the menu
     void            Update(float deltaTime = 0.0f, float alphaMul = 1.0f);

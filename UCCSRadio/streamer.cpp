@@ -209,6 +209,7 @@ void Streamer::Init()
     labelLeft->m_ScaleX = 1.0;
     labelLeft->m_AlignHor = IW_2D_FONT_ALIGN_LEFT;
     labelLeft->m_X += 10;
+    labelLeft->m_Color = CColor(114, 114, 114, 0xff);
     
     labelRight = new CLabel();
 	labelRight->m_Font = g_pResources->getFont();
@@ -217,6 +218,7 @@ void Streamer::Init()
     labelRight->m_W = IwGxGetDisplayWidth() / 2;
     labelRight->m_AlignHor = IW_2D_FONT_ALIGN_RIGHT;
     labelRight->m_X += (IwGxGetDisplayWidth() / 2.0) -10;
+    labelRight->m_Color = CColor(114, 114, 114, 0xff);
     
     labelMain = new CLabel();
 	labelMain->m_Font = g_pResources->getFont20();
