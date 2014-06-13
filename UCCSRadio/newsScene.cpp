@@ -27,8 +27,7 @@
 
 NewsScene::~NewsScene()
 {
-
-	delete feed;
+	//delete feed;
 }
 
 void NewsScene::startGame(CTween* pTween)
@@ -68,7 +67,6 @@ void NewsScene::Render()
 {
     Scene::Render();
 }
-
 
 void NewsScene::Init()
 {

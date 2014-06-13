@@ -45,8 +45,10 @@ protected:
     CIw2DImage*     CalendarSideBanner;
     CIw2DImage*     EventsSideBanner;
     CIw2DImage*     NewsSideBanner;
+    CIw2DImage*     ReadMore;
     CIw2DImage*     WhiteBanner;
     CIw2DImage*     GreyBanner;
+    CIw2DImage*     GoldBanner;
 	CIw2DFont*		Font;
 	CIw2DFont*		Font20;
 	CIw2DFont*		Font7;
@@ -61,6 +63,7 @@ public:
     CIw2DImage*     getStopButton()                 { return StopButton; }
     CIw2DImage*     getPlayWrapper()                { return PlayWrapper; }
     CIw2DImage*     getHeader()                     { return Header; }
+    CIw2DImage*     getReadMore()                   { return ReadMore; }
     CIw2DImage*     getCalendarBanner()             { return CalendarBanner; }
     CIw2DImage*     getEventsBanner()               { return EventsBanner; }
     CIw2DImage*     getNewsBanner()                 { return NewsBanner; }
@@ -68,6 +71,7 @@ public:
     CIw2DImage*     getEventsSideBanner()           { return EventsSideBanner; }
     CIw2DImage*     getNewsSideBanner()             { return NewsSideBanner; }
     CIw2DImage*     getWhiteBanner()                { return WhiteBanner; }
+    CIw2DImage*     getGoldBanner()                 { return GoldBanner; }
     CIw2DImage*     getGreyBanner()                 { return GreyBanner; }
 	CIw2DFont*		getFont()						{ return Font; }
 	CIw2DFont*		getFont20()						{ return Font20; }
