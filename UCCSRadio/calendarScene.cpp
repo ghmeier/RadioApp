@@ -50,9 +50,20 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
         }
 		
     }
-	if (m_IsInputActive && m_Manager->GetCurrent() == this && g_pInput->m_Touched) 
+	if (m_IsInputActive && m_Manager->GetCurrent() == this && g_pInput->m_Touched)
 	{
-		label->m_Y += (g_pInput->m_Y - g_pInput->prev_Y);
+		for (int i = 0; i < labels.size(); i++) {
+			labels[i]->m_Y += (g_pInput->m_Y - g_pInput->prev_Y);
+			if (i == 0 && labels[i]->m_Y > (IwGxGetDisplayHeight() / 4)) {
+				labels[i]->m_Y = (IwGxGetDisplayHeight() / 4);
+			}
+			if (i == labels.size() - 1 && labels[i]->m_Y < IwGxGetDisplayHeight()/1.1) {
+				labels[i]->m_Y = IwGxGetDisplayHeight() / 1.1;
+			}
+		}
+		g_pInput->prev_Y = g_pInput->m_Y;
+
+
 	}
 }
 
