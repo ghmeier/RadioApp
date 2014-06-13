@@ -51,13 +51,7 @@ void EventsScene::Update(float deltaTime, float alphaMul)
         }    
 	}
 
-	if (m_IsInputActive && m_Manager->GetCurrent() == this && g_pInput->m_Touched)
-	{
-		for (int i = 0; i < labels.size(); i++) {
-			labels[i]->m_Y += (g_pInput->m_Y - g_pInput->prev_Y);
-		}
-		g_pInput->prev_Y = g_pInput->m_Y;
-	}
+	UpdateLabels();
 }
 
 void EventsScene::Render()
@@ -68,9 +62,7 @@ void EventsScene::Render()
 void EventsScene::Init()
 {
     Scene::Init();
-    
-    //Game* game = (Game*)g_pSceneManager->Find("game");
-    
+
     // Create menu background
     CSprite* background = new CSprite();
     background->m_X = (float)IwGxGetScreenWidth() / 2;

@@ -58,6 +58,7 @@ public:
     void                SetManager(SceneManager* manager)   { m_Manager = manager; }
     void                SetInputActive(bool active)         { m_IsInputActive = active; }
     CTweenManager&      GetTweener()                        { return m_Tweener; }
+	void UpdateLabels();
             
     
 public:
