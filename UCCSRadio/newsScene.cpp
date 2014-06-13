@@ -66,6 +66,7 @@ void NewsScene::Update(float deltaTime, float alphaMul)
 		for (int i = 0; i < labels.size(); i++) {
 			labels[i]->m_Y += (g_pInput->m_Y - g_pInput->prev_Y);
 		}
+		g_pInput->prev_Y = g_pInput->m_Y;
 	}
 
 }
