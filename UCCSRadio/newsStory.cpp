@@ -23,7 +23,6 @@
 #include "newsStory.h"
 #include "s3eOSExec.h"
 
-std::string link = "";
 
 NewsStory::~NewsStory()
 {

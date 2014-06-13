@@ -13,13 +13,10 @@
 #if !defined(__CALENDARSTORY_H__)
 #define __CALENDARSTORY_H__
 
-#include "scene.h"
-#include "s3eOSExec.h"
-
 /**
- * @class Streamer
+ * @class CalendarStory
  *
- * @brief Streamer
+ * @brief CalendarStory
  *
  * The main menu scene is a simple scene that contains a background, a button
  * and some text. The main menu is the first scene that is presented to the

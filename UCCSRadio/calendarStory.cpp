@@ -14,16 +14,9 @@
 #include "IwGx.h"
 #include "input.h"
 #include "resources.h"
-#include "eventsScene.h"
-#include <IwHTTP.h>
-#include "src/HttpClient.h"
 #include "calendarScene.h"
-#include "newsScene.h"
-#include "eventsScene.h"
 #include "calendarStory.h"
-#include "s3eOSExec.h"
 
-std::string link = "";
 
 CalendarStory::~CalendarStory()
 {
@@ -36,10 +29,11 @@ void CalendarStory::Update(float deltaTime, float alphaMul)
     
     if (!g_pInput->m_Touched && g_pInput->m_PrevTouched && sceneSwitchComplete)
     {
-        if(readMore->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
+        /*if(readMore->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
             g_pInput->Reset();
             //s3eOSExecExecute(link, true);
         }
+         */
     }
 }
 
@@ -90,7 +84,6 @@ void CalendarStory::Init(std::string titleText, std::string descriptionText, std
     
     this->link = link;
     
-    //AddChild(description);
     AddChild(readMore);
     AddChild(goldBanner);
     AddChild(title);

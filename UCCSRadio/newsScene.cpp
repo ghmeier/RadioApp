@@ -46,20 +46,6 @@ void NewsScene::Update(float deltaTime, float alphaMul)
 	
     //feed->Update();
     
-    // Detect screen tap
-    if (m_IsInputActive && m_Manager->GetCurrent() == this && !g_pInput->m_Touched && g_pInput->m_PrevTouched)
-    {
-        //g_pInput->Reset();
-        if(g_pInput->m_Y < buttonTop && g_pInput->m_Y > buttonBottom) {
-            g_pInput->Reset();
-                m_Tweener.Tween(0.2f,
-                        DELAY, 0.25f,
-                        EASING, Ease::powIn,
-                        ONCOMPLETE, startGame,
-                        END);
-        }
-    }
-
 	if (m_IsInputActive && m_Manager->GetCurrent() == this && g_pInput->m_Touched)
 	{
 		for (int i = 0; i < labels.size(); i++) {

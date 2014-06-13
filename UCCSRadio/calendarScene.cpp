@@ -38,12 +38,6 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
     
     Scene::Update(deltaTime, alphaMul);
     
-    // Detect screen tap
-    if (m_IsInputActive && m_Manager->GetCurrent() == this && !g_pInput->m_Touched && g_pInput->m_PrevTouched)
-    {
-        g_pInput->Reset();
-        
-    }
 	if (m_IsInputActive && m_Manager->GetCurrent() == this && g_pInput->m_Touched)
 	{
 		for (int i = 0; i < labels.size(); i++) {
@@ -56,6 +50,7 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
 			}
 		}
 		g_pInput->prev_Y = g_pInput->m_Y;
+        
 
 
 	}
@@ -82,18 +77,16 @@ void CalendarScene::Init()
     // Fit background to screen size
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight() * 6;
-
+    AddChild(background);
+    
 	//adding scroll view
 	calFeed = new CIwRSS(this);
 	printf("fetching...\n");
-	//feed->FetchFeed("http://radio.uccs.edu/index.php/feed");
     calFeed->CalendarParseRSS("<feed>");
     printf("finished fetching\n");
 	//feed->Update();
     
     delete calFeed;
-
-	AddChild(background);
 	
 }
 

@@ -23,6 +23,7 @@
 #include "s3e.h"
 #include <string>
 #include "../newsStory.h"
+#include "../calendarStory.h"
 #include <iostream>
 
 // Globals
@@ -325,20 +326,11 @@ void CIwRSS::CalendarParseRSS(const char * data)
                 
 				
                 //RSS FEED ITEMs...
-				CLabel* label = new CLabel();
-				label->SetFont(g_pResources->getFont());
-				label->SetText(titlestr);
-                label->m_W = IwGxGetDisplayWidth();
-                label->m_AlignHor = IW_2D_FONT_ALIGN_CENTRE;
-                label->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/4)* (calendarFeedCount - 1);
-                calendarFeedCount += 1;
-				myScene->AddChild(label);
-                
-                NewsStory* story = new NewsStory();
-                story->Init(titlestr , description, link);
+                CalendarStory* story = new CalendarStory();
+                story->Init(titlestr , description, "http://radio.uccs.edu/index.php/schedule");
                 story->m_W = IwGxGetDisplayWidth();
-                story->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/2)* (newsFeedCount - 1);
-                newsFeedCount += 1;
+                story->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/2)* (calendarFeedCount - 1);
+                calendarFeedCount += 1;
 				myScene->AddChild(story);
 				myScene->labels.push_back(story);
                 
@@ -349,7 +341,6 @@ void CIwRSS::CalendarParseRSS(const char * data)
             //}
         }
     }
-    _STL::cout << "Candy =" << newsFeedCount;
 }
 
 
