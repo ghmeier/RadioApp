@@ -42,25 +42,14 @@ void CalendarStory::Render()
     CNode::Render();
 }
 
-void CalendarStory::Init(std::string titleText, std::string descriptionText, std::string link)
+void CalendarStory::Init(std::string titleText, std::string descriptionText, std::string link,  std::string starttime, std::string endtime)
 {
     CLabel* title = new CLabel();
     title->m_W = IwGxGetDisplayWidth();
     title->m_AlignHor = IW_2D_FONT_ALIGN_CENTRE;
     title->m_Font = g_pResources->getFont();
+    title->m_Color = CColor(0, 0, 0, 0xff);
     title->SetText(titleText);
-    
-    CSprite* goldBanner = new CSprite();
-    goldBanner->SetImage(g_pResources->getGoldBanner());
-    goldBanner->m_X = (float)IwGxGetScreenWidth() / 2;
-    goldBanner->m_Y = (float)IwGxGetScreenHeight() /24;
-    goldBanner->m_W = goldBanner->GetImage()->GetWidth();
-    goldBanner->m_H = goldBanner->GetImage()->GetHeight();
-    goldBanner->m_AnchorX = 0.5;
-    goldBanner->m_AnchorY = 0.5;
-    // Fit background to screen size
-    goldBanner->m_ScaleX = (float)IwGxGetScreenWidth() / goldBanner->GetImage()->GetWidth() / 1;
-    goldBanner->m_ScaleY = (float)IwGxGetScreenHeight() / goldBanner->GetImage()->GetHeight() / 8;
     
     CLabel* description = new CLabel();
     description->m_W = IwGxGetDisplayWidth();
@@ -68,26 +57,38 @@ void CalendarStory::Init(std::string titleText, std::string descriptionText, std
     description->m_Font = g_pResources->getFont7();
     description->m_Color = CColor(0, 0, 0, 0xff);
     description->SetText(descriptionText);
-    description->m_Y = IwGxGetDisplayHeight() / 8;
+    description->m_Y = IwGxGetDisplayHeight() / 12;
+    description->m_X += 20;
     
-    readMore = new CSprite();
-    readMore->SetImage(g_pResources->getReadMore());
-    readMore->m_X = (float)IwGxGetScreenWidth() / 1.3;
-    readMore->m_Y = (float)IwGxGetScreenHeight() / 2.5;
-    readMore->m_W = readMore->GetImage()->GetWidth();
-    readMore->m_H = readMore->GetImage()->GetHeight();
-    readMore->m_AnchorX = 0.5;
-    readMore->m_AnchorY = 0.5;
+    CLabel* time = new CLabel();
+    time->m_W = IwGxGetDisplayWidth();
+    time->m_AlignHor = IW_2D_FONT_ALIGN_RIGHT;
+    time->m_Font = g_pResources->getFont();
+    time->m_Color = CColor(100, 100, 100, 0xff);
+    _STL::string dash = " - ";
+    _STL::string fullTime = starttime + dash + endtime;
+    time->SetText(fullTime);
+    time->m_Y = IwGxGetDisplayHeight() / 12;
+    time->m_X += -20;
+    
+    //readMore = new CSprite();
+    //readMore->SetImage(g_pResources->getReadMore());
+    //readMore->m_X = (float)IwGxGetScreenWidth() / 1.3;
+    //readMore->m_Y = (float)IwGxGetScreenHeight() / 2.5;
+    //readMore->m_W = readMore->GetImage()->GetWidth();
+    //readMore->m_H = readMore->GetImage()->GetHeight();
+    //readMore->m_AnchorX = 0.5;
+    //readMore->m_AnchorY = 0.5;
     // Fit background to screen size
-    readMore->m_ScaleX = (float)IwGxGetScreenWidth() / readMore->GetImage()->GetWidth() / 4;
-    readMore->m_ScaleY = (float)IwGxGetScreenHeight() / readMore->GetImage()->GetHeight() / 10;
+    //readMore->m_ScaleX = (float)IwGxGetScreenWidth() / readMore->GetImage()->GetWidth() / 4;
+    //readMore->m_ScaleY = (float)IwGxGetScreenHeight() / readMore->GetImage()->GetHeight() / 10;
     
     this->link = link;
     
-    AddChild(readMore);
-    AddChild(goldBanner);
+    //AddChild(readMore);
     AddChild(title);
     AddChild(description);
+    AddChild(time);
     
 }
 

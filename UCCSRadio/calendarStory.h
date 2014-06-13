@@ -38,7 +38,7 @@ public:
     ~CalendarStory();
     
     // initialise the menu
-    void            Init(std::string titleText, std::string descriptionText, std::string link);
+    void            Init(std::string titleText, std::string descriptionText, std::string link, std::string starttime, std::string endtime);
     
     // Update the menu
     void            Update(float deltaTime = 0.0f, float alphaMul = 1.0f);
