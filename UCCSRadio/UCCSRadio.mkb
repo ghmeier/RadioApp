@@ -1,0 +1,113 @@
+#!/usr/bin/env mkb
+
+deployments
+{
+name="UCCS Radio"
+caption="UCCS Radio"
+icon="data/textures/androidIcon/androidDefault.png"
+splashscreen="data/textures/ClockworkDragonSIWhite.png"
+}
+
+options
+{
+	enable-exceptions = 1
+	cflags="-std=c++0x"
+}
+
+packages
+{
+    libjpeg
+    tinyxml
+}
+
+files
+{
+    UCCSRadio.cpp
+    input.cpp
+    resources.cpp
+    scene.cpp
+    calendarScene.cpp
+    eventsScene.cpp
+    newsScene.cpp
+    streamer.cpp
+    newsStory.cpp
+    calendarStory.cpp
+    
+    UCCSRadio.h
+    input.h
+    resources.h
+    scene.h
+    calendarScene.h
+    eventsScene.h
+    newsScene.h
+    streamer.h
+    newsStory.h
+    calendarStory.h
+
+    (src)
+    "*.cpp"
+    "*.h"
+    HttpClient.cpp
+    HttpClient.h
+    IwJPEG.cpp
+    IwRSS.cpp
+    IwFeedList.cpp
+    IwFeedList.h
+    IwFeed.cpp
+    IwFeed.h
+    IwHTTPQueue.cpp
+    IwModalStack.cpp
+    IwModalStack.h
+    IwHTTPQueue.h
+    IwJPEG.h
+    IwRSS.h
+
+	[util]
+    (src/util)
+    "*.cpp"
+    "*.h"
+
+}
+
+subprojects
+{
+	
+    iwutil
+    iw2dscenegraphcore
+    iw2dscenegraph
+	iwnui
+    iwgx
+    iwresmanager
+    iwtween
+    iwhttp
+	iwgxfont
+	
+	derbh
+
+    libjpeg
+    tinyxml
+	third_party/openssl
+	curl
+}
+
+assets
+{
+    feeds.bin
+
+   (data)
+      trackFont.gxfont
+   trackFont20.gxfont
+   font7.gxfont
+    textures
+
+	(data-ram/data-gles1, data)
+	uccsFont.group.bin
+	trackFont.gxfont.bin
+   trackFont20.gxfont.bin
+   font7.gxfont.bin
+
+}
+
+deployment
+{
+}
