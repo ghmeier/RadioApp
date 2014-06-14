@@ -13,7 +13,7 @@
 #include "scene.h"
 #include "IwGx.h"
 #include "input.h"
-#include "USSCRadio.h"
+#include "UCCSRadio.h"
 
 SceneManager* g_pSceneManager = 0;
 bool sceneSwitchComplete = true;
@@ -61,10 +61,6 @@ void Scene::UpdateLabels(){
 			for (int i = 0; i < labels.size(); i++) {
 				labels[i]->m_Y += (moved);
 			}
-		}
-		else 
-		{
-			//shouldnt need this jerk
 		}
 		g_pInput->prev_Y = g_pInput->m_Y;
 
@@ -160,14 +156,14 @@ void SceneManager::SwitchTo(Scene* scene, int direction)
         m_Next->m_X = -(float)IwGxGetScreenWidth();
         if(direction == 0) {
             m_Next->m_X = (float)IwGxGetScreenWidth();
-                g_pTweener->Tween(0.5f,
+                g_pTweener->Tween(0.1f,
                           FLOAT, &m_Next->m_X, 0.0f,
                           FLOAT, &m_Current->m_X, -(float)IwGxGetScreenWidth(),
                           EASING, Ease::sineIn,
                           ONCOMPLETE, OnSwitchComplete,
                           END);
         } else if(direction == 1) {
-            g_pTweener->Tween(0.5f,
+            g_pTweener->Tween(0.1f,
                               FLOAT, &m_Next->m_X, 0.0f,
                               FLOAT, &m_Current->m_X, (float)IwGxGetScreenWidth(),
                               EASING, Ease::sineIn,

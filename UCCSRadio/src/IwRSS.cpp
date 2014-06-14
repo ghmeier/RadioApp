@@ -18,7 +18,7 @@
 #include "s3eMemory.h"
 #include <stdio.h>
 #include "tinyxml.h"
-#include "../USSCRadio.h"
+#include "../UCCSRadio.h"
 #include "../resources.h"
 #include "s3e.h"
 #include <string>

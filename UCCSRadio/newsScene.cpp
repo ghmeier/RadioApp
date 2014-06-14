@@ -17,7 +17,7 @@
 #include "streamer.h"
 #include "IwGx.h"
 #include <tinyxml.h>
-#include "USSCRadio.h"
+#include "UCCSRadio.h"
 #include "src/HttpClient.h"
 #include "s3e.h"
 #include "IwDebug.h"
