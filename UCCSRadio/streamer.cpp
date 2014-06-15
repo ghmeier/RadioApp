@@ -20,6 +20,7 @@
 #include "calendarScene.h"
 #include "newsScene.h"
 #include "eventsScene.h"
+#include "audioStreamer.h"
 
 float buttonTop = 0;
 float buttonBottom = 0;
@@ -40,11 +41,16 @@ void Streamer::Update(float deltaTime, float alphaMul)
             g_pInput->Reset();
             playButton->m_X = IwGxGetScreenWidth() * 2.0;
             stopButton->m_X = IwGxGetScreenWidth() / 2.0;
+			//May have to call this on the next loop after updating ui, 
+			//since s3eAudioPlay strangely blocks until it's done buffering
+			//Pass a function pointer as 3rd argument to get a callback when audio actually starts playing
+			startStreamingAudio("128.198.85.100", 8000);
         
         } else if(stopButton->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
             g_pInput->Reset();
             playButton->m_X = IwGxGetScreenWidth() / 2.0;
             stopButton->m_X = IwGxGetScreenWidth() * 2.0;
+			stopStreamingAudio();
             
         }
         
@@ -107,7 +113,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
             }
 		}
 		g_pInput->Reset();
-    }
+	}
 }
 
 void Streamer::Render()

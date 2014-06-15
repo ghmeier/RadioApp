@@ -32,6 +32,7 @@ files
     streamer.cpp
     newsStory.cpp
     calendarStory.cpp
+	audioStreamer.cpp
     
     UCCSRadio.h
     input.h
@@ -43,6 +44,7 @@ files
     streamer.h
     newsStory.h
     calendarStory.h
+	audioStreamer.h
 
     (src)
     "*.cpp"
