@@ -97,9 +97,18 @@ assets
     feeds.bin
 
    (data)
-      trackFont.gxfont
-   trackFont20.gxfont
-   font7.gxfont
+    trackFont.gxfont
+	trackFont12.gxfont
+	trackFont16.gxfont
+	trackFont24.gxfont
+	trackFont28.gxfont
+	trackfont32.gxfont
+	trackFont20.gxfont
+	font7.gxfont
+	palatfont12.gxfont
+	palatfont16.gxfont
+	palatfont20.gxfont
+	palatfont24.gxfont
     textures
 
 	(data-ram/data-gles1, data)
