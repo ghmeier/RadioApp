@@ -367,11 +367,11 @@ void CIwRSS::CalendarParseRSS(const char * data)
                 _STL::ostringstream convert;
                 if(startTimeValue > 12) {
                     convert.clear();
-                    convert << (startTimeValue - 12);
+                    convert << (startTimeValue - 12) << "p";
                     starttime = convert.str();
                 } else {
                     convert.clear();
-                    convert << (startTimeValue);
+                    convert << (startTimeValue) << "a";
                     starttime = convert.str();
                 
                 }
@@ -379,12 +379,12 @@ void CIwRSS::CalendarParseRSS(const char * data)
                 if(endTimeValue > 12) {
                     convert.clear();
                     convert.str("");
-                    convert << (endTimeValue - 12);
+                    convert << (endTimeValue - 12) << "p";
                     endtime = convert.str();
                 } else {
                     convert.clear();
                     convert.str("");
-                    convert << (endTimeValue);
+                    convert << (endTimeValue) << "a";
                     endtime = convert.str();
                 }
                 
