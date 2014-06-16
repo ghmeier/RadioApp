@@ -28,6 +28,7 @@ int currentPage = 0;
 
 Streamer::~Streamer()
 {
+    stopStreamingAudio();
 }
 
 void Streamer::Update(float deltaTime, float alphaMul)
@@ -44,14 +45,14 @@ void Streamer::Update(float deltaTime, float alphaMul)
 			//May have to call this on the next loop after updating ui, 
 			//since s3eAudioPlay strangely blocks until it's done buffering
 			//Pass a function pointer as 3rd argument to get a callback when audio actually starts playing
-			startStreamingAudio("128.198.85.100", 8000);
+			setVolume(99);
         
         } else if(stopButton->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
             g_pInput->Reset();
             playButton->m_X = IwGxGetScreenWidth() / 2.0;
             stopButton->m_X = IwGxGetScreenWidth() * 2.0;
 			stopStreamingAudio();
-            
+            setVolume(0);
         }
         
 		if (labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
@@ -125,6 +126,8 @@ void Streamer::Init()
 {
     
     //Game* game = (Game*)g_pSceneManager->Find("game");
+    startStreamingAudio("128.198.85.100", 8000);
+    setVolume(0);
     
     // Create menu background
     header = new CSprite();
