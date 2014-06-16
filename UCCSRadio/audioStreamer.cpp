@@ -175,7 +175,6 @@ void* waitForAudioStart(void *cb)
 }
 
 s3eThread *waitForStartThread;
-
 void* startNativeStreaming(void *u)
 {
 	char *url = (char*)u;
@@ -189,7 +188,7 @@ void startStreamingAudio(char *ip, int port, void (*callback)())
     if (s3eAudioGetInt(S3E_AUDIO_PLAYBACK_FROM_HTTP_AVAILABLE) == 1){
 		char *url = new char[128];
 		sprintf(url, "http://%s:%d", ip, port);
-		s3eThreadCreate(startNativeStreaming, url);
+        s3eThreadCreate(startNativeStreaming, url);
 	}
 	else{
 		s3eSocket *sock = s3eSocketCreate(S3E_SOCKET_TCP);
