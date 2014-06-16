@@ -51,7 +51,6 @@ void Streamer::Update(float deltaTime, float alphaMul)
             g_pInput->Reset();
             playButton->m_X = IwGxGetScreenWidth() / 2.0;
             stopButton->m_X = IwGxGetScreenWidth() * 2.0;
-			//stopStreamingAudio();
             setVolume(0);
         }
         
