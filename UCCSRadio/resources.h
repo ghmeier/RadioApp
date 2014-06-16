@@ -61,6 +61,8 @@ protected:
 	CIw2DFont*		Font12;
 	CIw2DFont*		Font20;
 	CIw2DFont*		Font7;
+	CIw2DFont*		BannerFontLarge;
+	CIw2DFont*		BannerFontSmall;
     
     
 public:
@@ -94,6 +96,8 @@ public:
 	CIw2DFont*		getPFont20()					{ return PFont20; }
 	CIw2DFont*		getPFont24()					{ return PFont24; }
 	CIw2DFont*		getFont7()						{ return Font7; }
+	CIw2DFont*		getBannerFontLarge()			{ return BannerFontLarge; }
+	CIw2DFont*		getBannerFontSmall()			{ return BannerFontSmall; }
 
 public:
     Resources();

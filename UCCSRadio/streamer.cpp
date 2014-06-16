@@ -211,7 +211,7 @@ void Streamer::Init()
     banner->m_ScaleY = (float)IwGxGetScreenHeight() / banner->GetImage()->GetHeight() / 8;
     
     labelLeft = new CLabel();
-	labelLeft->m_Font = g_pResources->getFont();
+	labelLeft->m_Font = g_pResources->getBannerFontSmall();
 	labelLeft->m_Text = "Calendar";
     labelLeft->m_Y = IwGxGetDisplayHeight() / 6.5;
     labelLeft->m_W = IwGxGetDisplayWidth() / 2;
@@ -221,7 +221,7 @@ void Streamer::Init()
     labelLeft->m_Color = CColor(114, 114, 114, 0xff);
     
     labelRight = new CLabel();
-	labelRight->m_Font = g_pResources->getFont();
+	labelRight->m_Font = g_pResources->getBannerFontSmall();
 	labelRight->m_Text = "Events";
     labelRight->m_Y = IwGxGetDisplayHeight() / 6.5;
     labelRight->m_W = IwGxGetDisplayWidth() / 2;
@@ -230,7 +230,7 @@ void Streamer::Init()
     labelRight->m_Color = CColor(114, 114, 114, 0xff);
     
     labelMain = new CLabel();
-	labelMain->m_Font = g_pResources->getFont20();
+	labelMain->m_Font = g_pResources->getBannerFontLarge();
 	labelMain->m_Text = "News";
     labelMain->m_Y = IwGxGetDisplayHeight() / 7.5;
     labelMain->m_W = IwGxGetDisplayWidth();

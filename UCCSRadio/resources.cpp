@@ -47,6 +47,10 @@ Resources::Resources()
 	PFont20 = Iw2DCreateFont("palatFont20.gxfont");
 	PFont24 = Iw2DCreateFont("palatFont24.gxfont");
 
+	//--------------
+	BannerFontLarge = Font24;
+	BannerFontSmall = Font32;
+
 }
 
 Resources::~Resources()
