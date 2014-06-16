@@ -37,6 +37,15 @@ Resources::Resources()
 	Font = Iw2DCreateFont("trackFont.gxfont");
 	Font20 = Iw2DCreateFont("trackFont20.gxfont");
 	Font7 = Iw2DCreateFont("font7.gxfont");
+	Font12 = Iw2DCreateFont("trackFont12.gxfont");
+	Font16 = Iw2DCreateFont("trackFont16.gxfont");
+	Font24 = Iw2DCreateFont("trackFont24.gxfont");
+	Font28 = Iw2DCreateFont("trackFont28.gxfont");
+	Font32 = Iw2DCreateFont("trackFont32.gxfont");
+	PFont12 = Iw2DCreateFont("palatFont12.gxfont");
+	PFont16 = Iw2DCreateFont("palatFont16.gxfont");
+	PFont20 = Iw2DCreateFont("palatFont20.gxfont");
+	PFont24 = Iw2DCreateFont("palatFont24.gxfont");
 
 }
 
