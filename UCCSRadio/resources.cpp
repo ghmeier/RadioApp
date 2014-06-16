@@ -74,6 +74,17 @@ Resources::~Resources()
     delete Font;
 	delete Font20;
 	delete Font7;
+	delete Font16;
+	delete Font24;
+	delete Font28;
+	delete Font32;
+	delete PFont12;
+	delete PFont16;
+	delete PFont20;
+	delete PFont24;
+	delete BannerFontLarge;
+	delete BannerFontSmall;
+	delete Font12;
     delete GoldBanner;
     delete ReadMore;
     

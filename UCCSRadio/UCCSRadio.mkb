@@ -112,10 +112,18 @@ assets
     textures
 
 	(data-ram/data-gles1, data)
-	uccsFont.group.bin
 	trackFont.gxfont.bin
-   trackFont20.gxfont.bin
-   font7.gxfont.bin
+	trackFont12.gxfont.bin
+	trackFont16.gxfont.bin
+	trackFont24.gxfont.bin
+	trackFont28.gxfont.bin
+	trackfont32.gxfont.bin
+	trackFont20.gxfont.bin
+	font7.gxfont.bin
+	palatfont12.gxfont.bin
+	palatfont16.gxfont.bin
+	palatfont20.gxfont.bin
+	palatfont24.gxfont.bin
 
 }
 
