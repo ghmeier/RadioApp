@@ -97,34 +97,41 @@ assets
     feeds.bin
 
    (data)
-    trackFont.gxfont
-	trackFont12.gxfont
-	trackFont16.gxfont
-	trackFont24.gxfont
-	trackFont28.gxfont
-	trackfont32.gxfont
-	trackFont20.gxfont
-	font7.gxfont
-	palatfont12.gxfont
-	palatfont16.gxfont
-	palatfont20.gxfont
-	palatfont24.gxfont
+    #trackFont.gxfont
+	#trackFont12.gxfont
+	#trackFont16.gxfont
+	#trackFont24.gxfont
+	#trackFont28.gxfont
+	#trackfont32.gxfont
+	#trackFont20.gxfont
+	trackFont48.gxfont
+	trackFont72.gxfont
+	#font7.gxfont
+	#palatfont12.gxfont
+	#palatfont16.gxfont
+	#palatfont20.gxfont
+	#palatfont24.gxfont
+	palatfont32.gxfont
+	palatfont36.gxfont
     textures
 
 	(data-ram/data-gles1, data)
-	trackFont.gxfont.bin
-	trackFont12.gxfont.bin
-	trackFont16.gxfont.bin
-	trackFont24.gxfont.bin
-	trackFont28.gxfont.bin
-	trackfont32.gxfont.bin
-	trackFont20.gxfont.bin
-	font7.gxfont.bin
-	palatfont12.gxfont.bin
-	palatfont16.gxfont.bin
-	palatfont20.gxfont.bin
-	palatfont24.gxfont.bin
-
+	#trackFont.gxfont.bin
+	#trackFont12.gxfont.bin
+	#trackFont16.gxfont.bin
+	#trackFont24.gxfont.bin
+	#trackFont28.gxfont.bin
+	#trackfont32.gxfont.bin
+	trackFont48.gxfont
+	trackFont72.gxfont
+	#trackFont20.gxfont.bin
+	#font7.gxfont.bin
+	#palatfont12.gxfont.bin
+	#palatfont16.gxfont.bin
+	#palatfont20.gxfont.bin
+	#palatfont24.gxfont.bin
+	palatfont32.gxfont.bin
+	palatfont36.gxfont.bin
 }
 
 deployment
