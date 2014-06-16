@@ -395,7 +395,7 @@ void CIwRSS::CalendarParseRSS(const char * data)
                     title->m_W = IwGxGetDisplayWidth();
                     title->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/4)* (calendarFeedCount - 1) + ((numDates) * bannerHeight);
                     title->m_AlignHor = IW_2D_FONT_ALIGN_CENTRE;
-                    title->m_Font = g_pResources->getFont20();
+                    title->m_Font = g_pResources->getHeaderFont();
                     //title->m_Color = CColor(255, , 0, 0xff);
                     title->SetText(date);
                     

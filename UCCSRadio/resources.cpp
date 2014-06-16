@@ -34,22 +34,24 @@ Resources::Resources()
     GoldBanner = Iw2DCreateImage("textures/goldBanner.png");
     ReadMore = Iw2DCreateImage("textures/readMore.png");
     
-	Font = Iw2DCreateFont("trackFont.gxfont");
-	Font20 = Iw2DCreateFont("trackFont20.gxfont");
-	Font7 = Iw2DCreateFont("font7.gxfont");
-	Font12 = Iw2DCreateFont("trackFont12.gxfont");
-	Font16 = Iw2DCreateFont("trackFont16.gxfont");
-	Font24 = Iw2DCreateFont("trackFont24.gxfont");
+	//Font = Iw2DCreateFont("trackFont.gxfont");
+	//Font20 = Iw2DCreateFont("trackFont20.gxfont");
+	//Font7 = Iw2DCreateFont("font7.gxfont");
+	//Font12 = Iw2DCreateFont("trackFont12.gxfont");
+	//Font16 = Iw2DCreateFont("trackFont16.gxfont");
+	//Font24 = Iw2DCreateFont("trackFont24.gxfont");
 	Font28 = Iw2DCreateFont("trackFont28.gxfont");
 	Font32 = Iw2DCreateFont("trackFont32.gxfont");
-	PFont12 = Iw2DCreateFont("palatFont12.gxfont");
-	PFont16 = Iw2DCreateFont("palatFont16.gxfont");
-	PFont20 = Iw2DCreateFont("palatFont20.gxfont");
+	//PFont12 = Iw2DCreateFont("palatFont12.gxfont");
+	//PFont16 = Iw2DCreateFont("palatFont16.gxfont");
+	//PFont20 = Iw2DCreateFont("palatFont20.gxfont");
 	PFont24 = Iw2DCreateFont("palatFont24.gxfont");
 
 	//--------------
-	BannerFontLarge = Font24;
-	BannerFontSmall = Font32;
+	BannerFontLarge = Font32;
+	BannerFontSmall = Font28;
+	HeaderFont = Font32;
+	ContentFont = PFont24;
 
 }
 
@@ -71,20 +73,12 @@ Resources::~Resources()
     delete NewsSideBanner;
     delete WhiteBanner;
     delete GreyBanner;
-    delete Font;
-	delete Font20;
-	delete Font7;
-	delete Font16;
 	delete Font24;
 	delete Font28;
 	delete Font32;
-	delete PFont12;
-	delete PFont16;
-	delete PFont20;
 	delete PFont24;
 	delete BannerFontLarge;
 	delete BannerFontSmall;
-	delete Font12;
     delete GoldBanner;
     delete ReadMore;
     

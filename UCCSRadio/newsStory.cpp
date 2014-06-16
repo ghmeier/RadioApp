@@ -52,7 +52,7 @@ void NewsStory::Init(std::string titleText, std::string descriptionText, std::st
     CLabel* title = new CLabel();
     title->m_W = IwGxGetDisplayWidth();
     title->m_AlignHor = IW_2D_FONT_ALIGN_CENTRE;
-    title->m_Font = g_pResources->getFont();
+    title->m_Font = g_pResources->getHeaderFont();
     title->SetText(titleText);
     
     CSprite* goldBanner = new CSprite();
@@ -70,7 +70,7 @@ void NewsStory::Init(std::string titleText, std::string descriptionText, std::st
     CLabel* description = new CLabel();
     description->m_W = IwGxGetDisplayWidth();
     description->m_AlignHor = IW_2D_FONT_ALIGN_LEFT;
-    description->m_Font = g_pResources->getFont7();
+    description->m_Font = g_pResources->getContentFont();
     description->m_Color = CColor(0, 0, 0, 0xff);
     description->SetText(descriptionText);
     description->m_Y = IwGxGetDisplayHeight() / 8;

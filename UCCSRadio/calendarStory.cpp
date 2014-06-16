@@ -47,14 +47,14 @@ void CalendarStory::Init(std::string titleText, std::string descriptionText, std
     CLabel* title = new CLabel();
     title->m_W = IwGxGetDisplayWidth();
     title->m_AlignHor = IW_2D_FONT_ALIGN_CENTRE;
-    title->m_Font = g_pResources->getFont();
+    title->m_Font = g_pResources->getHeaderFont();
     title->m_Color = CColor(0, 0, 0, 0xff);
     title->SetText(titleText);
     
     CLabel* description = new CLabel();
     description->m_W = IwGxGetDisplayWidth();
     description->m_AlignHor = IW_2D_FONT_ALIGN_LEFT;
-    description->m_Font = g_pResources->getFont7();
+    description->m_Font = g_pResources->getContentFont();
     description->m_Color = CColor(0, 0, 0, 0xff);
     description->SetText(descriptionText);
     description->m_Y = IwGxGetDisplayHeight() / 12;
@@ -63,7 +63,7 @@ void CalendarStory::Init(std::string titleText, std::string descriptionText, std
     CLabel* time = new CLabel();
     time->m_W = IwGxGetDisplayWidth();
     time->m_AlignHor = IW_2D_FONT_ALIGN_RIGHT;
-    time->m_Font = g_pResources->getFont();
+    time->m_Font = g_pResources->getContentFont();
     time->m_Color = CColor(100, 100, 100, 0xff);
     _STL::string dash = " - ";
     _STL::string fullTime = starttime + dash + endtime;
