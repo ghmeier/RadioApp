@@ -26,6 +26,7 @@
 #include <string>
 #include <vector>
 #include "../newsStory.h"
+#include "tinyxml.h"
 
 //-----------------------------------------------------------------------------
 
@@ -41,7 +42,7 @@ public:
     void FetchFeed(const char* url);
     void CancelFetch();
     void ParseRSS(const char* data);
-    void CalendarParseRSS(const char* data);
+    void CalendarParseRSS(const char* data, TiXmlDocument doc, int feedType);
 
     // What proportion of a feed's items have we fetched
     iwfixed GetProgress() const { return m_Progress; }

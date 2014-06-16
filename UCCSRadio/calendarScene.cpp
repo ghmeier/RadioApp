@@ -17,7 +17,7 @@
 #include "eventsScene.h"
 #include "streamer.h"
 #include "eventsScene.h"
-#include "IwGx.h"
+#include "tinyxml.h"
 
 CalendarScene::~CalendarScene()
 {
@@ -67,7 +67,8 @@ void CalendarScene::Init()
 	//adding scroll view
 	calFeed = new CIwRSS(this);
 	printf("fetching...\n");
-    calFeed->CalendarParseRSS("<feed>");
+    TiXmlDocument doc("calendar.xml");
+    calFeed->CalendarParseRSS("<feed>", doc, 1);
     printf("finished fetching\n");
 	//feed->Update();
     

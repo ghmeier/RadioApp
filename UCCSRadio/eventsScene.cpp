@@ -16,6 +16,7 @@
 #include "resources.h"
 #include "newsScene.h"
 #include "streamer.h"
+#include "tinyxml.h"
 
 EventsScene::~EventsScene()
 {
@@ -37,21 +38,6 @@ void EventsScene::Update(float deltaTime, float alphaMul)
     
     Scene::Update(deltaTime, alphaMul);
     
-    // Detect screen tap
-    if (m_IsInputActive && m_Manager->GetCurrent() == this && !g_pInput->m_Touched && g_pInput->m_PrevTouched)
-    {
-        //g_pInput->Reset();
-        if(g_pInput->m_Y < buttonTop && g_pInput->m_Y > buttonBottom) {
-            g_pInput->Reset();
-            m_Tweener.Tween(0.2f,
-                            DELAY, 0.25f,
-                            EASING, Ease::powIn,
-                            ONCOMPLETE, startGame,
-                            END);
-		}
-
-	}
-
 	UpdateLabels();
 }
 
@@ -79,13 +65,13 @@ void EventsScene::Init()
     AddChild(background);
     
     //adding scroll view
-	calFeed = new CIwRSS(this);
+	eventFeed = new CIwRSS(this);
 	printf("fetching...\n");
-	//feed->FetchFeed("http://radio.uccs.edu/index.php/feed");
-    calFeed->CalendarParseRSS("<feed>");
+    TiXmlDocument doc("events.xml");
+    eventFeed->CalendarParseRSS("<feed>",doc, 2);
     printf("finished fetching\n");
 	//feed->Update();
     
-    delete calFeed;
+    delete eventFeed;
 }
 

@@ -21,4 +21,5 @@ using namespace IwTween;
 extern CTweenManager*       g_pTweener;
 extern int newsFeedCount;
 extern int calendarFeedCount;
+extern int eventFeedCount;
 #endif  // __UCCSRADIO_H__

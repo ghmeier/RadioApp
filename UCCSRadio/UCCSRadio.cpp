@@ -41,6 +41,7 @@ using namespace std;
 CTweenManager*  g_pTweener = 0;
 int newsFeedCount = 1;
 int calendarFeedCount = 1;
+int eventFeedCount = 1;
 
 int main()
 {

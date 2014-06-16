@@ -222,14 +222,15 @@ void CIwRSS::ParseRSS(const char * data)
         }
     }
 }
-
-void CIwRSS::CalendarParseRSS(const char * data)
+//Type feed
+//              1 = Calendar
+//              2 = Events
+void CIwRSS::CalendarParseRSS(const char * data, TiXmlDocument doc, int feedType)
 {
     int bannerHeight = 0;
     _STL::string dateCheck = "";
     int numDates = 0;
     //Parse the RSS data
-    TiXmlDocument doc( "calendar.xml" );
     bool loadOkay = doc.LoadFile();
     if (loadOkay) {
         printf("\nWe all good \n");
@@ -418,16 +419,27 @@ void CIwRSS::CalendarParseRSS(const char * data)
                     myScene->labels.push_back(title);
                     numDates++;
                 }
-
-                //RSS FEED ITEMs...
-                CalendarStory* story = new CalendarStory();
-                story->Init(titlestr , description, "http://radio.uccs.edu/index.php/schedule", starttime, endtime);
-                story->m_W = IwGxGetDisplayWidth();
-                story->m_Y = (IwGxGetDisplayHeight() / 2.5) + ((IwGxGetDisplayHeight()/4)* (calendarFeedCount - 1)) + ((numDates-1) * bannerHeight);
-                calendarFeedCount += 1;
-				myScene->AddChild(story);
-				myScene->labels.push_back(story);
                 
+                if(feedType == 1) {
+                    //RSS FEED ITEMs...
+                    CalendarStory* story = new CalendarStory();
+                    story->Init(titlestr , description, "http://radio.uccs.edu/index.php/schedule", starttime, endtime);
+                    story->m_W = IwGxGetDisplayWidth();
+                    story->m_Y = (IwGxGetDisplayHeight() / 2.5) + ((IwGxGetDisplayHeight()/4)* (calendarFeedCount - 1)) + ((numDates-1) * bannerHeight);
+                    calendarFeedCount += 1;
+                    myScene->AddChild(story);
+                    myScene->labels.push_back(story);
+                } else {
+                    _STL::cout << "cowboy" << titlestr;
+                    //RSS FEED ITEMs...
+                    CalendarStory* story = new CalendarStory();
+                    story->Init(titlestr , description, "http://radio.uccs.edu/index.php/schedule", starttime, endtime);
+                    story->m_W = IwGxGetDisplayWidth();
+                    story->m_Y = (IwGxGetDisplayHeight() / 2.5) + ((IwGxGetDisplayHeight()/4)* (eventFeedCount - 1)) + ((numDates-1) * bannerHeight);
+                    eventFeedCount += 1;
+                    myScene->AddChild(story);
+                    myScene->labels.push_back(story);
+                }
                 if (image.length())
                 {
                     FetchImage(image.c_str(), titlestr.c_str());
