@@ -50,6 +50,15 @@ protected:
     CIw2DImage*     GreyBanner;
     CIw2DImage*     GoldBanner;
 	CIw2DFont*		Font;
+	CIw2DFont*		PFont12;
+	CIw2DFont*		PFont16;
+	CIw2DFont*		PFont20;
+	CIw2DFont*		PFont24;
+	CIw2DFont*		Font32;
+	CIw2DFont*		Font28;
+	CIw2DFont*		Font24;
+	CIw2DFont*		Font16;
+	CIw2DFont*		Font12;
 	CIw2DFont*		Font20;
 	CIw2DFont*		Font7;
     
@@ -74,7 +83,16 @@ public:
     CIw2DImage*     getGoldBanner()                 { return GoldBanner; }
     CIw2DImage*     getGreyBanner()                 { return GreyBanner; }
 	CIw2DFont*		getFont()						{ return Font; }
+	CIw2DFont*		getFont12()						{ return Font12; }
+	CIw2DFont*		getFont16()						{ return Font16; }
 	CIw2DFont*		getFont20()						{ return Font20; }
+	CIw2DFont*		getFont24()						{ return Font24; }
+	CIw2DFont*		getFont28()						{ return Font28; }
+	CIw2DFont*		getFont32()						{ return Font32; }
+	CIw2DFont*		getPFont12()					{ return PFont12; }
+	CIw2DFont*		getPFont16()					{ return PFont16; }
+	CIw2DFont*		getPFont20()					{ return PFont20; }
+	CIw2DFont*		getPFont24()					{ return PFont24; }
 	CIw2DFont*		getFont7()						{ return Font7; }
 
 public:
