@@ -49,10 +49,6 @@ protected:
     CIw2DImage*     WhiteBanner;
     CIw2DImage*     GreyBanner;
     CIw2DImage*     GoldBanner;
-	CIw2DFont*		PFont24;
-	CIw2DFont*		Font32;
-	CIw2DFont*		Font28;
-	CIw2DFont*		Font24;
 	CIw2DFont*		BannerFontLarge;
 	CIw2DFont*		BannerFontSmall;
 	CIw2DFont*		HeaderFont;
@@ -78,10 +74,6 @@ public:
     CIw2DImage*     getWhiteBanner()                { return WhiteBanner; }
     CIw2DImage*     getGoldBanner()                 { return GoldBanner; }
     CIw2DImage*     getGreyBanner()                 { return GreyBanner; }
-	CIw2DFont*		getFont24()						{ return Font24; }
-	CIw2DFont*		getFont28()						{ return Font28; }
-	CIw2DFont*		getFont32()						{ return Font32; }
-	CIw2DFont*		getPFont24()					{ return PFont24; }
 	CIw2DFont*		getBannerFontLarge()			{ return BannerFontLarge; }
 	CIw2DFont*		getBannerFontSmall()			{ return BannerFontSmall; }
 	CIw2DFont*		getHeaderFont()					{ return HeaderFont; }
@@ -93,9 +85,6 @@ public:
 };
 
 extern Resources* g_pResources;
-
-
-
 
 #endif  // __RESOURCES_H__
 

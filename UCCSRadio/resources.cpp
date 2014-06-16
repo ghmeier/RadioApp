@@ -37,7 +37,7 @@ Resources::Resources()
 	//--------------
 	BannerFontLarge = Iw2DCreateFont("trackfont72.gxfont");
 	BannerFontSmall = Iw2DCreateFont("trackfont48.gxfont");
-	HeaderFont = Iw2DCreateFont("palatfont36.gxfont");
+	HeaderFont = Iw2DCreateFont("palatfont48.gxfont");
 	ContentFont = Iw2DCreateFont("palatfont32.gxfont");
 
 }
@@ -59,10 +59,6 @@ Resources::~Resources()
     delete NewsSideBanner;
     delete WhiteBanner;
     delete GreyBanner;
-	//delete Font24;
-	//delete Font28;
-	//delete Font32;
-	//delete PFont24;
 	delete BannerFontLarge;
 	delete BannerFontSmall;
     delete GoldBanner;
