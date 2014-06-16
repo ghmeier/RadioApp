@@ -57,7 +57,6 @@ Resources::Resources()
 
 Resources::~Resources()
 {
-    
     delete CalendarBG;
     delete EventsBG;
     delete NewsBG;
@@ -81,7 +80,6 @@ Resources::~Resources()
 	delete BannerFontSmall;
     delete GoldBanner;
     delete ReadMore;
-    
 }
 
 // Global resources
