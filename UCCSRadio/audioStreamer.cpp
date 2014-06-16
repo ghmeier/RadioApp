@@ -186,7 +186,8 @@ void* startNativeStreaming(void *u)
 
 void startStreamingAudio(char *ip, int port, void (*callback)())
 {
-	if (s3eAudioGetInt(S3E_AUDIO_PLAYBACK_FROM_HTTP_AVAILABLE) == 1){
+	s3eAudioSetInt(S3E_AUDIO_VOLUME, 90);
+    if (s3eAudioGetInt(S3E_AUDIO_PLAYBACK_FROM_HTTP_AVAILABLE) == 1){
 		char *url = new char[128];
 		sprintf(url, "http://%s:%d", ip, port);
 		s3eThreadCreate(startNativeStreaming, url);
@@ -203,11 +204,13 @@ void startStreamingAudio(char *ip, int port, void (*callback)())
 		void* cb = reinterpret_cast<void*>(callback);
 		waitForStartThread = s3eThreadCreate(waitForAudioStart, cb);
 	}
+    
 }
 
 void stopStreamingAudio()
 {
-	if(waitForStartThread != NULL) s3eThreadCancel(waitForStartThread);
+	/*if(waitForStartThread != NULL) s3eThreadCancel(waitForStartThread);
 	s3eAudioStop();
-	streaming = false;
+	streaming = false;*/
+    s3eAudioSetInt(S3E_AUDIO_VOLUME, 0);
 }
