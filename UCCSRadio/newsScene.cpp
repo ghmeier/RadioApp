@@ -43,12 +43,14 @@ void NewsScene::Update(float deltaTime, float alphaMul)
         return;
     
     Scene::Update(deltaTime, alphaMul);
-
-	if (!hasFeed) {
-		if (s3eFileCheckExists("newsFeed.xml")) {
-			hasFeed = true;
+	if (!hasFeed){
+		try{
+			
 			feed = new CIwRSS(this);
 			feed->ParseRSS("<rss>");
+			hasFeed = true;
+		}catch(int e){
+			hasFeed = false;
 		}
 	}
 	else
@@ -79,14 +81,15 @@ void NewsScene::Init()
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
     AddChild(background);
- 
-	feed = new CIwRSS(this);
-	if (s3eFileCheckExists("newsFeed.xml")) {
-		hasFeed = true;
-		feed->ParseRSS("<rss>");
-	}
-	else {
 
+	feed = new CIwRSS(this);
+	try {
+		feed->ParseRSS("<rss>");
+		hasFeed = true;
+	}
+	catch (int e){
+		printf("sooo yeah\n");
+		hasFeed = false;
 	}
 
     delete feed;

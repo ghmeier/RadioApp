@@ -15,6 +15,7 @@
 
 #include "IwTween.h"
 #include "newsScene.h"
+#include "src/HttpClient.h"
 
 using namespace IwTween;
 
@@ -22,4 +23,5 @@ extern CTweenManager*       g_pTweener;
 extern int newsFeedCount;
 extern int calendarFeedCount;
 extern int eventFeedCount;
+extern HttpClient* globalHttpClient;
 #endif  // __UCCSRADIO_H__

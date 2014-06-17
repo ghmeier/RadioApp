@@ -42,6 +42,7 @@ CTweenManager*  g_pTweener = 0;
 int newsFeedCount = 1;
 int calendarFeedCount = 1;
 int eventFeedCount = 1;
+HttpClient * globalHttpClient = new HttpClient(5, "HttpClient");
 
 int main()
 {
@@ -65,7 +66,6 @@ int main()
     //Initial making sure the scene switching is done
     sceneSwitchComplete = true;
     
-    HttpClient* globalHttpClient = new HttpClient(5, "HttpClient");
 	Ptr<HttpDownload> xmlDownload = new HttpDownload("http://radio.uccs.edu/index.php/feed", "newsFeed.xml");
 	globalHttpClient->QueueRequest(xmlDownload);
     
@@ -100,7 +100,7 @@ int main()
 
     Streamer* streamer = new Streamer();
     streamer->Init();
-    
+
     // Loop forever, until the user or the OS performs some action to quit the app
     while (!s3eDeviceCheckQuitRequest())
     {
