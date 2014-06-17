@@ -75,6 +75,13 @@ int main()
 
 	Ptr<HttpDownload> xmlEventsDownload = new HttpDownload("http://www.google.com/calendar/feeds/radiouccs%40gmail.com/public/full?max-results=15&orderby=starttime&futureevents=true&singleevents=true&sortorder=ascending","events.xml");
 	globalHttpClient->QueueRequest(xmlEventsDownload);
+    
+    while(xmlDownload->GetStatus() != 4 || xmlCalendarDownload->GetStatus() != 4 || xmlEventsDownload->GetStatus() != 4) {
+        globalHttpClient->Update();
+        _STL::cout << "news : " << xmlDownload->GetStatus() << "\n";
+        _STL::cout << "events : " << xmlCalendarDownload->GetStatus() << "\n";
+        _STL::cout << "calendar : " << xmlEventsDownload->GetStatus() << "\n";
+    }
 
     // Init the news
     NewsScene* news_scene = new NewsScene();
@@ -108,7 +115,6 @@ int main()
         
         uint64 new_time = s3eTimerGetMs();
         
-        
         // Update input system
         g_pInput->Update();
         
@@ -118,12 +124,9 @@ int main()
         // Update scene manager
         g_pSceneManager->Update(FRAME_TIME);
         
-		//globalHttpClient->Update();
-        
         // Clear the drawing surface
         Iw2DSurfaceClear(0xff000000);
         
-        globalHttpClient->Update();
         streamer->Update();
         
         // Render scene manager

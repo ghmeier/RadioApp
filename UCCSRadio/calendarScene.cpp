@@ -30,20 +30,9 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
     
     Scene::Update(deltaTime, alphaMul);
 
-	if (!hasFeed){
-		//_STL::ifstream * file = new _STL::ifstream("calendar.xml");
-		if (s3eFileCheckExists("calendar.xml")) {
-			hasFeed = true;
-			calFeed = new CIwRSS(this);
-			TiXmlDocument doc("calendar.xml");
-			calFeed->CalendarParseRSS("<feed>", doc, 1);
-			
-		}
-	}
-	else
-	{
-		UpdateLabels();
-	}
+	
+    UpdateLabels();
+	
 }
 
 void CalendarScene::Render()
@@ -72,12 +61,10 @@ void CalendarScene::Init()
 	//adding scroll view
 	calFeed = new CIwRSS(this);
 	//_STL::ifstream * file = new _STL::ifstream("calendar.xml");
-	if (s3eFileCheckExists("calendar.xml")) {
-		TiXmlDocument doc("calendar.xml");
-		calFeed->CalendarParseRSS("<feed>", doc, 1);
-		hasFeed = true;
-	}
-    
+	
+    TiXmlDocument doc("calendar.xml");
+    calFeed->CalendarParseRSS("<feed>", doc, 1);
+    hasFeed = true;
 	
     delete calFeed;
 	
