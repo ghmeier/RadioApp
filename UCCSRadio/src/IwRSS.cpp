@@ -226,6 +226,12 @@ void CIwRSS::ParseRSS(const char * data)
             }
         }
     }
+    /*node = nullptr;
+    channel = nullptr;
+    element = nullptr;
+    title = nullptr;
+    desc = nullptr;
+    url = nullptr;*/
 }
 //Type feed
 //              1 = Calendar
@@ -453,13 +459,17 @@ void CIwRSS::CalendarParseRSS(const char * data, TiXmlDocument doc, int feedType
                     myScene->AddChild(story);
                     myScene->labels.push_back(story);
                 }
-                if (image.length())
-                {
-                    FetchImage(image.c_str(), titlestr.c_str());
-                }
             //}
         }
     }
+    /*node = nullptr;
+	when = nullptr;
+    channel = nullptr;
+    element = nullptr;
+    start = nullptr;
+    end = nullptr;
+    title = nullptr;
+    desc = nullptr;*/
 }
 
 

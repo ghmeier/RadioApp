@@ -51,7 +51,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
     // Detect screen tap
     if (!g_pInput->m_Touched && g_pInput->m_PrevTouched && sceneSwitchComplete)
     {
-        if(playButton->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X == x && g_pInput->m_Y == y) {
+        if(playButton->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) {
             x = 0;
             y = 0;
             g_pInput->Reset();
@@ -60,15 +60,15 @@ void Streamer::Update(float deltaTime, float alphaMul)
 			//May have to call this on the next loop after updating ui, 
 			//since s3eAudioPlay strangely blocks until it's done buffering
 			//Pass a function pointer as 3rd argument to get a callback when audio actually starts playing
-			setVolume(99);
-        } else if(stopButton->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X == x && g_pInput->m_Y == y) {
+			setVolume(99);       
+        } else if(stopButton->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) {
             g_pInput->Reset();
             playButton->m_X = IwGxGetScreenWidth() / 2.0;
             stopButton->m_X = IwGxGetScreenWidth() * 2.0;
             setVolume(0);
         }
         
-		if (labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X == x && g_pInput->m_Y == y) {
+		if (labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) {
             sceneSwitchComplete = false;
             g_pInput->Reset();
             if(currentPage == 0) {
@@ -97,7 +97,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
             }
             
 		}
-		else if (labelRight->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X == x && g_pInput->m_Y == y) {
+		else if (labelRight->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) {
             sceneSwitchComplete = false;
             g_pInput->Reset();
             if(currentPage == 0) {

@@ -27,14 +27,6 @@
 
 NewsScene::~NewsScene()
 {
-	//delete feed;
-}
-
-void NewsScene::startGame(CTween* pTween)
-{
-    //CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
-    //g_pSceneManager->SwitchTo(cal);
-    
 }
 
 void NewsScene::Update(float deltaTime, float alphaMul)
@@ -45,12 +37,13 @@ void NewsScene::Update(float deltaTime, float alphaMul)
     Scene::Update(deltaTime, alphaMul);
 	
 	if (!hasFeed){
-		_STL::ifstream file("newsFeed.xml");
-		if (file.good()) {
+		//_STL::ifstream * file = new _STL::ifstream("newsFeed.xml");
+		if (s3eFileCheckExists("newsFeed.xml")) {
 			feed = new CIwRSS(this);
 			feed->ParseRSS("<rss>");
 			hasFeed = true;
 		}
+		
 	}
 	else
 	{
@@ -82,12 +75,11 @@ void NewsScene::Init()
     AddChild(background);
 
 	feed = new CIwRSS(this);
-	_STL::ifstream file("newsFeed.xml");
-	if (file.good()) {
+	//_STL::ifstream * file = new _STL::ifstream("newsFeed.xml");
+	if (s3eFileCheckExists("newsFeed.xml")) {
 		feed->ParseRSS("<rss>");
 		hasFeed = true;
 	}
-
     delete feed;
     
     

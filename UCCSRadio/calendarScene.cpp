@@ -23,14 +23,6 @@ CalendarScene::~CalendarScene()
 {
 }
 
-void CalendarScene::startGame(CTween* pTween)
-{
-    // Switch to game scene
-    //EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");
-    //g_pSceneManager->SwitchTo(events);
-    
-}
-
 void CalendarScene::Update(float deltaTime, float alphaMul)
 {
     if (!m_IsActive)
@@ -39,12 +31,13 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
     Scene::Update(deltaTime, alphaMul);
 
 	if (!hasFeed){
-		_STL::ifstream file("calendar.xml");
-		if (file.good()) {
+		//_STL::ifstream * file = new _STL::ifstream("calendar.xml");
+		if (s3eFileCheckExists("calendar.xml")) {
+			hasFeed = true;
 			calFeed = new CIwRSS(this);
 			TiXmlDocument doc("calendar.xml");
-			calFeed->ParseRSS("<rss>");
-			hasFeed = true;
+			calFeed->CalendarParseRSS("<feed>", doc, 1);
+			
 		}
 	}
 	else
@@ -78,13 +71,14 @@ void CalendarScene::Init()
     
 	//adding scroll view
 	calFeed = new CIwRSS(this);
-	_STL::ifstream file("calendar.xml");
-	if (file.good()) {
+	//_STL::ifstream * file = new _STL::ifstream("calendar.xml");
+	if (s3eFileCheckExists("calendar.xml")) {
 		TiXmlDocument doc("calendar.xml");
 		calFeed->CalendarParseRSS("<feed>", doc, 1);
 		hasFeed = true;
 	}
     
+	
     delete calFeed;
 	
 }

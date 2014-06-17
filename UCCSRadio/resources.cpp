@@ -82,6 +82,8 @@ Resources::~Resources()
 	delete BannerFontSmall;
     delete GoldBanner;
     delete ReadMore;
+    delete HeaderFont;
+    delete ContentFont;
 }
 
 // Global resources

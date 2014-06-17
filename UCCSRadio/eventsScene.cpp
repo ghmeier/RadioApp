@@ -31,13 +31,15 @@ void EventsScene::Update(float deltaTime, float alphaMul)
     Scene::Update(deltaTime, alphaMul);
     
 	if (!hasFeed){
-		_STL::ifstream file("events.xml");
-		if (file.good()) {
+		//_STL::ifstream * file = new _STL::ifstream("events.xml");
+		if (s3eFileCheckExists("events.xml")) {
 			eventFeed = new CIwRSS(this);
-			TiXmlDocument doc("calendar.xml");
-			eventFeed->ParseRSS("<rss>");
 			hasFeed = true;
+			TiXmlDocument doc("events.xml");
+			eventFeed->CalendarParseRSS("<feed>", doc, 2);
+			
 		}
+		//delete file;
 	}
 	else
 	{
@@ -70,12 +72,15 @@ void EventsScene::Init()
     
     //adding scroll view
 	eventFeed = new CIwRSS(this);
-	_STL::ifstream file("events.xml");
-	if (file.good()) {
+	//_STL::ifstream * file = new _STL::ifstream("events.xml");
+	if (s3eFileCheckExists("events.xml")) {
+		//file->close();
 		TiXmlDocument doc("events.xml");
 		eventFeed->CalendarParseRSS("<feed>", doc, 2);
+		hasFeed = true;
 	}
     
+	//delete file;
     delete eventFeed;
 }
 
