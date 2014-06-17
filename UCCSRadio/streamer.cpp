@@ -60,7 +60,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
 			//May have to call this on the next loop after updating ui, 
 			//since s3eAudioPlay strangely blocks until it's done buffering
 			//Pass a function pointer as 3rd argument to get a callback when audio actually starts playing
-			setVolume(99);       
+			setVolume(99);
         } else if(stopButton->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) {
             g_pInput->Reset();
             playButton->m_X = IwGxGetScreenWidth() / 2.0;

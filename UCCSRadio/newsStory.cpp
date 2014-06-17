@@ -26,7 +26,7 @@
 
 NewsStory::~NewsStory()
 {
-	delete link;
+	link = nullptr;
 }
 
 void NewsStory::Update(float deltaTime, float alphaMul)
