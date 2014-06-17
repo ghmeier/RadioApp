@@ -43,6 +43,7 @@ int newsFeedCount = 1;
 int calendarFeedCount = 1;
 int eventFeedCount = 1;
 HttpClient * globalHttpClient = new HttpClient(5, "HttpClient");
+bool labelsScrolling = false;
 
 int main()
 {
@@ -107,6 +108,7 @@ int main()
         
         uint64 new_time = s3eTimerGetMs();
         
+        
         // Update input system
         g_pInput->Update();
         
@@ -117,12 +119,12 @@ int main()
         g_pSceneManager->Update(FRAME_TIME);
         
 		//globalHttpClient->Update();
-        streamer->Update();
         
         // Clear the drawing surface
         Iw2DSurfaceClear(0xff000000);
         
         globalHttpClient->Update();
+        streamer->Update();
         
         // Render scene manager
         g_pSceneManager->Render();

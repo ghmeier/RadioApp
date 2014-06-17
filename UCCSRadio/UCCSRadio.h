@@ -24,4 +24,6 @@ extern int newsFeedCount;
 extern int calendarFeedCount;
 extern int eventFeedCount;
 extern HttpClient* globalHttpClient;
+extern bool labelsScrolling;
+
 #endif  // __UCCSRADIO_H__

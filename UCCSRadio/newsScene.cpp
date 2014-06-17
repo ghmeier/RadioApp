@@ -44,14 +44,9 @@ void NewsScene::Update(float deltaTime, float alphaMul)
     
     Scene::Update(deltaTime, alphaMul);
 	if (!hasFeed){
-		try{
-			
 			feed = new CIwRSS(this);
 			feed->ParseRSS("<rss>");
 			hasFeed = true;
-		}catch(int e){
-			hasFeed = false;
-		}
 	}
 	else
 	{
@@ -83,14 +78,8 @@ void NewsScene::Init()
     AddChild(background);
 
 	feed = new CIwRSS(this);
-	try {
 		feed->ParseRSS("<rss>");
 		hasFeed = true;
-	}
-	catch (int e){
-		printf("sooo yeah\n");
-		hasFeed = false;
-	}
 
     delete feed;
     

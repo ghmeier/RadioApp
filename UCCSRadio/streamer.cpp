@@ -21,6 +21,7 @@
 #include "newsScene.h"
 #include "eventsScene.h"
 #include "audioStreamer.h"
+#include "UCCSRadio.h"
 
 float buttonTop = 0;
 float buttonBottom = 0;
@@ -28,7 +29,8 @@ int currentPage = 0;
 
 float x = 0;
 float y = 0;
-
+int count = 0;
+bool touched = false;
 Streamer::~Streamer()
 {
     stopStreamingAudio();
@@ -38,10 +40,20 @@ void Streamer::Update(float deltaTime, float alphaMul)
 {
     CNode::Update(deltaTime, alphaMul);
     
+    if (g_pInput->m_Touched) {
+        if(!touched) {
+            touched = true;
+            x = g_pInput->m_X;
+            y = g_pInput->m_Y;
+            _STL::cout << "Hit : " << count++ << "\n";
+        }
+    }
     // Detect screen tap
     if (!g_pInput->m_Touched && g_pInput->m_PrevTouched && sceneSwitchComplete)
     {
-        if(playButton->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
+        if(playButton->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X == x && g_pInput->m_Y == y) {
+            x = 0;
+            y = 0;
             g_pInput->Reset();
             playButton->m_X = IwGxGetScreenWidth() * 2.0;
             stopButton->m_X = IwGxGetScreenWidth() / 2.0;
@@ -49,16 +61,14 @@ void Streamer::Update(float deltaTime, float alphaMul)
 			//since s3eAudioPlay strangely blocks until it's done buffering
 			//Pass a function pointer as 3rd argument to get a callback when audio actually starts playing
 			setVolume(99);
-        
-		}
-		else if (stopButton->HitTest(g_pInput->m_X, g_pInput->m_Y) ) {
+        } else if(stopButton->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X == x && g_pInput->m_Y == y) {
             g_pInput->Reset();
             playButton->m_X = IwGxGetScreenWidth() / 2.0;
             stopButton->m_X = IwGxGetScreenWidth() * 2.0;
             setVolume(0);
         }
         
-		if (labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
+		if (labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X == x && g_pInput->m_Y == y) {
             sceneSwitchComplete = false;
             g_pInput->Reset();
             if(currentPage == 0) {
@@ -87,7 +97,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
             }
             
 		}
-		else if (labelRight->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
+		else if (labelRight->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X == x && g_pInput->m_Y == y) {
             sceneSwitchComplete = false;
             g_pInput->Reset();
             if(currentPage == 0) {
@@ -117,7 +127,15 @@ void Streamer::Update(float deltaTime, float alphaMul)
             }
 		}
 		g_pInput->Reset();
+        x = 0;
+        y = 0;
+        touched = false;
 	}
+    if(g_pInput->m_PrevTouched) {
+        x = 0;
+        y = 0;
+        touched = false;
+    }
 }
 
 void Streamer::Render()
@@ -176,7 +194,7 @@ void Streamer::Init()
     playButton = new CSprite();
     playButton->SetImage(g_pResources->getPlayButton());
     playButton->m_X = (float)IwGxGetScreenWidth() / 2;
-    playButton->m_Y = (float)IwGxGetScreenHeight() / 1.14;
+    playButton->m_Y = (float)IwGxGetScreenHeight() / 1.13;
     //buttonTop = (float)IwGxGetScreenHeight() / 1.14 - (playButton->GetImage()->GetHeight() / 8);
     playButton->m_W = playButton->GetImage()->GetWidth();
     playButton->m_H = playButton->GetImage()->GetHeight();
@@ -191,7 +209,7 @@ void Streamer::Init()
     stopButton = new CSprite();
     stopButton->SetImage(g_pResources->getStopButton());
     stopButton->m_X = (float)IwGxGetScreenWidth() / 2;
-    stopButton->m_Y = (float)IwGxGetScreenHeight() / 1.14;
+    stopButton->m_Y = (float)IwGxGetScreenHeight() / 1.13;
     //buttonTop = (float)IwGxGetScreenHeight() / 1.14 - (playButton->GetImage()->GetHeight() / 8);
     stopButton->m_W = stopButton->GetImage()->GetWidth();
     stopButton->m_H = stopButton->GetImage()->GetHeight();
