@@ -38,7 +38,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
     // Detect screen tap
     if (!g_pInput->m_Touched && g_pInput->m_PrevTouched && sceneSwitchComplete)
     {
-        if(playButton->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
+        if(playButton->HitTest(g_pInput->m_X, g_pInput->m_Y) && !g_pInput->m_PrevTouched) {
             g_pInput->Reset();
             playButton->m_X = IwGxGetScreenWidth() * 2.0;
             stopButton->m_X = IwGxGetScreenWidth() / 2.0;
@@ -47,7 +47,8 @@ void Streamer::Update(float deltaTime, float alphaMul)
 			//Pass a function pointer as 3rd argument to get a callback when audio actually starts playing
 			setVolume(99);
         
-        } else if(stopButton->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
+		}
+		else if (stopButton->HitTest(g_pInput->m_X, g_pInput->m_Y) && !g_pInput->m_PrevTouched) {
             g_pInput->Reset();
             playButton->m_X = IwGxGetScreenWidth() / 2.0;
             stopButton->m_X = IwGxGetScreenWidth() * 2.0;

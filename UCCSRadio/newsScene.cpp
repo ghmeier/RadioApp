@@ -44,7 +44,17 @@ void NewsScene::Update(float deltaTime, float alphaMul)
     
     Scene::Update(deltaTime, alphaMul);
 
-	UpdateLabels();
+	if (!hasFeed) {
+		if (s3eFileCheckExists("newsFeed.xml")) {
+			hasFeed = true;
+			feed = new CIwRSS(this);
+			feed->ParseRSS("<rss>");
+		}
+	}
+	else
+	{
+		UpdateLabels();
+	}
 }
 
 void NewsScene::Render()
@@ -55,9 +65,7 @@ void NewsScene::Render()
 void NewsScene::Init()
 {
     Scene::Init();
-	//IwUIInit();
-   
-    
+
     // Create menu background
     CSprite* background = new CSprite();
     background->m_X = (float)IwGxGetScreenWidth() / 2;
@@ -71,15 +79,16 @@ void NewsScene::Init()
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
     AddChild(background);
-    
-	//adding scroll view
+ 
 	feed = new CIwRSS(this);
-	printf("fetching...\n");
-	//feed->FetchFeed("http://radio.uccs.edu/index.php/feed");
-    feed->ParseRSS("<rss>");
-    printf("finished fetching\n");
-	//feed->Update();
-    
+	if (s3eFileCheckExists("newsFeed.xml")) {
+		hasFeed = true;
+		feed->ParseRSS("<rss>");
+	}
+	else {
+
+	}
+
     delete feed;
     
     

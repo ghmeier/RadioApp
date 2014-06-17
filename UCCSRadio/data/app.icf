@@ -20,6 +20,10 @@
 MemSize=50000000
 DispFixRot=FixedPortrait
 MemSizeDebug = 90000000
+SplashScreenBkB=0
+SplashScreenBkR=0
+SplashScreenBkG=0
+AudioAllowBackground=false
 
 [Util]
 MemMgrMaxAllocWarning=0

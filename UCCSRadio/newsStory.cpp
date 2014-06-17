@@ -75,17 +75,18 @@ void NewsStory::Init(std::string titleText, std::string descriptionText, std::st
     description->SetText(descriptionText);
     description->m_Y = IwGxGetDisplayHeight() / 8;
     
-    readMore = new CSprite();
-    readMore->SetImage(g_pResources->getReadMore());
+    readMore = new CLabel();
+    //readMore->SetImage(g_pResources->getReadMore());
+	readMore->SetText("Read More");
     readMore->m_X = (float)IwGxGetScreenWidth() / 1.3;
     readMore->m_Y = (float)IwGxGetScreenHeight() / 2.5;
-    readMore->m_W = readMore->GetImage()->GetWidth();
-    readMore->m_H = readMore->GetImage()->GetHeight();
+    //readMore->m_W = readMore->GetImage()->GetWidth();
+    //readMore->m_H = readMore->GetImage()->GetHeight();
     readMore->m_AnchorX = 0.5;
     readMore->m_AnchorY = 0.5;
     // Fit background to screen size
-    readMore->m_ScaleX = (float)IwGxGetScreenWidth() / readMore->GetImage()->GetWidth() / 4;
-    readMore->m_ScaleY = (float)IwGxGetScreenHeight() / readMore->GetImage()->GetHeight() / 10;
+    //readMore->m_ScaleX = (float)IwGxGetScreenWidth() / readMore->GetImage()->GetWidth() / 4;
+    //readMore->m_ScaleY = (float)IwGxGetScreenHeight() / readMore->GetImage()->GetHeight() / 10;
     
     this->link = link;
     

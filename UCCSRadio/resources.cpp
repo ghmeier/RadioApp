@@ -12,6 +12,7 @@
 
 #include "resources.h"
 #include "Iw2D.h"
+#include "IwGx.h"
 
 Resources::Resources()
 {
@@ -35,10 +36,28 @@ Resources::Resources()
     ReadMore = Iw2DCreateImage("textures/readMore.png");
 
 	//--------------
-	BannerFontLarge = Iw2DCreateFont("trackfont72.gxfont");
-	BannerFontSmall = Iw2DCreateFont("trackfont48.gxfont");
-	HeaderFont = Iw2DCreateFont("palatfont48.gxfont");
-	ContentFont = Iw2DCreateFont("palatfont32.gxfont");
+	char * one;
+	char * two;
+	char * three;
+	char * four;
+	if (IwGxGetDisplayWidth()>=520){
+		one = "trackfont72.gxfont";
+		two = "trackfont48.gxfont";
+		three = "palatfont48.gxfont";
+		four = "palatfont32.gxfont";
+	}
+	else 
+	{
+		one = "trackfont48.gxfont";
+		two = "trackfont32.gxfont";
+		three = "palatfont32.gxfont";
+		four = "palatfont24.gxfont";
+	}
+
+	BannerFontLarge = Iw2DCreateFont(one);
+	BannerFontSmall = Iw2DCreateFont(two);
+	HeaderFont = Iw2DCreateFont(three);
+	ContentFont = Iw2DCreateFont(four);
 
 }
 

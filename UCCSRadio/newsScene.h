@@ -55,7 +55,7 @@ public:
 
 private:
 	CIwRSS* feed;
-	//CIw2DFont* font;
+	bool hasFeed;
 };
 
 

@@ -34,7 +34,7 @@ class NewsStory : public CNode
 protected:
     // UI components
     std::string link;
-    CSprite* readMore;
+    CLabel* readMore;
     
 public:
     NewsStory() {}
