@@ -72,8 +72,6 @@ int main()
     
 	globalHttpClient->QueueRequest(xmlDownload);
     globalHttpClient->QueueRequest(xmlCalendarDownload);
-
-
 	globalHttpClient->QueueRequest(xmlEventsDownload);
     
    /* while(xmlDownload->GetStatus() != 4 || xmlCalendarDownload->GetStatus() != 4 || xmlEventsDownload->GetStatus() != 4) {
@@ -127,6 +125,7 @@ int main()
         
         streamer->Update();
         
+        globalHttpClient->Update();
         // Render scene manager
         g_pSceneManager->Render();
 

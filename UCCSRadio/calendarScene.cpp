@@ -33,8 +33,8 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
 
 	if (xmlCalendarDownload->GetStatus() == 4 && !hasFeed) {
 		calFeed = new CIwRSS(this);
-		TiXmlDocument doc("events.xml");
-		calFeed->CalendarParseRSS("<feed>", doc, 2);
+		TiXmlDocument doc("calendar.xml");
+		calFeed->CalendarParseRSS("<feed>", doc, 1);
 		hasFeed = true;
 		delete calFeed;
 	}

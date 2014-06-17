@@ -37,8 +37,8 @@ void NewsScene::Update(float deltaTime, float alphaMul)
     Scene::Update(deltaTime, alphaMul);
 	if (xmlDownload->GetStatus() == 4 && !hasFeed) {
 		feed = new CIwRSS(this);
-		RemoveChild(labels[0]);
-		labels.clear();		
+		//RemoveChild(labels[0]);
+		//labels.clear();
 		feed->ParseRSS("<rss>");
 		hasFeed = true;
 		delete feed;
@@ -47,7 +47,7 @@ void NewsScene::Update(float deltaTime, float alphaMul)
 		UpdateLabels();
 	}
 	else {
-		CLabel * label = new CLabel();
+		/*CLabel * label = new CLabel();
 		label->SetFont(g_pResources->getBannerFontLarge());
 		label->SetText("Loading...");
 		label->m_X = (float)IwGxGetScreenWidth() / 2;
@@ -57,6 +57,7 @@ void NewsScene::Update(float deltaTime, float alphaMul)
 		labels.push_back(label);
 		AddChild(label);
 		_STL::cout << "news : " << xmlDownload->GetStatus() << "\n";
+         */
 	}
 	
 }
