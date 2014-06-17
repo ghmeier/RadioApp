@@ -35,20 +35,9 @@ void NewsScene::Update(float deltaTime, float alphaMul)
         return;
     
     Scene::Update(deltaTime, alphaMul);
+		
+    UpdateLabels();
 	
-	if (!hasFeed){
-		//_STL::ifstream * file = new _STL::ifstream("newsFeed.xml");
-		if (s3eFileCheckExists("newsFeed.xml")) {
-			feed = new CIwRSS(this);
-			feed->ParseRSS("<rss>");
-			hasFeed = true;
-		}
-
-	}
-	else
-	{
-		UpdateLabels();
-	}
 }
 
 void NewsScene::Render()
@@ -75,12 +64,12 @@ void NewsScene::Init()
     AddChild(background);
 
 	feed = new CIwRSS(this);
-	//_STL::ifstream * file = new _STL::ifstream("newsFeed.xml");
-	if (s3eFileCheckExists("newsFeed.xml")) {
-		feed->ParseRSS("<rss>");
-		hasFeed = true;
-	}
+    feed->ParseRSS("<rss>");
+    hasFeed = true;
+    
     delete feed;
+	
+
     
     
     
