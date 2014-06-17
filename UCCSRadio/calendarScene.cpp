@@ -18,6 +18,7 @@
 #include "streamer.h"
 #include "eventsScene.h"
 #include "tinyxml.h"
+#include "UCCSRadio.h"
 
 CalendarScene::~CalendarScene()
 {
@@ -30,8 +31,16 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
     
     Scene::Update(deltaTime, alphaMul);
 
-	
-    UpdateLabels();
+	if (xmlCalendarDownload->GetStatus() == 4 && !hasFeed) {
+		calFeed = new CIwRSS(this);
+		TiXmlDocument doc("events.xml");
+		calFeed->CalendarParseRSS("<feed>", doc, 2);
+		hasFeed = true;
+		delete calFeed;
+	}
+	else if (hasFeed) {
+		UpdateLabels();
+	}
 	
 }
 
@@ -48,7 +57,7 @@ void CalendarScene::Init()
     CSprite* background = new CSprite();
     background->m_X = (float)IwGxGetScreenWidth() / 2;
     background->m_Y = (float)IwGxGetScreenHeight() / 2;
-    background->SetImage(g_pResources->getCalendarBG());
+    background->SetImage(g_pResources->getbackground());
     background->m_W = background->GetImage()->GetWidth();
     background->m_H = background->GetImage()->GetHeight();
     background->m_AnchorX = 0.5;
@@ -57,16 +66,6 @@ void CalendarScene::Init()
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight() * 6;
     AddChild(background);
-    
-	//adding scroll view
-	calFeed = new CIwRSS(this);
-	//_STL::ifstream * file = new _STL::ifstream("calendar.xml");
-	
-    TiXmlDocument doc("calendar.xml");
-    calFeed->CalendarParseRSS("<feed>", doc, 1);
-    hasFeed = true;
-	
-    delete calFeed;
-	
+
 }
 

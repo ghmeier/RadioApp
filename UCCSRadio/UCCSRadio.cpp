@@ -44,6 +44,9 @@ int calendarFeedCount = 1;
 int eventFeedCount = 1;
 HttpClient * globalHttpClient = new HttpClient(5, "HttpClient");
 bool labelsScrolling = false;
+Ptr<HttpDownload> xmlDownload = new HttpDownload("http://radio.uccs.edu/index.php/feed", "newsFeed.xml");
+Ptr<HttpDownload> xmlCalendarDownload = new HttpDownload("http://www.google.com/calendar/feeds/mr7s4faaibvpgauhpl3rlkloks%40group.calendar.google.com/public/full?max-results=15&orderby=starttime&futureevents=true&singleevents=true&sortorder=ascending", "calendar.xml");
+Ptr<HttpDownload> xmlEventsDownload = new HttpDownload("http://www.google.com/calendar/feeds/radiouccs%40gmail.com/public/full?max-results=15&orderby=starttime&futureevents=true&singleevents=true&sortorder=ascending", "events.xml");
 
 int main()
 {
@@ -67,27 +70,23 @@ int main()
     //Initial making sure the scene switching is done
     sceneSwitchComplete = true;
     
-	Ptr<HttpDownload> xmlDownload = new HttpDownload("http://radio.uccs.edu/index.php/feed", "newsFeed.xml");
 	globalHttpClient->QueueRequest(xmlDownload);
-    
-    Ptr<HttpDownload> xmlCalendarDownload = new HttpDownload("http://www.google.com/calendar/feeds/mr7s4faaibvpgauhpl3rlkloks%40group.calendar.google.com/public/full?max-results=15&orderby=starttime&futureevents=true&singleevents=true&sortorder=ascending", "calendar.xml");
     globalHttpClient->QueueRequest(xmlCalendarDownload);
 
-	Ptr<HttpDownload> xmlEventsDownload = new HttpDownload("http://www.google.com/calendar/feeds/radiouccs%40gmail.com/public/full?max-results=15&orderby=starttime&futureevents=true&singleevents=true&sortorder=ascending","events.xml");
+
 	globalHttpClient->QueueRequest(xmlEventsDownload);
     
-    while(xmlDownload->GetStatus() != 4 || xmlCalendarDownload->GetStatus() != 4 || xmlEventsDownload->GetStatus() != 4) {
+   /* while(xmlDownload->GetStatus() != 4 || xmlCalendarDownload->GetStatus() != 4 || xmlEventsDownload->GetStatus() != 4) {
         globalHttpClient->Update();
         _STL::cout << "news : " << xmlDownload->GetStatus() << "\n";
         _STL::cout << "events : " << xmlCalendarDownload->GetStatus() << "\n";
         _STL::cout << "calendar : " << xmlEventsDownload->GetStatus() << "\n";
-    }
+    }*/
 
     // Init the news
     NewsScene* news_scene = new NewsScene();
     news_scene->SetName("newsscene");
     news_scene->Init();
-	//news_scene->setFont(g_pResources->getFont());
     g_pSceneManager->Add(news_scene);
     
     // Init the calendar
@@ -104,7 +103,6 @@ int main()
     
     // Switch to main menu scene
     g_pSceneManager->SwitchTo(news_scene, 0);
-    
 
     Streamer* streamer = new Streamer();
     streamer->Init();

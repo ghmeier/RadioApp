@@ -25,5 +25,8 @@ extern int calendarFeedCount;
 extern int eventFeedCount;
 extern HttpClient* globalHttpClient;
 extern bool labelsScrolling;
+extern Ptr<HttpDownload> xmlDownload;
+extern Ptr<HttpDownload> xmlCalendarDownload;
+extern Ptr<HttpDownload> xmlEventsDownload;
 
 #endif  // __UCCSRADIO_H__

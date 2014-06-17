@@ -17,23 +17,14 @@
 Resources::Resources()
 {
     // Load images
-    CalendarBG = Iw2DCreateImage("textures/whiteBG.png");
-    EventsBG = Iw2DCreateImage("textures/whiteBG.png");
-    NewsBG = Iw2DCreateImage("textures/whiteBG.png");
+    background = Iw2DCreateImage("textures/whiteBG.png");
     PlayButton = Iw2DCreateImage("textures/button-upSmall.png");
     StopButton = Iw2DCreateImage("textures/button-stopSmall.png");
     PlayWrapper = Iw2DCreateImage("textures/bottom-wrapper.png");
     Header = Iw2DCreateImage("textures/headerSmall.png");
-    CalendarBanner = Iw2DCreateImage("textures/CalendarBannerSmall.png");
-    EventsBanner = Iw2DCreateImage("textures/EventsBannerSmall.png");
-    NewsBanner = Iw2DCreateImage("textures/NewsBannerSmall.png");
-    CalendarSideBanner = Iw2DCreateImage("textures/calendarSideBannerSmall.png");
-    EventsSideBanner = Iw2DCreateImage("textures/eventsSideBannerSmall.png");
-    NewsSideBanner = Iw2DCreateImage("textures/newsSideBannerSmall.png");
     WhiteBanner = Iw2DCreateImage("textures/whiteBanner.png");
 	GreyBanner = Iw2DCreateImage("textures/greyBanner.png");
     GoldBanner = Iw2DCreateImage("textures/goldBanner.png");
-    ReadMore = Iw2DCreateImage("textures/readMore.png");
 
 	//--------------
 	char * one;
@@ -63,25 +54,15 @@ Resources::Resources()
 
 Resources::~Resources()
 {
-    delete CalendarBG;
-    delete EventsBG;
-    delete NewsBG;
     delete PlayButton;
     delete PlayWrapper;
     delete Header;
     delete StopButton;
-    delete CalendarBanner;
-    delete EventsBanner;
-    delete NewsBanner;
-    delete CalendarSideBanner;
-    delete EventsSideBanner;
-    delete NewsSideBanner;
     delete WhiteBanner;
     delete GreyBanner;
 	delete BannerFontLarge;
 	delete BannerFontSmall;
     delete GoldBanner;
-    delete ReadMore;
     delete HeaderFont;
     delete ContentFont;
 }

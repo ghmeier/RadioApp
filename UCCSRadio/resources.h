@@ -32,20 +32,11 @@ class Resources
 {
 protected:
     
-    CIw2DImage*     CalendarBG;
-    CIw2DImage*     EventsBG;
-    CIw2DImage*     NewsBG;
+    CIw2DImage*     background;
     CIw2DImage*     PlayButton;
     CIw2DImage*     StopButton;
     CIw2DImage*     PlayWrapper;
     CIw2DImage*     Header;
-    CIw2DImage*     CalendarBanner;
-    CIw2DImage*     EventsBanner;
-    CIw2DImage*     NewsBanner;
-    CIw2DImage*     CalendarSideBanner;
-    CIw2DImage*     EventsSideBanner;
-    CIw2DImage*     NewsSideBanner;
-    CIw2DImage*     ReadMore;
     CIw2DImage*     WhiteBanner;
     CIw2DImage*     GreyBanner;
     CIw2DImage*     GoldBanner;
@@ -56,21 +47,11 @@ protected:
     
     
 public:
-    
-    CIw2DImage*     getCalendarBG()                 { return CalendarBG; }
-    CIw2DImage*     getEventsBG()                   { return EventsBG; }
-    CIw2DImage*     getNewsBG()                     { return NewsBG; }
     CIw2DImage*     getPlayButton()                 { return PlayButton; }
     CIw2DImage*     getStopButton()                 { return StopButton; }
     CIw2DImage*     getPlayWrapper()                { return PlayWrapper; }
     CIw2DImage*     getHeader()                     { return Header; }
-    CIw2DImage*     getReadMore()                   { return ReadMore; }
-    CIw2DImage*     getCalendarBanner()             { return CalendarBanner; }
-    CIw2DImage*     getEventsBanner()               { return EventsBanner; }
-    CIw2DImage*     getNewsBanner()                 { return NewsBanner; }
-    CIw2DImage*     getCalendarSideBanner()         { return CalendarSideBanner; }
-    CIw2DImage*     getEventsSideBanner()           { return EventsSideBanner; }
-    CIw2DImage*     getNewsSideBanner()             { return NewsSideBanner; }
+    CIw2DImage*     getbackground()                   { return background; }
     CIw2DImage*     getWhiteBanner()                { return WhiteBanner; }
     CIw2DImage*     getGoldBanner()                 { return GoldBanner; }
     CIw2DImage*     getGreyBanner()                 { return GreyBanner; }

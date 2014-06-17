@@ -17,6 +17,7 @@
 #include "newsScene.h"
 #include "streamer.h"
 #include "tinyxml.h"
+#include "UCCSRadio.h"
 
 EventsScene::~EventsScene()
 {
@@ -30,8 +31,16 @@ void EventsScene::Update(float deltaTime, float alphaMul)
     
     Scene::Update(deltaTime, alphaMul);
     
-	
-    UpdateLabels();
+	if (xmlEventsDownload->GetStatus() == 4 && !hasFeed) {
+		eventFeed = new CIwRSS(this);
+		TiXmlDocument doc("events.xml");
+		eventFeed->CalendarParseRSS("<feed>", doc, 2);
+		hasFeed = true;
+		delete eventFeed;
+	}
+	else if (hasFeed) {
+		UpdateLabels();
+	}
 	
 }
 
@@ -48,7 +57,7 @@ void EventsScene::Init()
     CSprite* background = new CSprite();
     background->m_X = (float)IwGxGetScreenWidth() / 2;
     background->m_Y = (float)IwGxGetScreenHeight() / 2;
-    background->SetImage(g_pResources->getEventsBG());
+    background->SetImage(g_pResources->getbackground());
     background->m_W = background->GetImage()->GetWidth();
     background->m_H = background->GetImage()->GetHeight();
     background->m_AnchorX = 0.5;
@@ -57,18 +66,6 @@ void EventsScene::Init()
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
     AddChild(background);
-    
-    //adding scroll view
-	eventFeed = new CIwRSS(this);
-	//_STL::ifstream * file = new _STL::ifstream("events.xml");
-	
-    //file->close();
-    TiXmlDocument doc("events.xml");
-    eventFeed->CalendarParseRSS("<feed>", doc, 2);
-    hasFeed = true;
-	
-    
-	//delete file;
-    delete eventFeed;
+
 }
 

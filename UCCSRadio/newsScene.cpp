@@ -35,8 +35,29 @@ void NewsScene::Update(float deltaTime, float alphaMul)
         return;
     
     Scene::Update(deltaTime, alphaMul);
-		
-    UpdateLabels();
+	if (xmlDownload->GetStatus() == 4 && !hasFeed) {
+		feed = new CIwRSS(this);
+		RemoveChild(labels[0]);
+		labels.clear();		
+		feed->ParseRSS("<rss>");
+		hasFeed = true;
+		delete feed;
+	}
+	else if (hasFeed) {
+		UpdateLabels();
+	}
+	else {
+		CLabel * label = new CLabel();
+		label->SetFont(g_pResources->getBannerFontLarge());
+		label->SetText("Loading...");
+		label->m_X = (float)IwGxGetScreenWidth() / 2;
+		label->m_Y = (float)IwGxGetScreenHeight() / 2;
+		label->m_AnchorX = 0.5;
+		label->m_AnchorY = 0.5;
+		labels.push_back(label);
+		AddChild(label);
+		_STL::cout << "news : " << xmlDownload->GetStatus() << "\n";
+	}
 	
 }
 
@@ -53,7 +74,7 @@ void NewsScene::Init()
     CSprite* background = new CSprite();
     background->m_X = (float)IwGxGetScreenWidth() / 2;
     background->m_Y = (float)IwGxGetScreenHeight() / 2;
-    background->SetImage(g_pResources->getNewsBG());
+    background->SetImage(g_pResources->getbackground());
     background->m_W = background->GetImage()->GetWidth();
     background->m_H = background->GetImage()->GetHeight();
     background->m_AnchorX = 0.5;
@@ -62,15 +83,4 @@ void NewsScene::Init()
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
     AddChild(background);
-
-	feed = new CIwRSS(this);
-    feed->ParseRSS("<rss>");
-    hasFeed = true;
-    
-    delete feed;
-	
-
-    
-    
-    
 }

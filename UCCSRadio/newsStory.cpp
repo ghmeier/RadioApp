@@ -37,7 +37,7 @@ void NewsStory::Update(float deltaTime, float alphaMul)
     {
         if(readMore->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
             g_pInput->Reset();
-            s3eOSExecExecute(link, false);
+            s3eOSExecExecute(link, true);
         }
     }
 }
@@ -78,7 +78,7 @@ void NewsStory::Init(std::string titleText, std::string descriptionText, char* l
     readMore = new CLabel();
 	readMore->m_Color = CColor(0, 0, 0, 0xff);
 	readMore->SetFont(g_pResources->getBannerFontSmall());
-	readMore->SetText("Read More");
+	readMore->SetText(link);
     readMore->m_X = (float)IwGxGetScreenWidth() / 1.3;
     readMore->m_Y = (float)IwGxGetScreenHeight() / 2.5;
     readMore->m_AnchorX = 0.5;
