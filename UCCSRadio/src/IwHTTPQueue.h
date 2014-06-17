@@ -25,13 +25,14 @@ class CIwHTTPQueue
 public:
     CIwHTTPQueue();
     ~CIwHTTPQueue();
-
+	bool hasActiveRequest();
     void Get(const char* pURL, void* pArgument, HTTPHandler pHandler);
     void GetFirst(const char* pURL, void* pArgument, HTTPHandler pHandler);
     void CancelByArgument(void* pArgument);
 
     void Update();
-    void SetMaxResultLen(int32 maxResultLen);
+	void SetMaxResultLen(int32 maxResultLen);
+	
 
 private:
     void CancelActiveRequest();

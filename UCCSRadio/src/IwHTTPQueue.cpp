@@ -260,3 +260,7 @@ void CIwHTTPQueue::Request::HandleResult(char* pResult, int32 resultLen)
         m_Handler(m_Argument, m_URL, pResult, resultLen);
     }
 }
+
+bool CIwHTTPQueue::hasActiveRequest(){
+	return m_ActiveRequest != NULL;
+}

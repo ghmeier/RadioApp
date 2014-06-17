@@ -26,7 +26,7 @@
 
 NewsStory::~NewsStory()
 {
-    
+	delete link;
 }
 
 void NewsStory::Update(float deltaTime, float alphaMul)
@@ -37,7 +37,7 @@ void NewsStory::Update(float deltaTime, float alphaMul)
     {
         if(readMore->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
             g_pInput->Reset();
-            //s3eOSExecExecute(link, true);
+            s3eOSExecExecute(link, false);
         }
     }
 }
@@ -47,7 +47,7 @@ void NewsStory::Render()
     CNode::Render();
 }
 
-void NewsStory::Init(std::string titleText, std::string descriptionText, std::string link)
+void NewsStory::Init(std::string titleText, std::string descriptionText, char* link)
 {
     CLabel* title = new CLabel();
     title->m_W = IwGxGetDisplayWidth();
@@ -76,17 +76,13 @@ void NewsStory::Init(std::string titleText, std::string descriptionText, std::st
     description->m_Y = IwGxGetDisplayHeight() / 8;
     
     readMore = new CLabel();
-    //readMore->SetImage(g_pResources->getReadMore());
+	readMore->m_Color = CColor(0, 0, 0, 0xff);
+	readMore->SetFont(g_pResources->getBannerFontSmall());
 	readMore->SetText("Read More");
     readMore->m_X = (float)IwGxGetScreenWidth() / 1.3;
     readMore->m_Y = (float)IwGxGetScreenHeight() / 2.5;
-    //readMore->m_W = readMore->GetImage()->GetWidth();
-    //readMore->m_H = readMore->GetImage()->GetHeight();
     readMore->m_AnchorX = 0.5;
     readMore->m_AnchorY = 0.5;
-    // Fit background to screen size
-    //readMore->m_ScaleX = (float)IwGxGetScreenWidth() / readMore->GetImage()->GetWidth() / 4;
-    //readMore->m_ScaleY = (float)IwGxGetScreenHeight() / readMore->GetImage()->GetHeight() / 10;
     
     this->link = link;
     

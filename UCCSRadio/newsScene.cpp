@@ -43,7 +43,7 @@ void NewsScene::Update(float deltaTime, float alphaMul)
 			feed->ParseRSS("<rss>");
 			hasFeed = true;
 		}
-		
+
 	}
 	else
 	{

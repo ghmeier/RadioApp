@@ -136,7 +136,7 @@ void CIwRSS::ParseRSS(const char * data)
                 std::string titlestr = title->Value();
                 std::string description = "";
                 std::string image = "";
-                std::string link = "";
+                char* link = "";
 
                 if (element->FirstChild("description") && (desc = element->FirstChild("description")->FirstChild()))
                 {
@@ -178,7 +178,6 @@ void CIwRSS::ParseRSS(const char * data)
                                     {
                                         if (end - start > 0)
                                         {
-                                            //IwTrace(UI, ("Out: %s", description.substr(start, end - start).c_str()));
                                             description = description.substr(start, end - start).c_str();
                                             break;
                                         }
@@ -201,9 +200,9 @@ void CIwRSS::ParseRSS(const char * data)
 
                 if (element->FirstChild("link") && (url = element->FirstChild("link")->FirstChild()))
                 {
-                    link = url->Value();
+                    link = (char*)url->Value();
                 }
-                //IwTrace(UI, ("Desc: %s", description.c_str()));
+
                 std::string descr = description;
                 std::string delimiter = "[&#8230;]";
                 
