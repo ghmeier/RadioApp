@@ -51,7 +51,7 @@ public:
     CIw2DImage*     getStopButton()                 { return StopButton; }
     CIw2DImage*     getPlayWrapper()                { return PlayWrapper; }
     CIw2DImage*     getHeader()                     { return Header; }
-    CIw2DImage*     getbackground()                   { return background; }
+    CIw2DImage*     getbackground()                 { return background; }
     CIw2DImage*     getWhiteBanner()                { return WhiteBanner; }
     CIw2DImage*     getGoldBanner()                 { return GoldBanner; }
     CIw2DImage*     getGreyBanner()                 { return GreyBanner; }

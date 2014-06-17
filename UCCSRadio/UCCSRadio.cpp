@@ -72,8 +72,6 @@ int main()
     
 	globalHttpClient->QueueRequest(xmlDownload);
     globalHttpClient->QueueRequest(xmlCalendarDownload);
-
-
 	globalHttpClient->QueueRequest(xmlEventsDownload);
     
    /* while(xmlDownload->GetStatus() != 4 || xmlCalendarDownload->GetStatus() != 4 || xmlEventsDownload->GetStatus() != 4) {
@@ -134,6 +132,8 @@ int main()
         
         // Show the drawing surface
         Iw2DSurfaceShow();
+
+		globalHttpClient->Update();
         
         // Lock frame rate
         int yield = (int)(FRAME_TIME * 1000 - (s3eTimerGetMs() - new_time));

@@ -21,7 +21,7 @@
 
 EventsScene::~EventsScene()
 {
-
+	delete eventFeed;
 }
 
 void EventsScene::Update(float deltaTime, float alphaMul)
@@ -36,10 +36,22 @@ void EventsScene::Update(float deltaTime, float alphaMul)
 		TiXmlDocument doc("events.xml");
 		eventFeed->CalendarParseRSS("<feed>", doc, 2);
 		hasFeed = true;
-		delete eventFeed;
+		//delete eventFeed;
 	}
 	else if (hasFeed) {
 		UpdateLabels();
+	}
+	else {
+		/*CLabel * label = new CLabel();
+		label->SetFont(g_pResources->getBannerFontLarge());
+		label->SetText("Loading...");
+		label->m_X = (float)IwGxGetScreenWidth() / 2;
+		label->m_Y = (float)IwGxGetScreenHeight() / 2;
+		label->m_AnchorX = 0.5;
+		label->m_AnchorY = 0.5;
+		labels.push_back(label);
+		AddChild(label);
+		_STL::cout << "event : " << xmlEventsDownload->GetStatus() << "\n";*/
 	}
 	
 }
