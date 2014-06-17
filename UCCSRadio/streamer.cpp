@@ -39,7 +39,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
     CNode::Update(deltaTime, alphaMul);
     
     // Detect screen tap
-    if (!g_pInput->m_Touched && (g_pInput->m_PrevTouched && g_pInput->m_X == g_pInput->prev_X && g_pInput->m_Y == g_pInput->prev_Y) && sceneSwitchComplete)
+    if (!g_pInput->m_Touched && g_pInput->m_PrevTouched && sceneSwitchComplete)
     {
         if(playButton->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
             g_pInput->Reset();
