@@ -22,4 +22,5 @@ extern CTweenManager*       g_pTweener;
 extern int newsFeedCount;
 extern int calendarFeedCount;
 extern int eventFeedCount;
+extern bool labelsScrolling;
 #endif  // __UCCSRADIO_H__

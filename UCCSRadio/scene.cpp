@@ -64,7 +64,7 @@ void Scene::UpdateLabels(){
 		}
 		g_pInput->prev_Y = g_pInput->m_Y;
 
-	}
+	} 
 }
 
 void Scene::Render()
