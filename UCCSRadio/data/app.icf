@@ -29,7 +29,7 @@ AudioAllowBackground=false
 MemMgrMaxAllocWarning=0
 
 [GX]
-DataCacheSize=304800 # Allocate 100k for the data cache
+DataCacheSize=314800 # Allocate 100k for the data cache
 
 [2D]
 MaxBatch=1800

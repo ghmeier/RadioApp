@@ -65,7 +65,7 @@ Resources::~Resources()
     delete GoldBanner;
     delete HeaderFont;
     delete ContentFont;
-	delete background;
+    delete background;
 }
 
 // Global resources

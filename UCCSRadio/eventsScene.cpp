@@ -30,7 +30,7 @@ void EventsScene::Update(float deltaTime, float alphaMul)
         return;
     
     Scene::Update(deltaTime, alphaMul);
-    
+	_STL::cout << "event : " << xmlEventsDownload->GetStatus() << "\n";
 	if (xmlEventsDownload->GetStatus() == 4 && !hasFeed) {
 		eventFeed = new CIwRSS(this);
 		TiXmlDocument doc("events.xml");

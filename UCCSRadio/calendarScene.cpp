@@ -31,13 +31,12 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
         return;
     
     Scene::Update(deltaTime, alphaMul);
-
+	_STL::cout << "cal : " << xmlEventsDownload->GetStatus() << "\n";
 	if (xmlCalendarDownload->GetStatus() == 4 && !hasFeed) {
 		calFeed = new CIwRSS(this);
 		TiXmlDocument doc("calendar.xml");
-		calFeed->CalendarParseRSS("<feed>", doc, 2);
+		calFeed->CalendarParseRSS("<feed>", doc, 1);
 		hasFeed = true;
-		//delete calFeed;
 	}
 	else if (hasFeed) {
 		UpdateLabels();

@@ -125,6 +125,7 @@ int main()
         
         streamer->Update();
         
+        globalHttpClient->Update();
         // Render scene manager
         g_pSceneManager->Render();
 
