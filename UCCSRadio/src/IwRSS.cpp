@@ -204,8 +204,13 @@ void CIwRSS::ParseRSS(const char * data)
                     link = url->Value();
                 }
                 //IwTrace(UI, ("Desc: %s", description.c_str()));
+                std::string descr = description;
+                std::string delimiter = "[&#8230;]";
                 
+                description = descr.substr(0, descr.find(delimiter));
 				
+                description += "[...]";
+                
                 NewsStory* story = new NewsStory();
                 story->Init(titlestr , description, link);
                 story->m_W = IwGxGetDisplayWidth();
@@ -394,7 +399,11 @@ void CIwRSS::CalendarParseRSS(const char * data, TiXmlDocument doc, int feedType
                     
                     CLabel* title = new CLabel();
                     title->m_W = IwGxGetDisplayWidth();
-                    title->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/4)* (calendarFeedCount - 1) + ((numDates) * bannerHeight);
+                    if(feedType == 1) {
+                        title->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/4)* (calendarFeedCount - 1) + ((numDates) * bannerHeight);
+                    } else {
+                        title->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/4)* (eventFeedCount - 1) + ((numDates) * bannerHeight);
+                    }
                     title->m_AlignHor = IW_2D_FONT_ALIGN_CENTRE;
                     title->m_Font = g_pResources->getHeaderFont();
                     //title->m_Color = CColor(255, , 0, 0xff);
@@ -403,7 +412,11 @@ void CIwRSS::CalendarParseRSS(const char * data, TiXmlDocument doc, int feedType
                     CSprite* goldBanner = new CSprite();
                     goldBanner->SetImage(g_pResources->getGoldBanner());
                     goldBanner->m_X = (float)IwGxGetScreenWidth() / 2;
-                    goldBanner->m_Y = (IwGxGetDisplayHeight() / 3.5) + (IwGxGetDisplayHeight()/4)* (calendarFeedCount - 1) + ((numDates) * bannerHeight);
+                    if(feedType == 1) {
+                        goldBanner->m_Y = (IwGxGetDisplayHeight() / 3.5) + (IwGxGetDisplayHeight()/4)* (calendarFeedCount - 1) + ((numDates) * bannerHeight);
+                    } else {
+                        goldBanner->m_Y = (IwGxGetDisplayHeight() / 3.5) + (IwGxGetDisplayHeight()/4)* (eventFeedCount - 1) + ((numDates) * bannerHeight);
+                    }
                     goldBanner->m_W = goldBanner->GetImage()->GetWidth();
                     goldBanner->m_H = goldBanner->GetImage()->GetHeight();
                     bannerHeight = goldBanner->GetImage()->GetHeight();

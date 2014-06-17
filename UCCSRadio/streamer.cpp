@@ -26,6 +26,9 @@ float buttonTop = 0;
 float buttonBottom = 0;
 int currentPage = 0;
 
+float x = 0;
+float y = 0;
+
 Streamer::~Streamer()
 {
     stopStreamingAudio();
