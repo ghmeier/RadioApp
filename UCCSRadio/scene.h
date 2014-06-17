@@ -16,6 +16,7 @@
 #include <list>
 #include "Iw2DSceneGraph.h"
 #include "IwTween.h"
+#include <fstream>
 
 using namespace Iw2DSceneGraphCore;
 using namespace Iw2DSceneGraph;
@@ -48,6 +49,7 @@ protected:
     bool                m_IsInputActive;                // Input active state
     SceneManager*       m_Manager;                      // Scene manager
     CTweenManager       m_Tweener;                      // Scene local tween manager
+	bool hasFeed;
 
 public:
 	std::vector<CNode*> labels;

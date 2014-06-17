@@ -38,7 +38,19 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
     
     Scene::Update(deltaTime, alphaMul);
 
-	UpdateLabels();
+	if (!hasFeed){
+		_STL::ifstream file("calendar.xml");
+		if (file.good()) {
+			calFeed = new CIwRSS(this);
+			TiXmlDocument doc("calendar.xml");
+			calFeed->ParseRSS("<rss>");
+			hasFeed = true;
+		}
+	}
+	else
+	{
+		UpdateLabels();
+	}
 }
 
 void CalendarScene::Render()
@@ -66,11 +78,12 @@ void CalendarScene::Init()
     
 	//adding scroll view
 	calFeed = new CIwRSS(this);
-	printf("fetching...\n");
-    TiXmlDocument doc("calendar.xml");
-    calFeed->CalendarParseRSS("<feed>", doc, 1);
-    printf("finished fetching\n");
-	//feed->Update();
+	_STL::ifstream file("calendar.xml");
+	if (file.good()) {
+		TiXmlDocument doc("calendar.xml");
+		calFeed->CalendarParseRSS("<feed>", doc, 1);
+		hasFeed = true;
+	}
     
     delete calFeed;
 	

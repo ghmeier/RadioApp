@@ -55,7 +55,6 @@ public:
 
 private:
 	CIwRSS* feed;
-	bool hasFeed;
 };
 
 

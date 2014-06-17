@@ -23,14 +23,6 @@ EventsScene::~EventsScene()
  
 }
 
-void EventsScene::startGame(CTween* pTween)
-{
-    // Switch to game scene
-    //NewsScene* news = (NewsScene*)g_pSceneManager->Find("newsscene");
-    //g_pSceneManager->SwitchTo(news);
-    
-}
-
 void EventsScene::Update(float deltaTime, float alphaMul)
 {
     if (!m_IsActive)
@@ -38,7 +30,19 @@ void EventsScene::Update(float deltaTime, float alphaMul)
     
     Scene::Update(deltaTime, alphaMul);
     
-	UpdateLabels();
+	if (!hasFeed){
+		_STL::ifstream file("events.xml");
+		if (file.good()) {
+			eventFeed = new CIwRSS(this);
+			TiXmlDocument doc("calendar.xml");
+			eventFeed->ParseRSS("<rss>");
+			hasFeed = true;
+		}
+	}
+	else
+	{
+		UpdateLabels();
+	}
 }
 
 void EventsScene::Render()
@@ -66,11 +70,11 @@ void EventsScene::Init()
     
     //adding scroll view
 	eventFeed = new CIwRSS(this);
-	printf("fetching...\n");
-    TiXmlDocument doc("events.xml");
-    eventFeed->CalendarParseRSS("<feed>",doc, 2);
-    printf("finished fetching\n");
-	//feed->Update();
+	_STL::ifstream file("events.xml");
+	if (file.good()) {
+		TiXmlDocument doc("events.xml");
+		eventFeed->CalendarParseRSS("<feed>", doc, 2);
+	}
     
     delete eventFeed;
 }
