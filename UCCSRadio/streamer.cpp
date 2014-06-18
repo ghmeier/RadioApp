@@ -176,20 +176,18 @@ void Streamer::Init()
     whiteBanner->m_ScaleX = (float)IwGxGetScreenWidth() / whiteBanner->GetImage()->GetWidth() / 1;
     whiteBanner->m_ScaleY = (float)IwGxGetScreenHeight() / whiteBanner->GetImage()->GetHeight() / 5;
     
-    //buttonBottom = ((float)IwGxGetScreenHeight() / 17) + (header->GetImage()->GetHeight() / 1.4);
-    
     // Create menu background
     playWrapper = new CSprite();
     playWrapper->SetImage(g_pResources->getPlayWrapper());
     playWrapper->m_X = (float)IwGxGetScreenWidth() / 2;
-    playWrapper->m_Y = (float)IwGxGetScreenHeight() / 1.1;
+    playWrapper->m_Y = (float)IwGxGetScreenHeight() / 1.08;
     playWrapper->m_W = playWrapper->GetImage()->GetWidth();
     playWrapper->m_H = playWrapper->GetImage()->GetHeight();
     playWrapper->m_AnchorX = 0.5;
     playWrapper->m_AnchorY = 0.5;
     // Fit background to screen size
     playWrapper->m_ScaleX = (float)IwGxGetScreenWidth() / playWrapper->GetImage()->GetWidth() / 1;
-    playWrapper->m_ScaleY = (float)IwGxGetScreenHeight() / playWrapper->GetImage()->GetHeight() / 5;
+    playWrapper->m_ScaleY = (float)IwGxGetScreenHeight() / playWrapper->GetImage()->GetHeight() / 6;
 
     playButton = new CSprite();
     playButton->SetImage(g_pResources->getPlayButton());
@@ -257,14 +255,14 @@ void Streamer::Init()
     labelMain->m_W = IwGxGetDisplayWidth();
     labelMain->m_AlignHor = IW_2D_FONT_ALIGN_CENTRE;
     
-    AddChild(playWrapper);
-    AddChild(playButton);
-    AddChild(stopButton);
     AddChild(banner);
     AddChild(whiteBanner);
     AddChild(header);
     AddChild(labelRight);
     AddChild(labelLeft);
+    AddChild(playWrapper);
+    AddChild(playButton);
+    AddChild(stopButton);
     AddChild(labelMain);
     
     stopButton->m_X = IwGxGetScreenWidth() * 2.0;
