@@ -68,7 +68,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
             setVolume(0);
         }
         
-		if ((labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) || (g_pInput->m_X>g_pInput->prev_X + IwGxGetDeviceWidth() / 2 && g_pInput->m_PrevTouched)) {
+		if ((labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y) /*|| (g_pInput->m_X>g_pInput->prev_X + IwGxGetDeviceWidth() / 2)*/) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) {
 			printf("lefttrue\n");
 			sceneSwitchComplete = false;
             g_pInput->Reset();
@@ -98,7 +98,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
             }
             
 		}
-		else if ((labelRight->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) || (g_pInput->m_X<g_pInput->prev_X - IwGxGetDeviceWidth() / 2 && g_pInput->m_PrevTouched)) {
+		else if ((labelRight->HitTest(g_pInput->m_X, g_pInput->m_Y) /*|| (g_pInput->m_X<g_pInput->prev_X - IwGxGetDeviceWidth() / 2)*/) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) {
 			printf("righttrue\n");
 			sceneSwitchComplete = false;
             g_pInput->Reset();

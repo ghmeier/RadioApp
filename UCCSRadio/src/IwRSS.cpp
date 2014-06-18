@@ -111,7 +111,7 @@ void CIwRSS::ParseRSS(const char * data)
     } else {
         printf("\nWe not good \n");
     }
-    doc.Parse(data, 0, TIXML_ENCODING_UTF8 );
+    doc.Parse(data, 0, TIXML_ENCODING_UNKNOWN );
     TiXmlElement * node = doc.RootElement();
     TiXmlNode * channel;
     TiXmlNode * element;
@@ -211,7 +211,7 @@ void CIwRSS::ParseRSS(const char * data)
                 description += "[...]";
                 
                 NewsStory* story = new NewsStory();
-                story->Init(titlestr , description, link);
+                story->Init(titlestr , (char*)description.c_str(), link);
                 story->m_W = IwGxGetDisplayWidth();
                 story->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/2)* (newsFeedCount - 1);
                 newsFeedCount += 1;
