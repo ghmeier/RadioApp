@@ -68,8 +68,9 @@ void Streamer::Update(float deltaTime, float alphaMul)
             setVolume(0);
         }
         
-		if (labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) {
-            sceneSwitchComplete = false;
+		if ((labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) || (g_pInput->m_X>g_pInput->prev_X + IwGxGetDeviceWidth() / 3 && g_pInput->m_PrevTouched)) {
+			printf("lefttrue\n");
+			sceneSwitchComplete = false;
             g_pInput->Reset();
             if(currentPage == 0) {
                 CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
@@ -97,8 +98,9 @@ void Streamer::Update(float deltaTime, float alphaMul)
             }
             
 		}
-		else if (labelRight->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) {
-            sceneSwitchComplete = false;
+		else if ((labelRight->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) || (g_pInput->m_X<g_pInput->prev_X - IwGxGetDeviceWidth() / 3 && g_pInput->m_PrevTouched)) {
+			printf("righttrue\n");
+			sceneSwitchComplete = false;
             g_pInput->Reset();
             if(currentPage == 0) {
                 EventsScene* events = (EventsScene*)g_pSceneManager->Find("eventsscene");

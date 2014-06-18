@@ -27,23 +27,20 @@
 
 NewsScene::~NewsScene()
 {
-	delete feed;
 }
 
 void NewsScene::Update(float deltaTime, float alphaMul)
 {
     if (!m_IsActive)
         return;
-	_STL::cout << "news : " << xmlDownload->GetStatus() << "\n";
     Scene::Update(deltaTime, alphaMul);
 	if (xmlDownload->GetStatus() == 4 && !hasFeed) {
 		feed = new CIwRSS(this);
 		feed->ParseRSS("<rss>");
 		hasFeed = true;
-		//delete feed;
+		delete feed;
 	}
 	else if (hasFeed) {
-		_STL::cout << "news : " << xmlDownload->GetStatus() << "\n";
 		UpdateLabels();
 	}
 }

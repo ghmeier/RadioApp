@@ -23,13 +23,14 @@ MemSizeDebug = 90000000
 SplashScreenBkB=0
 SplashScreenBkR=0
 SplashScreenBkG=0
-AudioAllowBackground=false
+SplashScreenWidth=1080,1080
+SplashScreenHeight=480,180
 
 [Util]
 MemMgrMaxAllocWarning=0
 
 [GX]
-DataCacheSize=314800 # Allocate 100k for the data cache
+DataCacheSize=409600 # Allocate 400k for the data cache
 
 [2D]
 MaxBatch=1800

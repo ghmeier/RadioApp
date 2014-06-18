@@ -18,32 +18,10 @@
 
 #define MAX_TOUCHES     10
 
-/**
- * @class Input
- *
- * @brief Input - The Input class is responsible for handling all pointer input.
- *
- * Example usage:
- * @code
- *    // Set up input systems
- *    g_pInput = new Input();
- *
- *    // Update
- *    while (!s3eDeviceCheckQuitRequest())
- *    {
- *        // Update input system
- *        g_pInput->Update();
- *    }
- *
- *    // Cleanup
- *    delete g_pInput;
- * @endcode
- *
- */
 class Input
 {
 public:
-    int             m_X, m_Y,start_X,start_Y;           // Touched position
+    int             m_X, m_Y,start_X,start_Y; // Touched position
 	int				prev_Y,prev_X;
     bool            m_Touched;          // Touched status
     bool            m_PrevTouched;      // Previous touched status

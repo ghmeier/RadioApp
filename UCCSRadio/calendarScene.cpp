@@ -22,7 +22,6 @@
 
 CalendarScene::~CalendarScene()
 {
-	delete calFeed;
 }
 
 void CalendarScene::Update(float deltaTime, float alphaMul)
@@ -31,27 +30,15 @@ void CalendarScene::Update(float deltaTime, float alphaMul)
         return;
     
     Scene::Update(deltaTime, alphaMul);
-	_STL::cout << "cal : " << xmlEventsDownload->GetStatus() << "\n";
 	if (xmlCalendarDownload->GetStatus() == 4 && !hasFeed) {
 		calFeed = new CIwRSS(this);
 		TiXmlDocument doc("calendar.xml");
 		calFeed->CalendarParseRSS("<feed>", doc, 1);
 		hasFeed = true;
+		delete calFeed;
 	}
 	else if (hasFeed) {
 		UpdateLabels();
-	}
-	else {
-		/*CLabel * label = new CLabel();
-		label->SetFont(g_pResources->getBannerFontLarge());
-		label->SetText("Loading...");
-		label->m_X = (float)IwGxGetScreenWidth() / 2;
-		label->m_Y = (float)IwGxGetScreenHeight() / 2;
-		label->m_AnchorX = 0.5;
-		label->m_AnchorY = 0.5;
-		labels.push_back(label);
-		AddChild(label);
-		_STL::cout << "cal : " << xmlCalendarDownload->GetStatus() << "\n";*/
 	}
 	
 }

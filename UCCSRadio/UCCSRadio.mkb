@@ -5,7 +5,8 @@ deployments
 name="UCCS Radio"
 caption="UCCS Radio"
 icon="data/textures/androidIcon/icon-192.png"
-splashscreen="data/textures/UCCSRadioLogo.png"
+splashscreen="data/textures/splashScreens/."
+splashscreen-use-all=1
 }
 
 options

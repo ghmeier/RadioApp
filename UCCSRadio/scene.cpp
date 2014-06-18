@@ -18,12 +18,6 @@
 SceneManager* g_pSceneManager = 0;
 bool sceneSwitchComplete = true;
 
-//
-//
-// Scene class
-//
-//
-
 Scene::Scene() : m_NameHash(0), m_IsActive(true), m_IsInputActive(false)
 {
     m_X = -(float)IwGxGetScreenWidth();
@@ -156,14 +150,14 @@ void SceneManager::SwitchTo(Scene* scene, int direction)
         m_Next->m_X = -(float)IwGxGetScreenWidth();
         if(direction == 0) {
             m_Next->m_X = (float)IwGxGetScreenWidth();
-                g_pTweener->Tween(0.1f,
+                g_pTweener->Tween(0.05f,
                           FLOAT, &m_Next->m_X, 0.0f,
                           FLOAT, &m_Current->m_X, -(float)IwGxGetScreenWidth(),
                           EASING, Ease::sineIn,
                           ONCOMPLETE, OnSwitchComplete,
                           END);
         } else if(direction == 1) {
-            g_pTweener->Tween(0.1f,
+            g_pTweener->Tween(0.05f,
                               FLOAT, &m_Next->m_X, 0.0f,
                               FLOAT, &m_Current->m_X, (float)IwGxGetScreenWidth(),
                               EASING, Ease::sineIn,

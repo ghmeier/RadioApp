@@ -29,9 +29,11 @@ void Input::TouchButtonCB(s3ePointerEvent* event)
 	s3ePointerState state = s3ePointerGetTouchState(0);
 	if (g_pInput->m_PrevTouched == false && g_pInput->m_Touched == true){
 		//g_pInput->prev_Y = event->m_y;
+		g_pInput->prev_X = event->m_x;
 	}
 	else if (g_pInput->m_Touched == false) {
 		g_pInput->prev_Y = event->m_y;
+		
 	}
 	else {
 		g_pInput->prev_X = g_pInput->m_X;
@@ -75,9 +77,11 @@ void Input::MultiTouchButtonCB(s3ePointerTouchEvent* event)
     g_pInput->m_Touched = event->m_Pressed != 0;
 	if (g_pInput->m_PrevTouched == false && g_pInput->m_Touched == true){
 		g_pInput->prev_Y = event->m_y;
+		g_pInput->prev_X = event->m_x;
 	}
 	else if (g_pInput->m_Touched == false) {
-		//g_pInput->prev_Y = event->m_y;
+		g_pInput->prev_Y = event->m_y;
+		
 	}
 	else {
 		g_pInput->prev_X = g_pInput->m_X;
@@ -126,6 +130,7 @@ Input::Input() : m_Touched(false), m_PrevTouched(false)
 
 void Input::Update()
 {
+	printf("prev_x: %d,x: %d, mod: %d\n", g_pInput->prev_X, g_pInput->m_X, IwGxGetDeviceWidth() / 3);
     s3ePointerUpdate();
 }
 
@@ -133,12 +138,4 @@ void Input::Reset()
 {
     m_PrevTouched = false;
     m_Touched = false;
-}
-
-bool Input::SwipeLeftMotionDetect() {
-	return false;//g_pInput->start_X> 0 && g_pInput->m_X < g_pInput->start_X - IwGxGetDisplayWidth()/3;
-}
-
-bool Input::SwipeRightMotionDetect() {
-	return  false;// g_pInput->start_X > 0 && g_pInput->m_X > g_pInput->start_X + IwGxGetDisplayWidth() / 3;
 }

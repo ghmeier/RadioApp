@@ -77,7 +77,7 @@ void NewsStory::Init(std::string titleText, std::string descriptionText, char* l
     
     readMore = new CLabel();
 	readMore->m_Color = CColor(0, 0, 0, 0xff);
-	readMore->SetFont(g_pResources->getBannerFontSmall());
+	readMore->SetFont(g_pResources->getContentFont());
 	readMore->SetText(link);
     readMore->m_X = (float)IwGxGetScreenWidth() / 1.3;
     readMore->m_Y = (float)IwGxGetScreenHeight() / 2.5;
