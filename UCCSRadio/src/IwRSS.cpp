@@ -14,7 +14,7 @@
 // Includes
 #include "IwRSS.h"
 #include "IwUIAnimManager.h"
-#include <string>
+#include <string.h>
 #include "s3eMemory.h"
 #include <stdio.h>
 #include "tinyxml.h"
@@ -105,13 +105,13 @@ void CIwRSS::ParseRSS(const char * data)
 {
     //Parse the RSS data
     TiXmlDocument doc( "newsFeed.xml" );
-    bool loadOkay = doc.LoadFile();
+    bool loadOkay = doc.LoadFile(TIXML_ENCODING_UTF8);
     if (loadOkay) {
         printf("\nWe all good \n");
     } else {
         printf("\nWe not good \n");
     }
-    doc.Parse(data, 0, TIXML_ENCODING_UTF8);
+    doc.Parse(data, 0);
     TiXmlElement * node = doc.RootElement();
     TiXmlNode * channel;
     TiXmlNode * element;
@@ -134,7 +134,7 @@ void CIwRSS::ParseRSS(const char * data)
                     continue;
                 //Found title
                 std::string titlestr = title->Value();
-                std::string description = "";
+                std::string description ="";
                 std::string image = "";
                 char* link = "";
 
