@@ -38,7 +38,7 @@ void NewsStory::Update(float deltaTime, float alphaMul)
         if(readMore->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
             g_pInput->Reset();
 			if (s3eOSExecAvailable()) {
-				s3eOSExecExecute(link, false);
+				s3eOSExecExecute(link, S3E_FALSE);
 			}
         }
     }
@@ -74,7 +74,7 @@ void NewsStory::Init(std::string titleText, std::string descriptionText, char* l
     description->m_AlignHor = IW_2D_FONT_ALIGN_LEFT;
     description->m_Font = g_pResources->getContentFont();
     description->m_Color = CColor(0, 0, 0, 0xff);
-    description->SetText("I love lamp's");
+    description->SetText(descriptionText);
     description->m_Y = IwGxGetDisplayHeight() / 8;
 
 
