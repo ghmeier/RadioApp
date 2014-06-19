@@ -37,7 +37,9 @@ void NewsStory::Update(float deltaTime, float alphaMul)
     {
         if(readMore->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
             g_pInput->Reset();
-            s3eOSExecExecute(link, false);
+			if (s3eOSExecAvailable()) {
+				s3eOSExecExecute(link, false);
+			}
         }
     }
 }
@@ -47,7 +49,7 @@ void NewsStory::Render()
     CNode::Render();
 }
 
-void NewsStory::Init(std::string titleText, char* descriptionText, char* link)
+void NewsStory::Init(std::string titleText, std::string descriptionText, char* link)
 {
     CLabel* title = new CLabel();
     title->m_W = IwGxGetDisplayWidth();
@@ -74,7 +76,8 @@ void NewsStory::Init(std::string titleText, char* descriptionText, char* link)
     description->m_Color = CColor(0, 0, 0, 0xff);
     description->SetText(descriptionText);
     description->m_Y = IwGxGetDisplayHeight() / 8;
-	printf("description: %s, link: %s\n", descriptionText,link);
+	std::cout << descriptionText << "\n";
+
     readMore = new CLabel();
 	readMore->m_Color = CColor(0, 0, 0, 0xff);
 	readMore->SetFont(g_pResources->getBannerFontSmall());

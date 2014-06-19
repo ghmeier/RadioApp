@@ -170,6 +170,7 @@ void Streamer::Init()
     whiteBanner->SetImage(g_pResources->getWhiteBanner());
     whiteBanner->m_X = (float)IwGxGetScreenWidth() / 2;
     whiteBanner->m_Y = (float)IwGxGetScreenHeight() / 17;
+    
     whiteBanner->m_W = whiteBanner->GetImage()->GetWidth();
     whiteBanner->m_H = whiteBanner->GetImage()->GetHeight();
     whiteBanner->m_AnchorX = 0.5;
@@ -182,11 +183,12 @@ void Streamer::Init()
     playWrapper = new CSprite();
     playWrapper->SetImage(g_pResources->getPlayWrapper());
     playWrapper->m_X = (float)IwGxGetScreenWidth() / 2;
-    playWrapper->m_Y = (float)IwGxGetScreenHeight() / 1.08;
+    playWrapper->m_Y = (float)IwGxGetScreenHeight() / 1.09;
     playWrapper->m_W = playWrapper->GetImage()->GetWidth();
     playWrapper->m_H = playWrapper->GetImage()->GetHeight();
     playWrapper->m_AnchorX = 0.5;
     playWrapper->m_AnchorY = 0.5;
+    //playWrapper->m_Alpha = 0.9;
     // Fit background to screen size
     playWrapper->m_ScaleX = (float)IwGxGetScreenWidth() / playWrapper->GetImage()->GetWidth() / 1;
     playWrapper->m_ScaleY = (float)IwGxGetScreenHeight() / playWrapper->GetImage()->GetHeight() / 6;

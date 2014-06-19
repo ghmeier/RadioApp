@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Marmalade SDK Code Samples.
  *
  * (C) 2001-2012 Marmalade. All Rights Reserved.
@@ -204,14 +204,16 @@ void CIwRSS::ParseRSS(const char * data)
                 }
 
                 std::string descr = description;
+				std::cout << description << "\n";
                 std::string delimiter = "[&#8230;]";
                 
                 description = descr.substr(0, descr.find(delimiter));
 				
                 description += "[...]";
+
                 
                 NewsStory* story = new NewsStory();
-                story->Init(titlestr , (char*)description.c_str(), link);
+                story->Init(titlestr , description, link);
                 story->m_W = IwGxGetDisplayWidth();
                 story->m_Y = (IwGxGetDisplayHeight() / 4) + (IwGxGetDisplayHeight()/2)* (newsFeedCount - 1);
                 newsFeedCount += 1;

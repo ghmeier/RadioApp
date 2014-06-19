@@ -20,7 +20,7 @@ Resources::Resources()
     background = Iw2DCreateImage("textures/whiteBG.png");
     PlayButton = Iw2DCreateImage("textures/button-upSmall.png");
     StopButton = Iw2DCreateImage("textures/button-stopSmall.png");
-    PlayWrapper = Iw2DCreateImage("textures/bottom-wrapper.png");
+    PlayWrapper = Iw2DCreateImage("textures/bottom-wrapper-large.png");
     Header = Iw2DCreateImage("textures/headerSmall.png");
     WhiteBanner = Iw2DCreateImage("textures/whiteBanner.png");
 	GreyBanner = Iw2DCreateImage("textures/greyBanner.png");
