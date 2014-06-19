@@ -33,6 +33,7 @@ void Input::TouchButtonCB(s3ePointerEvent* event)
 	}
 	else if (g_pInput->m_Touched == false) {
 		g_pInput->prev_Y = event->m_y;
+		//g_pInput->prev_X = event->m_x;
 		
 	}
 	else {
@@ -81,7 +82,7 @@ void Input::MultiTouchButtonCB(s3ePointerTouchEvent* event)
 	}
 	else if (g_pInput->m_Touched == false) {
 		g_pInput->prev_Y = event->m_y;
-		
+		//g_pInput->prev_X = event->m_x;
 	}
 	else {
 		g_pInput->prev_X = g_pInput->m_X;
@@ -130,7 +131,7 @@ Input::Input() : m_Touched(false), m_PrevTouched(false)
 
 void Input::Update()
 {
-	printf("prev_x: %d,x: %d, mod: %d\n", g_pInput->prev_X, g_pInput->m_X, IwGxGetDeviceWidth() / 3);
+	printf("prev_x: %d,x: %d, mod: %d\n", g_pInput->prev_X, g_pInput->m_X, IwGxGetDeviceWidth() / 2);
     s3ePointerUpdate();
 }
 

@@ -26,7 +26,6 @@
 
 NewsStory::~NewsStory()
 {
-	link = nullptr;
 }
 
 void NewsStory::Update(float deltaTime, float alphaMul)
@@ -77,7 +76,6 @@ void NewsStory::Init(std::string titleText, std::string descriptionText, std::st
     description->m_Color = CColor(0, 0, 0, 0xff);
     description->SetText(descriptionText);
     description->m_Y = IwGxGetDisplayHeight() / 8;
-
 
     readMore = new CLabel();
 	readMore->m_Color = CColor(0, 0, 0, 0xff);
