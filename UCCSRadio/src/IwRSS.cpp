@@ -210,11 +210,7 @@ void CIwRSS::ParseRSS(const char * data)
                 description = descr.substr(0, descr.find(delimiter));
 				
                 description += "[...]";
-<<<<<<< HEAD
-            
-=======
 
->>>>>>> 8e01e814bbeb267d1b438018728d469089c12ac2
                 NewsStory* story = new NewsStory();
                 story->Init(titlestr , description, link);
                 story->m_W = IwGxGetDisplayWidth();
