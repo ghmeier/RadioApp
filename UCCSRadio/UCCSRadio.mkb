@@ -52,17 +52,9 @@ files
     "*.h"
     HttpClient.cpp
     HttpClient.h
-    IwJPEG.cpp
     IwRSS.cpp
-    IwFeedList.cpp
-    IwFeedList.h
-    IwFeed.cpp
-    IwFeed.h
     IwHTTPQueue.cpp
-    IwModalStack.cpp
-    IwModalStack.h
     IwHTTPQueue.h
-    IwJPEG.h
     IwRSS.h
 
 	[util]
@@ -87,7 +79,6 @@ subprojects
 	
 	derbh
 
-    libjpeg
     tinyxml
 	third_party/openssl
 	curl
@@ -102,9 +93,6 @@ assets
 	trackFont72.gxfont
 	palatfont32.gxfont
 	palatfont48.gxfont
-	trebfont48.gxfont
-	trebfont32.gxfont
-	trebfont24.gxfont
     textures
 
 	(data-ram/data-gles1, data)
@@ -112,7 +100,4 @@ assets
 	trackFont72.gxfont.bin
 	palatfont32.gxfont.bin
 	palatfont48.gxfont.bin
-	trebfont48.gxfont.bin
-	trebfont32.gxfont.bin
-	trebfont24.gxfont.bin
 }

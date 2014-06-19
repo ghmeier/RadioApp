@@ -13,7 +13,6 @@
 
 // Includes
 #include "IwRSS.h"
-#include "IwUIAnimManager.h"
 #include <string.h>
 #include "s3eMemory.h"
 #include <stdio.h>
