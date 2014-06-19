@@ -74,9 +74,9 @@ void NewsStory::Init(std::string titleText, std::string descriptionText, char* l
     description->m_AlignHor = IW_2D_FONT_ALIGN_LEFT;
     description->m_Font = g_pResources->getContentFont();
     description->m_Color = CColor(0, 0, 0, 0xff);
-    description->SetText(descriptionText);
+    description->SetText("I love lamp's");
     description->m_Y = IwGxGetDisplayHeight() / 8;
-	std::cout << descriptionText << "\n";
+
 
     readMore = new CLabel();
 	readMore->m_Color = CColor(0, 0, 0, 0xff);
