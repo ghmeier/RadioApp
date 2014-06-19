@@ -23,8 +23,9 @@ MemSizeDebug = 90000000
 SplashScreenBkB=0
 SplashScreenBkR=0
 SplashScreenBkG=0
-SplashScreenWidth=1080,1080
-SplashScreenHeight=480,180
+SplashScreenFile= UCCSRadioLogo.png
+SplashScreenWidth=1080
+SplashScreenHeight=480
 
 [Util]
 MemMgrMaxAllocWarning=0

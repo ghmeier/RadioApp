@@ -211,7 +211,6 @@ void CIwRSS::ParseRSS(const char * data)
 				
                 description += "[...]";
 
-                
                 NewsStory* story = new NewsStory();
                 story->Init(titlestr , description, link);
                 story->m_W = IwGxGetDisplayWidth();
