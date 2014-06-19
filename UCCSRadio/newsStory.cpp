@@ -38,7 +38,7 @@ void NewsStory::Update(float deltaTime, float alphaMul)
         if(readMore->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
             g_pInput->Reset();
 			if (s3eOSExecAvailable()) {
-				s3eOSExecExecute(link, false);
+				s3eOSExecExecute(link, S3E_TRUE);
 			}
         }
     }
@@ -76,7 +76,6 @@ void NewsStory::Init(std::string titleText, std::string descriptionText, char* l
     description->m_Color = CColor(0, 0, 0, 0xff);
     description->SetText(descriptionText);
     description->m_Y = IwGxGetDisplayHeight() / 8;
-	std::cout << descriptionText << "\n";
 
     readMore = new CLabel();
 	readMore->m_Color = CColor(0, 0, 0, 0xff);
