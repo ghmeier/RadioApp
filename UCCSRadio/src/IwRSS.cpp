@@ -136,7 +136,7 @@ void CIwRSS::ParseRSS(const char * data)
                 std::string titlestr = title->Value();
                 std::string description = "";
                 std::string image = "";
-                char* link = "";
+                std::string link = "";
 
                 if (element->FirstChild("description") && (desc = element->FirstChild("description")->FirstChild()))
                 {
@@ -200,7 +200,7 @@ void CIwRSS::ParseRSS(const char * data)
 
                 if (element->FirstChild("link") && (url = element->FirstChild("link")->FirstChild()))
                 {
-                    link = (char*)url->Value();
+                    link = url->Value();
                 }
 
                 std::string descr = description;

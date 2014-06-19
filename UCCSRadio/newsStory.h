@@ -33,7 +33,7 @@ class NewsStory : public CNode
 {
 protected:
     // UI components
-    char* link;
+    std::string link;
     CLabel* readMore;
     
 public:
@@ -41,7 +41,7 @@ public:
     ~NewsStory();
     
     // initialise the menu
-    void            Init(std::string titleText, std::string descriptionText, char* link);
+    void            Init(std::string titleText, std::string descriptionText, std::string link);
     
     // Update the menu
     void            Update(float deltaTime = 0.0f, float alphaMul = 1.0f);
