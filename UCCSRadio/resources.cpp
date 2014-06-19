@@ -34,15 +34,15 @@ Resources::Resources()
 	if (IwGxGetDisplayWidth()>=520){
 		one = "trackfont72.gxfont";
 		two = "trackfont48.gxfont";
-		three = "palatfont48.gxfont";
-		four = "palatfont32.gxfont";
+		three = "trebfont48.gxfont";
+		four = "trebfont32.gxfont";
 	}
 	else 
 	{
 		one = "trackfont48.gxfont";
 		two = "trackfont32.gxfont";
-		three = "palatfont32.gxfont";
-		four = "palatfont24.gxfont";
+		three = "trebfont32.gxfont";
+		four = "trebfont24.gxfont";
 	}
 
 	BannerFontLarge = Iw2DCreateFont(one);

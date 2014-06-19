@@ -26,19 +26,19 @@
 
 NewsStory::~NewsStory()
 {
-	link = nullptr;
 }
 
 void NewsStory::Update(float deltaTime, float alphaMul)
 {
     CNode::Update(deltaTime, alphaMul);
-    
     if (!g_pInput->m_Touched && g_pInput->m_PrevTouched && sceneSwitchComplete)
     {
         if(readMore->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
             g_pInput->Reset();
-			if (s3eOSExecAvailable()) {
-				s3eOSExecExecute(this->link, S3E_FALSE);
+            const char* charLink = link.c_str();
+            _STL::cout << "\n" << "Mayo" << charLink << "\n";
+			if (s3eOSExecExecute(charLink,S3E_FALSE ) == S3E_RESULT_SUCCESS) {
+				s3eOSExecExecute(charLink, S3E_FALSE);
 			}
         }
     }
@@ -49,7 +49,7 @@ void NewsStory::Render()
     CNode::Render();
 }
 
-void NewsStory::Init(std::string titleText, std::string descriptionText, char* link)
+void NewsStory::Init(std::string titleText, std::string descriptionText, std::string link)
 {
     CLabel* title = new CLabel();
     title->m_W = IwGxGetDisplayWidth();
@@ -93,6 +93,7 @@ void NewsStory::Init(std::string titleText, std::string descriptionText, char* l
     AddChild(goldBanner);
     AddChild(title);
     AddChild(description);
+    
     
 }
 
