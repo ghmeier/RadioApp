@@ -20,12 +20,12 @@
 MemSize=50000000
 DispFixRot=FixedPortrait
 MemSizeDebug = 90000000
+SplashScreenFile= "UCCSRadioLogo.png"
+SplashScreenWidth=1080
+SplashScreenHeight=480
 SplashScreenBkB=0
 SplashScreenBkR=0
 SplashScreenBkG=0
-SplashScreenFile= UCCSRadioLogo.png
-SplashScreenWidth=1080
-SplashScreenHeight=480
 
 [Util]
 MemMgrMaxAllocWarning=0
