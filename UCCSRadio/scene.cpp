@@ -47,7 +47,7 @@ void Scene::Update(float deltaTime, float alphaMul)
 }
 
 void Scene::UpdateLabels(){
-	if (m_IsInputActive && m_Manager->GetCurrent() == this && g_pInput->m_Touched)
+	if (m_IsInputActive && m_Manager->GetCurrent() == this && g_pInput->m_Touched && labels.size()>0)
 	{
 		int moved = g_pInput->m_Y - g_pInput->prev_Y;
 		if (labels[0]->m_Y + (moved) <= IwGxGetDisplayHeight() / 4 && labels[labels.size() - 1]->m_Y + moved > IwGxGetDisplayHeight() / 4)
