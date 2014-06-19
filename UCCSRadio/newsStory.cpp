@@ -38,7 +38,11 @@ void NewsStory::Update(float deltaTime, float alphaMul)
         if(readMore->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
             g_pInput->Reset();
 			if (s3eOSExecAvailable()) {
+/*<<<<<<< HEAD
 				s3eOSExecExecute(link, S3E_TRUE);
+=======*/
+				s3eOSExecExecute(link, S3E_FALSE);
+//>>>>>>> 8e01e814bbeb267d1b438018728d469089c12ac2
 			}
         }
     }
@@ -76,6 +80,10 @@ void NewsStory::Init(std::string titleText, std::string descriptionText, char* l
     description->m_Color = CColor(0, 0, 0, 0xff);
     description->SetText(descriptionText);
     description->m_Y = IwGxGetDisplayHeight() / 8;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8e01e814bbeb267d1b438018728d469089c12ac2
 
     readMore = new CLabel();
 	readMore->m_Color = CColor(0, 0, 0, 0xff);
