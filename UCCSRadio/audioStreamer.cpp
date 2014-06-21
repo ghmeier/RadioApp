@@ -1,8 +1,6 @@
 #include "s3e.h"
 #include "IwUtil.h"
 #include "audioStreamer.h"
-#include <algorithm>
-#include <iostream>
 
 //Stuff for calculating mp3 frame size and validity, taken from 
 //http://www.hydrogenaud.io/forums/index.php?showtopic=85125
