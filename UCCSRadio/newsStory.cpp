@@ -51,6 +51,19 @@ void NewsStory::Render()
 
 void NewsStory::Init(std::string titleText, std::string descriptionText, std::string link)
 {
+	//Replace curved quotes with straight
+	const char *desc = descriptionText.c_str();
+	char *newstr = new char[descriptionText.length() + 1];
+	int off = 0;
+	for (int i = 0; i < descriptionText.length() + 1; i++){
+		if      (desc[i] == 0xe2 && desc[i + 1] == 0x80 && desc[i + 2] == 0x9c){ newstr[i - off] = '\"'; off += 2; i += 2; }//Left double
+		else if (desc[i] == 0xe2 && desc[i + 1] == 0x80 && desc[i + 2] == 0x9d){ newstr[i - off] = '\"'; off += 2; i += 2; }//Right double
+		else if (desc[i] == 0xe2 && desc[i + 1] == 0x80 && desc[i + 2] == 0x98){ newstr[i - off] = '\''; off += 2; i += 2; }//Left single
+		else if (desc[i] == 0xe2 && desc[i + 1] == 0x80 && desc[i + 2] == 0x99){ newstr[i - off] = '\''; off += 2; i += 2; }//Right single
+		else newstr[i - off] = desc[i];
+	}
+	descriptionText = std::string(newstr);
+	
     CLabel* title = new CLabel();
     title->m_W = IwGxGetDisplayWidth();
     title->m_AlignHor = IW_2D_FONT_ALIGN_CENTRE;

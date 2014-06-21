@@ -1,7 +1,8 @@
 #include "s3e.h"
-#include "s3eAudio.h"
 #include "IwUtil.h"
 #include "audioStreamer.h"
+#include <algorithm>
+#include <iostream>
 
 //Stuff for calculating mp3 frame size and validity, taken from 
 //http://www.hydrogenaud.io/forums/index.php?showtopic=85125
@@ -69,28 +70,46 @@ uint16_t mpg_get_frame_size(char *hdr) {
 	uint16_t  samples = mpeg_frame_samples[ver][lyr];
 	uint8_t   slot_size = mpeg_slot_size[lyr];
 	// In-between calculations
-	float     bps = (float)samples / 8.0;
+	float     bps = (float)samples / 8.0f;
 	float     fsize = ((bps * (float)bitrate) / (float)samprate)
 		+ ((pad) ? slot_size : 0);
 	// Frame sizes are truncated integers
 	return (uint16_t)fsize;
 }
+//Get the amount of time a frame lasts, in nanoseconds
+int mpg_get_frame_time(char *hdr) {
+	// Data to be extracted from the header
+	uint8_t   ver = (hdr[1] & 0x18) >> 3;   // Version index
+	uint8_t   lyr = (hdr[1] & 0x06) >> 1;   // Layer index
+	uint8_t   srx = (hdr[2] & 0x0c) >> 2;   // SampRate index
+	// Lookup real values of these fields
+	uint32_t  samprate = mpeg_srates[ver][srx];
+	uint16_t  samples = mpeg_frame_samples[ver][lyr];
+	return (samples * 1000000) / samprate;
+}
 
 
-typedef struct soundSegment{
-	char *buff;
-	int start;
-	int len;
+class soundSegment{
+public:
+	char *buff = new char[soundBuff + overlap];
+	int start = 0;
+	int len = 0;
 	int channel;
 	bool ready = false;
 	void play(){
 		if (ready){
-			s3eAudioSetInt(S3E_AUDIO_CHANNEL, channel); 
-			s3eAudioPlayFromBuffer(buff + start, len + 2048, 1); 
+			s3eAudioSetInt(S3E_AUDIO_CHANNEL, channel);
+			s3eAudioPlayFromBuffer(buff + start, len + overlap, 1);
 			ready = false;
 		}
 	}
-} soundSegment;
+	void append(char *b, int l){
+		int space = soundBuff + overlap - start - len;
+		l = l < space ? l : space;
+		memcpy(buff + start + len, b, l);
+		len += l;
+	}
+};
 
 
 int alignFrames(soundSegment *seg)
@@ -112,48 +131,54 @@ bool streaming = false;
 
 void* streamAudio(void *s)
 {
-	streaming = true;
 	s3eSocket *sock = (s3eSocket*)s;
-	const int socketBuff = 512;
-	const int soundBuff = 65536;
-	const int numSegs = 3;
 
-	char *msg("GET / HTTP/1.1\n\n"); //Ask server for data
+	//Ask server for data
+	char *msg("GET / HTTP/1.1\n\n");
 	s3eSocketSend(sock, msg, 16, 0);
 
+	soundSegment segments[numChannels];
+
+	for (int i = 0; i < numChannels; i++) segments[i].channel = i % numChannels;
 	char buff[socketBuff];
-	char *sound = new char[soundBuff];
-	int soundLen = 0;
 
-	soundSegment segments[numSegs];
-	int currentSeg = 0;
-	for (int i = 0; i < numSegs; i++) { segments[i].buff = new char[soundBuff+4096]; segments[i].channel = i % 3; }
-
+	soundSegment *filling = &segments[0];
+	soundSegment *playing = 0;
+	int fillingInd = 0;
+	int playingInd = numChannels - 1;
 	while (streaming){
-		int len;
+		int len = 0;
 		while (streaming && (len = s3eSocketRecv(sock, buff, socketBuff, 0)) == -1);
 		if (streaming){
-			if (soundLen + len >= soundBuff){
-				currentSeg = (currentSeg + 1) % numSegs;
-				memcpy(segments[currentSeg].buff, sound, soundLen);
-				segments[currentSeg].len = soundLen;
-				int i = alignFrames(&segments[currentSeg]);
-				memcpy(sound, sound + i, soundLen - i);
-				soundLen -= i;
-				segments[currentSeg].play();
+			//Add to the buffer, potentially going a little over into overlap section
+			filling->append(buff, len);
+
+			if (filling->len >= soundBuff){ //If buffer is full, ready to play
+				//Find where the first frame starts and last full frame ends
+				int i = alignFrames(filling);
+				//Start playing the ready buffer
+				playingInd = (playingInd + 1) % numChannels;
+				segments[playingInd].play();
+
+				playing = filling;
+				fillingInd = (fillingInd + 1) % numChannels;
+				filling = &segments[fillingInd];
+
+				//Start refilling the next buffer from the end of the last frame
+				filling->len = 0;
+				filling->start = 0;
+				filling->append(playing->buff + i, playing->len + playing->start - i);
 			}
-			soundSegment lastseg = segments[currentSeg];
-			if (lastseg.len > 0 && lastseg.start + lastseg.len + len < soundBuff + 4096){
-				memcpy(lastseg.buff + lastseg.start + lastseg.len, buff, len);
-				lastseg.len += len;
+
+			else{ //Otherwise fill in the overlap part of the previous buffer
+				if (playing) playing->append(buff, len);
 			}
-			memcpy(sound + soundLen, buff, len);
-			soundLen += len;
 		}
 	}
+
 	s3eAudioStop();
-	delete[] sound;
-	for (int i = 0; i < numSegs; i++) delete[] segments[i].buff;
+	s3eSocketClose(sock);
+	for (int i = 0; i < numChannels; i++) delete[] segments[i].buff;
 	return 0;
 }
 
@@ -164,17 +189,6 @@ int socketCB(s3eSocket *sock, void* sys, void* data)
 	return 0;
 }
 
-void* waitForAudioStart(void *cb)
-{
-	//This is really unsafe and bad, but maybe works?
-	void(*callback)() = 0;
-	*reinterpret_cast<void**>(&callback) = cb;
-	while (!s3eAudioIsPlaying() && s3eAudioGetInt(S3E_AUDIO_STATUS) != S3E_AUDIO_FAILED) s3eDeviceYield(0);
-	callback();
-	return 0;
-}
-
-s3eThread *waitForStartThread;
 void* startNativeStreaming(void *u)
 {
 	char *url = (char*)u;
@@ -183,12 +197,23 @@ void* startNativeStreaming(void *u)
 	return 0;
 }
 
-void startStreamingAudio(char *ip, int port, void (*callback)())
+struct callbackStruct{ void(*callback)(); callbackStruct(void(*cb)()) :callback(cb){} };
+
+void* waitForPlay(void *v){
+	while (streaming && !s3eAudioIsPlaying() && s3eAudioGetInt(S3E_AUDIO_STATUS) != S3E_AUDIO_FAILED) s3eDeviceYield(0);
+	((callbackStruct*)v)->callback();
+	delete ((callbackStruct*)v);
+	return 0;
+}
+
+void startStreamingAudio(char *ip, int port, void(*callback)())
 {
-    if (s3eAudioGetInt(S3E_AUDIO_PLAYBACK_FROM_HTTP_AVAILABLE) == 1){
+	if (streaming) return;
+	streaming = true;
+	if (s3eAudioGetInt(S3E_AUDIO_PLAYBACK_FROM_HTTP_AVAILABLE) == 1){
 		char *url = new char[128];
 		sprintf(url, "http://%s:%d", ip, port);
-        s3eThreadCreate(startNativeStreaming, url);
+		s3eThreadCreate(startNativeStreaming, url);
 	}
 	else{
 		s3eSocket *sock = s3eSocketCreate(S3E_SOCKET_TCP);
@@ -197,21 +222,21 @@ void startStreamingAudio(char *ip, int port, void (*callback)())
 		addr.m_Port = s3eInetHtons(port);
 		s3eSocketConnect(sock, &addr, &socketCB, NULL);
 	}
-	//This is really unsafe and bad, but maybe works?
-	if (callback != NULL){
-		void* cb = reinterpret_cast<void*>(callback);
-		waitForStartThread = s3eThreadCreate(waitForAudioStart, cb);
+	if (callback){
+		callbackStruct *cb = new callbackStruct(callback);
+		s3eThreadCreate(waitForPlay, cb);
 	}
-    
 }
 
 void stopStreamingAudio()
 {
-	if(waitForStartThread != NULL) s3eThreadCancel(waitForStartThread);
 	s3eAudioStop();
 	streaming = false;
 }
 
 void setVolume(int volume) {
-    s3eAudioSetInt(S3E_AUDIO_VOLUME, volume);
+	for (int i = 0; i < numChannels; i++){
+		s3eAudioSetInt(S3E_AUDIO_CHANNEL, i);
+		s3eAudioSetInt(S3E_AUDIO_VOLUME, volume);
+	}
 }
