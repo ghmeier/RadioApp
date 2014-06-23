@@ -45,12 +45,9 @@ void Streamer::Update(float deltaTime, float alphaMul)
             touched = true;
             x = g_pInput->m_X;
             y = g_pInput->m_Y;
-            _STL::cout << "Hit : " << count++ << "\n";
         }
     }
-    _STL::cout << "Y = " << g_pInput->m_Y << " / buttonTop = " << buttonTop << "\n";
     // Detect screen tap
-	//printf("%d < %d\n", g_pInput->m_X, g_pInput->prev_X- IwGxGetDeviceWidth() / 2);
     if (!g_pInput->m_Touched && g_pInput->m_PrevTouched && sceneSwitchComplete)
     {
         if(playButton->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) {
@@ -72,7 +69,6 @@ void Streamer::Update(float deltaTime, float alphaMul)
 		
 		if ((labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) || (g_pInput->m_X>g_pInput->prev_X + IwGxGetDeviceWidth() / 2)) {
 			g_pInput->prev_X = g_pInput->m_X;
-			printf("lefttrue\n");
 			sceneSwitchComplete = false;
             g_pInput->Reset();
             if(currentPage == 0) {

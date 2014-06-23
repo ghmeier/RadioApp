@@ -65,6 +65,6 @@ void CalendarScene::Init()
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight() * 6;
     AddChild(background);
-
+	hasFeed = false;
 }
 

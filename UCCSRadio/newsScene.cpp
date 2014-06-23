@@ -33,14 +33,19 @@ void NewsScene::Update(float deltaTime, float alphaMul)
 {
     if (!m_IsActive)
         return;
+
+
     Scene::Update(deltaTime, alphaMul);
+	printf("STAUS: %d\n", xmlDownload->GetStatus());
 	if (xmlDownload->GetStatus() == 4 && !hasFeed) {
+		printf("-------------------------------------------\n");
 		feed = new CIwRSS(this);
 		feed->ParseRSS("<rss>");
 		hasFeed = true;
 		delete feed;
 	}
 	else if (hasFeed) {
+		printf("sorta did something else\n");
 		UpdateLabels();
 	}
 }
@@ -67,4 +72,5 @@ void NewsScene::Init()
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
     AddChild(background);
+	hasFeed = false;
 }

@@ -4,6 +4,7 @@ deployments
 {
 name="UCCS Radio"
 caption="UCCS Radio"
+version = 1.0
 icon="data/textures/androidIcon/icon-192.png"
 splashscreen="data/textures/splashScreens/."
 splashscreen-use-all=1
@@ -94,6 +95,11 @@ assets
 	palatfont32.gxfont
 	palatfont48.gxfont
     textures
+
+	(data-ram)
+	calendar.xml
+	newsFeed.xml
+	events.xml
 
 	(data-ram/data-gles1, data)
 	trackFont48.gxfont.bin

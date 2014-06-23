@@ -106,9 +106,9 @@ void CIwRSS::ParseRSS(const char * data)
     TiXmlDocument doc( "newsFeed.xml" );
     bool loadOkay = doc.LoadFile(TIXML_ENCODING_UTF8);
     if (loadOkay) {
-        printf("\nWe all good \n");
+        printf("\n******************************************\n");
     } else {
-        printf("\nWe not good \n");
+        printf("\n------------------------------------------\n");
     }
     doc.Parse(data, 0);
     TiXmlElement * node = doc.RootElement();
