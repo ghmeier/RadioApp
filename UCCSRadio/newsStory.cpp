@@ -33,7 +33,7 @@ void NewsStory::Update(float deltaTime, float alphaMul)
     CNode::Update(deltaTime, alphaMul);
     if (!g_pInput->m_Touched && g_pInput->m_PrevTouched && sceneSwitchComplete)
     {
-        if(readMore->HitTest(g_pInput->m_X, g_pInput->m_Y)) {
+        if(readMore->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_Y > buttonTop) {
             g_pInput->Reset();
             const char* charLink = link.c_str();
             _STL::cout << "\n" << "Mayo" << charLink << "\n";

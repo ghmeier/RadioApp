@@ -131,7 +131,7 @@ Input::Input() : m_Touched(false), m_PrevTouched(false)
 
 void Input::Update()
 {
-	printf("prev_x: %d,x: %d, mod: %d\n", g_pInput->prev_X, g_pInput->m_X, IwGxGetDeviceWidth() / 2);
+	//printf("prev_x: %d,x: %d, mod: %d\n", g_pInput->prev_X, g_pInput->m_X, IwGxGetDeviceWidth() / 2);
     s3ePointerUpdate();
 }
 
