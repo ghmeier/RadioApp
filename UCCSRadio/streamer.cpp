@@ -48,8 +48,9 @@ void Streamer::Update(float deltaTime, float alphaMul)
             _STL::cout << "Hit : " << count++ << "\n";
         }
     }
+    _STL::cout << "Y = " << g_pInput->m_Y << " / buttonTop = " << buttonTop << "\n";
     // Detect screen tap
-	printf("%d < %d\n", g_pInput->m_X, g_pInput->prev_X- IwGxGetDeviceWidth() / 2);
+	//printf("%d < %d\n", g_pInput->m_X, g_pInput->prev_X- IwGxGetDeviceWidth() / 2);
     if (!g_pInput->m_Touched && g_pInput->m_PrevTouched && sceneSwitchComplete)
     {
         if(playButton->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) {
@@ -221,7 +222,6 @@ void Streamer::Init()
     stopButton->SetImage(g_pResources->getStopButton());
     stopButton->m_X = (float)IwGxGetScreenWidth() / 2;
     stopButton->m_Y = (float)IwGxGetScreenHeight() / 1.13;
-    //buttonTop = (float)IwGxGetScreenHeight() / 1.14 - (playButton->GetImage()->GetHeight() / 8);
     stopButton->m_W = stopButton->GetImage()->GetWidth();
     stopButton->m_H = stopButton->GetImage()->GetHeight();
     stopButton->m_AnchorX = 0.5;
@@ -241,6 +241,8 @@ void Streamer::Init()
     // Fit background to screen size
     banner->m_ScaleX = (float)IwGxGetScreenWidth() / banner->GetImage()->GetWidth() / 1;
     banner->m_ScaleY = (float)IwGxGetScreenHeight() / banner->GetImage()->GetHeight() / 8;
+    
+    buttonTop = IwGxGetScreenHeight() / 4;
     
     labelLeft = new CLabel();
 	labelLeft->m_Font = g_pResources->getBannerFontSmall();
