@@ -45,7 +45,6 @@ protected:
 	CIw2DFont*		HeaderFont;
 	CIw2DFont*		ContentFont;
     
-    
 public:
     CIw2DImage*     getPlayButton()                 { return PlayButton; }
     CIw2DImage*     getStopButton()                 { return StopButton; }
