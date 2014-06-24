@@ -135,7 +135,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
             } else if(currentPage == 2) {
                 CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
                 g_pSceneManager->SwitchTo(cal, 0);
-                labelMain->SetText("Calendar");
+                labelMain->SetText("Cal.");
                 labelLeft->SetText("Events");
                 labelRight->SetText("News");
                 currentPage = 1;
