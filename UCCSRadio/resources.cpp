@@ -25,6 +25,8 @@ Resources::Resources()
     WhiteBanner = Iw2DCreateImage("textures/whiteBanner.png");
 	GreyBanner = Iw2DCreateImage("textures/greyBanner.png");
     GoldBanner = Iw2DCreateImage("textures/goldBanner.png");
+    Facebook = Iw2DCreateImage("textures/facebook.png");
+    Twitter = Iw2DCreateImage("textures/twitter.png");
 
 	//--------------
 	char * one;
@@ -66,6 +68,8 @@ Resources::~Resources()
     delete HeaderFont;
     delete ContentFont;
     delete background;
+    delete Facebook;
+    delete Twitter;
 }
 
 // Global resources

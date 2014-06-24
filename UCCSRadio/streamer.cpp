@@ -51,8 +51,6 @@ void Streamer::Update(float deltaTime, float alphaMul)
     if (!g_pInput->m_Touched && g_pInput->m_PrevTouched && sceneSwitchComplete)
     {
         if(playButton->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) {
-            x = 0;
-            y = 0;
             g_pInput->Reset();
             playButton->m_X = IwGxGetScreenWidth() * 2.0;
             stopButton->m_X = IwGxGetScreenWidth() / 2.0;
@@ -66,7 +64,17 @@ void Streamer::Update(float deltaTime, float alphaMul)
             stopButton->m_X = IwGxGetScreenWidth() * 2.0;
             setVolume(0);
         }
-		
+        
+		if(facebook->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) {
+            g_pInput->Reset();
+            s3eOSExecExecute("https://www.facebook.com/pages/UCCS-Radio/229529077104562", S3E_FALSE);
+			
+           
+        } else if(twitter->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) {
+            g_pInput->Reset();
+            s3eOSExecExecute("https://twitter.com/uccsonlineradio", S3E_FALSE);
+        }
+        
 		if ((labelLeft->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) || (g_pInput->m_X>g_pInput->prev_X + IwGxGetDeviceWidth() / 2)) {
 			g_pInput->prev_X = g_pInput->m_X;
 			sceneSwitchComplete = false;
@@ -74,7 +82,7 @@ void Streamer::Update(float deltaTime, float alphaMul)
             if(currentPage == 0) {
                 CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
                 g_pSceneManager->SwitchTo(cal, 1);
-                labelMain->SetText("Cal.");
+                labelMain->SetText("Calendar");
                 labelLeft->SetText("Events");
                 labelRight->SetText("News");
                 currentPage = 1;
@@ -113,14 +121,14 @@ void Streamer::Update(float deltaTime, float alphaMul)
                 g_pSceneManager->SwitchTo(events, 0);
                 labelMain->SetText("Events");
                 labelLeft->SetText("News");
-                labelRight->SetText("Calendar");
+                labelRight->SetText("Cal.");
                 currentPage = 2;
                 
             } else if(currentPage == 1) {
                 NewsScene* news = (NewsScene*)g_pSceneManager->Find("newsscene");
                 g_pSceneManager->SwitchTo(news, 0);
                 labelMain->SetText("News");
-                labelLeft->SetText("Calendar");
+                labelLeft->SetText("Cal.");
                 labelRight->SetText("Events");
                 currentPage = 0;
                 
@@ -158,10 +166,32 @@ void Streamer::Init()
     startStreamingAudio("128.198.85.100", 8000);
     setVolume(0);
     
+    facebook = new CSprite();
+    facebook->SetImage(g_pResources->getFacebook());
+    facebook->m_X = (float)IwGxGetScreenWidth() / 1.4;
+    facebook->m_Y = (float)IwGxGetScreenHeight() / 16;
+    facebook->m_W = facebook->GetImage()->GetWidth();
+    facebook->m_H = facebook->GetImage()->GetHeight();
+    facebook->m_AnchorX = 0.5;
+    facebook->m_AnchorY = 0.5;
+    facebook->m_ScaleX = (float)IwGxGetScreenWidth() / facebook->GetImage()->GetWidth() / 8;
+    facebook->m_ScaleY = (float)IwGxGetScreenHeight() / facebook->GetImage()->GetHeight() / 10;
+    
+    twitter = new CSprite();
+    twitter->SetImage(g_pResources->getTwitter());
+    twitter->m_X = (float)IwGxGetScreenWidth() / 1.1;
+    twitter->m_Y = (float)IwGxGetScreenHeight() / 16;
+    twitter->m_W = twitter->GetImage()->GetWidth();
+    twitter->m_H = twitter->GetImage()->GetHeight();
+    twitter->m_AnchorX = 0.5;
+    twitter->m_AnchorY = 0.5;
+    twitter->m_ScaleX = (float)IwGxGetScreenWidth() / twitter->GetImage()->GetWidth() / 8;
+    twitter->m_ScaleY = (float)IwGxGetScreenHeight() / twitter->GetImage()->GetHeight() / 10;
+
     // Create menu background
     header = new CSprite();
     header->SetImage(g_pResources->getHeader());
-    header->m_X = (float)IwGxGetScreenWidth() / 2;
+    header->m_X = (float)IwGxGetScreenWidth() / 3;
     header->m_Y = (float)IwGxGetScreenHeight() / 17;
     header->m_W = header->GetImage()->GetWidth();
     header->m_H = header->GetImage()->GetHeight();
@@ -242,7 +272,7 @@ void Streamer::Init()
     
     labelLeft = new CLabel();
 	labelLeft->m_Font = g_pResources->getBannerFontSmall();
-	labelLeft->m_Text = "Calendar";
+	labelLeft->m_Text = "Cal.";
     labelLeft->m_Y = IwGxGetDisplayHeight() / 6.5;
     labelLeft->m_W = IwGxGetDisplayWidth() / 2;
     labelLeft->m_ScaleX = 1.0;
@@ -275,6 +305,8 @@ void Streamer::Init()
     AddChild(playButton);
     AddChild(stopButton);
     AddChild(labelMain);
+    AddChild(facebook);
+    AddChild(twitter);
     
     stopButton->m_X = IwGxGetScreenWidth() * 2.0;
     currentPage = 0;

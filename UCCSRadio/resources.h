@@ -40,6 +40,9 @@ protected:
     CIw2DImage*     WhiteBanner;
     CIw2DImage*     GreyBanner;
     CIw2DImage*     GoldBanner;
+    CIw2DImage*     Facebook;
+    CIw2DImage*     Twitter;
+    
 	CIw2DFont*		BannerFontLarge;
 	CIw2DFont*		BannerFontSmall;
 	CIw2DFont*		HeaderFont;
@@ -54,7 +57,10 @@ public:
     CIw2DImage*     getWhiteBanner()                { return WhiteBanner; }
     CIw2DImage*     getGoldBanner()                 { return GoldBanner; }
     CIw2DImage*     getGreyBanner()                 { return GreyBanner; }
-	CIw2DFont*		getBannerFontLarge()			{ return BannerFontLarge; }
+    CIw2DImage*     getFacebook()                   { return Facebook; }
+    CIw2DImage*     getTwitter()                    { return Twitter; }
+	
+    CIw2DFont*		getBannerFontLarge()			{ return BannerFontLarge; }
 	CIw2DFont*		getBannerFontSmall()			{ return BannerFontSmall; }
 	CIw2DFont*		getHeaderFont()					{ return HeaderFont; }
 	CIw2DFont*		getContentFont()				{ return ContentFont; }
