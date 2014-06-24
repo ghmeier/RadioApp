@@ -113,21 +113,21 @@ void Streamer::Update(float deltaTime, float alphaMul)
                 g_pSceneManager->SwitchTo(events, 0);
                 labelMain->SetText("Events");
                 labelLeft->SetText("News");
-                labelRight->SetText("Calendar");
+                labelRight->SetText("Cal.");
                 currentPage = 2;
                 
             } else if(currentPage == 1) {
                 NewsScene* news = (NewsScene*)g_pSceneManager->Find("newsscene");
                 g_pSceneManager->SwitchTo(news, 0);
                 labelMain->SetText("News");
-                labelLeft->SetText("Calendar");
+                labelLeft->SetText("Cal.");
                 labelRight->SetText("Events");
                 currentPage = 0;
                 
             } else if(currentPage == 2) {
                 CalendarScene* cal = (CalendarScene*)g_pSceneManager->Find("calscene");
                 g_pSceneManager->SwitchTo(cal, 0);
-                labelMain->SetText("Calendar");
+                labelMain->SetText("Cal.");
                 labelLeft->SetText("Events");
                 labelRight->SetText("News");
                 currentPage = 1;
