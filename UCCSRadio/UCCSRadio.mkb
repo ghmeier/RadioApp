@@ -1,5 +1,6 @@
 #!/usr/bin/env mkb
 
+
 deployments
 {
 name="UCCS Radio"
@@ -8,6 +9,12 @@ version = 1.0
 icon="data/textures/androidIcon/icon-192.png"
 splashscreen="data/textures/splashScreens/."
 splashscreen-use-all=1
+
+android-aliasname = "square infinity"
+android-keypass = "all of your passwords are mine"
+android-keystore="data/normalKeystore.keystore"
+android-storepass="all of your passwords are mine"
+android-pkgname="com.squareinfinity.uccsradio"
 }
 
 options
