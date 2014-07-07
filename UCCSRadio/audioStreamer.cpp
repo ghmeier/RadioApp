@@ -241,21 +241,21 @@ void setVolume(int volume) {
 }
 
 void initAudio(char *url, int port){
-	if (initAudioStream(url, port) == S3E_RESULT_ERROR){
+	if (!streamerExtensionAvailable() || initAudioStream(url, port) == S3E_RESULT_ERROR){
 		startStreamingAudioFallback(url, port, NULL);
 		setVolume(0);
 	}
 }
 void startStreaming(){
-	if (startStreamingAudio() == S3E_RESULT_ERROR) 
+	if (!streamerExtensionAvailable() || startStreamingAudio() == S3E_RESULT_ERROR)
 		setVolume(99);
 }
 void pauseStreaming(){
-	if (pauseStreamingAudio() == S3E_RESULT_ERROR) 
+	if (!streamerExtensionAvailable() || pauseStreamingAudio() == S3E_RESULT_ERROR)
 		setVolume(0);
 }
 void stopStreaming(){
-	if (stopStreamingAudio() == S3E_RESULT_ERROR) 
+	if (!streamerExtensionAvailable() || stopStreamingAudio() == S3E_RESULT_ERROR)
 		stopStreamingAudioFallback();
 }
 int exitCB(void *sys, void *user){ stopStreaming(); return 0; }

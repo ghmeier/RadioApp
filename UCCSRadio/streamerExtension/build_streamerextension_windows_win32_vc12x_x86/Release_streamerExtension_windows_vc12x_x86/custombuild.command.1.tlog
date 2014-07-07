@@ -1,2 +1,0 @@
-^C:\USERS\DAVID\GIT\RADIOAPP\UCCSRADIO\STREAMEREXTENSION\STREAMEREXTENSION_WINDOWS.MKB
-"C:\Marmalade\7.3\s3e\python\python.exe" "C:\Marmalade\7.3\s3e\makefile_builder\mkb.py" "c:/Users/David/git/RadioApp/UCCSRadio/streamerExtension/streamerExtension_windows.mkb" "--default-buildenv=vc12x" --msvc-project
