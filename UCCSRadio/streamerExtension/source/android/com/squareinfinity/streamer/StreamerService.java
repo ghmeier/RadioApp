@@ -1,18 +1,16 @@
 package com.squareinfinity.streamer;
-import android.app.Service;
-import android.content.Intent;
-import android.app.PendingIntent;
-import android.media.MediaPlayer;
-import java.io.IOException;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.content.Context;
+
 import com.ideaworks3d.marmalade.ResourceUtility;
-import android.os.PowerManager;
-import android.os.PowerManager.WakeLock;
+import android.app.Service;
+import android.app.PendingIntent;
+import android.app.Notification;
+import android.content.Intent;
+import android.content.Context;
+import android.media.MediaPlayer;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WifiManager.WifiLock;
 import android.os.IBinder;
+import android.os.PowerManager;
 
 public class StreamerService extends Service implements MediaPlayer.OnPreparedListener {
     MediaPlayer mMediaPlayer = null;
@@ -41,26 +39,22 @@ public class StreamerService extends Service implements MediaPlayer.OnPreparedLi
 			mMediaPlayer.setOnPreparedListener(this);
 			mMediaPlayer.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
 			mMediaPlayer.prepareAsync(); // prepare async to not block main thread
-		}catch(IOException e){e.printStackTrace();}
+		}catch(java.io.IOException e){e.printStackTrace();}
 		stopForeground(true);
 		if(wifiLock != null) wifiLock.release();
 	}
 	
 	private void play(){
 		if(!ready || mMediaPlayer == null || mMediaPlayer.isPlaying()) return;
-		System.out.println("AAA playing");
 		mMediaPlayer.start();
 		
-		System.out.println("AAA getting wifilock");
 		wifiLock = null;
 		WifiManager mgr = (WifiManager)getSystemService(Context.WIFI_SERVICE);
 		if(mgr != null) wifiLock = mgr.createWifiLock(WifiManager.WIFI_MODE_FULL, "streamerLock");
 		if(wifiLock != null) wifiLock.acquire();
-		System.out.println("AAA wifilock done");
 		
 		Notification notif = makeNotification();
 		if(notif != null) startForeground(1, notif);
-		System.out.println("AAA started foreground");
 	}
 	
 	private void pause(){
