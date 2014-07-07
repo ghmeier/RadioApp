@@ -11,7 +11,12 @@ const int numChannels = 3;
 //Amount to overlap each channel by to improve seamlessness
 const int overlap = 1024;
 
-void startStreamingAudio(char *ip, int port, void(*cb)() = 0);
-void stopStreamingAudio();
-void setVolume(int volume);
+//void startStreamingAudioFallback(char *url, int port, void(*cb)() = 0);
+//void stopStreamingAudioFallback();
+//void setVolume(int volume);
+void initAudio(char *url, int port);
+void startStreaming();
+void pauseStreaming();
+void stopStreaming();
+int exitCB(void *sys, void *user);
 #endif

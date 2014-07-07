@@ -90,6 +90,8 @@ subprojects
     tinyxml
 	third_party/openssl
 	curl
+
+	streamerExtension
 }
 
 assets
@@ -113,4 +115,11 @@ assets
 	trackFont72.gxfont.bin
 	palatfont32.gxfont.bin
 	palatfont48.gxfont.bin
+}
+#### AUTO GENERATED deployment settings from DeployTool.exe. Do not edit below this line ####
+deployments
+{
+	["Default"]
+	android-extra-application-manifest='AppManifest.xml'
+	embed-icf='1'
 }

@@ -1,0 +1,8 @@
+include:
+#include <s3eTypes.h>
+  
+functions:
+s3eResult startStreamingAudio() S3E_RESULT_ERROR run_on_os_thread
+s3eResult stopStreamingAudio() S3E_RESULT_ERROR run_on_os_thread
+s3eResult pauseStreamingAudio() S3E_RESULT_ERROR run_on_os_thread
+s3eResult initAudioStream(const char* ip, int port) S3E_RESULT_ERROR run_on_os_thread
