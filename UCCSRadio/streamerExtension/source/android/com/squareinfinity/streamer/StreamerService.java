@@ -21,14 +21,16 @@ public class StreamerService extends Service implements MediaPlayer.OnPreparedLi
 	
 	private Notification makeNotification(){
 		PendingIntent contentIntent = null;
+		Notification notification = null;
 		try{
-		contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, Class.forName("com.SquareInfinity.UCCSRadio.Main")), 0);
+			contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, Class.forName("com.SquareInfinity.UCCSRadio.Main")), 0);
+			notification = new Notification();
+			notification.tickerText = "";
+			notification.icon = ResourceUtility.getResId("drawable", "icon");
+			notification.flags |= Notification.FLAG_ONGOING_EVENT;
+			notification.setLatestEventInfo(getApplicationContext(), "UCCS Radio", "Playing Radio", contentIntent);
 		}catch(java.lang.ClassNotFoundException e){e.printStackTrace();}
-		Notification notification = new Notification();
-		notification.tickerText = "";
-		notification.icon = ResourceUtility.getResId("drawable", "icon");
-		notification.flags |= Notification.FLAG_ONGOING_EVENT;
-		notification.setLatestEventInfo(getApplicationContext(), "UCCS Radio", "Playing Radio", contentIntent);
+		catch(java.lang.Exception e){e.printStackTrace(); return null;}
 		return notification;
 	}
 	
@@ -46,10 +48,19 @@ public class StreamerService extends Service implements MediaPlayer.OnPreparedLi
 	
 	private void play(){
 		if(!ready || mMediaPlayer == null || mMediaPlayer.isPlaying()) return;
+		System.out.println("AAA playing");
 		mMediaPlayer.start();
-		wifiLock = ((WifiManager) getSystemService(Context.WIFI_SERVICE)).createWifiLock(WifiManager.WIFI_MODE_FULL, "streamerLock");
-		wifiLock.acquire();
-		startForeground(1, makeNotification());
+		
+		System.out.println("AAA getting wifilock");
+		wifiLock = null;
+		WifiManager mgr = (WifiManager)getSystemService(Context.WIFI_SERVICE);
+		if(mgr != null) wifiLock = mgr.createWifiLock(WifiManager.WIFI_MODE_FULL, "streamerLock");
+		if(wifiLock != null) wifiLock.acquire();
+		System.out.println("AAA wifilock done");
+		
+		Notification notif = makeNotification();
+		if(notif != null) startForeground(1, notif);
+		System.out.println("AAA started foreground");
 	}
 	
 	private void pause(){

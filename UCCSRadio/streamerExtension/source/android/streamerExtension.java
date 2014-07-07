@@ -34,7 +34,9 @@ class streamerExtension
 
 	public int initAudioStream(String ip, int port)
 	{
+		System.out.println("AAA Init");
 		sendIntent("init", "http://" + ip + ":" + port);
+		System.out.println("AAA Sent");
 		return 0;
 	}
     public int startStreamingAudio()
