@@ -174,7 +174,7 @@ void Streamer::Init()
     facebook->m_AnchorX = 0.5;
     facebook->m_AnchorY = 0.5;
     facebook->m_ScaleX = (float)IwGxGetScreenWidth() / facebook->GetImage()->GetWidth() / 8;
-    facebook->m_ScaleY = (float)IwGxGetScreenHeight() / facebook->GetImage()->GetHeight() / 10;
+    facebook->m_ScaleY = (float)IwGxGetScreenHeight() / facebook->GetImage()->GetHeight() / 12;
     
     twitter = new CSprite();
     twitter->SetImage(g_pResources->getTwitter());
@@ -185,7 +185,7 @@ void Streamer::Init()
     twitter->m_AnchorX = 0.5;
     twitter->m_AnchorY = 0.5;
     twitter->m_ScaleX = (float)IwGxGetScreenWidth() / twitter->GetImage()->GetWidth() / 8;
-    twitter->m_ScaleY = (float)IwGxGetScreenHeight() / twitter->GetImage()->GetHeight() / 10;
+    twitter->m_ScaleY = (float)IwGxGetScreenHeight() / twitter->GetImage()->GetHeight() / 12;
 
     // Create menu background
     header = new CSprite();
