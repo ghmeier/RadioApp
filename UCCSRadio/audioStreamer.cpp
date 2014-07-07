@@ -1,6 +1,7 @@
 #include "s3e.h"
 #include "IwUtil.h"
 #include "audioStreamer.h"
+#include "streamerExtension.h"
 
 //Stuff for calculating mp3 frame size and validity, taken from 
 //http://www.hydrogenaud.io/forums/index.php?showtopic=85125
@@ -204,7 +205,7 @@ void* waitForPlay(void *v){
 	return 0;
 }
 
-void startStreamingAudio(char *ip, int port, void(*callback)())
+void startStreamingAudioFallback(char *ip, int port, void(*callback)())
 {
 	if (streaming) return;
 	streaming = true;
@@ -226,7 +227,7 @@ void startStreamingAudio(char *ip, int port, void(*callback)())
 	}
 }
 
-void stopStreamingAudio()
+void stopStreamingAudioFallback()
 {
 	s3eAudioStop();
 	streaming = false;
@@ -238,3 +239,23 @@ void setVolume(int volume) {
 		s3eAudioSetInt(S3E_AUDIO_VOLUME, volume);
 	}
 }
+
+void initAudio(char *url, int port){
+	if (initAudioStream(url, port) == S3E_RESULT_ERROR){
+		startStreamingAudioFallback(url, port, NULL);
+		setVolume(0);
+	}
+}
+void startStreaming(){
+	if (startStreamingAudio() == S3E_RESULT_ERROR) 
+		setVolume(99);
+}
+void pauseStreaming(){
+	if (pauseStreamingAudio() == S3E_RESULT_ERROR) 
+		setVolume(0);
+}
+void stopStreaming(){
+	if (stopStreamingAudio() == S3E_RESULT_ERROR) 
+		stopStreamingAudioFallback();
+}
+int exitCB(void *sys, void *user){ stopStreaming(); return 0; }

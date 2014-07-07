@@ -1,0 +1,163 @@
+Archive member included because of file (symbol)
+
+C:\marmalade\7.3\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+                              release\streamerExtension_platform.os (s3eEdkThreadRunOnOS)
+
+Discarded input sections
+
+ .text          0x00000000       0x14 C:/Program Files (x86)/Android/android-ndk-r8e/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .bss           0x00000000        0x0 C:/Program Files (x86)/Android/android-ndk-r8e/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .note.GNU-stack
+                0x00000000        0x0 C:/Program Files (x86)/Android/android-ndk-r8e/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .group         0x00000000        0x8 release\streamerExtension_platform.os
+ .group         0x00000000        0x8 release\streamerExtension_platform.os
+ .text          0x00000000        0x0 release\streamerExtension_platform.os
+ .data          0x00000000        0x0 release\streamerExtension_platform.os
+ .note.GNU-stack
+                0x00000000        0x0 release\streamerExtension_platform.os
+ .text          0x00000000        0x0 release\streamerExtension.os
+ .data          0x00000000        0x0 release\streamerExtension.os
+ .bss           0x00000000        0x0 release\streamerExtension.os
+ .note.GNU-stack
+                0x00000000        0x0 release\streamerExtension.os
+ .text          0x00000000        0x0 release\streamerExtension_register.os
+ .data          0x00000000        0x0 release\streamerExtension_register.os
+ .bss           0x00000000        0x0 release\streamerExtension_register.os
+ .text._Z28streamerExtensionRegisterExtv
+                0x00000000       0xac release\streamerExtension_register.os
+ .note.GNU-stack
+                0x00000000        0x0 release\streamerExtension_register.os
+ .text          0x00000000        0x0 C:\marmalade\7.3\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+ .data          0x00000000        0x0 C:\marmalade\7.3\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+ .bss           0x00000000        0x0 C:\marmalade\7.3\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+ .text.s3eEdkThreadRunOnOSAsync
+                0x00000000       0x30 C:\marmalade\7.3\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+ .text.s3eEdkErrorSetString
+                0x00000000       0x30 C:\marmalade\7.3\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:\marmalade\7.3\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+ .text          0x00000000        0x0 C:/Program Files (x86)/Android/android-ndk-r8e/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+ .data          0x00000000        0x0 C:/Program Files (x86)/Android/android-ndk-r8e/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+ .bss           0x00000000        0x0 C:/Program Files (x86)/Android/android-ndk-r8e/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+ .note.GNU-stack
+                0x00000000        0x0 C:/Program Files (x86)/Android/android-ndk-r8e/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+
+Memory map
+
+ ** file header
+                0x00000000       0x34
+ ** segment headers
+                0x00000034       0xe0
+
+.interp         0x00000114       0x13
+ ** fill        0x00000114       0x13
+
+.dynsym         0x00000128       0xc0
+ ** dynsym      0x00000128       0xc0
+
+.dynstr         0x000001e8       0xea
+ ** string table
+                0x000001e8       0xea
+
+.hash           0x000002d4       0x44
+ ** hash        0x000002d4       0x44
+
+.rel.dyn        0x00000318       0x38
+ ** dynamic relocs
+                0x00000318       0x38
+
+.rel.plt        0x00000350       0x20
+ ** dynamic relocs
+                0x00000350       0x20
+
+.plt            0x00000370       0x44
+ ** PLT         0x00000370       0x44
+
+.text           0x000003b4      0x62c
+ .text.exit     0x000003b4       0x10 C:/Program Files (x86)/Android/android-ndk-r8e/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x000003b4                __on_dlclose
+ .text._ZL27s3eEdkAndroidFindClass_realPKc
+                0x000003c4       0xb4 release\streamerExtension_platform.os
+ .text._ZN7_JNIEnv9NewObjectEP7_jclassP10_jmethodIDz
+                0x00000478       0x38 release\streamerExtension_platform.os
+                0x00000478                _JNIEnv::NewObject(_jclass*, _jmethodID*, ...)
+ .text._ZN7_JNIEnv13CallIntMethodEP8_jobjectP10_jmethodIDz
+                0x000004b0       0x38 release\streamerExtension_platform.os
+                0x000004b0                _JNIEnv::CallIntMethod(_jobject*, _jmethodID*, ...)
+ .text._Z30streamerExtensionInit_platformv
+                0x000004e8      0x210 release\streamerExtension_platform.os
+                0x000004e8                streamerExtensionInit_platform()
+ .text._Z35streamerExtensionTerminate_platformv
+                0x000006f8        0x4 release\streamerExtension_platform.os
+                0x000006f8                streamerExtensionTerminate_platform()
+ .text._Z28startStreamingAudio_platformv
+                0x000006fc       0x50 release\streamerExtension_platform.os
+                0x000006fc                startStreamingAudio_platform()
+ .text._Z27stopStreamingAudio_platformv
+                0x0000074c       0x50 release\streamerExtension_platform.os
+                0x0000074c                stopStreamingAudio_platform()
+ .text._Z28pauseStreamingAudio_platformv
+                0x0000079c       0x50 release\streamerExtension_platform.os
+                0x0000079c                pauseStreamingAudio_platform()
+ .text._Z24initAudioStream_platformPKci
+                0x000007ec       0x78 release\streamerExtension_platform.os
+                0x000007ec                initAudioStream_platform(char const*, int)
+ .text._Z21streamerExtensionInitv
+                0x00000864        0x4 release\streamerExtension.os
+                0x00000864                streamerExtensionInit()
+ .text._Z26streamerExtensionTerminatev
+                0x00000868        0x4 release\streamerExtension.os
+                0x00000868                streamerExtensionTerminate()
+ .text.startStreamingAudio
+                0x0000086c        0x4 release\streamerExtension.os
+                0x0000086c                startStreamingAudio
+ .text.stopStreamingAudio
+                0x00000870        0x4 release\streamerExtension.os
+                0x00000870                stopStreamingAudio
+ .text.pauseStreamingAudio
+                0x00000874        0x4 release\streamerExtension.os
+                0x00000874                pauseStreamingAudio
+ .text.initAudioStream
+                0x00000878        0x4 release\streamerExtension.os
+                0x00000878                initAudioStream
+ .text._ZL20initAudioStream_wrapPKci
+                0x0000087c       0x28 release\streamerExtension_register.os
+ .text._ZL24pauseStreamingAudio_wrapv
+                0x000008a4       0x20 release\streamerExtension_register.os
+ .text._ZL23stopStreamingAudio_wrapv
+                0x000008c4       0x20 release\streamerExtension_register.os
+ .text._ZL24startStreamingAudio_wrapv
+                0x000008e4       0x20 release\streamerExtension_register.os
+ .text.RegisterExt
+                0x00000904       0xac release\streamerExtension_register.os
+                0x00000904                RegisterExt
+ .text.s3eEdkThreadRunOnOS
+                0xffffffffffffffff       0x30 C:\marmalade\7.3\s3e\edk\lib\android/libedk.a(edk_helpers.o)
+                0x000009b0                s3eEdkThreadRunOnOS
+
+.rodata         0x000009e0       0x9c
+ .rodata.str1.4
+                0x000009e0       0x88 release\streamerExtension_platform.os
+ .rodata.str1.4
+                0x00000a68       0x14 release\streamerExtension_register.os
+
+.fini_array     0x00001ee0        0x8
+ .fini_array    0x00001ee0        0x4 C:/Program Files (x86)/Android/android-ndk-r8e/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .fini_array    0x00001ee4        0x4 C:/Program Files (x86)/Android/android-ndk-r8e/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+
+.init_array     0x00001ee8        0x4
+ .init_array    0x00001ee8        0x4 C:/Program Files (x86)/Android/android-ndk-r8e/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+
+.dynamic        0x00001eec       0xe0
+ ** dynamic     0x00001eec       0xe0
+
+.got            0x00001fcc       0x34
+ ** GOT         0x00001fcc       0x18
+ ** GOT PLT     0x00001fe4       0x1c
+
+.data           0x00002000        0x4
+ .data          0x00002000        0x4 C:/Program Files (x86)/Android/android-ndk-r8e/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00002000                __dso_handle
+
+.bss            0x00002004       0x14
+ .bss           0x00002004       0x14 release\streamerExtension_platform.os

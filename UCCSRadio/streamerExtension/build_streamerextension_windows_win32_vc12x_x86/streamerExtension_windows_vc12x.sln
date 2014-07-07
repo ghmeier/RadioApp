@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 13.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "streamerExtension_windows_vc12x", "streamerExtension_windows_vc12x.vcxproj", "{AED14401-A404-BB0A-8BC9-19DBF9AACEE7}"
+
+EndProject
+Global
+    GlobalSection(ExtensibilityGlobals) = postSolution
+    EndGlobalSection
+    GlobalSection(ExtensibilityAddIns) = postSolution
+    EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		x86 Debug|Win32 = x86 Debug|Win32
+		x86 Release|Win32 = x86 Release|Win32
+    EndGlobalSection
+    GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AED14401-A404-BB0A-8BC9-19DBF9AACEE7}.x86 Debug|Win32.ActiveCfg = x86 Debug|Win32
+		{AED14401-A404-BB0A-8BC9-19DBF9AACEE7}.x86 Debug|Win32.Build.0 = x86 Debug|Win32
+		{AED14401-A404-BB0A-8BC9-19DBF9AACEE7}.x86 Release|Win32.ActiveCfg = x86 Release|Win32
+		{AED14401-A404-BB0A-8BC9-19DBF9AACEE7}.x86 Release|Win32.Build.0 = x86 Release|Win32
+    EndGlobalSection
+    GlobalSection(SolutionProperties) = preSolution
+        HideSolutionNode = FALSE
+    EndGlobalSection
+EndGlobal

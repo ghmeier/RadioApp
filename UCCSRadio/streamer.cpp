@@ -20,8 +20,9 @@
 #include "calendarScene.h"
 #include "newsScene.h"
 #include "eventsScene.h"
-#include "audioStreamer.h"
 #include "UCCSRadio.h"
+
+#include "audioStreamer.h"
 
 float buttonTop = 0;
 float buttonBottom = 0;
@@ -33,7 +34,7 @@ int count = 0;
 bool touched = false;
 Streamer::~Streamer()
 {
-    stopStreamingAudio();
+    stopStreaming();
 }
 
 void Streamer::Update(float deltaTime, float alphaMul)
@@ -54,15 +55,13 @@ void Streamer::Update(float deltaTime, float alphaMul)
             g_pInput->Reset();
             playButton->m_X = IwGxGetScreenWidth() * 2.0;
             stopButton->m_X = IwGxGetScreenWidth() / 2.0;
-			//May have to call this on the next loop after updating ui, 
-			//since s3eAudioPlay strangely blocks until it's done buffering
-			//Pass a function pointer as 3rd argument to get a callback when audio actually starts playing
-			setVolume(99);
+			startStreaming();
+			
         } else if(stopButton->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) {
             g_pInput->Reset();
             playButton->m_X = IwGxGetScreenWidth() / 2.0;
             stopButton->m_X = IwGxGetScreenWidth() * 2.0;
-            setVolume(0);
+			pauseStreaming();
         }
         
 		if(facebook->HitTest(g_pInput->m_X, g_pInput->m_Y) && g_pInput->m_X > x - 20 && g_pInput->m_X < x + 20 && g_pInput->m_Y > y - 20 && g_pInput->m_Y < y + 20) {
@@ -163,8 +162,8 @@ void Streamer::Init()
 {
     
     //Game* game = (Game*)g_pSceneManager->Find("game");
-    startStreamingAudio("128.198.85.100", 8000);
-    setVolume(0);
+	initAudio("128.198.85.100", 8000);
+	s3eDeviceRegister(S3E_DEVICE_EXIT, &exitCB, 0);
     
     facebook = new CSprite();
     facebook->SetImage(g_pResources->getFacebook());
