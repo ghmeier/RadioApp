@@ -22,6 +22,7 @@ class streamerExtension
 		Intent intent = new Intent(LoaderActivity.m_Activity, StreamerService.class);
 		intent.putExtra("action", act);
 		intent.putExtra("url", url);
+		intent.putExtra("mainActivity", LoaderActivity.m_Activity.getClass().getName());
 		intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
 		try{
 		PendingIntent.getService(LoaderActivity.m_Activity, i++, intent, 0).send();

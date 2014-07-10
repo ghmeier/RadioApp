@@ -17,11 +17,12 @@ public class StreamerService extends Service implements MediaPlayer.OnPreparedLi
 	WifiLock wifiLock = null;
 	boolean ready = false;
 	
-	private Notification makeNotification(){
+	private Notification makeNotification(String mainAct){
 		PendingIntent contentIntent = null;
 		Notification notification = null;
 		try{
-			contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, Class.forName("com.SquareInfinity.UCCSRadio.Main")), 0);
+			if(mainAct != null)
+				contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, Class.forName(mainAct)), 0);
 			notification = new Notification();
 			notification.tickerText = "";
 			notification.icon = ResourceUtility.getResId("drawable", "icon");
@@ -44,7 +45,7 @@ public class StreamerService extends Service implements MediaPlayer.OnPreparedLi
 		if(wifiLock != null) wifiLock.release();
 	}
 	
-	private void play(){
+	private void play(String mainAct){
 		if(!ready || mMediaPlayer == null || mMediaPlayer.isPlaying()) return;
 		mMediaPlayer.start();
 		
@@ -53,7 +54,7 @@ public class StreamerService extends Service implements MediaPlayer.OnPreparedLi
 		if(mgr != null) wifiLock = mgr.createWifiLock(WifiManager.WIFI_MODE_FULL, "streamerLock");
 		if(wifiLock != null) wifiLock.acquire();
 		
-		Notification notif = makeNotification();
+		Notification notif = makeNotification(mainAct);
 		if(notif != null) startForeground(1, notif);
 	}
 	
@@ -71,7 +72,7 @@ public class StreamerService extends Service implements MediaPlayer.OnPreparedLi
 			if (act.equals("init")) {
 				String url = intent.getStringExtra("url");
 				if(url != null) init(url);
-			}else if(act.equals("start")) play();
+			}else if(act.equals("start")) play(intent.getStringExtra("mainActivity"));
 			else if(act.equals("pause")) pause();
 			else if(act.equals("stop")){ pause(); stopSelf();}
 		}

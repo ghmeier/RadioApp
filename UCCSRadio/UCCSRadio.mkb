@@ -122,4 +122,5 @@ deployments
 	["Default"]
 	android-extra-application-manifest='AppManifest.xml'
 	embed-icf='1'
+	iphone-backgroundmode-audio=1
 }
