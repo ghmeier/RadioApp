@@ -347,7 +347,7 @@ void CIwRSS::CalendarParseRSS(const char * data, TiXmlDocument doc, int feedType
 				std::string endtime;
                 std::string date;
 				when = element->FirstChildElement("gd:when");
-                
+                bool isTime;
                 
                 
 				starttime = when->Attribute("startTime");
@@ -357,55 +357,57 @@ void CIwRSS::CalendarParseRSS(const char * data, TiXmlDocument doc, int feedType
                 std::string delimiter = "T";
                 
                 if(s.find_first_of(delimiter) != std::string::npos) {
-                   
-                date = s.substr(0, s.find(delimiter));
-                std::string fullTime = s.substr(s.find(delimiter), s.length());
-                delimiter = ":";
-                starttime = fullTime.substr(1, fullTime.find(delimiter)-1);
-                //Get the end time
-                s = endtime;
-                delimiter = "T";
+                 
+                    isTime = true;
+                    date = s.substr(0, s.find(delimiter));
+                    std::string fullTime = s.substr(s.find(delimiter), s.length());
+                    delimiter = ":";
+                    starttime = fullTime.substr(1, fullTime.find(delimiter)-1);
+                    //Get the end time
+                    s = endtime;
+                    delimiter = "T";
                 
-                fullTime = s.substr(s.find(delimiter), s.length());
-                delimiter = ":";
-                endtime = fullTime.substr(1, fullTime.find(delimiter)-1);
+                    fullTime = s.substr(s.find(delimiter), s.length());
+                    delimiter = ":";
+                    endtime = fullTime.substr(1, fullTime.find(delimiter)-1);
                 
-                _STL::istringstream buffer(starttime);
-                int startTimeValue;
-                buffer >> startTimeValue;
+                    _STL::istringstream buffer(starttime);
+                    int startTimeValue;
+                    buffer >> startTimeValue;
                 
-                buffer.clear();
+                    buffer.clear();
                 
-                buffer.str(endtime);
-                int endTimeValue;
-                buffer >> endTimeValue;
+                    buffer.str(endtime);
+                    int endTimeValue;
+                    buffer >> endTimeValue;
                 
-                _STL::ostringstream convert;
-                if(startTimeValue > 12) {
-                    convert.clear();
-                    convert << (startTimeValue - 12) << "p";
-                    starttime = convert.str();
-                } else {
-                    convert.clear();
-                    convert << (startTimeValue) << "a";
-                    starttime = convert.str();
+                    _STL::ostringstream convert;
+                    if(startTimeValue > 12) {
+                        convert.clear();
+                        convert << (startTimeValue - 12) << "p";
+                        starttime = convert.str();
+                    } else {
+                        convert.clear();
+                        convert << (startTimeValue) << "a";
+                        starttime = convert.str();
                 
-                }
+                    }
                 
-                if(endTimeValue > 12) {
-                    convert.clear();
-                    convert.str("");
-                    convert << (endTimeValue - 12) << "p";
-                    endtime = convert.str();
-                } else {
-                    convert.clear();
-                    convert.str("");
-                    convert << (endTimeValue) << "a";
-                    endtime = convert.str();
-                }
+                    if(endTimeValue > 12) {
+                        convert.clear();
+                        convert.str("");
+                        convert << (endTimeValue - 12) << "p";
+                        endtime = convert.str();
+                    } else {
+                        convert.clear();
+                        convert.str("");
+                        convert << (endTimeValue) << "a";
+                        endtime = convert.str();
+                    }
                 
                 } else {
                     date = starttime;
+                    isTime = false;
                 }
                 
                 
@@ -452,17 +454,17 @@ void CIwRSS::CalendarParseRSS(const char * data, TiXmlDocument doc, int feedType
                 if(feedType == 1) {
                     //RSS FEED ITEMs...
                     CalendarStory* story = new CalendarStory();
-                    story->Init(titlestr , description, "http://radio.uccs.edu/index.php/schedule", starttime, endtime);
+                    story->Init(titlestr , description, "http://radio.uccs.edu/index.php/schedule", starttime, endtime, isTime);
                     story->m_W = IwGxGetDisplayWidth();
                     story->m_Y = (IwGxGetDisplayHeight() / 2.5) + ((IwGxGetDisplayHeight()/4)* (calendarFeedCount - 1)) + ((numDates-1) * bannerHeight);
                     calendarFeedCount += 1;
                     myScene->AddChild(story);
                     myScene->labels.push_back(story);
                 } else {
-                    _STL::cout << "cowboy" << titlestr;
+                    
                     //RSS FEED ITEMs...
                     CalendarStory* story = new CalendarStory();
-                    story->Init(titlestr , description, "http://radio.uccs.edu/index.php/schedule", starttime, endtime);
+                    story->Init(titlestr , description, "http://radio.uccs.edu/index.php/schedule", starttime, endtime, isTime);
                     story->m_W = IwGxGetDisplayWidth();
                     story->m_Y = (IwGxGetDisplayHeight() / 2.5) + ((IwGxGetDisplayHeight()/4)* (eventFeedCount - 1)) + ((numDates-1) * bannerHeight);
                     eventFeedCount += 1;

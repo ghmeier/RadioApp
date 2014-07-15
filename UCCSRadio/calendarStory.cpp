@@ -42,7 +42,7 @@ void CalendarStory::Render()
     CNode::Render();
 }
 
-void CalendarStory::Init(std::string titleText, std::string descriptionText, std::string link,  std::string starttime, std::string endtime)
+void CalendarStory::Init(std::string titleText, std::string descriptionText, std::string link,  std::string starttime, std::string endtime, bool isTime)
 {
     CLabel* title = new CLabel();
     title->m_W = IwGxGetDisplayWidth();
@@ -61,15 +61,18 @@ void CalendarStory::Init(std::string titleText, std::string descriptionText, std
     description->m_X += 20;
     
     CLabel* time = new CLabel();
-    time->m_W = IwGxGetDisplayWidth();
-    time->m_AlignHor = IW_2D_FONT_ALIGN_RIGHT;
-    time->m_Font = g_pResources->getContentFont();
-    time->m_Color = CColor(100, 100, 100, 0xff);
-    _STL::string dash = " - ";
-    _STL::string fullTime = starttime + dash + endtime;
-    time->SetText(fullTime);
-    time->m_Y = IwGxGetDisplayHeight() / 6;
-    time->m_X += -20;
+    
+    if(isTime) {
+        time->m_W = IwGxGetDisplayWidth();
+        time->m_AlignHor = IW_2D_FONT_ALIGN_RIGHT;
+        time->m_Font = g_pResources->getContentFont();
+        time->m_Color = CColor(100, 100, 100, 0xff);
+        _STL::string dash = " - ";
+        _STL::string fullTime = starttime + dash + endtime;
+        time->SetText(fullTime);
+        time->m_Y = IwGxGetDisplayHeight() / 6;
+        time->m_X += -20;
+    }
     
     //readMore = new CSprite();
     //readMore->SetImage(g_pResources->getReadMore());
@@ -88,7 +91,11 @@ void CalendarStory::Init(std::string titleText, std::string descriptionText, std
     //AddChild(readMore);
     AddChild(title);
     AddChild(description);
-    AddChild(time);
+     if(isTime) {
+         AddChild(time);
+     } else {
+         delete time;
+     }
     
 }
 
