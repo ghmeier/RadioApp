@@ -5,16 +5,10 @@ deployments
 {
 name="UCCS Radio"
 caption="UCCS Radio"
-version=1.0.1
+version=1.0.2
 icon="data/textures/androidIcon/icon-192.png"
 splashscreen="data/textures/splashScreens/."
 splashscreen-use-all=1
-
-android-aliasname = "square infinity"
-android-keypass = "all of your passwords are mine"
-android-keystore="data/normalKeystore.keystore"
-android-storepass="all of your passwords are mine"
-android-pkgname="com.squareinfinity.uccsradio"
 }
 
 options
@@ -120,7 +114,19 @@ assets
 deployments
 {
 	["Default"]
-	android-extra-application-manifest='AppManifest.xml'
-	embed-icf='1'
+	android-aliasname='uccs radio'
+	android-icon-hdpi='data/textures/androidIcon/icon-72.png'
+	android-icon-xhdpi='data/textures/androidIcon/icon-96.png'
+	android-icon-xxhdpi='data/textures/androidIcon/icon-144.png'
+	android-icon-xxxhdpi='data/textures/androidIcon/icon-192.png'
+	android-keypass='1UWZwq9JHO'
+	android-keystore='data/normalKeystore.keystore'
+	android-manifest='AndroidManifest.xml'
+	android-pkgname='com.uccs.uccsradio'
+	android-storepass='all of your passwords are mine'
+	copyright='(C) Square Infinity'
+	embed-icf=1
 	iphone-backgroundmode-audio=1
+	provider='Square Infinity'
+	version-string='1.0.2'
 }
