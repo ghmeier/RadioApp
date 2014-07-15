@@ -13,11 +13,29 @@
 	<atom:link href="http://radio.uccs.edu/index.php/feed" rel="self" type="application/rss+xml" />
 	<link>http://radio.uccs.edu</link>
 	<description>Voice of the Mountain Lion</description>
-	<lastBuildDate>Tue, 20 May 2014 17:00:53 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 14 Jul 2014 19:36:39 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>http://wordpress.org/?v=3.6.1</generator>
+		<item>
+		<title>UCCS Radio releases Android Phone Application</title>
+		<link>http://radio.uccs.edu/index.php/2014/uncategorized/3248</link>
+		<comments>http://radio.uccs.edu/index.php/2014/uncategorized/3248#comments</comments>
+		<pubDate>Mon, 14 Jul 2014 19:36:39 +0000</pubDate>
+		<dc:creator>maggie</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://radio.uccs.edu/?p=3248</guid>
+		<description><![CDATA[UCCS Radio has unveiled a new Android phone application, making it easier for fans to listen to their college radio station anywhere. The new Android phone application is available in the google play store and is free to download. “We have a great radio station here at UCCS, we broadcast a variety of music, talk, [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><span style="color: #000000; font-family: Calibri; font-size: medium;">UCCS Radio has unveiled a new Android phone application, making it easier for fans to listen to their college radio station anywhere. The new Android phone application is available in the google play store and is free to download. </span></p>
+<p><span style="color: #000000; font-family: Calibri; font-size: medium;">“We have a great radio station here at UCCS, we broadcast a variety of music, talk, and sports programming and we wanted to make it more accessible for people to listen,” said station manager Brandon Ortega. “More radio and music listeners are tuning in through their smart phones today and we felt that this phone application will gain us additional listeners.” </span></p>
+<p><span style="color: #000000; font-family: Calibri; font-size: medium;">UCCS Radio has not forgotten about IPhone and Apple users. The IOS application will be hitting the market in approximately one month. To search for the new Android phone application, users must only search the term, UCCS. </span></p>
+<p><span style="color: #000000; font-family: Calibri; font-size: medium;">Download Android Phone Application here: </span><a href="http://bit.ly/1sc2laH"><span style="color: #0000ff; font-family: Calibri; font-size: medium;">http://bit.ly/1sc2laH</span></a></p>
+]]></content:encoded>
+			<wfw:commentRss>http://radio.uccs.edu/index.php/2014/uncategorized/3248/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
 		<item>
 		<title>Record number of summer radio programs at UCCS</title>
 		<link>http://radio.uccs.edu/index.php/2014/uncategorized/3240</link>

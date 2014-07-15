@@ -345,15 +345,20 @@ void CIwRSS::CalendarParseRSS(const char * data, TiXmlDocument doc, int feedType
                 }
 				std::string starttime;
 				std::string endtime;
+                std::string date;
 				when = element->FirstChildElement("gd:when");
-
+                
+                
+                
 				starttime = when->Attribute("startTime");
 				endtime= when->Attribute("endTime");
                 //Get the start time and date
 				std::string s = starttime;
                 std::string delimiter = "T";
                 
-                std::string date = s.substr(0, s.find(delimiter));
+                if(s.find_first_of(delimiter) != std::string::npos) {
+                   
+                date = s.substr(0, s.find(delimiter));
                 std::string fullTime = s.substr(s.find(delimiter), s.length());
                 delimiter = ":";
                 starttime = fullTime.substr(1, fullTime.find(delimiter)-1);
@@ -398,6 +403,12 @@ void CIwRSS::CalendarParseRSS(const char * data, TiXmlDocument doc, int feedType
                     convert << (endTimeValue) << "a";
                     endtime = convert.str();
                 }
+                
+                } else {
+                    date = starttime;
+                }
+                
+                
                 
                 if(date.compare(dateCheck) != 0) {
                     dateCheck = date;
