@@ -33,7 +33,7 @@ Resources::Resources()
 	char * two;
 	char * three;
 	char * four;
-	if (IwGxGetDisplayWidth()>=520){
+	if (IwGxGetDisplayWidth()>=650){
 		one = "trackfont72.gxfont";
 		two = "trackfont48.gxfont";
 		three = "palatfont48.gxfont";

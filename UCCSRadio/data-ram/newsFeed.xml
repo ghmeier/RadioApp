@@ -15,15 +15,15 @@
 	<description>Voice of the Mountain Lion</description>
 	<lastBuildDate>Mon, 14 Jul 2014 19:36:39 +0000</lastBuildDate>
 	<language>en-US</language>
-	<sy:updatePeriod>hourly</sy:updatePeriod>
-	<sy:updateFrequency>1</sy:updateFrequency>
-	<generator>http://wordpress.org/?v=3.6.1</generator>
-		<item>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.9.1</generator>
+	<item>
 		<title>UCCS Radio releases Android Phone Application</title>
 		<link>http://radio.uccs.edu/index.php/2014/uncategorized/3248</link>
 		<comments>http://radio.uccs.edu/index.php/2014/uncategorized/3248#comments</comments>
 		<pubDate>Mon, 14 Jul 2014 19:36:39 +0000</pubDate>
-		<dc:creator>maggie</dc:creator>
+		<dc:creator><![CDATA[maggie]]></dc:creator>
 				<category><![CDATA[Uncategorized]]></category>
 
 		<guid isPermaLink="false">http://radio.uccs.edu/?p=3248</guid>
@@ -41,7 +41,7 @@
 		<link>http://radio.uccs.edu/index.php/2014/uncategorized/3240</link>
 		<comments>http://radio.uccs.edu/index.php/2014/uncategorized/3240#comments</comments>
 		<pubDate>Tue, 20 May 2014 17:00:53 +0000</pubDate>
-		<dc:creator>maggie</dc:creator>
+		<dc:creator><![CDATA[maggie]]></dc:creator>
 				<category><![CDATA[Uncategorized]]></category>
 
 		<guid isPermaLink="false">http://radio.uccs.edu/?p=3240</guid>
@@ -59,7 +59,7 @@
 		<link>http://radio.uccs.edu/index.php/2014/uncategorized/3235</link>
 		<comments>http://radio.uccs.edu/index.php/2014/uncategorized/3235#comments</comments>
 		<pubDate>Thu, 08 May 2014 20:16:55 +0000</pubDate>
-		<dc:creator>maggie</dc:creator>
+		<dc:creator><![CDATA[maggie]]></dc:creator>
 				<category><![CDATA[Uncategorized]]></category>
 
 		<guid isPermaLink="false">http://radio.uccs.edu/?p=3235</guid>
@@ -78,7 +78,7 @@
 		<link>http://radio.uccs.edu/index.php/2014/uncategorized/3227</link>
 		<comments>http://radio.uccs.edu/index.php/2014/uncategorized/3227#comments</comments>
 		<pubDate>Tue, 29 Apr 2014 21:58:43 +0000</pubDate>
-		<dc:creator>maggie</dc:creator>
+		<dc:creator><![CDATA[maggie]]></dc:creator>
 				<category><![CDATA[Uncategorized]]></category>
 
 		<guid isPermaLink="false">http://radio.uccs.edu/?p=3227</guid>
@@ -100,7 +100,7 @@
 		<link>http://radio.uccs.edu/index.php/2014/uncategorized/3225</link>
 		<comments>http://radio.uccs.edu/index.php/2014/uncategorized/3225#comments</comments>
 		<pubDate>Tue, 22 Apr 2014 16:41:33 +0000</pubDate>
-		<dc:creator>maggie</dc:creator>
+		<dc:creator><![CDATA[maggie]]></dc:creator>
 				<category><![CDATA[Uncategorized]]></category>
 		<category><![CDATA[April 28]]></category>
 		<category><![CDATA[Concert]]></category>
@@ -130,7 +130,7 @@
 		<link>http://radio.uccs.edu/index.php/2014/uncategorized/3220</link>
 		<comments>http://radio.uccs.edu/index.php/2014/uncategorized/3220#comments</comments>
 		<pubDate>Wed, 26 Feb 2014 00:33:34 +0000</pubDate>
-		<dc:creator>maggie</dc:creator>
+		<dc:creator><![CDATA[maggie]]></dc:creator>
 				<category><![CDATA[Uncategorized]]></category>
 
 		<guid isPermaLink="false">http://radio.uccs.edu/?p=3220</guid>
@@ -146,7 +146,7 @@
 		<link>http://radio.uccs.edu/index.php/2014/uncategorized/3214</link>
 		<comments>http://radio.uccs.edu/index.php/2014/uncategorized/3214#comments</comments>
 		<pubDate>Fri, 31 Jan 2014 05:23:55 +0000</pubDate>
-		<dc:creator>maggie</dc:creator>
+		<dc:creator><![CDATA[maggie]]></dc:creator>
 				<category><![CDATA[Uncategorized]]></category>
 
 		<guid isPermaLink="false">http://radio.uccs.edu/?p=3214</guid>
@@ -164,7 +164,7 @@
 		<link>http://radio.uccs.edu/index.php/2014/uncategorized/3183</link>
 		<comments>http://radio.uccs.edu/index.php/2014/uncategorized/3183#comments</comments>
 		<pubDate>Wed, 15 Jan 2014 21:50:28 +0000</pubDate>
-		<dc:creator>maggie</dc:creator>
+		<dc:creator><![CDATA[maggie]]></dc:creator>
 				<category><![CDATA[Uncategorized]]></category>
 
 		<guid isPermaLink="false">http://radio.uccs.edu/?p=3183</guid>
@@ -183,7 +183,7 @@
 		<link>http://radio.uccs.edu/index.php/2013/uncategorized/3175</link>
 		<comments>http://radio.uccs.edu/index.php/2013/uncategorized/3175#comments</comments>
 		<pubDate>Mon, 09 Dec 2013 05:55:47 +0000</pubDate>
-		<dc:creator>maggie</dc:creator>
+		<dc:creator><![CDATA[maggie]]></dc:creator>
 				<category><![CDATA[Uncategorized]]></category>
 
 		<guid isPermaLink="false">http://radio.uccs.edu/?p=3175</guid>
@@ -207,7 +207,7 @@
 		<link>http://radio.uccs.edu/index.php/2013/uncategorized/3116</link>
 		<comments>http://radio.uccs.edu/index.php/2013/uncategorized/3116#comments</comments>
 		<pubDate>Thu, 22 Aug 2013 03:26:59 +0000</pubDate>
-		<dc:creator>maggie</dc:creator>
+		<dc:creator><![CDATA[maggie]]></dc:creator>
 				<category><![CDATA[Uncategorized]]></category>
 
 		<guid isPermaLink="false">http://radio.uccs.edu/?p=3116</guid>
