@@ -36,7 +36,7 @@ void NewsScene::Update(float deltaTime, float alphaMul)
 
 
     Scene::Update(deltaTime, alphaMul);
-	printf("STAUS: %d\n", xmlDownload->GetStatus());
+	//printf("STAUS: %d\n", xmlDownload->GetStatus());
 	if (xmlDownload->GetStatus() == 4 && !hasFeed) {
 		printf("-------------------------------------------\n");
 		feed = new CIwRSS(this);
@@ -45,7 +45,7 @@ void NewsScene::Update(float deltaTime, float alphaMul)
 		delete feed;
 	}
 	else if (hasFeed) {
-		printf("sorta did something else\n");
+		//printf("sorta did something else\n");
 		UpdateLabels();
 	}
 }

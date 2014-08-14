@@ -12,10 +12,13 @@ import android.net.wifi.WifiManager.WifiLock;
 import android.os.IBinder;
 import android.os.PowerManager;
 
-public class StreamerService extends Service implements MediaPlayer.OnPreparedListener {
+public class StreamerService extends Service implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener {
     MediaPlayer mMediaPlayer = null;
 	WifiLock wifiLock = null;
 	boolean ready = false;
+	boolean playWhenReady = false;
+	boolean playing = false;
+	String playingurl = null;
 	
 	private Notification makeNotification(String mainAct){
 		PendingIntent contentIntent = null;
@@ -37,17 +40,22 @@ public class StreamerService extends Service implements MediaPlayer.OnPreparedLi
 		try{
 			mMediaPlayer = new MediaPlayer();
 			mMediaPlayer.setDataSource(url);
+			mMediaPlayer.setOnCompletionListener(this);
 			mMediaPlayer.setOnPreparedListener(this);
 			mMediaPlayer.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
 			mMediaPlayer.prepareAsync(); // prepare async to not block main thread
 		}catch(java.io.IOException e){e.printStackTrace();}
 		stopForeground(true);
 		if(wifiLock != null) wifiLock.release();
+		ready = false;
+		playWhenReady = false;
+		playingurl = url;
 	}
 	
 	private void play(String mainAct){
-		if(!ready || mMediaPlayer == null || mMediaPlayer.isPlaying()) return;
-		mMediaPlayer.start();
+		if(mMediaPlayer == null || mMediaPlayer.isPlaying()) return;
+		if(ready) mMediaPlayer.start();
+		else playWhenReady = true;
 		
 		wifiLock = null;
 		WifiManager mgr = (WifiManager)getSystemService(Context.WIFI_SERVICE);
@@ -56,12 +64,15 @@ public class StreamerService extends Service implements MediaPlayer.OnPreparedLi
 		
 		Notification notif = makeNotification(mainAct);
 		if(notif != null) startForeground(1, notif);
+		playing = true;
 	}
 	
 	private void pause(){
+		playing = false;
 		if(mMediaPlayer != null && mMediaPlayer.isPlaying()) mMediaPlayer.pause();
 		stopForeground(true);
 		if(wifiLock != null) wifiLock.release();
+		playWhenReady = false;
 	}
 
 	@Override
@@ -102,5 +113,21 @@ public class StreamerService extends Service implements MediaPlayer.OnPreparedLi
     /** Called when MediaPlayer is ready */
     public void onPrepared(MediaPlayer player) {
 		ready = true;
+		if(playWhenReady) player.start();
+		playWhenReady = false;
     }
+	
+	public void onCompletion(MediaPlayer mp) {
+		System.out.println("mediaplayer error");
+		if(playing){
+			System.out.println("restarting player");
+			ready = false;
+			mp.reset();
+			try{
+				mp.setDataSource(playingurl);
+				mp.prepareAsync();
+				playWhenReady = true;
+			}catch(java.io.IOException e){e.printStackTrace();}
+		}
+	}
 }
